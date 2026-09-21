@@ -175,6 +175,15 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-22 — An overview document, requested outside the plan
+
+| Decision | Basis | Agency |
+|---|---|---|
+| The project gets one overview document, at `AI-generated/overview/`, linked from `readme-at-start.md` as the designated first read | Asked for by the human: the batch reports and the hierarchical report between them answered every question except "where do I start". The hierarchical report is a navigator, not a narrative | `human-set` |
+| It is numbered as a version and superseded rather than edited, with old versions kept | The human asked for it to be marked as version 1 and expected to change; and a front door that is quietly rewritten leaves no record of what it said when a reader last used it | `human-set` |
+| Exactly one overview, which points at the other documents rather than restating them | `AGENTS.md` §9 rules out accumulating parallel summaries of the same material, and a second overview is how that starts | `agent-on-human-assessment` |
+| It is written under the current framing even though the batch reports it draws on were written under the previous one, and says so in its status block | The alternative — rewriting the batch reports — would destroy the record of what was reported when. A batch report is an account of a batch and is not reissued | `agent-autonomous` |
+
 ### 2026-09-21 — Reframing: variability accepted, the question is whether both routes run
 
 | Decision | Basis | Agency |
@@ -244,7 +253,8 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3. | done |
 | 5 | C — Per-route reports | For each route, a report with (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | done |
 | 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Emphasis on which was easier to find out about and which was easier to carry out, with the evidence for each statement and an explicit statement of what one run per route can and cannot resolve. | done |
-| 7 | D — Repeatability | **Does each route run again, from clean?** Re-run each route's own `run_route.sh` end to end and record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). The replicate *discovery* agents originally planned here are dropped: the question is now whether the routes run, not how precisely the effort was measured. | open |
+| 7 | D — Repeatability | **Does each route run again, from clean?** Re-run each route's own `run_route.sh` end to end and record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). The replicate *discovery* agents originally planned here are dropped: the question is now whether the routes run, not how precisely the effort was measured. | done |
+| 7b | D (cont.) | **Outside the plan, at the human's request**: write the project's single entry point — one overview saying what was asked, what came out and where the detail is — and wire it in from `readme-at-start.md`. Named as a version, because it is superseded rather than edited. | done |
 | 8 | F — Claims & report | Build the claim collection from the tree (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. | open |
 | 9 | F — Release | Write the manuscript section(s) this project supports; run the release scan; ask the human for the remote; push only on instruction. | open |
 
@@ -267,3 +277,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 ### Iteration 4
 
 - [[26-09-21_b06_comparativeReport]]
+
+### Iteration 5
+
+- [[26-09-22_overviewV1]]

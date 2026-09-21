@@ -8,6 +8,10 @@ work is done here.
 
 ---
 
+> **Start with the overview**: `AI-generated/overview/26-09-22_overviewV1.md`. It says what
+> was asked, what came out and where the detail is. This file says what the project *is*; the
+> overview says what it *found*.
+
 ## The project
 
 **Establish how discoverable and how executable CHAP's two model-integration routes are for

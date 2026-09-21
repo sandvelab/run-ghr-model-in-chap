@@ -10,6 +10,8 @@ meantime. If a derived document is wrong, its source is wrong.
 
 ## What a project puts here
 
+- `overview/` — the single entry point: what was asked, what came out, where the detail is.
+  Hand-written and versioned; never pruned.
 - `batch-reports/` — one report per executed batch, written by `/do`, named
   `YY-MM-DD_bNN_shortName.md`. Not regenerable; never pruned.
 - `hierarchical-report/` — the drill-down over the tree, from `/hierarchical-report`.
@@ -22,4 +24,6 @@ meantime. If a derived document is wrong, its source is wrong.
 
 ## Currently here
 
-Nothing yet.
+- `overview/26-09-22_overviewV1.md` — **start here**.
+- `batch-reports/` — batches 1, 2, 5 and 6.
+- `hierarchical-report/` — generated 2026-09-21; contents gitignored, `provenance.md` tracked.
