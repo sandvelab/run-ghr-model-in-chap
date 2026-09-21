@@ -1,18 +1,23 @@
 # Claim
 
-<The one analytical aim this project answers, in one or two sentences — a question to be
-explored, not an assertion. Typically: develop or improve <model> for <target> on <data>, and
-establish whether it earns its place against <baselines and reference> under <evaluation
-scheme>. Everything in the tree hangs off this; see `readme-at-start.md` and the plan.>
+How discoverable and how executable are CHAP's two model-integration routes — a chapkit
+model service and an `MLproject`/`uv` model — for an agent working only from public
+material, when one published model is taken down each route until it produces a CHAP
+evaluation on the public Lao admin-1 monthly data?
+
+The object of study is the route, not the prediction. Each model is run as published; its
+predictive scores are reported per route and are not compared across routes. There is no
+development/holdout partition, because nothing here is tuned or selected on the data — a
+deliberate deviation recorded in the plan's §3.
 
 ## Children
 
-kind: -
+kind: sub-analyses
 main-path: -
 
 ## Environment
 
-inherits: the project main environment (`environment/`) — not yet pinned; see
+inherits: the project main environment (`environment/`) — pinned in batch 2; see
 `environment/README.md`.
 
 ## Answers

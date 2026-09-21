@@ -8,18 +8,16 @@ work is done here.
 
 ---
 
-> **This copy has not been given a project yet.** Every `<…>` below is a placeholder. Until
-> they are filled in — by the human, in dialogue with the agent, before any analysis — the
-> only work to do here is the set-up in `setup-guide.md` and the writing of the first plan
-> from `Human-input/Plans for AI generation/plan-template.md`. `AGENTS.md` §0 says exactly
-> what an agent does in this state. Delete this box when the project is defined.
-
 ## The project
 
-**<One or two sentences: develop or improve which model, for which target, on which data,
-and establish what about it — typically whether it earns its place against the named
-baselines and reference.>** Full aim, success criteria and non-negotiables:
-`Human-input/Plans for AI generation/<YY-MM-DD_planName>.md`.
+**Establish how discoverable and how executable CHAP's two model-integration routes are for
+an agent working only from public material, by taking one published model down each route —
+`chapkit_ghr_model` as a chapkit model service, `minimalist_example_uv` as an
+`MLproject`/`uv` model — until each produces a CHAP evaluation on the public Lao admin-1
+monthly data.** The object of study is the route, not the prediction: the models are run as
+published and their predictive scores are reported per route but never compared against each
+other. Full aim, success criteria and non-negotiables:
+`Human-input/Plans for AI generation/26-09-21_chapModelIntegrationRoutes.md`.
 
 ## Where the project starts from
 
@@ -28,49 +26,53 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 
 | Anchor | This project |
 |---|---|
-| Evaluation platform or harness | `<platform and version, or "own scoring code, verified against <reference> in node <path>">` |
-| Metric | `<primary metric; secondary metrics>` |
-| Backtest or split scheme | `<scheme, and where it is recorded as a file>` |
-| Required baselines | `<baselines every model is compared against, scored through the same pipeline>` |
-| Reference model | `<external reference, pinned by version — or "none", and why>` |
-| Modelling resources to start from | `<model library / reference implementation / method, pinned by commit or version, at Archive/<dir>>` |
-| Data | `<source, exact version fetched, licence, at Archive/<dir> with sha256sums.txt>` |
-| Target | `<what is predicted, at what resolution>` |
-| Development data | `<the only slice development ever sees>` |
-| Held-out data | `<sealed until the final validation; opened once>` |
+| Evaluation platform or harness | CHAP, `chap-core` 2.1.0, installed as a `uv` tool and invoked as `chap`. Archived metadata at `Archive/platform-chap/`. What CHAP does with a model is the object of study and is not pre-specified. |
+| Metric | Whatever each route's own CHAP evaluation entry point writes to file. Not imposed across routes; no cross-route performance claim is made. |
+| Backtest or split scheme | Route-discovered, recorded as a file in each route's `results/`. |
+| Required baselines | None — the comparison is between integration routes, not between predictions. |
+| Reference model | None, and neither model is a reference for the other. |
+| Modelling resources to start from | Route A: `chap-models/chapkit_ghr_model` (GPL-3.0), at `Archive/model-route-a/`. Route B: `dhis2-chap/minimalist_example_uv`, at `Archive/model-route-b/`. Both pinned by commit in batch 1 and run as published. |
+| Data | `dhis2/climate-health-data`, directory `lao/` — `chap_LAO_admin1_monthly.{csv,geojson}` and `..._schema.json`; pinned by commit in batch 1, at `Archive/data-lao/` with `sha256sums.txt`. |
+| Target | Read from the Lao CHAP schema in batch 1; admin-1, monthly. |
+| Development data | The whole Lao slice. There is no development/holdout partition. |
+| Held-out data | **None — a deliberate, recorded deviation.** Nothing here is tuned or selected on the data, so a sealed holdout would guard against a risk this project does not run. The plan's §3 states the condition that voids the deviation. |
 
 ## The article
 
-- **Target venue**: `<not yet decided | venue>`.
-- **Status**: `<which batches are done, what they established, what is open — kept current>`.
+- **Target venue**: not yet decided.
+- **Status**: batch 1 in progress (orient and pin the anchors). Nothing established yet.
 - **Manuscript**: `Human-AI-collaboration/manuscript/` (empty).
-- **The plan being executed**: `Human-input/Plans for AI generation/<YY-MM-DD_planName>.md`.
+- **The plan being executed**: `Human-input/Plans for AI generation/26-09-21_chapModelIntegrationRoutes.md`.
   It carries the batch ledger (§6); `/do` runs the next open batch and stops.
 
 ## Settings this project has fixed
 
 | Setting | Value |
 |---|---|
-| Project random seed | `<integer>`. Every component seed derives from it (`AI-internal/skill-references/provenance-record.md`). |
-| Main environment | `<pinned in batch N: interpreter and the libraries the analysis needs>`. Installed from `environment/lock.txt` by `environment/install-env.sh`. Invoked as `environment/env/bin/python`. `<Docker image: yes/no, and why>` |
+| Project random seed | `20260921`. Every component seed derives from it (`AI-internal/skill-references/provenance-record.md`). Most of this project is not stochastic. |
+| Main environment | Pinned in batch 2: the Python that runs this project's own summarising and reporting scripts. Installed from `environment/lock.txt` by `environment/install-env.sh`; invoked as `environment/env/bin/python`. No Docker image for the analysis itself — but route A requires a container runtime, which is a property of the route and part of what is being measured. |
 | Repository machinery interpreter | `.venv`, per `setup-guide.md` §3. |
-| Tracking level | `<full | standard | light>` (`AGENTS.md` §6). Raise it with the human rather than drifting. |
-| Compute budget for stability work | `<not yet set — set once the per-run cost is known | budget>` |
-| Storage budget | `<not a constraint by default | budget>` |
-| Data governance | `<public and redistributable | restricted: what may and may not be published>` |
-| Git remote | `<owner/repository, public or private>`. Nothing is pushed without the human's instruction; `/release` runs the secrets and data-permission scan before anything becomes public. |
+| Tracking level | `standard` (`AGENTS.md` §6). |
+| Compute budget for stability work | One replicate agent per route; cut if a replicate exceeds roughly twice the original run's effort, with the cut recorded. |
+| Storage budget | Not a constraint. |
+| Data governance | Public and redistributable; route B's and the data's licences are established in batch 1 before anything is redistributed. |
+| Git remote | Not set. The human is asked for owner/repository before any remote is created; `/release` runs the secrets and data-permission scan before anything becomes public. |
 
 ## What must not happen
 
 These override everything else here; the plan's §3 states them in full for this project.
 
-1. **The holdout is sealed before any work begins and opened once**, at the final validation,
-   across a perturbation manifest frozen beforehand. Nothing is added, dropped, re-tuned or
-   re-run on the holdout after a number from it has been seen.
-2. **No number reaches a claim except through a file.** Whatever computes a score writes it
-   to a file; every reported figure is read from that file by a script.
-3. **Every judgment call is a node or a logged decision, never silent** — model family,
-   specification, inputs, preprocessing, training window, the combination rule, the metric.
-4. **Agency is recorded on every decision.**
-5. **Failures are kept**: a model that does not fit, a specification that does not converge,
-   an ablation showing no benefit — all stay in the record.
+1. **The two routes are discovered independently.** Each route's discovering agent is given
+   the identical brief and told nothing about the other route or any finding from it. A
+   comparison of discovery effort between two contaminated runs is worthless, and it fails
+   silently.
+2. **The discovery log is written as the discovery happens**, not reconstructed afterwards.
+   A reconstructed log is not admissible for the effort measures.
+3. **No number reaches a claim except through a file.** Every count in the reports is
+   computed by a script from a log on disk and read back from that script's output.
+4. **The models are not modified.** A model that does not run as published is a finding, not
+   a thing to be patched.
+5. **Every judgment call is a node or a logged decision, never silent**, and **agency is
+   recorded on every decision**.
+6. **Failures are kept**: a stalled route, a wrong documentation page, an invocation that
+   never worked — all stay in the record.
