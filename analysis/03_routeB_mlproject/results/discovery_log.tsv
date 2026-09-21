@@ -1,0 +1,4 @@
+step	ts_utc	kind	ref	outcome	note
+1	2026-09-21T11:36:13Z	milestone	first_doc_opened	ok	started from the installed CLI help rather than the web docs
+2	2026-09-21T11:36:13Z	command	chap --help	ok	lists eval forecast model sanity-check-model validate among others
+3	2026-09-21T11:36:32Z	command	chap eval --help	ok	signature is chap eval MODEL-NAME DATASET-CSV OUTPUT-FILE; model-name may be a local dir or GitHub URL

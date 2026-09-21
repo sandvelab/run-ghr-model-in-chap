@@ -1,0 +1,5 @@
+step	ts_utc	kind	ref	outcome	note
+1	2026-09-21T11:36:07Z	milestone	first_doc_opened	ok	starting from chap --help and the model repository README
+2	2026-09-21T11:36:13Z	command	chap --help	ok	lists top-level CLI commands
+3	2026-09-21T11:36:28Z	resource	chap eval --help (chap-core 2.1.0 CLI)	used	model-name accepts local dir, GitHub URL or chapkit service URL; flag --run-config.is-chapkit-model for REST-served models
+4	2026-09-21T11:36:28Z	resource	chap model schema / sanity-check-model --help	discarded	introspection helpers, not needed for the eval path
