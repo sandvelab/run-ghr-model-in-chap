@@ -40,7 +40,13 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 ## The article
 
 - **Target venue**: not yet decided.
-- **Status**: batch 1 in progress (orient and pin the anchors). Nothing established yet.
+- **Status**: batches 1–6 done. Both routes reached a CHAP evaluation on the Lao data, and
+  route B (MLproject/uv) cost less on every effort statistic that orders — 5 dead ends to 0
+  being the starkest. Route A (chapkit) **did not complete as published**: chap-core 2.1.0's
+  pinned chapkit 1.1.0 rejects the chapkit 2.0.0 service's `/api/v1/info`, and the route
+  completes only through an interposed proxy. Open: phase D (one replicate per route), the
+  hierarchical report and clean-room validation, and the human's decision on the two
+  undeclared licences.
 - **Manuscript**: `Human-AI-collaboration/manuscript/` (empty).
 - **The plan being executed**: `Human-input/Plans for AI generation/26-09-21_chapModelIntegrationRoutes.md`.
   It carries the batch ledger (§6); `/do` runs the next open batch and stops.
