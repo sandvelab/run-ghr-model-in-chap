@@ -70,6 +70,12 @@ prediction. A route is characterised on:
   different backtest splits or different metrics; where they do, the scores are reported per
   route with their configuration and **no cross-route performance claim is made**. This is a
   decision of the project's framing, not an oversight.
+- **Run-to-run variability in the scores is accepted, not controlled for** (human-set,
+  2026-09-21). A route whose model does not reproduce its numbers exactly is still a route
+  that works. Variability is therefore characterised — how much do the numbers move when the
+  same invocation is run again — and reported as a property of the route, and it is never a
+  caveat that qualifies whether the route runs. The question a route has to answer is **does
+  it run, again, from clean**, not does it produce the same number twice.
 
 **The aim is to conclude, and the conclusion may be an uncertain call.** "Both routes were
 about equally hard, and the difference is within what one agent's run can resolve" is a
@@ -103,6 +109,10 @@ These override anything else in this plan.
   claim. **If any batch begins choosing between model configurations on the basis of Lao
   scores, this deviation is void and the work stops until the human re-decides.**
   Agency: `human-set`.
+- **Exact reproducibility of scores is not required of a route** (human-set, 2026-09-21).
+  Determinism is not a condition of success and its absence is not reported as a weakness. It
+  remains recorded: a route that varies is described by its spread rather than by one number,
+  and a claim that quotes a score quotes the spread.
 - **The models are not modified.** If a model does not run as published, that is a finding
   and is recorded as one. Patching the model's own code to make it run is permitted only as
   an explicitly logged decision with the diff stored, and the route is then reported as
@@ -165,6 +175,15 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-21 — Reframing: variability accepted, the question is whether both routes run
+
+| Decision | Basis | Agency |
+|---|---|---|
+| Run-to-run variability in the scores is accepted and embraced; it is no longer a caveat on whether a route works | The human's instruction: a route that produces slightly different numbers each time is still a working route, and the project's question is ease of getting a model up and running | `human-set` |
+| §2 gains a clause and §3 gains a non-negotiable saying exactly this, so a later session cannot quietly reinstate a determinism requirement | A reframing that lives only in a report is a reframing that lasts until the next batch | `agent-on-human-assessment` |
+| Phase D changes from "one replicate discovery agent per route" to "re-run each route's own script from clean" | The replicate agents would have sharpened the *effort measurement*; the question is now whether the routes run, which a re-run answers directly and much more cheaply | `agent-on-human-assessment` |
+| The re-run is allowed to overwrite each route's stored evaluation, which the previous iteration deliberately prevented | Under the previous framing the reports quoted point scores that a re-run would invalidate; under this one they quote spreads, so a fresh run adds evidence instead of destroying it. The prior scores are snapshotted into the repeatability node first, so nothing is lost | `agent-on-human-assessment` |
+
 ### 2026-09-21 — Batches 3-6, settled while running and comparing the routes
 
 | Decision | Basis | Agency |
@@ -225,7 +244,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3. | done |
 | 5 | C — Per-route reports | For each route, a report with (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | done |
 | 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Emphasis on which was easier to find out about and which was easier to carry out, with the evidence for each statement and an explicit statement of what one run per route can and cannot resolve. | done |
-| 7 | D — Stability | One replicate per route, fresh isolated agents on the identical brief, reported as a distribution over the effort measures rather than as a single number. Perturbations considered and not run are recorded with why. Cut at the §4 budget. | open |
+| 7 | D — Repeatability | **Does each route run again, from clean?** Re-run each route's own `run_route.sh` end to end and record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). The replicate *discovery* agents originally planned here are dropped: the question is now whether the routes run, not how precisely the effort was measured. | open |
 | 8 | F — Claims & report | Build the claim collection from the tree (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. | open |
 | 9 | F — Release | Write the manuscript section(s) this project supports; run the release scan; ask the human for the remote; push only on instruction. | open |
 

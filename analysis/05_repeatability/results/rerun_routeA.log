@@ -1,0 +1,22 @@
+>>> chap 2.1.0
+>>> Model at 60b16a2e929405ce95fae2043a63d7e27292ca0f
+2026-09-21T15:54:33 [INFO   ] Loading dataset from /tmp/chapdata/chap_LAO_admin1_monthly.csv [root]
+2026-09-21T15:54:33 [INFO   ] Loading polygons from /tmp/chapdata/chap_LAO_admin1_monthly.geojson [root]
+Validation passed: no issues found.
+>>> Starting the chapkit service on :8000
+    healthy
+>>> Starting the chapkit 2.0 -> chap-core 2.1.0 info shim on :8010
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.checkconstraint_byname [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] Loading model template from http://localhost:8010 [chap_core.cli_endpoints.model]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-09-21T15:54:42 [INFO   ] Auto-detected chapkit service at http://localhost:8010 [chap_core.external.external_model]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+>>> chap eval (7 splits x 3 periods)
