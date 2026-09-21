@@ -165,6 +165,18 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-21 — Batches 3-6, settled while running and comparing the routes
+
+| Decision | Basis | Agency |
+|---|---|---|
+| Route A is reported as **not having run as published**; the interposed `info_shim.py` is a finding, not a detail | chap-core 2.1.0 pins chapkit 1.1.0 (`extra="forbid"`) and the model is built on chapkit 2.0.0; the route completes only with three keys stripped from one response. Reporting it as "ran" would hide the result | `agent-autonomous` |
+| chapkit was **not** upgraded inside chap-core's virtual environment, although it would probably have removed the need for the shim | That changes the platform under test, and the incompatibility is itself the finding | `agent-autonomous` |
+| Both of route A's runs are kept, and its scores are not quoted beyond two significant figures | Two identical invocations gave MAE 130.00 and 133.28: R-INLA is not bit-reproducible, as the model's own README states, so one run would overstate precision | `agent-autonomous` |
+| The differing codings between the two logs become an **alternatives node**, not an edit to the logs and not a hand-curated row correction | A per-row correction would depend on which rows a reader noticed and would constrain no future log; two rules applied to both logs alike can be argued with. The logs are never edited (`AGENTS.md` §1) | `agent-autonomous` |
+| `b_normalised` is the main path | The question is a comparison, and the normalisation is what makes two differently-coded logs comparable; `a_asLogged` stays runnable as the only purely observational reading | `agent-autonomous` |
+| `build_comparison.py` reads only the main path's effort file | `analysis/run.sh` follows the main path at every fork, so a table naming a non-main alternative's output would name a file a full reproduction never regenerates | `agent-autonomous` |
+| A full `analysis/run.sh` was started and stopped after about two minutes; the three route-A log files it had begun overwriting were restored from the last commit | An end-to-end run re-fits route A with INLA, which is not bit-reproducible, so it would have silently replaced the numbers the reports cite with slightly different ones. A clean full reproduction needs to be a deliberate act with its outputs compared rather than overwritten, which is phase D's business | `agent-autonomous` |
+
 ### 2026-09-21 — Batch 2, settled while fixing the instrument
 
 | Decision | Basis | Agency |
@@ -209,10 +221,10 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 |---|---|---|---|
 | 1 | A — Orient & set up | Read `readme-at-start.md`, `AGENTS.md`, `MOTIVATION.md`. Pin and archive the three anchors: CHAP's installed version and install metadata; both model repositories at a named commit; the Lao data files with `sha256sums.txt`. Establish each one's licence. Read the Lao schema and record the target and resolution. Write the root `analysis/claim.md` and the tree's top level. Raise what is still open. No model is run. | done |
 | 2 | A (cont.) | Fix the `discovery_log.tsv` column format and write the log-summarising script and its test, so both routes log into the same shape. Confirm the Lao data loads and is well-formed, without running any model. Confirm the Docker daemon state and record it. | done |
-| 3 | B — Route A | Node `analysis/02_routeA_chapkit`. An isolated agent, on the §4 brief, discovers how to run `chapkit_ghr_model` through CHAP and obtains an evaluation on the Lao data, logging contemporaneously. The orchestrator stores the returned logs and results, writes provenance including a contamination note, and does not correct the route's findings. | open |
-| 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3. | open |
-| 5 | C — Per-route reports | For each route, a report with (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | open |
-| 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Emphasis on which was easier to find out about and which was easier to carry out, with the evidence for each statement and an explicit statement of what one run per route can and cannot resolve. | open |
+| 3 | B — Route A | Node `analysis/02_routeA_chapkit`. An isolated agent, on the §4 brief, discovers how to run `chapkit_ghr_model` through CHAP and obtains an evaluation on the Lao data, logging contemporaneously. The orchestrator stores the returned logs and results, writes provenance including a contamination note, and does not correct the route's findings. | done |
+| 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3. | done |
+| 5 | C — Per-route reports | For each route, a report with (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | done |
+| 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Emphasis on which was easier to find out about and which was easier to carry out, with the evidence for each statement and an explicit statement of what one run per route can and cannot resolve. | done |
 | 7 | D — Stability | One replicate per route, fresh isolated agents on the identical brief, reported as a distribution over the effort measures rather than as a single number. Perturbations considered and not run are recorded with why. Cut at the §4 budget. | open |
 | 8 | F — Claims & report | Build the claim collection from the tree (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. | open |
 | 9 | F — Release | Write the manuscript section(s) this project supports; run the release scan; ask the human for the remote; push only on instruction. | open |
@@ -228,3 +240,11 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 ### Iteration 2
 
 - [[26-09-21_b02_instrument]]
+
+### Iteration 3
+
+- [[26-09-21_b05_routeReports]]
+
+### Iteration 4
+
+- [[26-09-21_b06_comparativeReport]]
