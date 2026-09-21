@@ -12,3 +12,4 @@ PYTHON="$REPO_ROOT/environment/env/bin/python"
 
 
 # Own scripts -- add calls here as scripts/ fills up.
+"$PYTHON" scripts/test_discovery_log.py

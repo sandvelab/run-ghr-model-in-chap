@@ -165,6 +165,17 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-21 — Batch 2, settled while fixing the instrument
+
+| Decision | Basis | Agency |
+|---|---|---|
+| The discovery-log format is fixed before either route runs, with a closed seven-milestone vocabulary | A format settled after the first route has run is a format shaped by that route; the milestones are stated as achievements rather than as commands so that two structurally different routes are comparable | `agent-autonomous` |
+| The log-summarising code lives in `04_comparison` and the route nodes hold only their raw logs | The raw log is the route's result; the statistics computed over both logs are the comparison's result. One implementation, so the two routes cannot be measured by subtly different code | `agent-autonomous` |
+| Two integrity statistics (`n_distinct_timestamps`, `max_rows_sharing_one_timestamp`) are computed and asserted in tests | The plan's §3 requires contemporaneous logging, and a rule with no detector is a rule that will be honoured until it is not; a reconstructed log has a visible signature | `agent-autonomous` |
+| "Confirm the Lao data loads into CHAP" was dropped from batch 2 | Doing it requires learning how CHAP wants a dataset presented, which is part of what each route's agent must discover; the orchestrator learning it first is exactly the contamination §3 forbids. Structural well-formedness was established in batch 1 from the files themselves | `agent-autonomous` |
+| `summarise_discovery.py` is written in batch 2 but wired into `run.sh` in batch 5 | There are no logs until batches 3 and 4; a script failing on absent inputs would break the property that `analysis/run.sh` runs end to end | `agent-autonomous` |
+| Docker Desktop 27.4.0 confirmed running; route A is unblocked | Started by the human after the anchors were pinned | `human-set` |
+
 ### 2026-09-21 — Batch 1, settled while pinning the anchors
 
 | Decision | Basis | Agency |
@@ -197,7 +208,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | Batch | Phase | Aim | Status |
 |---|---|---|---|
 | 1 | A — Orient & set up | Read `readme-at-start.md`, `AGENTS.md`, `MOTIVATION.md`. Pin and archive the three anchors: CHAP's installed version and install metadata; both model repositories at a named commit; the Lao data files with `sha256sums.txt`. Establish each one's licence. Read the Lao schema and record the target and resolution. Write the root `analysis/claim.md` and the tree's top level. Raise what is still open. No model is run. | done |
-| 2 | A (cont.) | Fix the `discovery_log.tsv` column format and write the log-summarising script and its test, so both routes log into the same shape. Confirm the Lao data loads and is well-formed, without running any model. Confirm the Docker daemon state and record it. | open |
+| 2 | A (cont.) | Fix the `discovery_log.tsv` column format and write the log-summarising script and its test, so both routes log into the same shape. Confirm the Lao data loads and is well-formed, without running any model. Confirm the Docker daemon state and record it. | done |
 | 3 | B — Route A | Node `analysis/02_routeA_chapkit`. An isolated agent, on the §4 brief, discovers how to run `chapkit_ghr_model` through CHAP and obtains an evaluation on the Lao data, logging contemporaneously. The orchestrator stores the returned logs and results, writes provenance including a contamination note, and does not correct the route's findings. | open |
 | 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3. | open |
 | 5 | C — Per-route reports | For each route, a report with (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | open |
@@ -213,3 +224,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 ### Iteration 1
 
 - [[26-09-21_b01_anchors]]
+
+### Iteration 2
+
+- [[26-09-21_b02_instrument]]

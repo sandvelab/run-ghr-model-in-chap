@@ -17,16 +17,28 @@ convention `AGENTS.md` §8 sets for `.venv`. Note this is *not* the `.venv` at t
 root, which runs the repository's own machinery (`node.py`, `check_invariants.py`). A node's
 `run.sh` sets `PYTHON` to this interpreter; `node.py` writes that line.
 
-## Not yet pinned
+## What is pinned here, and what deliberately is not
 
-This copy has no project, so `environment.yml` lists nothing and `lock.txt` does not exist.
-Pin in the first batch that knows what the first model needs — a library guessed in advance
-is a library pinned for no reason — and record here what was verified: the two-pass check
-(`RESOLVE=1`, then a clean rebuild from the resulting `lock.txt`, confirmed to match exactly)
-and the date.
+Pinned on 2026-09-21: **Python 3.13.0, no third-party dependencies.** `environment.yml`
+declares none and `lock.txt` is empty, because this project's own scripts read CSV and JSON
+logs and count over them, and the standard library covers that. An empty lockfile is a
+statement, not an omission: it says that nothing outside the interpreter can change these
+results. It is re-pinned, with an entry in the plan's §4b, the first time a node genuinely
+needs a library.
 
-## Say what cannot be pinned
+**The models' environments are not pinned here, and that is the point.** Each of the two
+routes under study brings its own dependency mechanism — that is much of what distinguishes
+them — and pinning them centrally would replace the thing being measured with a copy of it.
+What each route installs, and how, is recorded in that route's node.
 
-A vanished data source, a licence server, a specific GPU, an evaluation platform run as a
-hosted service — none of this survives pinning. Where such a dependency exists, state it here
-plainly rather than leaving a reproducer to discover it.
+## What cannot be pinned
+
+- **CHAP itself.** It is an external installation on this machine (`chap-core` 2.1.0, a `uv`
+  tool), not a dependency of `environment/`. What makes it reconstructible is the 174-package
+  freeze in `Archive/platform-chap/chap-tool-freeze.txt`, not this lockfile.
+- **The container runtime.** Docker Desktop 27.4.0 (server 27.4.0, 8 CPUs, ~8.2 GB) was
+  confirmed running on 2026-09-21. A route that needs a container needs a daemon, and a
+  daemon is not something a lockfile can supply; whether a route needs one at all is one of
+  the findings this project is after.
+- **Anything either route pulls at run time** — an image from a registry, a package index, a
+  git remote. A route that depends on a network resource is recorded as depending on it.
