@@ -70,3 +70,29 @@ comparison's limitations. First, each agent's node path (`02_routeA_chapkit`,
 other went. Second, the two agents ran **concurrently on one 8-CPU machine**, so the
 wall-clock statistics are inflated by contention in a way the count statistics are not; the
 counts are the primary measure for exactly this kind of reason.
+
+## T5-T7 — Measuring, reporting and binding the results (2026-09-21)
+
+The problem batch 5 surfaced is the one worth remembering: two agents given the *same* log
+format still coded the same acts differently. Route A logged `chap eval --help` as a
+`resource`, route B logged it as a `command`; route A additionally logged the brief-supplied
+data files and its own notes file as resources. Taken at face value this inflates route A's
+resource count by bookkeeping rather than by work.
+
+It was handled as an alternatives node rather than as a correction, because a hand-curated
+list of rows to adjust would depend on which rows someone noticed and would constrain no
+future log. `b_normalised` applies two rules to both logs alike — a CLI help invocation is an
+information source as well as a command; the brief's given inputs and the run's own artefacts
+are not information sources — and the rules are declared as `--not-a-source` substrings in the
+node's `run.sh` so they are visible beside the number. The normalisation moves route A from 10
+sources to 9 and route B from 4 to 5, closing part of the gap without reversing it.
+
+One operational note for a future session: `bash analysis/run.sh` re-runs **everything**,
+including route A's Docker build and a fresh INLA fit, which is not bit-reproducible. It was
+started once and stopped after about two minutes; the three route-A log files it had begun
+overwriting were restored with `git checkout`. A full reproduction needs to be deliberate,
+with its outputs compared against the archived ones rather than overwriting them.
+
+**Still open**: phase D (one replicate agent per route, to test whether one run per route
+resolves anything); the hierarchical report and clean-room/outsider validation; and the
+human's decision on the two undeclared licences.

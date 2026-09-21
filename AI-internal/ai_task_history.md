@@ -22,5 +22,19 @@ reader who was not present can follow, and keep them honest about what did not w
   seven kinds of malformed log, plus two integrity statistics that detect a log reconstructed
   at the end. Narrowed the batch's stated aim: confirming the data loads into CHAP was dropped
   because doing it would have contaminated the orchestrator with route knowledge.
-- T4 (2026-09-21): Batches 3 and 4 — launched two isolated agents, one per route, on identical
-  briefs differing only in repository URL and node path. In progress at the time of writing.
+- T4 (2026-09-21): Batches 3 and 4 — two isolated agents, one per route, on identical briefs.
+  Both reached a CHAP evaluation on the Lao data. Route B ran as published on the first attempt;
+  route A completed only through an interposed proxy, because chap-core 2.1.0's pinned chapkit
+  1.1.0 rejects the chapkit 2.0.0 service's `/api/v1/info`. Both logs validated against the
+  instrument before anything was computed from them.
+- T5 (2026-09-21): Batch 5 — found that the two agents coded some acts differently, and made the
+  coding question an alternatives node (`a_asLogged` / `b_normalised`, the latter the main path)
+  rather than editing the logs or hand-correcting rows. The normalisation moves the two routes
+  towards each other and reverses nothing.
+- T6 (2026-09-21): Batches 5 and 6 — wrote the two per-route reports (resources, process,
+  invocation, results) and the comparative report. Route B cheaper on every ordered statistic;
+  5 dead ends to 0. Four findings recur in both independent logs and are therefore about CHAP
+  rather than either route.
+- T7 (2026-09-21): Batch 8 (part) — built the claim collection: eight claims, each bound to its
+  grounding file with a scope qualifier and the alternative reading. `claims.py audit` reports
+  that every claim resolves; all invariants hold.
