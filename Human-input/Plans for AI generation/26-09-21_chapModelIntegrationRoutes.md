@@ -165,6 +165,16 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-21 — Batch 1, settled while pinning the anchors
+
+| Decision | Basis | Agency |
+|---|---|---|
+| The analysis environment is pinned in batch 1, not batch 2 | Node scripts run under `environment/env/bin/python`, and batch 1 has a node script; the environment cannot be deferred past the first node | `agent-autonomous` |
+| The pinned environment declares no dependencies (stdlib-only Python 3.13.0) | This project's own scripts read CSV and JSON logs and count over them; declaring libraries not yet needed would pin a fiction. Re-pinned with a §4b entry the first time a node needs one | `agent-autonomous` |
+| The archived model clones have their `.git` directories removed, with the commit written to `git-metadata.txt` | A nested repository inside `Archive/` is invisible to this repository's version control, so the archived copy would not in fact be versioned here | `agent-autonomous` |
+| The three schema/data discrepancies in the Lao dataset are recorded, not repaired | How each route copes with an inconsistent schema and a gappy target is part of what is being measured; repairing them would remove the thing being observed, and would change the panel both routes are compared on | `agent-autonomous` |
+| The licence gap on `minimalist_example_uv` and on `dhis2/climate-health-data` blocks release, not analysis, and is referred to the human | Neither declares a licence; redistribution of the archived copies is not established | `agent-on-human-assessment` (pending the human's decision) |
+
 ### 2026-09-21 — Framing and the four setup questions
 
 | Decision | Basis | Agency |
@@ -186,8 +196,8 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 
 | Batch | Phase | Aim | Status |
 |---|---|---|---|
-| 1 | A — Orient & set up | Read `readme-at-start.md`, `AGENTS.md`, `MOTIVATION.md`. Pin and archive the three anchors: CHAP's installed version and install metadata; both model repositories at a named commit; the Lao data files with `sha256sums.txt`. Establish each one's licence. Read the Lao schema and record the target and resolution. Write the root `analysis/claim.md` and the tree's top level. Raise what is still open. No model is run. | open |
-| 2 | A (cont.) | Pin the analysis environment (`/pin-environment`). Fix the `discovery_log.tsv` column format and write the log-summarising script and its test, so both routes log into the same shape. Confirm the Lao data loads and is well-formed, without running any model. Confirm the Docker daemon state and record it. | open |
+| 1 | A — Orient & set up | Read `readme-at-start.md`, `AGENTS.md`, `MOTIVATION.md`. Pin and archive the three anchors: CHAP's installed version and install metadata; both model repositories at a named commit; the Lao data files with `sha256sums.txt`. Establish each one's licence. Read the Lao schema and record the target and resolution. Write the root `analysis/claim.md` and the tree's top level. Raise what is still open. No model is run. | done |
+| 2 | A (cont.) | Fix the `discovery_log.tsv` column format and write the log-summarising script and its test, so both routes log into the same shape. Confirm the Lao data loads and is well-formed, without running any model. Confirm the Docker daemon state and record it. | open |
 | 3 | B — Route A | Node `analysis/02_routeA_chapkit`. An isolated agent, on the §4 brief, discovers how to run `chapkit_ghr_model` through CHAP and obtains an evaluation on the Lao data, logging contemporaneously. The orchestrator stores the returned logs and results, writes provenance including a contamination note, and does not correct the route's findings. | open |
 | 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3. | open |
 | 5 | C — Per-route reports | For each route, a report with (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | open |
@@ -199,3 +209,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 ## Batch ledger — reports
 
 *(One link per completed batch, added by `/do`. Never overwritten.)*
+
+### Iteration 1
+
+- [[26-09-21_b01_anchors]]
