@@ -95,6 +95,46 @@ def main():
     assert part["elapsed_minutes_to_evaluation_complete"] == ""
     assert part["n_commands_before_evaluation_complete"] == 2
 
+    # The normalisation: a rule applied to both logs alike, not a per-row correction.
+    mixed = [
+        "1\t2026-09-21T09:00:00Z\tcommand\tchap eval --help\tok\tread the signature here",
+        "2\t2026-09-21T09:01:00Z\tresource\thttps://a/readme\tused\tthe entry point",
+        "3\t2026-09-21T09:02:00Z\tresource\t/x/Archive/data-lao/f.csv\tused\tthe given input data",
+        "4\t2026-09-21T09:03:00Z\tresource\tresults/discovery_notes.md\tused\tits own output",
+        "5\t2026-09-21T09:04:00Z\tresource\truns/m/ts/training_data.csv\tused\twhat the run produced",
+        "6\t2026-09-21T09:05:00Z\tcommand\tchap eval --model-name m\tok\tnot a help invocation",
+        "7\t2026-09-21T09:06:00Z\tmilestone\tevaluation_complete\tok\t",
+    ]
+    rows_mixed = dl.load(write(mixed))
+    raw = dict(dl.summarise(rows_mixed))
+    assert raw["reading"] == "as-logged"
+    assert raw["n_resources_consulted"] == 4      # every resource row, as the agent coded it
+    assert raw["n_commands_run"] == 2
+
+    patterns = ("Archive/data-lao", "results/", "runs/")
+    norm = dict(dl.summarise(rows_mixed, normalise=True, not_a_source=patterns))
+    assert norm["reading"] == "normalised"
+    # R2 drops the given input, the agent's own notes and the run's own artefact; R1 adds
+    # the help invocation. Commands are untouched: a help call really was a command.
+    assert norm["n_resources_consulted"] == 2
+    assert norm["n_resources_used"] == 2
+    assert norm["n_resources_discarded"] == 0
+    assert norm["n_commands_run"] == 2
+    assert norm["n_resources_before_evaluation_complete"] == 2
+
+    # The normalisation must not quietly change anything that is not about resources.
+    for key in ("n_log_rows", "n_commands_run", "n_commands_failed", "n_dead_ends",
+                "elapsed_minutes_total", "reached_evaluation_complete"):
+        assert raw[key] == norm[key], key
+
+    # A resource first logged as discarded and later as used counts once, and as used.
+    twice = [
+        "1\t2026-09-21T09:00:00Z\tresource\thttps://p\tdiscarded\tlooked irrelevant",
+        "2\t2026-09-21T09:01:00Z\tresource\thttps://p\tused\tturned out to matter",
+    ]
+    t = dict(dl.summarise(dl.load(write(twice))))
+    assert t["n_resources_consulted"] == 1 and t["n_resources_used"] == 1
+
     expect_error(["1\t2026-09-21T09:00:00Z\tresource\thttps://a\tok\tx"],
                  "outcome 'ok' is not allowed")
     expect_error(["1\t2026-09-21T09:00:00Z\tmilestone\tgot_it_working\tok\tx"],

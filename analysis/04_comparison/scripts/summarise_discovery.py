@@ -33,6 +33,13 @@ def main(argv=None):
     ap.add_argument("--route", action="append", required=True, metavar="NAME=PATH",
                     help="route label and the path to its discovery_log.tsv; repeatable")
     ap.add_argument("--out", required=True, type=Path)
+    ap.add_argument("--normalise", action="store_true",
+                    help="count information sources by the two rules in discovery_log.py "
+                         "rather than taking each log's own coding at face value")
+    ap.add_argument("--not-a-source", action="append", default=[], metavar="SUBSTRING",
+                    help="with --normalise: a resource whose ref contains this is a given "
+                         "input or an artefact of the run, not documentation that had to be "
+                         "found; repeatable, and declared in run.sh so it is visible")
     args = ap.parse_args(argv)
 
     rows_out = []
@@ -44,7 +51,8 @@ def main(argv=None):
         if not log.exists():
             ap.error(f"route {name}: no log at {log}")
         rows = dl.load(log)
-        for statistic, value in dl.summarise(rows):
+        for statistic, value in dl.summarise(rows, normalise=args.normalise,
+                                            not_a_source=tuple(args.not_a_source)):
             rows_out.append((name, statistic, value))
         print(f"route {name}: {len(rows)} log rows from {log}")
 

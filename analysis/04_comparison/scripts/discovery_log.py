@@ -82,6 +82,47 @@ def load(path: str | Path) -> list[dict]:
     return rows
 
 
+HELP_MARKERS = ("--help", " -h")
+
+
+def _is_help(ref: str) -> bool:
+    """A CLI help invocation is a command that is also a piece of documentation.
+
+    The two routes' agents coded these differently -- one logged `chap eval --help` as a
+    `resource`, the other as a `command` -- and neither is wrong. The normalisation counts
+    such a row as both, by a rule applied identically to both logs rather than by a
+    per-row correction, so that nothing depends on which rows a reader thought to adjust.
+    """
+    return any(marker in ref for marker in HELP_MARKERS)
+
+
+def _information_sources(rows, normalise, not_a_source):
+    """The distinct information sources a route consulted, and which of them contributed.
+
+    As logged (`normalise=False`) this is simply the `resource` rows, which is what the
+    agents were asked for. Normalised, two rules apply, in both logs alike:
+
+      R1  a `command` row that is a CLI help invocation is also an information source, and
+          counts as used, because running it is how the agent read that documentation;
+      R2  a `resource` row naming something the run itself produced, or one of the inputs
+          the brief handed the agent, is not an information source -- it is evidence or a
+          given, not documentation that had to be found.
+
+    `not_a_source` holds the substrings R2 matches on, declared in the node's run.sh so
+    that what was excluded is visible beside the number rather than buried here.
+    """
+    sources: dict[str, bool] = {}
+    for row in rows:
+        ref = row["ref"]
+        if row["kind"] == "resource":
+            if normalise and any(pattern in ref for pattern in not_a_source):
+                continue
+            sources[ref] = sources.get(ref, False) or row["outcome"] == "used"
+        elif normalise and row["kind"] == "command" and _is_help(ref):
+            sources[ref] = True
+    return sources
+
+
 def _first_index(rows, ref):
     for i, row in enumerate(rows):
         if row["kind"] == "milestone" and row["ref"] == ref:
@@ -89,15 +130,20 @@ def _first_index(rows, ref):
     return None
 
 
-def summarise(rows: list[dict]) -> list[tuple[str, object]]:
-    """Statistics defined in the format specification. Order is part of the output."""
-    resources = [r for r in rows if r["kind"] == "resource"]
+def summarise(rows: list[dict], normalise: bool = False,
+              not_a_source: tuple[str, ...] = ()) -> list[tuple[str, object]]:
+    """Statistics defined in the format specification. Order is part of the output.
+
+    `normalise` selects between the two readings of the logs that the alternatives node
+    under this one keeps side by side. The reading used is emitted as the first row, so a
+    file of these statistics always says which one it is.
+    """
     commands = [r for r in rows if r["kind"] == "command"]
     decisions = [r for r in rows if r["kind"] == "decision"]
     blockers = [r for r in rows if r["kind"] == "blocker"]
 
-    distinct_resources = {r["ref"] for r in resources}
-    used_resources = {r["ref"] for r in resources if r["outcome"] == "used"}
+    sources = _information_sources(rows, normalise, not_a_source)
+    used_resources = {ref for ref, used in sources.items() if used}
     failed_commands = [r for r in commands if r["outcome"] == "failed"]
     opened = [r for r in blockers if r["outcome"] == "open"]
     resolved = {r["ref"] for r in blockers if r["outcome"] == "resolved"}
@@ -112,21 +158,23 @@ def summarise(rows: list[dict]) -> list[tuple[str, object]]:
     timestamps = [r["ts_utc"] for r in rows]
     per_timestamp = {t: timestamps.count(t) for t in set(timestamps)}
 
+    before = _information_sources(prefix, normalise, not_a_source)
+
     return [
+        ("reading", "normalised" if normalise else "as-logged"),
         ("n_log_rows", len(rows)),
         ("reached_evaluation_complete", int(done is not None)),
         ("reached_route_abandoned", int(_first_index(rows, "route_abandoned") is not None)),
-        ("n_resources_consulted", len(distinct_resources)),
+        ("n_resources_consulted", len(sources)),
         ("n_resources_used", len(used_resources)),
-        ("n_resources_discarded", len(distinct_resources - used_resources)),
+        ("n_resources_discarded", len(sources) - len(used_resources)),
         ("n_commands_run", len(commands)),
         ("n_commands_failed", len(failed_commands)),
         ("n_decisions_logged", len(decisions)),
         ("n_blockers_hit", len(opened)),
         ("n_blockers_unresolved", len([r for r in opened if r["ref"] not in resolved])),
         ("n_dead_ends", len(failed_commands) + len(opened)),
-        ("n_resources_before_evaluation_complete",
-         len({r["ref"] for r in prefix if r["kind"] == "resource"})),
+        ("n_resources_before_evaluation_complete", len(before)),
         ("n_commands_before_evaluation_complete",
          len([r for r in prefix if r["kind"] == "command"])),
         ("elapsed_minutes_total", round(span, 1)),
