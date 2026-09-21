@@ -1,8 +1,8 @@
-2026-09-21T14:09:42 [INFO   ] Processing results/eval.nc [chap_core.cli_endpoints.utils]
+2026-09-21T16:21:33 [INFO   ] Processing results/eval.nc [chap_core.cli_endpoints.utils]
 /Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/crps.py:67: RuntimeWarning: invalid value encountered in log1p
   log_samples = np.log1p(samples)
 /Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/winkler_score.py:94: RuntimeWarning: invalid value encountered in log1p
   log_samples = np.log1p(samples)
 /Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/winkler_score.py:94: RuntimeWarning: invalid value encountered in log1p
   log_samples = np.log1p(samples)
-2026-09-21T14:09:44 [INFO   ] Metrics exported to results/eval_metrics.csv [chap_core.cli_endpoints.utils]
+2026-09-21T16:21:34 [INFO   ] Metrics exported to results/eval_metrics.csv [chap_core.cli_endpoints.utils]
