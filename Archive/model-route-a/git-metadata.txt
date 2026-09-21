@@ -1,0 +1,5 @@
+remote: https://github.com/chap-models/chapkit_ghr_model.git
+commit: 60b16a2e929405ce95fae2043a63d7e27292ca0f
+committed: 2026-09-15T14:57:23+02:00
+subject: Merge pull request #3 from chap-models/fix/git-revision-build-arg
+cloned: 2026-09-21T11:26:02Z

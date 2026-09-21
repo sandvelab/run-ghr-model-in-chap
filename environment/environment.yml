@@ -2,9 +2,12 @@
 # One library per line under `dependencies:`, with a comment saying what it is for. Version
 # constraints may be given (`numpy>=2`); the resolved versions live in lock.txt, written by
 # `RESOLVE=1 bash environment/install-env.sh` (which is what /pin-environment runs).
+#
+# This project's own scripts read CSV/JSON logs and compute counts over them; the standard
+# library covers that, so the list is deliberately empty. It is re-pinned, with a §4b entry,
+# the first time a node genuinely needs a third-party library. The *models'* environments are
+# not pinned here: each route pins its own by whatever mechanism it uses, and that mechanism
+# is part of what this project measures.
 name: analysis
 python: "3.13"
 dependencies: []
-#  - numpy          # numerics
-#  - pandas         # data handling
-#  - scikit-learn   # <which model family, and which node needs it>

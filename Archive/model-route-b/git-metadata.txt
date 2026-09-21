@@ -1,0 +1,5 @@
+remote: https://github.com/dhis2-chap/minimalist_example_uv.git
+commit: 5cd8a1267362d945491353fba1c63a408462fa17
+committed: 2026-08-25T16:07:57+02:00
+subject: Merge pull request #1 from hansand02/fix/update-docs
+cloned: 2026-09-21T11:26:03Z

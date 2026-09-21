@@ -12,3 +12,4 @@ PYTHON="$REPO_ROOT/environment/env/bin/python"
 
 
 # Own scripts -- add calls here as scripts/ fills up.
+"$PYTHON" scripts/verify_anchors.py
