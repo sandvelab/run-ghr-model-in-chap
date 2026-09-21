@@ -84,3 +84,27 @@ node: analysis/01_anchors
 scope: as of the pinned commits, 2026-09-21
 alternatives: none -- this is a question for the human, not a finding to be resolved in the tree
 by: agent-autonomous
+
+## C9
+Both routes run: each route's own deliverable script was re-run end to end from clean and both completed, route A in 1534 seconds including its container build and route B in 92 seconds.
+grounds: analysis/05_repeatability/results/completion.tsv
+node: analysis/05_repeatability
+scope: one re-run per route on 2026-09-21, this host, CHAP 2.1.0
+alternatives: none -- completion is the question, and the ledger records exit codes rather than an interpretation of them
+by: agent-on-human-assessment
+
+## C10
+Route A's scores move between identical runs by 1.5 to 7.2 per cent (MAE 126.85 to 133.28 over three runs) while route B's are identical to the last digit over two runs; this reflects the models' inference methods, R-INLA against ordinary least squares, and not the two integration mechanisms.
+grounds: analysis/05_repeatability/results/score_spread.tsv
+node: analysis/05_repeatability
+scope: three route-A runs and two route-B runs; too few for a distributional claim, which is why a range and not a standard deviation is reported
+alternatives: treating route A's variability as a defect, which the plan explicitly withdrew on 2026-09-21: spread is reported, not passed or failed
+by: human-set
+
+## C11
+Route A does not run as published, reproducibly and independently of the agent that first found it: the chapkit service answers /api/v1/info with HTTP 200 and declares chapkit 2.0.0, chap-core 2.1.0 pins chapkit 1.1.0 whose MLServiceInfo forbids extra fields, and both the direct invocation and the documented escape hatch --run-config.is-chapkit-model exit 1.
+grounds: analysis/05_repeatability/results/as_published_probe.log
+node: analysis/05_repeatability
+scope: chap-core 2.1.0 against chapkit_ghr_model at 60b16a2; a chap-core shipping chapkit 2.x would likely not show it
+alternatives: relying on the discovering agent's account, which was reasonable and was not done because this is the project's load-bearing claim and reproducing it costs ten seconds
+by: agent-autonomous
