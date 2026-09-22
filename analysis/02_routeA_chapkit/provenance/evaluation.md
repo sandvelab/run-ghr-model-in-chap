@@ -94,3 +94,34 @@ alternatives-considered: re-plotting the evaluation from `evaluation.nc` with a 
   being stored in full as `evaluation.nc` and `metrics.csv`, which are CHAP's own outputs.
 agency: agent-autonomous
 information: agent-retrieved
+
+---
+
+## Appended 2026-09-22 — the plotted values, and one figure withdrawn
+
+result: results/eval/evaluation_plot.tsv
+        sha256:cc4b81266e56b2678bf24dbe980d56afebf67e47e881fcb33690b7e73fd8d43e
+script: scripts/evaluation_plot.py
+        sha256:0b21c0ae88084bd4b8442f778309fe44495f12d9aa79901e404812b2aa0f7b48
+        ../../AI-internal/useful-scripts/vega_values.py
+        sha256:f5bb18ac091d6848b2f3d16821e71f0b81058a32468f493731c05d46a3ff910c
+invocation: ../../environment/env/bin/python scripts/evaluation_plot.py
+inputs: results/eval/evaluation.html  sha256:d516e847cbc552cb19d76a4929810c3df1f1ebc5573a9e23b72c92f2cd542b50
+environment: environment/ (project main)
+seeds: none
+commit: fa3d04d
+instructions-commit: d2459b1
+node: analysis/02_routeA_chapkit
+produced: 2026-09-22
+alternatives-considered: reading the plotted values out of `evaluation.nc` instead. Rejected
+  because the obligation is to store the values *behind the figure*, and the NetCDF is what
+  CHAP computed rather than what it drew — the two could diverge and nothing would show it.
+  Reading the figure's own inline Vega-Lite specification means the table and the picture
+  cannot disagree. 9520 rows, one per location x period x horizon x split.
+  **`results/eval/predicted_vs_actual.png` was withdrawn** and no longer exists. It was a
+  raster of `chap plot-backtest`'s scatter, which is a second figure from a second command;
+  keeping it would have obliged a second plotted-values file and a second plotting script for
+  a figure the project does not use. The HTML it was rendered from is kept, because *that*
+  command having to exist at all is one of this route's findings.
+agency: agent-autonomous
+information: agent-retrieved

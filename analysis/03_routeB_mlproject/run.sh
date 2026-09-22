@@ -14,3 +14,9 @@ PYTHON="$REPO_ROOT/environment/env/bin/python"
 # Own scripts -- add calls here as scripts/ fills up.
 
 bash scripts/run_route.sh
+
+# Then the values behind the figure CHAP just drew, read out of the figure itself.
+# ORDER IS LOAD-BEARING and this block is hand-written: `node.py rebuild` regenerates the
+# own-scripts block in alphabetical order, which would put the extraction before the route
+# that produces the file it reads.
+"$PYTHON" scripts/evaluation_plot.py
