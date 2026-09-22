@@ -1,5 +1,0 @@
-anchor	where	discrepancy	reading	disposition
-data	dataset.row_count	schema says 2575; the CSV has 2808 rows	the difference is 233, which equals the number of rows with an empty disease_cases cell (233); the schema count appears to be of target-present rows, not of rows	recorded, not patched (plan §3)
-data	dataset.admin_geojson_file	schema names LAO_ADM1.geojson; the directory holds chap_LAO_admin1_monthly.geojson	the boundary file was renamed upstream for CHAP compatibility and the schema was not updated with it	recorded, not patched (plan §3)
-data	disease_cases completeness	233 of 2808 rows have no target value	how a route handles missing target values is the route's business and is part of what is observed, so nothing is imputed or dropped here	recorded, not patched (plan §3)
-model-route-b	licence	the repository carries no licence file and GitHub reports no licence	with no licence, redistribution of the archived copy is not established; this blocks release, not analysis	raised with the human before release (plan §4, data governance)

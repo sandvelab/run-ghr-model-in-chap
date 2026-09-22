@@ -82,6 +82,34 @@ about equally hard, and the difference is within what one agent's run can resolv
 conclusion. If a route does not reach an evaluation at all, that is reported plainly as its
 result, with where it stopped and what it would have needed.
 
+## 2b. What this project must end with
+
+The project is not finished when both routes have run. It ends with **one overview document**
+under `AI-generated/overview/`, the project's single entry point, saying what was asked, what
+came out and where the detail is. Beyond that narrative it carries two things a reader can act
+on without opening anything else:
+
+1. **A from-scratch recipe per route.** For each route, a short literal sequence of Unix
+   commands that a reader can paste into a **fresh terminal on a machine holding none of this
+   project's state** and end up with a completed CHAP evaluation of that route's model on the
+   Lao data. It starts from installing or verifying the platform and obtaining the model and
+   the data; it assumes no environment variable, no working directory, no pre-built container
+   image and no cached artefact that the commands do not themselves create. Each recipe is
+   stored as an executable script in its route's node under `scripts/`, is **verified by being
+   run in a clean shell** rather than assembled from the discovery log afterwards, and the
+   overview both embeds it and links to it. A recipe that has not been run is not a recipe.
+2. **The evaluation each route produced.** Each route runs CHAP's own default evaluation
+   entry point — `chap eval`, plus whatever further step that route discovers is needed to
+   turn what it writes into figures and metrics — and keeps everything it produces, in
+   particular the default predicted-versus-observed plot. **At least one of those figures is
+   embedded in the overview**, and the overview links to the full evaluation output file for
+   **each** of the two routes. The figures are shown as products of their routes; consistent
+   with §2 the predictions themselves are still **not compared across routes**.
+
+Both routes owe a recipe and an evaluation. If a route cannot produce one, the overview says
+so plainly in the place it would have gone, and says where the route stopped and what it would
+have needed. That is a result, not a gap to be left out quietly.
+
 ## 3. Non-negotiables
 
 These override anything else in this plan.
@@ -133,7 +161,7 @@ These override anything else in this plan.
 
 | | Decision |
 |---|---|
-| **Evaluation platform or harness** | CHAP, `chap-core` **2.1.0**, installed on this machine as a `uv` tool and invoked as `chap`. Verified present at planning time (`chap --version` → `2.1.0`). Batch 1 archives the resolved version and install metadata under `Archive/platform-chap/` with `provenance.md`. What CHAP does with a model is the object of study and is **not** pre-specified here. Agency: `human-set` (platform), `agent-retrieved` (version). |
+| **Evaluation platform or harness** | CHAP, `chap-core` **2.3.1**, installed on this machine as a `uv` tool and invoked as `chap`. Batch 1 archives the resolved version and install metadata under `Archive/platform-chap/` with `provenance.md`, and records the resolved `chapkit` and `servicekit` versions explicitly — `chap-core` does not pin `chapkit` tightly in every release, so the version of `chap-core` alone does not determine what a chapkit model service is talking to. What CHAP does with a model is the object of study and is **not** pre-specified here. Agency: `human-set` (platform and version), `agent-retrieved` (the resolved dependency versions). |
 | **Metric** | Whatever the route's own CHAP evaluation entry point reports, taken from the file CHAP writes, per route. No metric is imposed across routes, and no cross-route performance claim is made (§2). |
 | **Backtest or split scheme** | Route-discovered; recorded as a file per route in that route's `results/`. If both routes land on the same scheme, that is recorded as a finding, not assumed. |
 | **Required baselines** | None. The comparison is between integration routes, not between predictions. CHAP's own built-in baseline, if the evaluation entry point produces one by default, is reported as it comes. |
@@ -158,7 +186,7 @@ Identical for both routes, and the only place a route-specific value appears is 
 repository URL. A discovering agent is given, and is given nothing else:
 
 1. The model repository URL for its route, and nothing about any other route or model.
-2. That CHAP is installed on this machine as `chap` at version 2.1.0, and that its task is
+2. That CHAP is installed on this machine as `chap` at version 2.3.1, and that its task is
    to find out how to run **this** model through CHAP and obtain an evaluation of its
    predictions.
 3. The absolute paths of the three archived Lao data files, and that the evaluation is to be
@@ -170,10 +198,30 @@ repository URL. A discovering agent is given, and is given nothing else:
    failure.
 6. That it works only from public material it retrieves itself, plus the platform installed
    on the machine.
+7. That it must reach CHAP's **default** evaluation output for this model and keep every file
+   that produces — metrics and the default predicted-versus-observed plot included — under
+   `results/`, finding out for itself what further step beyond `chap eval`, if any, that
+   takes (§2b.2).
+8. That it must leave behind, at `scripts/run_route.sh`, a script that reproduces its route
+   from nothing on a machine holding none of this project's state, and must **run that script
+   in a clean shell** and record the outcome rather than writing it from memory at the end
+   (§2b.1).
 
 ## 4b. Decisions settled during execution
 
 Append-only, oldest first; each entry with its basis and its agency.
+
+### 2026-09-22 — Iteration 2: the same plan, re-run against an upgraded platform
+
+| Decision | Basis | Agency |
+|---|---|---|
+| The whole of iteration 1 is frozen to `Archive/version_1_old_chapcore/`, the live tree emptied, and this plan re-run from batch 1 | The human's instruction. Iteration 1 ran on `chap-core` 2.1.0, whose environment had resolved `chapkit` 1.1.0, and route A's central result — that it does not run as published — is a property of that resolved pair rather than of the chapkit mechanism. Re-running is the only way to find out what the two routes cost on a current platform | `human-set` |
+| The platform anchor is re-pinned to `chap-core` **2.3.1**, resolving `chapkit` 2.1.0 and `servicekit` 2.0.2, already installed on the machine when iteration 2 began | It is the current release, and it is the first `chap-core` whose requirement is `chapkit>=2.1.0,<3`; 2.2.0 and 2.3.0 both cap `chapkit<2` | `human-set` |
+| The data anchor and both model anchors are **not** re-fetched: they stay at the commits iteration 1 pinned | The platform is meant to be the only anchor that differs between the two iterations. Re-fetching risks the upstream repositories having moved and would confound a difference in route cost with a difference in the model or the data | `agent-autonomous` |
+| Iteration 1's findings are given to neither discovering agent, are read by none of iteration 2's reports, and the new overview makes **no** before/after comparison with iteration 1 | §3's contamination rule applies between iterations as it does between routes: an agent told that route A failed last time is not discovering route A. The human chose additionally that the overview stand alone, so iteration 2 is an independent measurement rather than half of a pair | `human-set` (that the overview stands alone); `agent-on-human-assessment` (extending §3 across iterations) |
+| The route A container image left on disk by iteration 1 was deleted before batch 3 | An image already built is ~22 minutes of route A's cost not paid, and §2b.1 requires a recipe verified from nothing. Measuring route A against a warm cache would understate it and would leave the recipe's build path untested | `human-set` |
+| **The orchestrating agent is contaminated for iteration 2** — it knows both routes' iteration-1 findings in full — and this is recorded rather than worked around | §3 anticipates unavoidable orchestrator exposure and requires a contamination note instead of a pretence. The mitigation is that each discovering agent is a fresh agent given the §4 brief verbatim and nothing else, so the discovery itself is uncontaminated; what the orchestrator cannot certify is that its own choices about what to hand over carried nothing extra. The note goes in both route provenance records | `agent-autonomous` |
+| The project now ends with one overview carrying, per route, a from-scratch recipe verified in a clean shell and the route's default CHAP evaluation with at least one figure embedded — the new §2b | The human's instruction. Iteration 1's overview said what the routes cost but left a reader who wanted to run one themselves to reconstruct the commands from a discovery log, and reported metrics without ever showing what the models predicted | `human-set` |
 
 ### 2026-09-22 — An overview document, requested outside the plan
 
@@ -245,6 +293,25 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 
 ## 6. Batch ledger
 
+### Iteration 2 — `chap-core` 2.3.1 (live)
+
+| Batch | Phase | Aim | Status |
+|---|---|---|---|
+| 1 | A — Orient & set up | Read `readme-at-start.md`, `AGENTS.md`, `MOTIVATION.md`. Re-pin and archive the platform anchor: `chap --version`, the resolved `chapkit`/`servicekit` versions, the install metadata and the dependency freeze, under `Archive/platform-chap/` with `provenance.md`. Confirm the data and both model anchors are present and unchanged at their pinned commits, and re-verify the data checksums. Re-read the Lao schema and record the target and resolution from the file. Write the root `analysis/claim.md` and the tree's top level. No model is run. | open |
+| 2 | A (cont.) | Re-establish the instrument: the `discovery_log.tsv` column format and the log-summarising script with its test, so both routes log into the same shape and are measured by one implementation. Confirm the Docker daemon state and that no route A image is cached. | open |
+| 3 | B — Route A | Node `analysis/02_routeA_chapkit`. An isolated agent, on the §4 brief verbatim, discovers how to run `chapkit_ghr_model` through CHAP, obtains its default evaluation on the Lao data, logs contemporaneously, and leaves a from-scratch `run_route.sh` it has itself run in a clean shell (§2b). The orchestrator stores what comes back, writes provenance including the contamination note of §4b, and does not correct the route's findings. | open |
+| 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3 or of iteration 1. | open |
+| 5 | C — Per-route reports | Per route: (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | open |
+| 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Which was easier to find out about, which easier to carry out, the evidence for each statement, and what one run per route can and cannot resolve. | open |
+| 7 | D — Repeatability | Does each route run again, from clean? Re-run each route's own `run_route.sh` end to end; record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). This batch is also what verifies each recipe against §2b.1. | open |
+| 8 | E — The overview | Write the overview document §2b specifies: the narrative, both routes' verified from-scratch recipes, and both routes' default evaluations with at least one figure embedded and the full output linked. Standing alone — no comparison with iteration 1. Wire it in from `readme-at-start.md`. | open |
+| 9 | F — Claims, validation & release | Build the claim collection (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. Then the manuscript section(s) this project supports, the release scan, and the human's decision on the remote. | open |
+
+### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
+
+Kept for the record of what was run and in what order. Its outputs are not in the live tree
+and are not read by iteration 2.
+
 | Batch | Phase | Aim | Status |
 |---|---|---|---|
 | 1 | A — Orient & set up | Read `readme-at-start.md`, `AGENTS.md`, `MOTIVATION.md`. Pin and archive the three anchors: CHAP's installed version and install metadata; both model repositories at a named commit; the Lao data files with `sha256sums.txt`. Establish each one's licence. Read the Lao schema and record the target and resolution. Write the root `analysis/claim.md` and the tree's top level. Raise what is still open. No model is run. | done |
@@ -262,22 +329,30 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 
 *(One link per completed batch, added by `/do`. Never overwritten.)*
 
-### Iteration 1
+### Iteration 2 — reports
+
+*(Nothing yet.)*
+
+### Iteration 1 — reports, archived with the run
+
+The documents these link to are under `Archive/version_1_old_chapcore/AI-generated/`.
+
+#### `/do` run 1
 
 - [[26-09-21_b01_anchors]]
 
-### Iteration 2
+#### `/do` run 2
 
 - [[26-09-21_b02_instrument]]
 
-### Iteration 3
+#### `/do` run 3
 
 - [[26-09-21_b05_routeReports]]
 
-### Iteration 4
+#### `/do` run 4
 
 - [[26-09-21_b06_comparativeReport]]
 
-### Iteration 5
+#### `/do` run 5
 
 - [[26-09-22_overviewV1]]

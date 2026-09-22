@@ -24,6 +24,6 @@ meantime. If a derived document is wrong, its source is wrong.
 
 ## Currently here
 
-- `overview/26-09-22_overviewV1.md` — **start here**.
-- `batch-reports/` — batches 1, 2, 5 and 6.
-- `hierarchical-report/` — generated 2026-09-21; contents gitignored, `provenance.md` tracked.
+Empty. Iteration 2 began on 2026-09-22 and has produced no derived documents yet; iteration
+1's are frozen under `Archive/version_1_old_chapcore/AI-generated/` and are not read from
+here.

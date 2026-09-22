@@ -30,6 +30,20 @@ replaced by an updated import.
 - **`plan-as-delivered/`** holds the plan as it stood before the first batch ran, so that the
   live plan's drift can be measured against it.
 
+- **`version_1_old_chapcore/`** is the exception to "imported material": it is this project's
+  own iteration 1, frozen whole when the live tree was emptied to re-run the same plan against
+  an upgraded platform. It sits here because what Archive guarantees — never edited, never
+  read back into the live analysis — is exactly what a superseded iteration needs.
+
 ## Currently here
 
-Nothing yet — the project's anchors (`readme-at-start.md`) have not been fetched.
+- `data-lao/` — the Lao admin-1 monthly CHAP dataset, `dhis2/climate-health-data` @ `af362d5`,
+  with `sha256sums.txt`. No licence declared upstream.
+- `model-route-a/` — `chap-models/chapkit_ghr_model` @ `60b16a2`, GPL-3.0.
+- `model-route-b/` — `dhis2-chap/minimalist_example_uv` @ `5cd8a12`. No licence declared
+  upstream.
+- `platform-chap/` — the platform pin for the iteration now running. Re-written per
+  iteration; the superseded one goes into that iteration's snapshot.
+- `plan-as-delivered/` — the plan as it stood before the first batch ever ran.
+- `version_1_old_chapcore/` — iteration 1 entire: its plan, its 2.1.0 platform pin, its claim
+  tree with both discovery logs, its batch reports and overview, and its claims.
