@@ -13,3 +13,8 @@ step	ts_utc	kind	ref	outcome	note
 12	2026-09-22T18:26:09Z	milestone	model_runs_standalone	ok	isolated_run.py trains and predicts on the bundled sample data outside CHAP
 13	2026-09-22T18:26:37Z	command	chap sanity-check-model --model-url .	failed	FileNotFoundError: site-packages/example_data/hydromet_5_filtered.csv missing from the chap-core 2.3.1 install; default dataset not shipped
 14	2026-09-22T18:26:37Z	blocker	chap-core 2.3.1 ships no example_data/hydromet_5_filtered.csv	open	sanity-check-model defaults to a bundled dataset that is absent from the wheel; will pass --dataset-path instead
+15	2026-09-22T18:27:39Z	blocker	chap-core 2.3.1 ships no example_data/hydromet_5_filtered.csv	resolved	worked around outside the model by passing --dataset-path with the Lao CSV
+16	2026-09-22T18:27:39Z	command	chap sanity-check-model --model-url . --dataset-path <lao csv>	ok	CHAP read the MLproject, built the uv env, trained and predicted; no traceback
+17	2026-09-22T18:27:39Z	milestone	model_registered_with_chap	ok	chap sanity-check-model loads the MLproject directory as a model and completes train+predict
+18	2026-09-22T18:28:05Z	resource	site-packages/chap_core/cli_endpoints/_common.py	used	discover_geojson() auto-loads a sibling <stem>.geojson beside the --dataset-csv, which is how the Lao polygons enter the run without a CLI flag
+19	2026-09-22T18:28:05Z	decision	run chap eval from a scratchpad clone, with --output-file absolute into the node results dir	used	CHAP writes a runs/<timestamp>/ tree into the CWD; keeping the CWD outside the repo and copying the run tree in afterwards avoids writing outside the node
