@@ -1,0 +1,13 @@
+# Host prerequisites for the routes, as found before either route ran
+
+captured: 2026-09-22T17:56:29Z
+
+host_arch	arm64
+docker_server_version	27.4.0
+docker_arch_os	aarch64/linux
+n_images_present	4
+route_a_model_image_cached	no
+
+## Images present that mention chapkit or a chap-models repository
+
+ghcr.io/chap-models/chapkit_ewars_model:latest	4.73GB	created 3 months ago

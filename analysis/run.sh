@@ -12,3 +12,4 @@ PYTHON="$REPO_ROOT/environment/env/bin/python"
 
 # Sub-analyses: every child runs, in order.
 bash "01_anchors/run.sh"
+bash "04_comparison/run.sh"
