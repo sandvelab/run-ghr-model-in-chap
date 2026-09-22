@@ -8,12 +8,11 @@ work is done here.
 
 ---
 
-> **Iteration 2 is running and has produced nothing yet.** The project's single entry point —
-> the overview saying what was asked, what came out and where the detail is — is written in
-> batch 8 and will appear under `AI-generated/overview/`. Until then this file is the whole
-> map. Iteration 1, run against `chap-core` 2.1.0, is frozen whole at
-> `Archive/version_1_old_chapcore/`; it is **not** read by iteration 2 and its findings are
-> given to neither discovering agent.
+> **Start with the overview**: `AI-generated/overview/26-09-22_overviewV1.md`. It says what was
+> asked, what came out, where the detail is, and carries a from-scratch recipe and the default
+> CHAP evaluation figure for each route. This file says what the project *is*; the overview says
+> what it *found*. Iteration 1, run against `chap-core` 2.1.0, is frozen whole at
+> `Archive/version_1_old_chapcore/`; it is not read by iteration 2.
 
 ## The project
 
@@ -47,14 +46,15 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 ## The article
 
 - **Target venue**: not yet decided.
-- **Status**: **iteration 2, batches 1-4 done.** Both routes reached a CHAP evaluation on the
+- **Status**: **iteration 2, batches 1-8 done.** Both routes reached a CHAP evaluation on the
   Lao data, each discovered by a separate agent that knew nothing of the other or of iteration
   1. Both models ran **as published**: nothing was interposed and neither model was modified.
-  Open: the per-route and comparative reports, repeatability, the overview §2b specifies, and
-  claims and validation. Still carried forward from iteration 1: the human's decision on the
-  two undeclared licences, and the `<PARENT_DIR>`/`<HOME>` placeholders in
-  `.claude/settings.json`. Newly raised: `origin` points at the starting-point template
-  repository and the branch is ahead of it; nothing has been pushed.
+  Re-run from clean, route A completed 4 of 4 and route B 2 of 2. Route A costs more on every
+  effort statistic that orders, and the one difference of kind is that it needs a container
+  runtime and route B does not. Open: batch 9 — the claim collection and the three validation
+  passes. Carried forward for the human: the two undeclared licences, the `<PARENT_DIR>`/`<HOME>`
+  placeholders in `.claude/settings.json`, and that `origin` points at the starting-point
+  template repository with this branch ahead of it (nothing has been pushed).
 - **Manuscript**: `Human-AI-collaboration/manuscript/` (empty).
 - **The plan being executed**: `Human-input/Plans for AI generation/26-09-21_chapModelIntegrationRoutes.md`.
   It carries the batch ledger (§6); `/do` runs the next open batch and stops.

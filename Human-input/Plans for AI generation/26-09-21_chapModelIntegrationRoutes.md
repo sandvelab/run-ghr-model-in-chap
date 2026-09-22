@@ -302,13 +302,13 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | Batch | Phase | Aim | Status |
 |---|---|---|---|
 | 1 | A — Orient & set up | Read `readme-at-start.md`, `AGENTS.md`, `MOTIVATION.md`. Re-pin and archive the platform anchor: `chap --version`, the resolved `chapkit`/`servicekit` versions, the install metadata and the dependency freeze, under `Archive/platform-chap/` with `provenance.md`. Confirm the data and both model anchors are present and unchanged at their pinned commits, and re-verify the data checksums. Re-read the Lao schema and record the target and resolution from the file. Write the root `analysis/claim.md` and the tree's top level. No model is run. | done |
-| 2 | A (cont.) | Re-establish the instrument: the `discovery_log.tsv` column format and the log-summarising script with its test, so both routes log into the same shape and are measured by one implementation. Confirm the Docker daemon state and that no route A image is cached. | open |
-| 3 | B — Route A | Node `analysis/02_routeA_chapkit`. An isolated agent, on the §4 brief verbatim, discovers how to run `chapkit_ghr_model` through CHAP, obtains its default evaluation on the Lao data, logs contemporaneously, and leaves a from-scratch `run_route.sh` it has itself run in a clean shell (§2b). The orchestrator stores what comes back, writes provenance including the contamination note of §4b, and does not correct the route's findings. | open |
-| 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3 or of iteration 1. | open |
-| 5 | C — Per-route reports | Per route: (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | open |
-| 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Which was easier to find out about, which easier to carry out, the evidence for each statement, and what one run per route can and cannot resolve. | open |
-| 7 | D — Repeatability | Does each route run again, from clean? Re-run each route's own `run_route.sh` end to end; record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). This batch is also what verifies each recipe against §2b.1. | open |
-| 8 | E — The overview | Write the overview document §2b specifies: the narrative, both routes' verified from-scratch recipes, and both routes' default evaluations with at least one figure embedded and the full output linked. Standing alone — no comparison with iteration 1. Wire it in from `readme-at-start.md`. | open |
+| 2 | A (cont.) | Re-establish the instrument: the `discovery_log.tsv` column format and the log-summarising script with its test, so both routes log into the same shape and are measured by one implementation. Confirm the Docker daemon state and that no route A image is cached. | done |
+| 3 | B — Route A | Node `analysis/02_routeA_chapkit`. An isolated agent, on the §4 brief verbatim, discovers how to run `chapkit_ghr_model` through CHAP, obtains its default evaluation on the Lao data, logs contemporaneously, and leaves a from-scratch `run_route.sh` it has itself run in a clean shell (§2b). The orchestrator stores what comes back, writes provenance including the contamination note of §4b, and does not correct the route's findings. | done |
+| 4 | B — Route B | Node `analysis/03_routeB_mlproject`. The same, for `minimalist_example_uv`, by a second isolated agent that knows nothing of batch 3 or of iteration 1. | done |
+| 5 | C — Per-route reports | Per route: (a) resources used, (b) the process of finding out, (c) the working invocation, (d) the results obtained — every count in (a)–(b) read from the summarising script's output file, every result in (d) read from the file CHAP wrote. | done |
+| 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Which was easier to find out about, which easier to carry out, the evidence for each statement, and what one run per route can and cannot resolve. | done |
+| 7 | D — Repeatability | Does each route run again, from clean? Re-run each route's own `run_route.sh` end to end; record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). This batch is also what verifies each recipe against §2b.1. | done |
+| 8 | E — The overview | Write the overview document §2b specifies: the narrative, both routes' verified from-scratch recipes, and both routes' default evaluations with at least one figure embedded and the full output linked. Standing alone — no comparison with iteration 1. Wire it in from `readme-at-start.md`. | done |
 | 9 | F — Claims, validation & release | Build the claim collection (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. Then the manuscript section(s) this project supports, the release scan, and the human's decision on the remote. | open |
 
 ### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
@@ -336,6 +336,10 @@ and are not read by iteration 2.
 ### Iteration 2 — reports
 
 - [[26-09-22_b01_anchors]]
+- [[26-09-22_b03b04_routesDiscovered]]
+- [[26-09-22_b05_routeReports]]
+- [[26-09-22_b06_comparativeReport]]
+- [[26-09-22_overviewV1]]
 
 ### Iteration 1 — reports, archived with the run
 
