@@ -9,3 +9,7 @@ step	ts_utc	kind	ref	outcome	note
 8	2026-09-22T18:25:05Z	command	chap --help; chap eval --help	ok	chap 2.3.1 eval takes MODEL-NAME DATASET-CSV OUTPUT-FILE plus --plot; README invocation matches this signature
 9	2026-09-22T18:25:19Z	resource	Archive/data-lao/chap_LAO_admin1_monthly_schema.json	used	confirms the CSV carries time_period, location, disease_cases, rainfall, mean_temperature -- exactly the names the model and chap eval expect, so no --data-source-mapping is needed
 10	2026-09-22T18:25:19Z	command	head/cut on Archive/data-lao/chap_LAO_admin1_monthly.csv	ok	2808 data rows, 18 admin-1 locations LA-AT..LA-XN, monthly 1998-01 to 2010-12
+11	2026-09-22T18:26:09Z	command	uv run python isolated_run.py	ok	uv 0.5.26 created .venv, installed 10 packages, trained and wrote output/predictions.csv
+12	2026-09-22T18:26:09Z	milestone	model_runs_standalone	ok	isolated_run.py trains and predicts on the bundled sample data outside CHAP
+13	2026-09-22T18:26:37Z	command	chap sanity-check-model --model-url .	failed	FileNotFoundError: site-packages/example_data/hydromet_5_filtered.csv missing from the chap-core 2.3.1 install; default dataset not shipped
+14	2026-09-22T18:26:37Z	blocker	chap-core 2.3.1 ships no example_data/hydromet_5_filtered.csv	open	sanity-check-model defaults to a bundled dataset that is absent from the wheel; will pass --dataset-path instead

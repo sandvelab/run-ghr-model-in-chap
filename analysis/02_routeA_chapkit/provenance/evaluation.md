@@ -60,3 +60,37 @@ contamination: the discovering agent was a fresh agent given the plan's §4 brie
 agency: `agent-autonomous` (every choice in the route); `human-set` (the data, the model and
   the platform)
 information: `agent-retrieved`
+
+---
+
+## Appended 2026-09-22 — the two figures rendered to raster
+
+result: results/eval/evaluation_plot.png
+        sha256:930493efe23a66d8309fb117cca033a62b0386f8079cf4608cd644245adb7190
+        results/eval/predicted_vs_actual.png
+        sha256:111c21d6d2f458604d09067b00e3118c48dca6f5fbd466c4fecf2dabaf02d66a
+script: none — a rendering of the two HTML files CHAP wrote, not a new plot
+        results/eval/evaluation.html  sha256:d516e847cbc552cb19d76a4929810c3df1f1ebc5573a9e23b72c92f2cd542b50
+        results/eval/predicted_vs_actual.html  sha256:790b4e97f22ab1815ec89636db2a14d8bdd34683006adec694db2baf8eb9a248
+invocation: the two HTML files served over http://127.0.0.1:8731 from the repository root and
+  opened in Chrome at a 1400x1000 window; a viewport screenshot of each, converted to PNG with
+  `sips -s format png`, and the predicted-versus-actual one cropped to its content with
+  `sips -c 410 1010`
+inputs: the two HTML files above, as CHAP wrote them
+environment: none of this project's — Chrome and macOS `sips`
+seeds: none
+commit: 0edf636
+node: analysis/02_routeA_chapkit
+produced: 2026-09-22
+alternatives-considered: re-plotting the evaluation from `evaluation.nc` with a plotting
+  library of this project's own. Rejected: the figure the project is asked to show is **CHAP's
+  default output**, and a re-plot would be this project's picture of CHAP's numbers rather than
+  CHAP's own. It would also have meant adding a plotting library to the pinned analysis
+  environment, which currently declares no dependencies, for a figure that CHAP already draws.
+  The cost of rendering instead is that these PNGs are a **viewport** capture: CHAP's backtest
+  grid is 17 locations by 7 splits and the raster shows the first two locations across the
+  first three splits. The HTML beside it is the complete figure and is what the overview links
+  to; the raster is what it embeds. Rule 7's obligation is met by the values behind the plot
+  being stored in full as `evaluation.nc` and `metrics.csv`, which are CHAP's own outputs.
+agency: agent-autonomous
+information: agent-retrieved
