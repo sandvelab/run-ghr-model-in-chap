@@ -1,3 +1,44 @@
 step	ts_utc	kind	ref	outcome	note
 1	2026-09-22T18:00:08Z	milestone	first_doc_opened	ok	opening the model repository README on GitHub as the starting point
 2	2026-09-22T18:00:08Z	command	chap --version	ok	confirms chap 2.3.1 on PATH at ~/.local/bin/chap
+3	2026-09-22T18:00:35Z	resource	https://github.com/chap-models/chapkit_ghr_model	used	repo overview: chapkit service wrapping BSC GHRmodel on R-INLA, main.py + Dockerfile, AMD64-only, base image ghcr.io/dhis2-chap/chapkit-r-inla
+4	2026-09-22T18:02:05Z	resource	https://raw.githubusercontent.com/chap-models/chapkit_ghr_model/main/README.md	used	full README: chapkit service on :8000, prebuilt GHCR image via compose.ghcr.yml, amd64-only so arm64 runs under emulation, geometry names must match data exactly
+5	2026-09-22T18:02:05Z	blocker	host is arm64, model is amd64-only (R-INLA x86_64 binaries)	open	README says arm64 hosts run everything under qemu emulation: correct but slow, plus mbind noise
+6	2026-09-22T18:02:17Z	command	git clone --depth 1 https://github.com/chap-models/chapkit_ghr_model	ok	model source on the machine in scratchpad/work
+7	2026-09-22T18:02:17Z	milestone	model_obtained	ok	cloned into scratch working directory
+8	2026-09-22T18:02:17Z	command	chap --help	ok	eval, plot-backtest, export-metrics, model, sanity-check-model look relevant
+9	2026-09-22T18:02:36Z	command	chap eval --help	ok	eval accepts a chapkit service URL as MODEL-NAME plus --run-config.is-chapkit-model; --plot writes an HTML evaluation plot
+10	2026-09-22T18:02:53Z	resource	scratchpad clone: Makefile, compose.ghcr.yml, compose.yml	used	prebuilt image ghcr.io/chap-models/chapkit_ghr_model:latest exists; all docker invocations force --platform linux/amd64
+11	2026-09-22T18:02:53Z	decision	pull the published GHCR image rather than docker build the Dockerfile	used	README offers both; the published image is the artefact a user would get, and avoids a long emulated R build. Build kept as fallback.
+12	2026-09-22T18:02:53Z	command	docker pull --platform linux/amd64 ghcr.io/chap-models/chapkit_ghr_model:latest	ok	started in background, log at scratchpad/pull.log
+13	2026-09-22T18:03:09Z	blocker	ghcr.io/chap-models/chapkit_ghr_model:latest returns 401 unauthorized	open	correction to step 12: that pull FAILED, not ok - the published image is not anonymously pullable, so the route must build from the Dockerfile
+14	2026-09-22T18:03:21Z	resource	clone: Dockerfile	used	base ghcr.io/dhis2-chap/chapkit-r-inla:latest, installs cowplot+GHRexplore from CRAN and GHRmodel from gitlab.earth.bsc.es at a pinned sha; serves uvicorn main:app on 8000
+15	2026-09-22T18:03:21Z	command	docker build --platform linux/amd64 --progress=plain -t chapkit-ghr-model:latest .	ok	started in background; full build log kept for the cached-vs-fresh layer count
+16	2026-09-22T18:04:09Z	blocker	ghcr.io/chap-models/chapkit_ghr_model:latest returns 401 unauthorized	resolved	worked around outside the model by building the published Dockerfile locally instead of pulling
+17	2026-09-22T18:04:09Z	decision	record that the docker layer cache was already warm on this host	used	build finished in 27s with 7 of 8 stage layers CACHED and only the final chmod/useradd layer fresh; the host held pre-existing buildkit cache for this image, so this build time is not a from-scratch measurement
+18	2026-09-22T18:05:00Z	resource	installed chap_core/cli_endpoints/_common.py and evaluate.py (chap-core 2.3.1 source)	used	eval auto-discovers a sibling .geojson with the same stem as the CSV and loads it with Polygons.from_file(id_property='id')
+19	2026-09-22T18:05:25Z	decision	verified the supplied geojson before running anything	used	18 features with top-level id LA-XX matching the CSV location column exactly, so the model's strict geometry check should pass without patching names
+20	2026-09-22T18:05:25Z	command	docker run -d --platform linux/amd64 -p 8000:8000 --name ghr chapkit-ghr-model:latest	ok	starting the chapkit service
+21	2026-09-22T18:05:55Z	command	curl -s http://localhost:8000/health	ok	service healthy inside the emulated amd64 container
+22	2026-09-22T18:06:16Z	command	chap model schema http://localhost:8000	ok	CHAP reads the chapkit service's config schema over REST; all README config fields present
+23	2026-09-22T18:06:16Z	milestone	model_registered_with_chap	ok	chap model schema resolves the running service URL as a model
+24	2026-09-22T18:06:16Z	command	chap eval http://localhost:8000 <lao csv> results/eval/evaluation.nc --run-config.is-chapkit-model --plot	ok	launched with CHAP defaults (n_splits 7, n_periods 3, n_retrain 1); running in background, log results/eval/chap_eval.log
+25	2026-09-22T18:06:16Z	milestone	evaluation_started	ok	chap eval launched against the running chapkit service with the Lao admin-1 monthly CSV
+26	2026-09-22T18:10:59Z	command	chap export-metrics --help ; chap plot-backtest --help	ok	the steps beyond chap eval: export-metrics writes an aggregate metrics CSV from the .nc, plot-backtest renders it (default plot_type evaluation_plot)
+27	2026-09-22T18:13:06Z	milestone	evaluation_complete	ok	evaluation.nc and evaluation.html written after ~6 minutes wall clock, 7 splits, 17 regions
+28	2026-09-22T18:13:07Z	command	chap export-metrics evaluation.nc metrics.csv	ok	aggregate metrics CSV
+29	2026-09-22T18:13:14Z	command	chap plot-backtest evaluation.nc predicted_vs_actual.html --plot-type predicted_vs_actual	ok	explicit predicted-vs-observed rendering alongside the default evaluation_plot from --plot
+30	2026-09-22T18:13:25Z	blocker	correction to step 28: chap export-metrics evaluation.nc metrics.csv FAILED	open	INPUT-FILES is a list parameter so it swallowed both positionals: 'parameter --output-file requires an argument'
+31	2026-09-22T18:13:31Z	command	chap export-metrics --input-files evaluation.nc --output-file metrics.csv	ok	named flags are required because INPUT-FILES is variadic
+32	2026-09-22T18:13:31Z	blocker	correction to step 28: chap export-metrics evaluation.nc metrics.csv FAILED	resolved	use explicit --input-files/--output-file flags
+33	2026-09-22T18:14:15Z	decision	run_route.sh builds the Dockerfile rather than pulling the GHCR image	used	the published image is 401 unauthorized anonymously, so a machine holding none of this state cannot pull it; the clone+build path is the only reproducible one
+34	2026-09-22T18:14:15Z	decision	run_route.sh stages the csv and geojson side by side in its output dir	used	chap eval has no geojson option and discovers a sibling file with the same stem, so staging makes the convention hold wherever the source data lives
+35	2026-09-22T18:14:15Z	command	bash -lc 'env -i ... run_route.sh'	ok	launched in a clean shell in the background: no inherited env, hand-started service removed first, log at results/run_route_verify.log
+36	2026-09-22T18:15:31Z	blocker	run_route.sh under env -i failed preflight: docker not on the minimal PATH	open	docker lives in /usr/local/bin on this host; the script correctly refused rather than half-running
+37	2026-09-22T18:15:31Z	command	env -i HOME PATH=/Users/geirksa_1_2_3/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin bash run_route.sh	ok	relaunched with docker's directory on the clean PATH; still no inherited env beyond HOME and PATH
+38	2026-09-22T18:17:10Z	blocker	run_route.sh under env -i failed preflight: docker not on the minimal PATH	resolved	PATH now includes /usr/local/bin; the script got past preflight, cloned, built and is evaluating
+39	2026-09-22T18:20:11Z	resource	docker logs of the running service (predict stdout)	used	confirms bym2 spatial term was actually in the fitted formula, so the auto-discovered geojson did reach the model; ~200 mbind lines per call as emulation noise
+40	2026-09-22T18:21:46Z	command	run_route.sh (clean shell, env -i) end to end	ok	clone, build, serve, chap eval, export-metrics, plot-backtest all succeeded; outputs in results/route_run; MAE 128.48 vs 126.07 on the first run, INLA is not bit-reproducible as the model README states
+41	2026-09-22T18:21:46Z	decision	report build layers as 8/8 cached in the verification run	used	results/route_run/docker_build.log records 8 CACHED and 0 fresh; the host cache was already warm, so no layer was genuinely built from scratch in either build
+42	2026-09-22T18:22:11Z	decision	leave the two mis-marked rows (12, 28) in place and correct them with later rows	used	both were written before the command output was read; editing the log after the fact would defeat the instrument
+43	2026-09-22T18:22:20Z	milestone	evaluation_complete	ok	second time, via run_route.sh in a clean shell: results/route_run/evaluation.nc plus metrics.csv and both plots

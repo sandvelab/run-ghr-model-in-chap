@@ -1,0 +1,50 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.66kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for ghcr.io/dhis2-chap/chapkit-r-inla:latest
+#2 DONE 0.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [stage-0 1/9] FROM ghcr.io/dhis2-chap/chapkit-r-inla:latest@sha256:4758923d5b229c41fe7206f672d9b853edb143ec9c1aa11a96953a62f742c184
+#4 resolve ghcr.io/dhis2-chap/chapkit-r-inla:latest@sha256:4758923d5b229c41fe7206f672d9b853edb143ec9c1aa11a96953a62f742c184 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 300.49kB 0.0s done
+#5 DONE 0.0s
+
+#6 [stage-0 3/9] RUN R -q -e "install.packages(c('cowplot','GHRexplore'), repos='https://cloud.r-project.org')"     && R -q -e "stopifnot(requireNamespace('cowplot'), requireNamespace('GHRexplore'))"
+#6 CACHED
+
+#7 [stage-0 8/9] COPY scripts/ ./scripts/
+#7 CACHED
+
+#8 [stage-0 4/9] RUN git clone --branch "dhis2-workflow"         https://gitlab.earth.bsc.es/ghr/ghrmodel.git /tmp/ghrmodel     && git -C /tmp/ghrmodel checkout --quiet "b2f433bd7febc921f51f37cd7376e79cb8f12058"     && R -q -e "install.packages('/tmp/ghrmodel', repos=NULL, type='source')"     && R -q -e "library(GHRmodel); stopifnot(all(sapply(c('select_re','select_fe','select_report','fit_models','sample_ppd'), exists)))"     && rm -rf /tmp/ghrmodel
+#8 CACHED
+
+#9 [stage-0 5/9] COPY pyproject.toml uv.lock ./
+#9 CACHED
+
+#10 [stage-0 6/9] RUN --mount=type=cache,target=/root/.cache/uv     UV_PROJECT_ENVIRONMENT=/app/.venv uv sync --frozen --no-dev --no-install-project
+#10 CACHED
+
+#11 [stage-0 7/9] COPY main.py ./
+#11 CACHED
+
+#12 [stage-0 2/9] WORKDIR /work
+#12 CACHED
+
+#13 [stage-0 9/9] RUN chmod -R a+rX /usr/local/lib/R/site-library/INLA/bin     && chmod a+w /usr/local/lib/R/site-library/GHRmodel/templates     && groupadd --gid 10001 app     && useradd --uid 10001 --gid 10001 --create-home app     && mkdir -p /work/data     && chown app:app /work/data
+#13 CACHED
+
+#14 exporting to image
+#14 exporting layers done
+#14 writing image sha256:9a3ba126544f79d59b735daad8dcca04b61ea0ed9af363691b876d8aa12bf67e done
+#14 naming to docker.io/library/chapkit-ghr-model:route done
+#14 DONE 0.0s

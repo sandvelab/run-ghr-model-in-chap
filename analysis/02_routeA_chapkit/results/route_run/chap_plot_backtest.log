@@ -1,0 +1,4 @@
+2026-09-22T20:21:13 [INFO   ] Loading evaluation from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/route_run/evaluation.nc [chap_core.cli_endpoints.utils]
+2026-09-22T20:21:13 [INFO   ] Generating predicted_vs_actual plot [chap_core.cli_endpoints.utils]
+2026-09-22T20:21:20 [INFO   ] Saving plot to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/route_run/predicted_vs_actual.html [chap_core.cli_endpoints.utils]
+2026-09-22T20:21:20 [INFO   ] Plot saved to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/route_run/predicted_vs_actual.html [chap_core.cli_endpoints.utils]
