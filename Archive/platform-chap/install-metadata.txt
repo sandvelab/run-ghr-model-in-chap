@@ -1,0 +1,32 @@
+# CHAP platform, as installed on this machine
+
+chap --version: 2.3.1
+which chap: /Users/geirksa_1_2_3/.local/bin/chap
+captured: 2026-09-22T17:50:05Z
+
+## Resolved integration-relevant versions
+
+These are what a chapkit model service actually negotiates with. chap-core's own
+version does not determine them: chap-core 2.1.0 required chapkit>=0.27.0 with no upper
+bound, and 2.2.0 and 2.3.0 required chapkit<2. They are recorded in their own right.
+
+chap-core==2.3.1
+chapkit==2.1.0
+fastapi==0.141.1
+pydantic==2.13.5
+servicekit==2.0.2
+
+## uv tool list
+chap-core v2.3.1
+- chap
+jupyter-core v5.9.1
+- jupyter
+- jupyter-migrate
+- jupyter-troubleshoot
+
+## uv tool receipt (chap-core)
+[tool]
+requirements = [{ name = "chap-core" }]
+entrypoints = [
+    { name = "chap", install-path = "/Users/geirksa_1_2_3/.local/bin/chap" },
+]

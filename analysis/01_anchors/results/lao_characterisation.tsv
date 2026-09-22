@@ -1,0 +1,25 @@
+property	value	read_from
+dataset_name	CHAP Harmonized Dataset (LAO)	schema
+country_iso3	LAO	schema
+admin_level	1	schema
+temporal_resolution	monthly	schema
+target_column	disease_cases	schema field: Reported dengue cases aggregated to the time bucket and admin unit.
+target_unit	cases	schema
+target_provider	OpenDengue	schema
+primary_key	location+time_period	schema
+csv_columns	time_period+location+disease_cases+population+location_name+rainfall+mean_temperature+mean_relative_humidity	csv header
+covariates	population+rainfall+mean_temperature+mean_relative_humidity	csv header minus key, name and target
+n_rows	2808	csv
+n_units	18	csv
+n_periods	156	csv
+period_first	1998-01	csv
+period_last	2010-12	csv
+schema_time_range	1998-01..2010-12	schema
+n_rows_target_missing	233	csv
+n_rows_target_present	2575	csv
+units_with_no_target_at_all	LA-VI	csv
+n_units_with_target	17	csv
+n_missing_population	0	csv
+n_missing_rainfall	0	csv
+n_missing_mean_temperature	0	csv
+n_missing_mean_relative_humidity	0	csv

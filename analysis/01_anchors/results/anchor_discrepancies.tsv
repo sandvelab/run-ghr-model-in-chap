@@ -1,0 +1,4 @@
+discrepancy	where	declared	actual	note
+schema_row_count	schema.dataset.row_count	2575	2808	the schema's count equals the 2575 rows that have a target value, not the 2808 rows in the file
+geojson_filename	schema.dataset.admin_geojson_file	LAO_ADM1.geojson	chap_LAO_admin1_monthly.geojson	the schema names a boundary file that is not the one shipped beside the CSV
+target_gaps	csv column disease_cases	0 missing	233 missing	1 unit(s) have no target value at any period: LA-VI

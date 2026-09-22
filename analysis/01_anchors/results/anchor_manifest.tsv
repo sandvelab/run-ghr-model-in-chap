@@ -1,0 +1,9 @@
+anchor	path	pinned_by	recorded	actual	status	note
+data	data-lao/chap_LAO_admin1_monthly.csv	sha256	19488aa1fc4d961ae1a6aeb75b874789576877664fce47713628f497a06fff56	19488aa1fc4d961ae1a6aeb75b874789576877664fce47713628f497a06fff56	verified	248465 bytes
+data	data-lao/chap_LAO_admin1_monthly.geojson	sha256	cc823bf48dd3fc74f36bd8a652e03f51ca832e96ef42ebe5e098a94ca07e3389	cc823bf48dd3fc74f36bd8a652e03f51ca832e96ef42ebe5e098a94ca07e3389	verified	8440675 bytes
+data	data-lao/chap_LAO_admin1_monthly_schema.json	sha256	ff750db4202c32fc187b26bb3566b4f981b94467664502e76cbd09977dd06210	ff750db4202c32fc187b26bb3566b4f981b94467664502e76cbd09977dd06210	verified	3454 bytes
+model-route-a	model-route-a/repo	commit	60b16a2e929405ce95fae2043a63d7e27292ca0f	60b16a2e929405ce95fae2043a63d7e27292ca0f	present	https://github.com/chap-models/chapkit_ghr_model.git; 24 files; committed 2026-09-15T14:57:23+02:00
+model-route-b	model-route-b/repo	commit	5cd8a1267362d945491353fba1c63a408462fa17	5cd8a1267362d945491353fba1c63a408462fa17	present	https://github.com/dhis2-chap/minimalist_example_uv.git; 9 files; committed 2026-08-25T16:07:57+02:00
+platform	platform-chap/install-metadata.txt	chap --version	2.3.1	2.3.1	verified	176 packages frozen
+platform	platform-chap/chap-tool-freeze.txt	chapkit resolved	2.1.0	2.1.0	present	what a chapkit model service negotiates with; not determined by chap-core's version
+platform	platform-chap/chap-tool-freeze.txt	servicekit resolved	2.0.2	2.0.2	present	what a chapkit model service negotiates with; not determined by chap-core's version
