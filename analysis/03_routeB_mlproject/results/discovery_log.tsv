@@ -1,0 +1,11 @@
+step	ts_utc	kind	ref	outcome	note
+1	2026-09-22T18:24:18Z	command	chap --version	ok	CHAP CLI present at /Users/geirksa_1_2_3/.local/bin/chap, reports 2.3.1
+2	2026-09-22T18:24:18Z	command	docker info	ok	Docker 27.4.0 daemon running, context desktop-linux
+3	2026-09-22T18:24:31Z	milestone	first_doc_opened	ok	opening the model repository page at github.com/dhis2-chap/minimalist_example_uv
+4	2026-09-22T18:24:36Z	resource	https://github.com/dhis2-chap/minimalist_example_uv	used	README names MLproject/train.py/predict.py, requires uv, and gives a chap eval --model-name . --dataset-csv ... --plot invocation
+5	2026-09-22T18:24:45Z	command	git clone https://github.com/dhis2-chap/minimalist_example_uv.git	ok	clone succeeded into scratchpad work dir
+6	2026-09-22T18:24:45Z	milestone	model_obtained	ok	model source on the machine: MLproject, train.py, predict.py, pyproject.toml, input/, isolated_run.py
+7	2026-09-22T18:25:05Z	resource	https://github.com/dhis2-chap/minimalist_example_uv/blob/main/README.md	used	full README: MLproject uv_env spec, chap eval invocation, --plot flag, chap plot-backtest for other plot types; verified for chap-core 1.4.0 and 2.1.0
+8	2026-09-22T18:25:05Z	command	chap --help; chap eval --help	ok	chap 2.3.1 eval takes MODEL-NAME DATASET-CSV OUTPUT-FILE plus --plot; README invocation matches this signature
+9	2026-09-22T18:25:19Z	resource	Archive/data-lao/chap_LAO_admin1_monthly_schema.json	used	confirms the CSV carries time_period, location, disease_cases, rainfall, mean_temperature -- exactly the names the model and chap eval expect, so no --data-source-mapping is needed
+10	2026-09-22T18:25:19Z	command	head/cut on Archive/data-lao/chap_LAO_admin1_monthly.csv	ok	2808 data rows, 18 admin-1 locations LA-AT..LA-XN, monthly 1998-01 to 2010-12
