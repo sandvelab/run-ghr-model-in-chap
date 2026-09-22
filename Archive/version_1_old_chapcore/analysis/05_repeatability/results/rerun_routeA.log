@@ -1,0 +1,56 @@
+>>> chap 2.1.0
+>>> Model at 60b16a2e929405ce95fae2043a63d7e27292ca0f
+2026-09-21T15:54:33 [INFO   ] Loading dataset from /tmp/chapdata/chap_LAO_admin1_monthly.csv [root]
+2026-09-21T15:54:33 [INFO   ] Loading polygons from /tmp/chapdata/chap_LAO_admin1_monthly.geojson [root]
+Validation passed: no issues found.
+>>> Starting the chapkit service on :8000
+    healthy
+>>> Starting the chapkit 2.0 -> chap-core 2.1.0 info shim on :8010
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] setup plugin alembic.autogenerate.checkconstraint_byname [alembic.runtime.plugins]
+2026-09-21T15:54:41 [INFO   ] Loading model template from http://localhost:8010 [chap_core.cli_endpoints.model]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-09-21T15:54:42 [INFO   ] Auto-detected chapkit service at http://localhost:8010 [chap_core.external.external_model]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-09-21T15:54:42 [INFO   ] HTTP Request: GET http://localhost:8010/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+>>> chap eval (7 splits x 3 periods)
+2026-09-21T15:54:46 [INFO   ] Database URL not set [chap_core.database.database]
+2026-09-21T15:54:46 [INFO   ] Database url not set. Database operations will not work [chap_core.database.database]
+2026-09-21T15:54:46 [INFO   ] Evaluating model http://localhost:8010 with xarray/NetCDF output [chap_core.cli_endpoints.evaluate]
+2026-09-21T15:54:46 [INFO   ] Level set to INFO [root]
+2026-09-21T15:54:46 [INFO   ] Loading dataset from /tmp/chapdata/chap_LAO_admin1_monthly.csv [root]
+2026-09-21T15:54:46 [INFO   ] Loading polygons from /tmp/chapdata/chap_LAO_admin1_monthly.geojson [root]
+2026-09-21T15:54:46 [WARNING] Rejected regions: ['LA-VI'] due to missing target values for the whole training period [chap_core.rest_api.db_worker_functions]
+2026-09-21T15:54:46 [INFO   ] Remaining regions: ['LA-AT', 'LA-BK', 'LA-BL', 'LA-CH', 'LA-HO', 'LA-KH', 'LA-LM', 'LA-LP', 'LA-OU', 'LA-PH', 'LA-SL', 'LA-SV', 'LA-VT', 'LA-XA', 'LA-XE', 'LA-XI', 'LA-XN'] with 17 entries [chap_core.rest_api.db_worker_functions]
+2026-09-21T15:54:46 [INFO   ] Loading model template from http://localhost:8010 [chap_core.cli_endpoints.evaluate]
+2026-09-21T15:54:47 [INFO   ] Creating model configuration with name chapkit-ghr-model_config_1789998887027118 at http://localhost:8010. Data: {'name': 'chapkit-ghr-model_config_1789998887027118', 'data': {}} [chap_core.models.external_chapkit_model]
+2026-09-21T15:54:47 [INFO   ] Created model configuration with id 01M323YW4G8XC8ZWY2J3TZ02H7 at http://localhost:8010 [chap_core.models.external_chapkit_model]
+2026-09-21T15:54:47 [WARNING] Column 'mean_relative_humidity' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-21T15:54:47 [WARNING] Column 'mean_temperature' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-21T15:54:47 [WARNING] Column 'rainfall' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-21T15:54:47 [INFO   ] Running backtest with 7 splits, 3 periods, stride 1 [chap_core.cli_endpoints.evaluate]
+2026-09-21T15:54:52 [INFO   ] Job 01M323YX4FB1BVRN817NX6WCP0 status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T15:56:20 [INFO   ] Job 01M323Z1PXWGVZFQSPRB1Q55BR status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T15:58:02 [INFO   ] Job 01M3241QHKTKNE59Z29NP8FPVR status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T15:59:30 [INFO   ] Job 01M3244VQN7B63R8TS68YVT43S status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T16:00:53 [INFO   ] Job 01M3247H7EMPBD970MB0S193R6 status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T16:02:19 [INFO   ] Job 01M324A2M74G9VT9W6ZPP8TTAN status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T16:18:11 [INFO   ] Job 01M324CNWY35BR0YDHKTPB9NJ9 status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T16:19:49 [INFO   ] Job 01M324YFG08YGE6KGRADZ3670H status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-09-21T16:19:50 [INFO   ] Exporting evaluation to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_lao_ghrmodel.nc [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:19:50 [INFO   ] Evaluation complete. Results saved to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_lao_ghrmodel.nc [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:19:50 [INFO   ] Generating evaluation plot to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_lao_ghrmodel.html [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:19:51 [INFO   ] Plot saved to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_lao_ghrmodel.html [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:19:54 [INFO   ] Processing /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_lao_ghrmodel.nc [chap_core.cli_endpoints.utils]
+2026-09-21T16:20:03 [INFO   ] Metrics exported to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_metrics.csv [chap_core.cli_endpoints.utils]
+>>> Wrote:
+    /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_lao_ghrmodel.nc
+    /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_lao_ghrmodel.html
+    /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/eval_metrics.csv
+../02_routeA_chapkit/scripts/run_route.sh: line 85: 48090 Terminated: 15          python3 "$HERE/info_shim.py" "$SHIM_PORT" "http://localhost:$SVC_PORT" > /tmp/info_shim.log 2>&1

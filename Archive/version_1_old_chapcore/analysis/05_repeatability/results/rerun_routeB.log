@@ -1,0 +1,65 @@
+== chap version ==
+2.1.0
+== fetching model dhis2-chap/minimalist_example_uv @ 5cd8a1267362d945491353fba1c63a408462fa17 ==
+== copying input data ==
+== validating dataset against the model ==
+2026-09-21T16:20:06 [INFO   ] Loading dataset from data/chap_LAO_admin1_monthly.csv [root]
+2026-09-21T16:20:06 [INFO   ] Loading polygons from data/chap_LAO_admin1_monthly.geojson [root]
+2026-09-21T16:20:06 [INFO   ] Loading model template from model/minimalist_example_uv [chap_core.cli_endpoints.validate]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.checkconstraint_byname [alembic.runtime.plugins]
+
+Warnings (4):
+  - Column 'mean_relative_humidity' is present in the dataset but not used by the model
+  - Column 'mean_temperature' is present in the dataset but not used by the model
+  - Column 'population' is present in the dataset but not used by the model
+  - Column 'rainfall' is present in the dataset but not used by the model
+== running backtest evaluation ==
+2026-09-21T16:20:17 [INFO   ] Database URL not set [chap_core.database.database]
+2026-09-21T16:20:17 [INFO   ] Database url not set. Database operations will not work [chap_core.database.database]
+2026-09-21T16:20:17 [INFO   ] Evaluating model model/minimalist_example_uv with xarray/NetCDF output [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:20:17 [INFO   ] Level set to INFO [root]
+2026-09-21T16:20:17 [INFO   ] Loading dataset from data/chap_LAO_admin1_monthly.csv [root]
+2026-09-21T16:20:18 [INFO   ] Loading polygons from data/chap_LAO_admin1_monthly.geojson [root]
+2026-09-21T16:20:18 [WARNING] Rejected regions: ['LA-VI'] due to missing target values for the whole training period [chap_core.rest_api.db_worker_functions]
+2026-09-21T16:20:18 [INFO   ] Remaining regions: ['LA-AT', 'LA-BK', 'LA-BL', 'LA-CH', 'LA-HO', 'LA-KH', 'LA-LM', 'LA-LP', 'LA-OU', 'LA-PH', 'LA-SL', 'LA-SV', 'LA-VT', 'LA-XA', 'LA-XE', 'LA-XI', 'LA-XN'] with 17 entries [chap_core.rest_api.db_worker_functions]
+2026-09-21T16:20:18 [INFO   ] Loading model template from model/minimalist_example_uv [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:20:19 [WARNING] Column 'mean_relative_humidity' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-21T16:20:19 [WARNING] Column 'mean_temperature' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-21T16:20:19 [WARNING] Column 'population' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-21T16:20:19 [WARNING] Column 'rainfall' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-21T16:20:19 [WARNING] Model has not specified minimum and maximum predicted length [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:20:19 [INFO   ] Running backtest with 7 splits, 3 periods, stride 1 [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:20:19 [INFO   ] Writing polygons to runs/minimalist_example_uv/2026-09-21_16-20-18_ad75b349/polygons.geojson [root]
+2026-09-21T16:20:20 [INFO   ] Will pass polygons file runs/minimalist_example_uv/2026-09-21_16-20-18_ad75b349/polygons.geojson to train command and predict command [root]
+2026-09-21T16:20:20 [WARNING] Dataset has polygons, but command python train.py {train_data} {model} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:09 [WARNING] Dataset has polygons, but command python predict.py {model} {historic_data} {future_data} {out_file} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:10 [WARNING] Dataset has polygons, but command python predict.py {model} {historic_data} {future_data} {out_file} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:11 [WARNING] Dataset has polygons, but command python predict.py {model} {historic_data} {future_data} {out_file} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:23 [WARNING] Dataset has polygons, but command python predict.py {model} {historic_data} {future_data} {out_file} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:24 [WARNING] Dataset has polygons, but command python predict.py {model} {historic_data} {future_data} {out_file} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:25 [WARNING] Dataset has polygons, but command python predict.py {model} {historic_data} {future_data} {out_file} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:26 [WARNING] Dataset has polygons, but command python predict.py {model} {historic_data} {future_data} {out_file} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-21T16:21:29 [INFO   ] Exporting evaluation to results/eval.nc [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:21:30 [INFO   ] Evaluation complete. Results saved to results/eval.nc [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:21:30 [INFO   ] Generating evaluation plot to results/eval.html [chap_core.cli_endpoints.evaluate]
+2026-09-21T16:21:32 [INFO   ] Plot saved to results/eval.html [chap_core.cli_endpoints.evaluate]
+== exporting metrics ==
+2026-09-21T16:21:33 [INFO   ] Processing results/eval.nc [chap_core.cli_endpoints.utils]
+/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/crps.py:67: RuntimeWarning: invalid value encountered in log1p
+  log_samples = np.log1p(samples)
+/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/winkler_score.py:94: RuntimeWarning: invalid value encountered in log1p
+  log_samples = np.log1p(samples)
+/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/winkler_score.py:94: RuntimeWarning: invalid value encountered in log1p
+  log_samples = np.log1p(samples)
+2026-09-21T16:21:34 [INFO   ] Metrics exported to results/eval_metrics.csv [chap_core.cli_endpoints.utils]
+
+== done ==
+  results/eval.nc           backtest forecasts + observations (NetCDF)
+  results/eval.html         evaluation plot
+  results/eval_metrics.csv  aggregate metrics

@@ -1,0 +1,16 @@
+2026-09-21T16:20:06 [INFO   ] Loading dataset from data/chap_LAO_admin1_monthly.csv [root]
+2026-09-21T16:20:06 [INFO   ] Loading polygons from data/chap_LAO_admin1_monthly.geojson [root]
+2026-09-21T16:20:06 [INFO   ] Loading model template from model/minimalist_example_uv [chap_core.cli_endpoints.validate]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins]
+2026-09-21T16:20:07 [INFO   ] setup plugin alembic.autogenerate.checkconstraint_byname [alembic.runtime.plugins]
+
+Warnings (4):
+  - Column 'mean_relative_humidity' is present in the dataset but not used by the model
+  - Column 'mean_temperature' is present in the dataset but not used by the model
+  - Column 'population' is present in the dataset but not used by the model
+  - Column 'rainfall' is present in the dataset but not used by the model

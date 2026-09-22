@@ -1,0 +1,25 @@
+step	ts_utc	kind	ref	outcome	note
+1	2026-09-21T11:36:13Z	milestone	first_doc_opened	ok	started from the installed CLI help rather than the web docs
+2	2026-09-21T11:36:13Z	command	chap --help	ok	lists eval forecast model sanity-check-model validate among others
+3	2026-09-21T11:36:32Z	command	chap eval --help	ok	signature is chap eval MODEL-NAME DATASET-CSV OUTPUT-FILE; model-name may be a local dir or GitHub URL
+4	2026-09-21T11:37:05Z	command	curl -sSL -o mex.tar.gz https://codeload.github.com/dhis2-chap/minimalist_example_uv/tar.gz/5cd8a1267362d945491353fba1c63a408462fa17	ok	tarball download instead of git clone; git commands are forbidden in this task
+5	2026-09-21T11:37:05Z	milestone	model_obtained	ok	extracted to /tmp/ghr/minimalist_example_uv-5cd8a12...; 8 files incl MLproject train.py predict.py pyproject.toml
+6	2026-09-21T11:37:05Z	resource	https://github.com/dhis2-chap/minimalist_example_uv/blob/5cd8a1267362d945491353fba1c63a408462fa17/README.md	used	gives the exact chap eval invocation and says verified for chap-core 1.4.0 and 2.1.0
+7	2026-09-21T11:37:05Z	resource	https://github.com/dhis2-chap/minimalist_example_uv/blob/5cd8a1267362d945491353fba1c63a408462fa17/MLproject	used	uv_env: pyproject.toml plus train and predict entry points; this is what CHAP reads to register the model
+8	2026-09-21T11:38:16Z	command	uv run python isolated_run.py	ok	uv 0.5.26 built a .venv with CPython 3.13.0 and 10 packages in ~50s; wrote output/model.pkl and output/predictions.csv
+9	2026-09-21T11:38:16Z	milestone	model_runs_standalone	ok	linear regression trains and predicts on the bundled synthetic input/ data before any CHAP involvement
+10	2026-09-21T12:04:37Z	decision	copy the three read-only Lao files into ./data/ before use	used	task forbids modifying the originals; chap auto-picked up the geojson because it shares the csv basename
+11	2026-09-21T12:04:37Z	command	chap validate --dataset-csv data/chap_LAO_admin1_monthly.csv --model-name model/minimalist_example_uv	ok	no errors but 4 warnings: rainfall mean_temperature mean_relative_humidity population all reported as not used by the model
+12	2026-09-21T12:04:37Z	decision	treat the validate warnings as a possible blocker rather than noise	used	MLproject declares no covariates so CHAP may not hand rainfall/mean_temperature to train.py; run the eval and see
+13	2026-09-21T12:05:57Z	milestone	model_registered_with_chap	ok	chap loaded model/minimalist_example_uv as a model template straight from the MLproject file; no registry step exists for a local dir
+14	2026-09-21T12:05:57Z	milestone	evaluation_started	ok	chap eval launched with default backtest params 7 splits 3 periods stride 1
+15	2026-09-21T12:05:57Z	command	chap eval --model-name model/minimalist_example_uv --dataset-csv data/chap_LAO_admin1_monthly.csv --output-file results/eval.nc --plot	ok	worked on the first attempt in ~57s; CHAP rejected region LA-VI for missing targets over the whole training period leaving 17 of 18
+16	2026-09-21T12:05:57Z	milestone	evaluation_complete	ok	results/eval.nc and results/eval.html written
+17	2026-09-21T12:05:57Z	resource	https://chap.dhis2.org/chap-modeling-platform/chap-cli/evaluation-workflow/	discarded	linked from the README for plot types; not needed because --plot already produced the html
+18	2026-09-21T12:06:28Z	resource	runs/minimalist_example_uv/2026-09-21_14-04-47_272e74e4/training_data.csv	used	proves CHAP did hand rainfall and mean_temperature to train.py despite the not-used-by-the-model warnings
+19	2026-09-21T12:06:28Z	command	chap export-metrics --input-files results/eval.nc --output-file results/eval_metrics.csv	ok	21 metrics; log1p RuntimeWarnings because the linear model predicts negative case counts
+20	2026-09-21T12:07:37Z	decision	leave backtest params at CHAP defaults (7 splits, 3 periods, stride 1, n_retrain 1)	used	the brief asks for an evaluation not a tuned one; defaults give 17 locations x 9 test periods x 3 horizons x 1 sample
+21	2026-09-21T12:07:37Z	decision	do not use Docker for this route	used	MLproject declares uv_env so CHAP runs the model through uv locally; Docker would only matter for a docker_env model
+22	2026-09-21T12:09:51Z	command	bash scripts/run_route.sh	ok	end-to-end rerun of the deliverable script from a fresh model download; reproduced eval.nc eval.html eval_metrics.csv
+23	2026-09-21T12:11:19Z	resource	https://chap.dhis2.org/chap-modeling-platform/chap-cli/evaluation-workflow/	discarded	read after the fact to check I had missed nothing; it confirms export-metrics and lists 5 plot types but taught me nothing I had not got from chap --help
+24	2026-09-21T12:34:28Z	decision	copy the final run dir CSVs to results/chap_run_artifacts/ then delete the 197MB nested venv trees under runs/	used	CHAP creates its uv venv at runs/<model>/<ts>/.venv relative to the run dir it is already inside so each eval leaves a doubly nested 197MB tree

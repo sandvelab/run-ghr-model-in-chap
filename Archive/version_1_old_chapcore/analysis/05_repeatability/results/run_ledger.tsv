@@ -1,0 +1,3 @@
+route	attempt_utc	script	exit_code	seconds	completed	metrics_archived_as
+A	2026-09-21T14:20:03Z	../02_routeA_chapkit/scripts/run_route.sh	0	1534	yes	results/history/A/20260921T142003Z_rerun.csv
+B	2026-09-21T14:21:36Z	../03_routeB_mlproject/scripts/run_route.sh	0	92	yes	results/history/B/20260921T142136Z_rerun.csv

@@ -1,0 +1,7 @@
+anchor	path	pinned_by	detail	integrity
+platform	Archive/platform-chap/	chap-core 2.1.0, installed as a uv tool	174 packages pinned in chap-tool-freeze.txt	digest not applicable: captured state of an external install
+model-route-a	Archive/model-route-a/repo	git commit 60b16a2e929405ce95fae2043a63d7e27292ca0f	https://github.com/chap-models/chapkit_ghr_model.git	licence file: LICENSE
+model-route-b	Archive/model-route-b/repo	git commit 5cd8a1267362d945491353fba1c63a408462fa17	https://github.com/dhis2-chap/minimalist_example_uv.git	licence file: NONE
+data	Archive/data-lao/chap_LAO_admin1_monthly.csv	sha256 in Archive/data-lao/sha256sums.txt	19488aa1fc4d961ae1a6aeb75b874789576877664fce47713628f497a06fff56	holds
+data	Archive/data-lao/chap_LAO_admin1_monthly.geojson	sha256 in Archive/data-lao/sha256sums.txt	cc823bf48dd3fc74f36bd8a652e03f51ca832e96ef42ebe5e098a94ca07e3389	holds
+data	Archive/data-lao/chap_LAO_admin1_monthly_schema.json	sha256 in Archive/data-lao/sha256sums.txt	ff750db4202c32fc187b26bb3566b4f981b94467664502e76cbd09977dd06210	holds
