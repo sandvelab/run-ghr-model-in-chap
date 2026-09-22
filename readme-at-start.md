@@ -47,13 +47,14 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 ## The article
 
 - **Target venue**: not yet decided.
-- **Status**: **iteration 2, batch 1.** The plan is being re-run from the start against
-  `chap-core` 2.3.1. Nothing has been produced yet under it. The live tree was emptied on
-  2026-09-22 after iteration 1 was frozen to `Archive/version_1_old_chapcore/`; the reason to
-  expect a different answer, and everything else settled in setting iteration 2 up, is in the
-  plan's §4b. Still open from iteration 1 and carried forward: the human's decision on the two
-  undeclared licences, and the `<PARENT_DIR>`/`<HOME>` placeholders in
-  `.claude/settings.json`.
+- **Status**: **iteration 2, batches 1-4 done.** Both routes reached a CHAP evaluation on the
+  Lao data, each discovered by a separate agent that knew nothing of the other or of iteration
+  1. Both models ran **as published**: nothing was interposed and neither model was modified.
+  Open: the per-route and comparative reports, repeatability, the overview §2b specifies, and
+  claims and validation. Still carried forward from iteration 1: the human's decision on the
+  two undeclared licences, and the `<PARENT_DIR>`/`<HOME>` placeholders in
+  `.claude/settings.json`. Newly raised: `origin` points at the starting-point template
+  repository and the branch is ahead of it; nothing has been pushed.
 - **Manuscript**: `Human-AI-collaboration/manuscript/` (empty).
 - **The plan being executed**: `Human-input/Plans for AI generation/26-09-21_chapModelIntegrationRoutes.md`.
   It carries the batch ledger (§6); `/do` runs the next open batch and stops.

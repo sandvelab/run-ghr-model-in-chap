@@ -1,0 +1,24 @@
+block	measure	Route A (chapkit)	Route B (MLproject)
+effort	Reached a CHAP evaluation	yes	yes
+effort	Information sources consulted	5	4
+effort	...that contributed	5	4
+effort	Commands run	11	9
+effort	...that failed	1	1
+effort	Blockers hit	2	1
+effort	...left unresolved	1	0
+effort	Dead ends	3	2
+effort	Judgment calls logged	3	1
+effort	Minutes to a written evaluation	13.0	4.8
+effort	Distinct log timestamps (integrity)	15	11
+effort	Most rows on one timestamp (integrity)	4	3
+prerequisite	Needs a container runtime	yes	no
+prerequisite	Needs a container image build	yes	no
+prerequisite	Hits a container registry	yes	no
+prerequisite	Ran the model outside CHAP first	no	yes
+prerequisite	Needed the platform's installed source	yes	yes
+result (per route, NOT compared)	MAE	126.07	171.96
+result (per route, NOT compared)	RMSE	242.77	358.93
+result (per route, NOT compared)	CRPS	150.25	171.96
+result (per route, NOT compared)	MAPE	150.80	383.16
+result (per route, NOT compared)	Coverage 10-90	0.82	0.00
+result (per route, NOT compared)	Coverage 25-75	0.66	0.00

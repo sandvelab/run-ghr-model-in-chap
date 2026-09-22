@@ -12,3 +12,10 @@ PYTHON="$REPO_ROOT/environment/env/bin/python"
 
 
 # Own scripts -- add calls here as scripts/ fills up.
+
+# The route itself. It writes to results/route_run/, leaving results/eval/ -- the run made by
+# hand down the route as it was discovered -- untouched, so a reproduction adds a run rather
+# than replacing the one the reports quote. The model fits with R-INLA and is not
+# bit-reproducible, so the two will not agree to the last digit; that is the repeatability
+# node's subject, not a defect.
+bash scripts/run_route.sh

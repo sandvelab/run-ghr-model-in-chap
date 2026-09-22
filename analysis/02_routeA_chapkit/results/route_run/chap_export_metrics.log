@@ -1,2 +1,2 @@
-2026-09-22T20:21:08 [INFO   ] Processing /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/route_run/evaluation.nc [chap_core.cli_endpoints.utils]
-2026-09-22T20:21:12 [INFO   ] Metrics exported to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/route_run/metrics.csv [chap_core.cli_endpoints.utils]
+2026-09-22T20:53:30 [INFO   ] Processing /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/route_run/evaluation.nc [chap_core.cli_endpoints.utils]
+2026-09-22T20:53:35 [INFO   ] Metrics exported to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/02_routeA_chapkit/results/route_run/metrics.csv [chap_core.cli_endpoints.utils]

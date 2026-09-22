@@ -14,6 +14,4 @@ PYTHON="$REPO_ROOT/environment/env/bin/python"
 bash "01_effort/run.sh"
 
 # Own scripts
-"$PYTHON" "scripts/discovery_log.py"
-"$PYTHON" "scripts/summarise_discovery.py"
-"$PYTHON" "scripts/test_discovery_log.py"
+bash "scripts/run_comparison.sh"
