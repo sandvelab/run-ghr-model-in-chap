@@ -211,6 +211,20 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-22 — Batch 8b, outside the plan: is route A's model configurable at all?
+
+The human asked whether several configurations of route A's model could be run on this data,
+and for the prediction results of each. Settled while doing it.
+
+| Decision | Basis | Agency |
+|---|---|---|
+| The work is done, and is framed as **a property of the route** — can an operator configure this model through CHAP — rather than as model selection | §3 stops the work if a batch "begins choosing between model configurations on the basis of Lao scores", because that would void the no-holdout deviation. Asking whether a setting reaches the model at all is a question about the integration route, which is what this project studies. The human was told the distinction before the batch ran | `human-set` (that it is done); `agent-on-human-assessment` (the framing that keeps §3 intact) |
+| **No best configuration is chosen and none is recommended.** Each variant's scores are reported descriptively, beside the control, and the report says in the same breath that they do not license a choice | The moment a variant is picked because its Lao MAE is lowest, this project has selected on the data it reports on, with no holdout to catch it. Reporting the spread is not selecting | `agent-autonomous` |
+| A reverse proxy, `config_proxy.py`, is interposed to flatten the configuration payload | Established by direct test: chap-core's `ModelConfiguration` is `extra="forbid"` with two fields, so it will only send values **nested** under `user_option_values`; the model's service stores a **flat** mapping, returns HTTP 201 for the nested one, fills its own defaults and fits with them. The one shape CHAP will send is the one the model discards, so without something interposed there is no configured run to report. Neither the model nor CHAP is modified | `agent-autonomous` |
+| Each variant changes **one** option from the model's published defaults, and the control sets those defaults explicitly | One factor at a time is what makes a difference attributable. The control travels the identical path through the proxy, so it controls for the proxy as well as for the data | `agent-autonomous` |
+| Every variant records the **model formula it actually fitted**, and that is the evidence the configuration took effect | A configured run of this model is indistinguishable from an unconfigured one by its outputs: both write a valid NetCDF and real metrics. Scores alone cannot tell you whether a setting was applied, so the claim rests on what the model fitted, not on what moved | `agent-autonomous` |
+| The node is in the tree and `analysis/run.sh` therefore costs about thirty minutes more | It is an analytical result and belongs where results live. The cost is stated rather than avoided by parking the work outside the tree | `agent-autonomous` |
+
 ### 2026-09-22 — Iteration 2: the same plan, re-run against an upgraded platform
 
 | Decision | Basis | Agency |
@@ -309,6 +323,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 6 | C (cont.) — Comparative report | Route A against route B on (a), (b) and (c), with (d) reported per route and not compared. Which was easier to find out about, which easier to carry out, the evidence for each statement, and what one run per route can and cannot resolve. | done |
 | 7 | D — Repeatability | Does each route run again, from clean? Re-run each route's own `run_route.sh` end to end; record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). This batch is also what verifies each recipe against §2b.1. | done |
 | 8 | E — The overview | Write the overview document §2b specifies: the narrative, both routes' verified from-scratch recipes, and both routes' default evaluations with at least one figure embedded and the full output linked. Standing alone — no comparison with iteration 1. Wire it in from `readme-at-start.md`. | done |
+| 8b | D (cont.) | **Outside the plan, at the human's request**: establish whether route A's model can be configured through CHAP at all, run several published-alternative configurations on the Lao data, and report what each fitted and what each scored — descriptively, with no configuration selected (§4b). | open |
 | 9 | F — Claims, validation & release | Build the claim collection (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. Then the manuscript section(s) this project supports, the release scan, and the human's decision on the remote. | open |
 
 ### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
