@@ -1,0 +1,13 @@
+route	metric	n_runs	min	max	spread_pct_of_mean
+route-a	mae	4	125.7485	128.4762	2.15
+route-a	rmse	4	237.1938	245.4212	3.39
+route-a	crps	4	147.6925	150.4012	1.81
+route-a	mape	4	150.8022	155.0224	2.75
+route-a	coverage_10_90	4	0.8095	0.8244	1.82
+route-a	coverage_25_75	4	0.6607	0.6637	0.45
+route-b	mae	2	171.9631	171.9631	0.00
+route-b	rmse	2	358.9279	358.9279	0.00
+route-b	crps	2	171.9631	171.9631	0.00
+route-b	mape	2	383.1602	383.1602	0.00
+route-b	coverage_10_90	2	0.0000	0.0000	0.00
+route-b	coverage_25_75	2	0.0000	0.0000	0.00

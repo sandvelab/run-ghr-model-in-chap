@@ -1,0 +1,8 @@
+2026-09-22T21:15:07 [INFO   ] Processing /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/05_repeatability/results/rerun_routeB/eval/eval.nc [chap_core.cli_endpoints.utils]
+/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/crps.py:112: RuntimeWarning: invalid value encountered in log1p
+  return _crps_sample(np.log1p(samples), float(np.log1p(observed)))
+/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/winkler_score.py:97: RuntimeWarning: invalid value encountered in log1p
+  log_samples = np.log1p(samples)
+/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/metrics/winkler_score.py:97: RuntimeWarning: invalid value encountered in log1p
+  log_samples = np.log1p(samples)
+2026-09-22T21:15:08 [INFO   ] Metrics exported to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/05_repeatability/results/rerun_routeB/eval/metrics.csv [chap_core.cli_endpoints.utils]

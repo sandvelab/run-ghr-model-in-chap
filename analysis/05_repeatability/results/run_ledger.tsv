@@ -1,0 +1,7 @@
+route	which_run	recovered_from	commit	committed_at	path	note
+route-a	hand run down the route	working tree	-	-	analysis/02_routeA_chapkit/results/eval/metrics.csv	identical to another run
+route-a	run_route.sh in the route node	working tree	-	-	analysis/02_routeA_chapkit/results/route_run/metrics.csv	identical to another run
+route-a	run_route.sh in the route node	git history	d37fdcd	2026-09-22T20:23:21Z	analysis/02_routeA_chapkit/results/route_run/metrics.csv	
+route-a	re-run from clean	working tree	-	-	analysis/05_repeatability/results/rerun_routeA/metrics.csv	
+route-b	run_route.sh in the route node	working tree	-	-	analysis/03_routeB_mlproject/results/eval/metrics.csv	identical to another run
+route-b	re-run from clean	working tree	-	-	analysis/05_repeatability/results/rerun_routeB/eval/metrics.csv	
