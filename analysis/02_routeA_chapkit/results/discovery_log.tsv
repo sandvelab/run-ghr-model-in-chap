@@ -1,0 +1,3 @@
+step	ts_utc	kind	ref	outcome	note
+1	2026-09-22T18:00:08Z	milestone	first_doc_opened	ok	opening the model repository README on GitHub as the starting point
+2	2026-09-22T18:00:08Z	command	chap --version	ok	confirms chap 2.3.1 on PATH at ~/.local/bin/chap
