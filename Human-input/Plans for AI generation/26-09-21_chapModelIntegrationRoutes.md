@@ -211,6 +211,16 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-23 — MLproject configuration, and a correction to what was claimed about it
+
+| Decision | Basis | Agency |
+|---|---|---|
+| The claim that an `MLproject` model "has no such surface" is **corrected**: `MLproject` templates declare `user_options` as a first-class field, and that is how a ConfiguredModel is made from a ModelTemplate | The human pointed it out, and chap-core's source confirms it — `ModelTemplateInformation.user_options`, plus `hpo_search_space` beside it. What `MLproject` lacks is a *negotiated REST payload*, not configuration. The earlier wording conflated the two | `human-set` (the correction); `agent-retrieved` (the mechanism, from chap-core's source and route B's own run directory) |
+| The correction is made in a new overview version, not by editing the batch report that carries the overstatement | A batch report is an account of a batch and is not reissued; rewriting it would destroy the record of what was claimed when. `AGENTS.md` §1 forbids editing produced files, and the overview is versioned precisely so that a superseded statement stays visible | `agent-autonomous` |
+| The configuration comparison is grounded in each mechanism's own artefacts rather than in effort counts | `model_configuration_for_run.yaml` in route B's run directory, `user_options` in the MLproject schema, route A's README option table and its `example_data/config.yml`, and the eight-endpoint contract surface. The two mechanisms differ in kind, and counting commands would not have shown it | `agent-autonomous` |
+| Route A's model is reported as **well documented and correctly implemented**, with the defect located in chap-core's REST bridge | Its README carries all 18 options with the R-INLA latent models explained, and its `example_data/config.yml` states it is "in the flat layout chapkit's ShellModelRunner writes". The model implements chapkit's file convention; `chap eval` uses the REST one. Neither document is wrong, and saying the model is at fault would be | `agent-on-human-assessment` |
+| Version 3 is executive length, with the detail moved to an appendix of pointers | The human asked for it. A front door that takes twenty minutes to read is not a front door | `human-set` |
+
 ### 2026-09-22 — Batch 8b, outside the plan: is route A's model configurable at all?
 
 The human asked whether several configurations of route A's model could be run on this data,
@@ -357,6 +367,7 @@ and are not read by iteration 2.
 - [[26-09-22_overviewV1]]
 - [[26-09-23_b08b_configurability]]
 - [[26-09-23_overviewV2]]
+- [[26-09-23_overviewV3]]
 
 ### Iteration 1 — reports, archived with the run
 
@@ -383,3 +394,4 @@ The documents these link to are under `Archive/version_1_old_chapcore/AI-generat
 - [[26-09-22_overviewV1]]
 - [[26-09-23_b08b_configurability]]
 - [[26-09-23_overviewV2]]
+- [[26-09-23_overviewV3]]
