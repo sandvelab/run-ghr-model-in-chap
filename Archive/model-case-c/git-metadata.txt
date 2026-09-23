@@ -1,0 +1,5 @@
+remote: https://github.com/zlilu/minimal_template_example.git
+commit: 9cbc84a4364a13be8b4c3b809bdd07c4324306c2
+committed: 2026-08-19T14:05:12+02:00
+subject: modified logic after restructured noraml run config with user option values
+cloned: 2026-09-23T13:07:10Z

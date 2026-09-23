@@ -1,0 +1,143 @@
+2026/09/23 15:20:18 INFO mlflow.agent.hint: Load the `instrumenting-with-mlflow-tracing` skill at /Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/mlflow/assistant/skills/instrumenting-with-mlflow-tracing/SKILL.md before writing any tracing code; it ships with this MLflow install. Set MLFLOW_DISABLE_AGENT_HINT=1 to silence this.
+2026-09-23T15:20:19 [INFO   ] Database URL not set [chap_core.database.database]
+2026-09-23T15:20:19 [INFO   ] Database url not set. Database operations will not work [chap_core.database.database]
+2026-09-23T15:20:19 [INFO   ] Evaluating model . with xarray/NetCDF output [chap_core.cli_endpoints.evaluate]
+2026-09-23T15:20:19 [INFO   ] Level set to INFO [root]
+2026-09-23T15:20:19 [INFO   ] Loading dataset from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/07_configurableMLproject/results/runs/chap_LAO_admin1_monthly.csv [root]
+2026-09-23T15:20:19 [INFO   ] Loading polygons from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/07_configurableMLproject/results/runs/chap_LAO_admin1_monthly.geojson [root]
+2026-09-23T15:20:19 [WARNING] Rejected regions: ['LA-VI'] due to missing target values for the whole training period [chap_core.rest_api.db_worker_functions]
+2026-09-23T15:20:19 [INFO   ] Remaining regions: ['LA-AT', 'LA-BK', 'LA-BL', 'LA-CH', 'LA-HO', 'LA-KH', 'LA-LM', 'LA-LP', 'LA-OU', 'LA-PH', 'LA-SL', 'LA-SV', 'LA-VT', 'LA-XA', 'LA-XE', 'LA-XI', 'LA-XN'] with 17 entries [chap_core.rest_api.db_worker_functions]
+2026-09-23T15:20:19 [INFO   ] Loading model template from . [chap_core.cli_endpoints.evaluate]
+2026-09-23T15:20:19 [INFO   ] Loading model configuration from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/07_configurableMLproject/results/runs/chap_example_shape/config.yaml [chap_core.cli_endpoints._common]
+2026-09-23T15:20:20 [WARNING] Column 'mean_relative_humidity' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-23T15:20:20 [WARNING] Column 'mean_temperature' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-23T15:20:20 [WARNING] Column 'population' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-09-23T15:20:20 [WARNING] Model has not specified minimum and maximum predicted length [chap_core.cli_endpoints.evaluate]
+2026-09-23T15:20:20 [INFO   ] Running backtest with 7 splits, 3 periods, stride 1 [chap_core.cli_endpoints.evaluate]
+2026-09-23T15:20:21 [INFO   ] Writing polygons to runs/2026-09-23_15-20-19_1168bb7e/polygons.geojson [root]
+2026-09-23T15:20:21 [INFO   ] Will pass polygons file runs/2026-09-23_15-20-19_1168bb7e/polygons.geojson to train command and predict command [root]
+2026-09-23T15:20:21 [WARNING] Dataset has polygons, but command python train.py {train_data} {model} {model_config} does not ask for polygons. Will not insert polygons into command. [chap_core.runners.command_line_runner]
+2026-09-23T15:20:49 [ERROR  ] Command 'uv run python train.py training_data.csv model model_configuration_for_run.yaml' failed with return code 1, Full output from command below: 
+ ----- 
+model config: {'additional_continuous_covariates': [], 'prediction_length': 3, 'user_option_values': {'alpha': '1e-5'}}
+1e-5
+
+Using CPython 3.13.0
+Creating virtual environment at: runs/2026-09-23_15-20-19_1168bb7e/.venv
+Installed 9 packages in 62ms
+Traceback (most recent call last):
+  File "/private/var/folders/t3/0znh2hrx1jzblsb8tq15nzg80000gt/T/caseC.2goHua/runs/2026-09-23_15-20-19_1168bb7e/train.py", line 33, in <module>
+    train(args.csv_fn, args.model_fn, model_config)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/t3/0znh2hrx1jzblsb8tq15nzg80000gt/T/caseC.2goHua/runs/2026-09-23_15-20-19_1168bb7e/train.py", line 18, in train
+    alpha = float(model_configuration.get("user_option_values", {}).get("alpha", {}).get("values", 1.0))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+ 
+-------- [chap_core.runners.command_line_runner]
+2026-09-23T15:20:49 [ERROR  ] Error training model, command failed [chap_core.models.external_model]
+Traceback (most recent call last):
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/models/external_model.py", line 233, in train
+    self._runner.train(
+    ~~~~~~~~~~~~~~~~~~^
+        train_file_name,
+        ^^^^^^^^^^^^^^^^
+        self._model_file_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+        polygons_file_name="polygons.geojson" if self._polygons_file_name is not None else None,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/runners/command_line_runner.py", line 103, in train
+    return self._runner.run_command(command)
+           ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/runners/uv_runner.py", line 26, in run_command
+    return self._execute(uv_command, self._working_dir, env=env)
+           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/runners/runner.py", line 20, in _execute
+    return run_command(command, working_dir, env=env)
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/runners/command_line_runner.py", line 52, in run_command
+    raise CommandLineException(message)
+chap_core.exceptions.CommandLineException: Command 'uv run python train.py training_data.csv model model_configuration_for_run.yaml' failed with return code 1, Full output from command below: 
+ ----- 
+model config: {'additional_continuous_covariates': [], 'prediction_length': 3, 'user_option_values': {'alpha': '1e-5'}}
+1e-5
+
+Using CPython 3.13.0
+Creating virtual environment at: runs/2026-09-23_15-20-19_1168bb7e/.venv
+Installed 9 packages in 62ms
+Traceback (most recent call last):
+  File "/private/var/folders/t3/0znh2hrx1jzblsb8tq15nzg80000gt/T/caseC.2goHua/runs/2026-09-23_15-20-19_1168bb7e/train.py", line 33, in <module>
+    train(args.csv_fn, args.model_fn, model_config)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/t3/0znh2hrx1jzblsb8tq15nzg80000gt/T/caseC.2goHua/runs/2026-09-23_15-20-19_1168bb7e/train.py", line 18, in train
+    alpha = float(model_configuration.get("user_option_values", {}).get("alpha", {}).get("values", 1.0))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+ 
+--------
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/geirksa_1_2_3/.local/bin/chap", line 10, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli.py", line 54, in main
+    app()
+    ~~~^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/cyclopts/core.py", line 1978, in __call__
+    result = _run_maybe_async_command(command, bound, resolved_backend)
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/cyclopts/_run.py", line 50, in _run_maybe_async_command
+    return command(*bound.args, **bound.kwargs)
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli_endpoints/evaluate.py", line 78, in eval_cmd
+    _run_eval(
+    ~~~~~~~~~^
+        model_name=model_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        estimator_options=estimator_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli_endpoints/evaluate.py", line 309, in _run_eval
+    evaluation = Evaluation.create(
+        configured_model=configured_model_db,
+    ...<4 lines>...
+        historical_context_years=historical_context_years,
+    )
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/evaluation.py", line 489, in create
+    return cls.from_samples_with_truth(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        evaluation_results=evaluation_results,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        historical_context_periods=historical_context_periods,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/evaluation.py", line 345, in from_samples_with_truth
+    for eval_result in evaluation_results:
+                       ^^^^^^^^^^^^^^^^^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/assessment/prediction_evaluator.py", line 163, in backtest
+    predictor = estimator.train(train_set if i == 0 else historic_data)
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/models/external_model.py", line 240, in train
+    raise ModelFailedException(str(e)) from e
+chap_core.exceptions.ModelFailedException: Command 'uv run python train.py training_data.csv model model_configuration_for_run.yaml' failed with return code 1, Full output from command below: 
+ ----- 
+model config: {'additional_continuous_covariates': [], 'prediction_length': 3, 'user_option_values': {'alpha': '1e-5'}}
+1e-5
+
+Using CPython 3.13.0
+Creating virtual environment at: runs/2026-09-23_15-20-19_1168bb7e/.venv
+Installed 9 packages in 62ms
+Traceback (most recent call last):
+  File "/private/var/folders/t3/0znh2hrx1jzblsb8tq15nzg80000gt/T/caseC.2goHua/runs/2026-09-23_15-20-19_1168bb7e/train.py", line 33, in <module>
+    train(args.csv_fn, args.model_fn, model_config)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/private/var/folders/t3/0znh2hrx1jzblsb8tq15nzg80000gt/T/caseC.2goHua/runs/2026-09-23_15-20-19_1168bb7e/train.py", line 18, in train
+    alpha = float(model_configuration.get("user_option_values", {}).get("alpha", {}).get("values", 1.0))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'get'
+ 
+--------

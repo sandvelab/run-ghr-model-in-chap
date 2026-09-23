@@ -1,0 +1,5 @@
+run	config_shape	alpha_asked	alpha_delivered_to_the_model	configuration_arrived	completed	error	mae	rmse	crps	mape	coverage_10_90
+alpha_1e-5	nested (alpha.values) — the model's own config.yaml shape	1e-5	1e-5	yes	yes		171.9631	358.9279	171.9631	383.1602	0.0000
+alpha_1e2	nested (alpha.values) — the model's own config.yaml shape	1e2	1e2	yes	yes		171.9640	358.9576	171.9640	382.7563	0.0000
+alpha_1e5	nested (alpha.values) — the model's own config.yaml shape	1e5	1e5	yes	yes		174.5322	367.5552	174.5322	308.7241	0.0000
+chap_example_shape	scalar (alpha) — the shape `chap model schema --example` emits	1e-5	1e-5	yes	no	AttributeError: 'str' object has no attribute 'get'					

@@ -1,0 +1,13 @@
+[project]
+name = "min-template-py-ex"
+version = "0.1.0"
+description = "Minimal CHAP-compatible model template using Ridge regression"
+# scikit-learn 1.6.1 ships wheels for cp39-cp313 only; without the upper bound uv
+# picks a newer interpreter and builds it from source, which needs a C toolchain.
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "scikit-learn==1.6.1",
+    "joblib==1.4.2",
+    "PyYAML>=6.0",
+    "pandas>=2.2",
+]

@@ -1,0 +1,7 @@
+question	answer
+runs attempted	4
+runs that completed	3
+configurations demonstrably delivered to the model	4
+distinct metric vectors across completed runs	3
+predictions changed with the setting	yes
+a wrong config shape failed	loudly, with a traceback naming the cause

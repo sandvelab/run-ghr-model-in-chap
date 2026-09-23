@@ -211,6 +211,21 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-23 — Batch 8c, outside the plan: a third case, to test configuration delivery
+
+The human named `zlilu/minimal_template_example` and asked whether a configuration could be
+passed to it, since that is what route A could not do.
+
+| Decision | Basis | Agency |
+|---|---|---|
+| A third model is archived and run, as a **case** and not as a third route | Neither existing model can answer the question: route A's declares eighteen options that never arrive, route B's declares none at all. Without a model that both declares an option and can be seen to receive it, "the MLproject mechanism delivers configuration" rests on reading chap-core's source rather than on evidence | `human-set` (the repository); `agent-on-human-assessment` (that it enters as a case) |
+| It is **not compared with route A or route B** on effort or on predictions | It was not discovered by an isolated agent on the §4 brief, so it has no admissible discovery log, and its scores answer a different question. Putting it in the comparison table would silently mix a measured route with an unmeasured one | `agent-autonomous` |
+| The evidence of delivery is `model_configuration_for_run.yaml`, the file CHAP writes into the model's run directory | The model prints the configuration it receives, which was the first plan, but CHAP does not forward a subprocess's stdout at default verbosity. The file CHAP wrote is better evidence than the model's report of it, and it is what the model actually reads | `agent-autonomous` |
+| Three widely separated `alpha` values, not a sweep | The question is whether a value arrives and does something, not which value is best. Five orders of magnitude cannot be confused with noise, and §3 forbids selecting between configurations on Lao scores in any case | `agent-autonomous` |
+| A fourth run is made in the shape `chap model schema --example` emits, **expecting it to fail**, and the failure is kept | It is the comparison that matters. The same class of disagreement that produces a silent, complete, wrongly-configured evaluation on chapkit produces a halted run and a named cause on MLproject. Reporting only the runs that worked would have hidden the more useful half | `agent-autonomous` |
+| The model is run in a temporary directory outside the repository | CHAP copies an MLproject model into `runs/<timestamp>/` and builds a `uv` environment there — about 800 MB per run, including scipy's test fixtures. The first attempt put that under `results/`, and `/validate invariants` correctly reported two dozen unexplained figures in a results directory | `agent-autonomous` |
+| The third model declares **no licence**, and this is recorded beside the other two undeclared ones | Redistribution of the archived copy is not established. Blocks release, not analysis | `agent-on-human-assessment` (pending the human's decision) |
+
 ### 2026-09-23 — MLproject configuration, and a correction to what was claimed about it
 
 | Decision | Basis | Agency |
@@ -334,6 +349,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 7 | D — Repeatability | Does each route run again, from clean? Re-run each route's own `run_route.sh` end to end; record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). This batch is also what verifies each recipe against §2b.1. | done |
 | 8 | E — The overview | Write the overview document §2b specifies: the narrative, both routes' verified from-scratch recipes, and both routes' default evaluations with at least one figure embedded and the full output linked. Standing alone — no comparison with iteration 1. Wire it in from `readme-at-start.md`. | done |
 | 8b | D (cont.) | **Outside the plan, at the human's request**: establish whether route A's model can be configured through CHAP at all, run several published-alternative configurations on the Lao data, and report what each fitted and what each scored — descriptively, with no configuration selected (§4b). | done |
+| 8c | D (cont.) | **Outside the plan, at the human's request**: archive `zlilu/minimal_template_example` and establish whether the `MLproject` route delivers an operator's configuration to a model, which neither route A's nor route B's model can show. A case, not a third route (§4b). | open |
 | 9 | F — Claims, validation & release | Build the claim collection (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. Then the manuscript section(s) this project supports, the release scan, and the human's decision on the remote. | open |
 
 ### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
