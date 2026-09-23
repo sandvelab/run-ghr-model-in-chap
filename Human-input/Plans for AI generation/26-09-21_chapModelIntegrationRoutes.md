@@ -211,6 +211,15 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-23 — The overview is reordered around its own finding
+
+| Decision | Basis | Agency |
+|---|---|---|
+| The overview's bottom line leads with the configuration finding, not with the effort counts | The human asked whether it was visible, and it was not: the headline buried it in a subordinate clause, the third case sat below the table as an afterthought, and the loud-versus-silent contrast — the sharpest result here — first appeared a hundred lines down. A front door that does not state the finding is not a front door | `human-set` (the question); `agent-on-human-assessment` (the reordering) |
+| Version 4's status block **narrated the process** — what an earlier version "argued from source" — and that is removed rather than kept | `AGENTS.md` §7 forbids it explicitly: the reader never saw our iterations, and what changed belongs in this plan and in the chat reply, never in the document. The rule was broken and the fix is a new version, not an edit | `agent-autonomous` |
+| The correction is a new version, not an edit to version 4 | `AGENTS.md` §1: a produced file is never edited. For a hand-written document a new version is what a re-run is for a result, and the superseded wording stays visible | `agent-autonomous` |
+| Five versions in one day is recorded as a cost | Each is kept and none is pruned, so the overview folder now holds more history than finding. Worth raising with the human rather than resolving silently | `agent-autonomous` |
+
 ### 2026-09-23 — Batch 8c, outside the plan: a third case, to test configuration delivery
 
 The human named `zlilu/minimal_template_example` and asked whether a configuration could be
@@ -386,6 +395,7 @@ and are not read by iteration 2.
 - [[26-09-23_b08c_thirdCase]]
 - [[26-09-23_overviewV3]]
 - [[26-09-23_overviewV4]]
+- [[26-09-23_overviewV5]]
 
 ### Iteration 1 — reports, archived with the run
 
@@ -415,3 +425,4 @@ The documents these link to are under `Archive/version_1_old_chapcore/AI-generat
 - [[26-09-23_b08c_thirdCase]]
 - [[26-09-23_overviewV3]]
 - [[26-09-23_overviewV4]]
+- [[26-09-23_overviewV5]]
