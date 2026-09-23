@@ -355,6 +355,7 @@ and are not read by iteration 2.
 - [[26-09-22_b05_routeReports]]
 - [[26-09-22_b06_comparativeReport]]
 - [[26-09-22_overviewV1]]
+- [[26-09-23_b08b_configurability]]
 - [[26-09-23_overviewV2]]
 
 ### Iteration 1 — reports, archived with the run
@@ -380,4 +381,5 @@ The documents these link to are under `Archive/version_1_old_chapcore/AI-generat
 #### `/do` run 5
 
 - [[26-09-22_overviewV1]]
+- [[26-09-23_b08b_configurability]]
 - [[26-09-23_overviewV2]]

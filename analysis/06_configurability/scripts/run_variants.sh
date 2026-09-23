@@ -92,5 +92,10 @@ docker rm -f ghrvariant >/dev/null 2>&1 || true
 kill "$PROXY_PID" 2>/dev/null || true
 PROXY_PID=""
 
+# The REST contract route A depends on, read from a real evaluation's own log.
+"$PYTHON" scripts/lib/contract_surface.py \
+    --log "$REPO_ROOT/analysis/02_routeA_chapkit/results/eval/chap_eval.log" \
+    --out "$NODE/results/chapkit_contract_surface.tsv"
+
 "$PYTHON" scripts/lib/collect_variants.py --variants-dir "$OUT" \
     --formula-check-dir "$NODE/results/formula_check" --out "$NODE/results"

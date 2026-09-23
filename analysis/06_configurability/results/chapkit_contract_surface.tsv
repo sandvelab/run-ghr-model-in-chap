@@ -1,0 +1,9 @@
+method	path	calls_in_one_evaluation	what_must_agree
+GET	/api/v1/jobs/{id}	166	asynchronous job status, polled until a job finishes
+GET	/api/v1/info	9	service identity and version fields; chap-core validates this payload
+POST	/api/v1/ml/$predict	7	the prediction request, per forecast window
+GET	/api/v1/artifacts/{id}	7	the trained artefact handed between train and predict
+GET	/api/v1/configs/$schema	6	the JSON schema the service advertises for its configuration
+POST	/api/v1/configs	1	the configuration payload itself -- where the two ends disagree
+GET	/api/v1/configs	1	the configuration payload itself -- where the two ends disagree
+POST	/api/v1/ml/$train	1	the training request and the dataset encoding

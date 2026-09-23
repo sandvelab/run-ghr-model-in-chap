@@ -184,3 +184,31 @@ agency: `human-set` (that the work is done at all, and that prediction results a
 information: `agent-retrieved` (chap-core's installed source, the service's own schema and stored
   configuration); `human-pointed` (the GHRmodel documentation at bsc-es.github.io, which named
   the option families to vary)
+
+---
+
+## Appended 2026-09-23 — the chapkit contract surface
+
+result: results/chapkit_contract_surface.tsv
+        sha256:c0cf5b7a9b3ee20edcbd1ef277b094c0f42ea844162401e617ad9209bc46d2ef
+script: scripts/lib/contract_surface.py
+        sha256:39ee8e003fca0d4b7bca3839ffc5094f8042f71c0a5e20472ea11136688638f5
+invocation: ../../environment/env/bin/python scripts/lib/contract_surface.py
+      --log ../02_routeA_chapkit/results/eval/chap_eval.log
+      --out results/chapkit_contract_surface.tsv
+inputs: ../02_routeA_chapkit/results/eval/chap_eval.log
+        sha256:365806e72c4561ec75d867f7db8cfea8c294baaebb09fcfb1c3181236ae2870e
+environment: environment/ (project main)
+seeds: none
+commit: 42a9d96
+node: analysis/06_configurability
+produced: 2026-09-23
+alternatives-considered: enumerating the endpoints from chap-core's source instead of from a
+  run's log. Rejected because what the platform *can* call and what it *does* call on a given
+  route are different questions, and the second is the one that bears on this route's cost. The
+  cost of reading a log is that an endpoint used only on a path this route never took would be
+  missed; that is the right trade here, since the claim is about what route A depends on.
+  The `what_must_agree` column is a hand-written gloss, not derived, and is marked as such by
+  living in the script rather than in the data.
+agency: agent-autonomous
+information: agent-retrieved
