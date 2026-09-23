@@ -8,7 +8,7 @@ work is done here.
 
 ---
 
-> **Start with the overview**: `AI-generated/overview/26-09-23_overviewV3.md`. It says what was
+> **Start with the overview**: `AI-generated/overview/26-09-23_overviewV4.md`. It says what was
 > asked, what came out, where the detail is, and carries a from-scratch recipe and the default
 > CHAP evaluation figure for each route. This file says what the project *is*; the overview says
 > what it *found*. Iteration 1, run against `chap-core` 2.1.0, is frozen whole at
@@ -46,14 +46,16 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 ## The article
 
 - **Target venue**: not yet decided.
-- **Status**: **iteration 2, batches 1-8 and 8b done.** Both routes reached a CHAP evaluation on the
+- **Status**: **iteration 2, batches 1-8, 8b and 8c done.** Both routes reached a CHAP evaluation on the
   Lao data, each discovered by a separate agent that knew nothing of the other or of iteration
   1. Both models ran **as published**: nothing was interposed and neither model was modified.
   Re-run from clean, route A completed 4 of 4 and route B 2 of 2. Route A costs more on every
   effort statistic that orders, and the one difference of kind is that it needs a container
   runtime and route B does not. Route A's model turns out **not to be configurable through CHAP at all** —
   values are accepted, stored and silently ignored — which batch 8b established and worked
-  around with an interposed proxy. Open: batch 9 — the claim collection and the three validation
+  around with an interposed proxy. Batch 8c showed the `MLproject` transport delivering a
+  configuration correctly on a third model, so the defect is in the chapkit bridge rather than
+  in CHAP's configuration mechanism. Open: batch 9 — the claim collection and the three validation
   passes. Carried forward for the human: the two undeclared licences, the `<PARENT_DIR>`/`<HOME>`
   placeholders in `.claude/settings.json`, and that `origin` points at the starting-point
   template repository with this branch ahead of it (nothing has been pushed).

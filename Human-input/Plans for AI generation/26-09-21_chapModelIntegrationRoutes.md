@@ -349,7 +349,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 7 | D — Repeatability | Does each route run again, from clean? Re-run each route's own `run_route.sh` end to end; record whether it completes, what it cost the second time, and how far the scores moved. Variability is characterised, not controlled for (§2, §3). This batch is also what verifies each recipe against §2b.1. | done |
 | 8 | E — The overview | Write the overview document §2b specifies: the narrative, both routes' verified from-scratch recipes, and both routes' default evaluations with at least one figure embedded and the full output linked. Standing alone — no comparison with iteration 1. Wire it in from `readme-at-start.md`. | done |
 | 8b | D (cont.) | **Outside the plan, at the human's request**: establish whether route A's model can be configured through CHAP at all, run several published-alternative configurations on the Lao data, and report what each fitted and what each scored — descriptively, with no configuration selected (§4b). | done |
-| 8c | D (cont.) | **Outside the plan, at the human's request**: archive `zlilu/minimal_template_example` and establish whether the `MLproject` route delivers an operator's configuration to a model, which neither route A's nor route B's model can show. A case, not a third route (§4b). | open |
+| 8c | D (cont.) | **Outside the plan, at the human's request**: archive `zlilu/minimal_template_example` and establish whether the `MLproject` route delivers an operator's configuration to a model, which neither route A's nor route B's model can show. A case, not a third route (§4b). | done |
 | 9 | F — Claims, validation & release | Build the claim collection (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. Then the manuscript section(s) this project supports, the release scan, and the human's decision on the remote. | open |
 
 ### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
@@ -383,7 +383,9 @@ and are not read by iteration 2.
 - [[26-09-22_overviewV1]]
 - [[26-09-23_b08b_configurability]]
 - [[26-09-23_overviewV2]]
+- [[26-09-23_b08c_thirdCase]]
 - [[26-09-23_overviewV3]]
+- [[26-09-23_overviewV4]]
 
 ### Iteration 1 — reports, archived with the run
 
@@ -410,4 +412,6 @@ The documents these link to are under `Archive/version_1_old_chapcore/AI-generat
 - [[26-09-22_overviewV1]]
 - [[26-09-23_b08b_configurability]]
 - [[26-09-23_overviewV2]]
+- [[26-09-23_b08c_thirdCase]]
 - [[26-09-23_overviewV3]]
+- [[26-09-23_overviewV4]]

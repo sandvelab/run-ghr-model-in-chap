@@ -44,6 +44,9 @@ replaced by an updated import.
   upstream.
 - `platform-chap/` — the platform pin for the iteration now running. Re-written per
   iteration; the superseded one goes into that iteration's snapshot.
+- `model-case-c/` — `zlilu/minimal_template_example` @ `9cbc84a`, a third model added as a
+  case rather than a route, to test whether an `MLproject` configuration reaches a model. No
+  licence declared upstream.
 - `plan-as-delivered/` — the plan as it stood before the first batch ever ran.
 - `version_1_old_chapcore/` — iteration 1 entire: its plan, its 2.1.0 platform pin, its claim
   tree with both discovery logs, its batch reports and overview, and its claims.
