@@ -1,0 +1,4 @@
+state	act_multiplier	diagnose_multiplier	learn_fraction	note
+hold	1.0	1.0	0.0	the persona brings it; no lookup, no slowdown
+partial	1.4	1.8	0.25	knows the concept, must look the specifics up once
+lack	2.5	4.0	1.0	must acquire it before the step can be completed

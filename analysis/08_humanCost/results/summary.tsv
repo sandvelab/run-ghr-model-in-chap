@@ -1,0 +1,5 @@
+persona	route	total_low	total_exp	total_high	human_min_exp	machine_min_exp	learn_min_exp	diagnose_min_exp	unguided_share	n_prereqs_lacked	n_prereqs_partial	cold_build_excluded	n_steps	arm64_host_only_min_exp
+engineer	route-a	69.5	119.0	271.8	112.2	6.8	18.0	25.2	0.385	0	3	yes	24	12.6
+engineer	route-b	27.2	45.9	98.5	44.9	1.0	0.0	7.0	0.156	0	0	no	18	0.0
+statistician	route-a	312.8	648.6	1742.6	641.7	6.8	223.5	170.0	0.613	7	2	yes	24	60.0
+statistician	route-b	100.6	221.2	593.5	220.2	1.0	31.5	110.0	0.643	1	4	no	18	0.0

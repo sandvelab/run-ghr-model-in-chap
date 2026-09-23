@@ -1,0 +1,32 @@
+seq	log_step	act	label	gate	learn_exp	min_low	min_exp	min_high	cum_exp	note
+1	-	install	install a container runtime	lack	90.0	60.0	127.5	340.0	127.5	route A cannot start without a running Docker daemon; the agent's host already had one, so the log has no row for it
+2	1	orient	open the model repository on GitHub	partial	1.5	2.1	5.0	12.1	132.5	
+3	2	run_command	chap --version	hold	0.0	1.0	2.2	6.0	134.7	
+4	3	orient	scan the repository page	partial	0.0	1.4	3.5	8.4	138.2	
+5	4	read_doc	read the model README in full	lack	35.0	56.3	94.0	232.1	232.2	the README is written for a reader who already has containers
+6	5	diagnose	the host is arm64 and the model is amd64-only	lack	0.0	24.0	60.0	180.0	292.2	host-dependent: does not arise on an x86_64 host
+7	6	run_command	git clone the model	hold	0.0	1.0	2.2	6.0	294.4	
+8	7	milestone	model obtained	hold	0.0	0.0	0.0	0.0	294.4	
+9	8	read_doc	chap --help	partial	2.0	3.2	5.5	11.6	299.9	
+10	9	read_doc	chap eval --help	lack	20.0	19.4	33.4	70.5	333.3	the load-bearing fact is that MODEL-NAME may be a service URL
+11	10	read_doc	read the Makefile and the compose files	lack	35.0	26.2	46.7	92.2	380.0	
+12	11	decide	pull the published image or build the Dockerfile	lack	0.0	5.0	11.2	30.0	391.3	
+13	12	run_command	docker pull the published image	lack	0.0	2.5	5.5	15.0	396.8	
+14	13	diagnose	the published image returns 401 and is not anonymously pullable	lack	25.0	34.0	85.0	270.0	481.8	nothing in the README says the image is not public
+14+	-	decide	decide whether a 401 means the project is closed to you or that you must build it yourself	lack	0.0	25.0	62.5	200.0	544.3	the README offers the published image first; concluding it is simply unavailable, and that building is legitimate, is a judgment the documentation does not help with
+15	14	read_doc	read the Dockerfile	lack	0.0	4.3	6.2	11.8	550.5	
+16	15	run_command	docker build the image	lack	0.0	2.5	5.5	15.0	556.0	
+17	-	wait_unknown	wait for the image to build from cold	-	0.0	0.0	0.0	0.0	556.0	never measured in this repository: every logged build ran against a warm layer cache
+18	16	milestone	the 401 is worked around by building	hold	0.0	0.0	0.0	0.0	556.0	
+19	17	instrument	record that the layer cache was warm	hold	0.0	0.0	0.0	0.0	556.0	exists because the agent was logging for this study
+20	18	dropped	read the installed chap-core source to find how the geometry is loaded	-	0.0	0.0	0.0	0.0	556.0	a persona who would not open an installed library's source does not discover the sibling-GeoJSON convention this way, so the step and its cost are removed
+21	19	dropped	check the supplied GeoJSON against the CSV's location column	-	0.0	0.0	0.0	0.0	556.0	the check of the GeoJSON against the CSV's location column only happens because the previous step revealed that the geometry is loaded at all; dropping one drops the other
+22	20	run_command	docker run the service on :8000	lack	0.0	2.5	5.5	15.0	561.5	
+23	21	run_command	curl the service health endpoint	lack	15.0	10.5	20.5	45.0	582.0	
+24	22	run_command	chap model schema against the running service	lack	0.0	2.5	5.5	15.0	587.5	
+25	23	milestone	the service resolves as a model	hold	0.0	0.0	0.0	0.0	587.5	
+26	24	run_command	chap eval against the service	hold	0.0	1.0	2.2	6.0	589.7	
+26+	-	diagnose	the run rejects the data and nothing says a .geojson must sit beside the .csv	hold	0.0	20.0	50.0	150.0	639.7	the convention appears in no README, no --help and no error message; the persona must infer it from a failure
+27	25	milestone	evaluation started	hold	0.0	0.0	0.0	0.0	639.7	
+28	26	read_doc	chap export-metrics and plot-backtest --help	partial	0.0	1.4	2.1	3.9	641.7	read while the evaluation runs
+29	27	wait	wait for the evaluation to finish	hold	0.0	6.8	6.8	6.8	648.6	measured; on an arm64 host the model runs under emulation throughout

@@ -1,0 +1,18 @@
+persona	route	prereq	state	first_seq	learn_min_exp	description
+engineer	route-a	cpu-architecture	partial	5	8.8	amd64 against arm64, emulation, and why a platform flag exists
+engineer	route-a	container-registry-auth	partial	14	6.2	Diagnose a 401 from a registry and conclude it is not your mistake
+engineer	route-a	geojson-basics	partial	21	3.0	Know what a GeoJSON feature collection is and that its ids must match the data
+statistician	route-a	docker-basics	lack	1	90.0	Install a container runtime; build an image, run a container, map a port, read its logs
+statistician	route-a	github-navigation	partial	2	1.5	Find a README, a file or a release on a GitHub repository page
+statistician	route-a	cpu-architecture	lack	5	35.0	amd64 against arm64, emulation, and why a platform flag exists
+statistician	route-a	cli-help-reading	partial	9	2.0	Recover a working invocation from --help output
+statistician	route-a	rest-service-model	lack	10	20.0	The idea that the model is a running service the harness talks to over HTTP
+statistician	route-a	docker-compose	lack	11	20.0	Read a compose file and see what it would start
+statistician	route-a	container-registry	lack	11	15.0	What an image registry is; image names and tags
+statistician	route-a	container-registry-auth	lack	14	25.0	Diagnose a 401 from a registry and conclude it is not your mistake
+statistician	route-a	http-curl	lack	23	15.0	Call an HTTP endpoint and read the response
+statistician	route-b	python-venv-uv	partial	1	5.0	Virtual environments and uv; why a package is or is not importable
+statistician	route-b	github-navigation	partial	4	1.5	Find a README, a file or a release on a GitHub repository page
+statistician	route-b	cli-help-reading	partial	9	2.0	Recover a working invocation from --help output
+statistician	route-b	python-packaging	lack	15	20.0	Read a traceback naming site-packages and infer a packaging fault rather than a user error
+statistician	route-b	cwd-awareness	partial	20	3.0	Know where a tool writes its outputs relative to the working directory

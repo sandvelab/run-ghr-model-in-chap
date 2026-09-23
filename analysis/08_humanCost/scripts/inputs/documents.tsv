@@ -1,0 +1,17 @@
+doc_key	kind	path	note
+routeA_readme	file	Archive/model-route-a/repo/README.md	the route A model's README as archived
+routeA_dockerfile	file	Archive/model-route-a/repo/Dockerfile	
+routeA_compose	file	Archive/model-route-a/repo/Makefile	counted together with the two compose files below
+routeA_compose	file	Archive/model-route-a/repo/compose.yml	
+routeA_compose	file	Archive/model-route-a/repo/compose.ghcr.yml	
+routeB_readme	file	Archive/model-route-b/repo/README.md	the route B model's README as archived
+lao_schema	file	Archive/data-lao/chap_LAO_admin1_monthly_schema.json	
+chapcore_source	command	chap_core/cli_endpoints/_common.py	counted together with evaluate.py below
+chapcore_source	command	chap_core/cli_endpoints/evaluate.py	
+chapcore_common	command	chap_core/cli_endpoints/_common.py	route B's agent read only this one
+chap_help	help	chap --help	
+chap_eval_help	help	chap eval --help	
+chap_help_pair	help	chap --help	counted together with chap eval --help below
+chap_help_pair	help	chap eval --help	
+chap_post_help	help	chap export-metrics --help	counted together with chap plot-backtest --help below
+chap_post_help	help	chap plot-backtest --help	

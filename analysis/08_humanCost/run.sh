@@ -1,21 +1,15 @@
 #!/usr/bin/env bash
-# Main script for node: analysis
+# Main script for node: 08_humanCost
 # Generated shape -- edit the "own scripts" block; the child calls are maintained
 # by `node.py rebuild`, which enforces the alternatives/sub-analyses semantics.
 set -euo pipefail
 cd "$(dirname "$0")"
-REPO_ROOT="$(cd ".." && pwd)"
+REPO_ROOT="$(cd "../.." && pwd)"
 # Node scripts run under the pinned analysis environment (AGENTS.md §2), not under
 # .venv, which is the repository's own machinery. A node needing something beyond it
 # declares env/ and overrides PYTHON below.
 PYTHON="$REPO_ROOT/environment/env/bin/python"
 
-# Sub-analyses: every child runs, in order.
-bash "01_anchors/run.sh"
-bash "02_routeA_chapkit/run.sh"
-bash "03_routeB_mlproject/run.sh"
-bash "04_comparison/run.sh"
-bash "05_repeatability/run.sh"
-bash "06_configurability/run.sh"
-bash "07_configurableMLproject/run.sh"
-bash "08_humanCost/run.sh"
+
+# Own scripts
+bash "scripts/run_humancost.sh"

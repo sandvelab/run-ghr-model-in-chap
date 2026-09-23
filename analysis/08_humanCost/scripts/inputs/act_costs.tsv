@@ -1,0 +1,17 @@
+persona	act	base_low	base_exp	base_high	note
+engineer	orient	0.5	1.0	2.5	find and open the right page
+engineer	read_doc	0	0	0	computed from word count and reading rate
+engineer	run_command	0.4	0.8	2.0	adapt a command from a document, run it, read the result
+engineer	decide	1.0	2.0	5.0	a judgment call the route forces
+engineer	diagnose	3.0	7.0	20.0	work out why something did not do what was expected
+engineer	install	3.0	6.0	15.0	install a tool the route needs
+engineer	milestone	0	0	0	a marker, not work
+engineer	instrument	0	0	0	a row that exists because the agent was logging for this study
+statistician	orient	1.0	2.5	6.0	find and open the right page
+statistician	read_doc	0	0	0	computed from word count and reading rate
+statistician	run_command	1.0	2.2	6.0	adapt a command from a document, run it, read the result
+statistician	decide	2.0	4.5	12.0	a judgment call the route forces
+statistician	diagnose	6.0	15.0	45.0	work out why something did not do what was expected
+statistician	install	6.0	15.0	40.0	install a tool the route needs
+statistician	milestone	0	0	0	a marker, not work
+statistician	instrument	0	0	0	a row that exists because the agent was logging for this study

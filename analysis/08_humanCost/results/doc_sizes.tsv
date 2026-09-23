@@ -1,0 +1,12 @@
+doc_key	words	source
+chap_eval_help	645	chap eval --help (captured to results/help_text/)
+chap_help	299	chap --help (captured to results/help_text/)
+chap_help_pair	944	chap --help (captured to results/help_text/) + chap eval --help (captured to results/help_text/)
+chap_post_help	177	chap export-metrics --help (captured to results/help_text/) + chap plot-backtest --help (captured to results/help_text/)
+chapcore_common	1413	chap_core/cli_endpoints/_common.py (installed chap-core)
+chapcore_source	2467	chap_core/cli_endpoints/_common.py (installed chap-core) + chap_core/cli_endpoints/evaluate.py (installed chap-core)
+lao_schema	309	Archive/data-lao/chap_LAO_admin1_monthly_schema.json
+routeA_compose	560	Archive/model-route-a/repo/Makefile + Archive/model-route-a/repo/compose.yml + Archive/model-route-a/repo/compose.ghcr.yml
+routeA_dockerfile	298	Archive/model-route-a/repo/Dockerfile
+routeA_readme	2833	Archive/model-route-a/repo/README.md
+routeB_readme	981	Archive/model-route-b/repo/README.md

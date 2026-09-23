@@ -1,0 +1,30 @@
+seq	log_step	act	label	gate	learn_exp	min_low	min_exp	min_high	cum_exp	note
+1	-	install	install a container runtime	hold	0.0	3.0	6.0	15.0	6.0	route A cannot start without a running Docker daemon; the agent's host already had one, so the log has no row for it
+2	1	orient	open the model repository on GitHub	hold	0.0	0.5	1.0	2.5	7.0	
+3	2	run_command	chap --version	hold	0.0	0.4	0.8	2.0	7.8	
+4	3	orient	scan the repository page	hold	0.0	0.5	1.0	2.5	8.8	
+5	4	read_doc	read the model README in full	partial	8.8	20.1	32.1	69.7	40.9	the README is written for a reader who already has containers
+6	5	diagnose	the host is arm64 and the model is amd64-only	partial	0.0	5.4	12.6	36.0	53.5	host-dependent: does not arise on an x86_64 host
+7	6	run_command	git clone the model	hold	0.0	0.4	0.8	2.0	54.3	
+8	7	milestone	model obtained	hold	0.0	0.0	0.0	0.0	54.3	
+9	8	read_doc	chap --help	hold	0.0	1.2	1.8	3.0	56.0	
+10	9	read_doc	chap eval --help	hold	0.0	2.7	3.8	6.4	59.8	the load-bearing fact is that MODEL-NAME may be a service URL
+11	10	read_doc	read the Makefile and the compose files	hold	0.0	2.3	3.3	5.6	63.1	
+12	11	decide	pull the published image or build the Dockerfile	hold	0.0	1.0	2.0	5.0	65.1	
+13	12	run_command	docker pull the published image	hold	0.0	0.4	0.8	2.0	65.9	
+14	13	diagnose	the published image returns 401 and is not anonymously pullable	partial	6.2	7.9	18.9	58.5	84.8	nothing in the README says the image is not public
+15	14	read_doc	read the Dockerfile	hold	0.0	1.2	1.8	3.0	86.5	
+16	15	run_command	docker build the image	partial	0.0	0.6	1.1	2.8	87.7	
+17	-	wait_unknown	wait for the image to build from cold	-	0.0	0.0	0.0	0.0	87.7	never measured in this repository: every logged build ran against a warm layer cache
+18	16	milestone	the 401 is worked around by building	hold	0.0	0.0	0.0	0.0	87.7	
+19	17	instrument	record that the layer cache was warm	hold	0.0	0.0	0.0	0.0	87.7	exists because the agent was logging for this study
+20	18	read_doc	read the installed chap-core source to find how the geometry is loaded	hold	0.0	10.2	14.5	24.7	102.2	the sibling-GeoJSON convention is documented nowhere else
+21	19	decide	check the supplied GeoJSON against the CSV's location column	partial	3.0	2.6	5.8	14.5	108.0	
+22	20	run_command	docker run the service on :8000	hold	0.0	0.4	0.8	2.0	108.8	
+23	21	run_command	curl the service health endpoint	hold	0.0	0.4	0.8	2.0	109.6	
+24	22	run_command	chap model schema against the running service	hold	0.0	0.4	0.8	2.0	110.4	
+25	23	milestone	the service resolves as a model	hold	0.0	0.0	0.0	0.0	110.4	
+26	24	run_command	chap eval against the service	hold	0.0	0.4	0.8	2.0	111.2	
+27	25	milestone	evaluation started	hold	0.0	0.0	0.0	0.0	111.2	
+28	26	read_doc	chap export-metrics and plot-backtest --help	hold	0.0	0.7	1.0	1.8	112.2	read while the evaluation runs
+29	27	wait	wait for the evaluation to finish	hold	0.0	6.8	6.8	6.8	119.0	measured; on an arm64 host the model runs under emulation throughout

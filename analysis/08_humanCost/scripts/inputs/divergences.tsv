@@ -1,0 +1,7 @@
+rule	route	condition_prereq	condition_state	action	anchor_seq	act	label	prereqs	base_low	base_exp	base_high	note
+D1	route-a	reading-library-source	lack	drop_step	20	-	-	-	0	0	0	a persona who would not open an installed library's source does not discover the sibling-GeoJSON convention this way, so the step and its cost are removed
+D1	route-a	reading-library-source	lack	drop_step	21	-	-	-	0	0	0	the check of the GeoJSON against the CSV's location column only happens because the previous step revealed that the geometry is loaded at all; dropping one drops the other
+D1	route-a	reading-library-source	lack	add_after	26	diagnose	the run rejects the data and nothing says a .geojson must sit beside the .csv	geojson-basics	20	50	150	the convention appears in no README, no --help and no error message; the persona must infer it from a failure
+D2	route-b	reading-library-source	lack	drop_step	19	-	-	-	0	0	0	as D1, on route B
+D2	route-b	reading-library-source	lack	add_after	22	diagnose	the run rejects the data and nothing says a .geojson must sit beside the .csv	geojson-basics	20	50	150	as D1, on route B
+D3	route-a	container-registry-auth	lack	add_after	14	decide	decide whether a 401 means the project is closed to you or that you must build it yourself	container-registry	10	25	80	the README offers the published image first; concluding it is simply unavailable, and that building is legitimate, is a judgment the documentation does not help with

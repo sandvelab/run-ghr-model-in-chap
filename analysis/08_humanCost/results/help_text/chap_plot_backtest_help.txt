@@ -1,0 +1,17 @@
+Usage: chap plot-backtest INPUT-FILE OUTPUT-FILE [ARGS]
+
+Generate a backtest plot from evaluation data and save to file.
+
+╭─ Parameters ─────────────────────────────────────────────────────────────────╮
+│ *  INPUT-FILE --input-file    Path to NetCDF file containing evaluation data │
+│                               (from eval) [required]                         │
+│ *  OUTPUT-FILE --output-file  Path to output file (supports .html, .png,     │
+│                               .svg, .pdf) [required]                         │
+│    PLOT-TYPE --plot-type      Type of plot to generate. Available:           │
+│                               "evaluation_plot", "horizon_location_grid",    │
+│                               "predicted_vs_actual",                         │
+│                               "predicted_vs_actual_linear",                  │
+│                               "sample_bias_by_horizon",                      │
+│                               "sample_bias_by_time_period" [default:         │
+│                               evaluation_plot]                               │
+╰──────────────────────────────────────────────────────────────────────────────╯
