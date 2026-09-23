@@ -211,6 +211,14 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-23 — The licence question, settled by the human
+
+| Decision | Basis | Agency |
+|---|---|---|
+| **Redistribution of the three archived resources that declare no licence is established as permitted**, and they stay in the repository as fetched | The human states they have checked it. This unblocks release, which has been blocked on this point since batch 1. The three are `dhis2-chap/minimalist_example_uv`, `dhis2/climate-health-data` (`lao/`), and `zlilu/minimal_template_example`; the fourth, `chap-models/chapkit_ghr_model`, is GPL-3.0 and was never in question | `human-set` |
+| The basis is recorded as the human's assessment rather than as a licence found in the repositories | None of the three repositories carries a licence file, and this project did not establish permission from any document it can cite. What is recorded is therefore *who* decided and *when*, not a licence — so a later reader can see exactly what the claim rests on | `agent-autonomous` |
+| Nothing is pushed to `origin` as it stands | `origin` is the starting-point template repository this vault was copied from, and it is public. The human has asked for a new repository to be named instead. §4 requires the owner and name to come from the human and forbids inferring either | `human-set` |
+
 ### 2026-09-23 — The overview is reordered around its own finding
 
 | Decision | Basis | Agency |

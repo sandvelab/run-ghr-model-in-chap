@@ -56,7 +56,7 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
   around with an interposed proxy. Batch 8c showed the `MLproject` transport delivering a
   configuration correctly on a third model, so the defect is in the chapkit bridge rather than
   in CHAP's configuration mechanism. Open: batch 9 — the claim collection and the three validation
-  passes. Carried forward for the human: the two undeclared licences, the `<PARENT_DIR>`/`<HOME>`
+  passes. Carried forward for the human: the `<PARENT_DIR>`/`<HOME>`
   placeholders in `.claude/settings.json`, and that `origin` points at the starting-point
   template repository with this branch ahead of it (nothing has been pushed).
 - **Manuscript**: `Human-AI-collaboration/manuscript/` (empty).
@@ -73,7 +73,7 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 | Tracking level | `standard` (`AGENTS.md` §6). |
 | Compute budget for stability work | One replicate agent per route; cut if a replicate exceeds roughly twice the original run's effort, with the cut recorded. |
 | Storage budget | Not a constraint. |
-| Data governance | Public and redistributable; route B's and the data's licences are established in batch 1 before anything is redistributed. |
+| Data governance | Public and redistributable. Three archived resources declare no licence — `minimalist_example_uv`, the Lao data, and `minimal_template_example` — and the human established on 2026-09-23 that redistributing them is permitted; the basis is their assessment, recorded in the plan's §4b, not a licence document. `chapkit_ghr_model` is GPL-3.0. |
 | Git remote | Not set. The human is asked for owner/repository before any remote is created; `/release` runs the secrets and data-permission scan before anything becomes public. |
 
 ## What must not happen
