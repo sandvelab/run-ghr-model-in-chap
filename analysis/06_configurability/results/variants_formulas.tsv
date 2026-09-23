@@ -1,6 +1,6 @@
-variant	fitted_formula
-v0_published_defaults	
-v1_no_spatial	
-v2_seasonal_rw2	
-v3_interannual_rw1	
-v4_poisson	
+variant	fitted_formula	formula_from_short_backtest
+v0_published_defaults		disease_cases ~ 1 + rainfall.rsum3.l1 + mean_temperature.rmean3.l1 + f(spatial_id, model = 'bym2', graph = g, scale.model = TRUE, hyper = prec1) + f(seasonal_id, model = 'rw1', cyclic = TRUE, scale.model = TRUE, hyper = prec1) + f(year_id, model = 'iid', constr = TRU
+v1_no_spatial		disease_cases ~ 1 + rainfall.rsum3.l1 + mean_temperature.rmean3.l1 + f(seasonal_id, model = 'rw1', cyclic = TRUE, scale.model = TRUE, hyper = prec1) + f(year_id, model = 'iid', constr = TRUE, hyper = prec1)\n\nSampling 1000 draws from chap \nWrote 51 rows x 1000 samp
+v2_seasonal_rw2		
+v3_interannual_rw1		
+v4_poisson		disease_cases ~ 1 + rainfall.rsum3.l1 + mean_temperature.rmean3.l1 + f(spatial_id, model = 'bym2', graph = g, scale.model = TRUE, hyper = prec1) + f(seasonal_id, model = 'rw1', cyclic = TRUE, scale.model = TRUE, hyper = prec1) + f(year_id, model = 'iid', constr = TRU

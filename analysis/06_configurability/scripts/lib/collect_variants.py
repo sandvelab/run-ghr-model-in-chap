@@ -55,6 +55,9 @@ def parse_simple_yaml(path: Path) -> dict[str, str]:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--variants-dir", type=Path, required=True)
+    ap.add_argument("--formula-check-dir", type=Path, default=None,
+                    help="a short-backtest re-run kept only for the fitted formula; its "
+                         "scores are NOT used, because its backtest differs")
     ap.add_argument("--out", type=Path, required=True)
     a = ap.parse_args()
     a.out.mkdir(parents=True, exist_ok=True)
@@ -66,6 +69,21 @@ def main() -> int:
     for v in variants:
         asked = parse_simple_yaml(v / "config.yaml")
         formula = (v / "fitted_formula.txt").read_text().strip() if (v / "fitted_formula.txt").exists() else ""
+
+        # Corroboration from the short-backtest re-run, where one exists. Kept in its own
+        # column and never merged with the row's own formula: it is a different run, and a
+        # reader must be able to see which evidence came from which.
+        fc_formula = ""
+        if a.formula_check_dir:
+            fc = a.formula_check_dir / v.name / "fitted_formula.txt"
+            if fc.exists():
+                fc_formula = fc.read_text().strip()
+        fc_terms = ""
+        if fc_formula:
+            fc_terms = " ".join(
+                f"{k}={(m.group(1) if (m := rx.search(fc_formula)) else 'ABSENT')}"
+                for k, rx in PROBES.items()
+            )
         got = {k: (m.group(1) if (m := rx.search(formula)) else "") for k, rx in PROBES.items()}
         metrics = read_metrics(v / "metrics.csv")
 
@@ -118,12 +136,17 @@ def main() -> int:
             "family": asked.get("family", ""),
             "configuration_applied": applied,
             "applied_evidence": evidence,
+            "formula_check_terms": fc_terms,
             "completed": "yes" if metrics else "no",
             **{m: (f"{float(metrics[m]):.4f}" if metrics.get(m) not in (None, "") else "")
                for m in METRICS},
             "stored_family": str(stored.get("family", "")),
         })
-        formula_rows.append({"variant": v.name, "fitted_formula": formula.replace("\n", " | ")})
+        formula_rows.append({
+            "variant": v.name,
+            "fitted_formula": formula.replace("\n", " | "),
+            "formula_from_short_backtest": fc_formula.replace("\n", " | "),
+        })
         if v.name.endswith("published_defaults"):
             baseline_key = v.name
 
@@ -139,7 +162,8 @@ def main() -> int:
                 r[key] = ""
 
     fields = (["variant", "re_spatial", "re_seasonal", "re_interannual", "family",
-               "configuration_applied", "applied_evidence", "completed", "stored_family"]
+               "configuration_applied", "applied_evidence", "formula_check_terms",
+               "completed", "stored_family"]
               + METRICS + [f"{m}_pct_vs_control" for m in METRICS])
     with (a.out / "variants_table.tsv").open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=fields, delimiter="\t", lineterminator="\n",
@@ -148,14 +172,16 @@ def main() -> int:
         w.writerows(rows)
 
     with (a.out / "variants_formulas.tsv").open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=["variant", "fitted_formula"], delimiter="\t",
-                           lineterminator="\n")
+        w = csv.DictWriter(fh, fieldnames=["variant", "fitted_formula",
+                                          "formula_from_short_backtest"],
+                           delimiter="\t", lineterminator="\n")
         w.writeheader()
         w.writerows(formula_rows)
 
     for r in rows:
         print(f"{r['variant']:24s} applied={r['configuration_applied']:16s} "
-              f"({r['applied_evidence']})  mae={r['mae'] or '-'}")
+              f"({r['applied_evidence']})  mae={r['mae'] or '-'}"
+              + (f"  |  formula: {r['formula_check_terms']}" if r['formula_check_terms'] else ""))
     print(f"wrote variants_table.tsv and variants_formulas.tsv to {a.out}")
     return 0
 

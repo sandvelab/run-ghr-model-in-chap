@@ -92,4 +92,5 @@ docker rm -f ghrvariant >/dev/null 2>&1 || true
 kill "$PROXY_PID" 2>/dev/null || true
 PROXY_PID=""
 
-"$PYTHON" scripts/lib/collect_variants.py --variants-dir "$OUT" --out "$NODE/results"
+"$PYTHON" scripts/lib/collect_variants.py --variants-dir "$OUT" \
+    --formula-check-dir "$NODE/results/formula_check" --out "$NODE/results"

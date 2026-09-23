@@ -1,6 +1,6 @@
-variant	re_spatial	re_seasonal	re_interannual	family	configuration_applied	applied_evidence	completed	stored_family	mae	rmse	crps	mape	coverage_10_90	coverage_25_75	mae_pct_vs_control	rmse_pct_vs_control	crps_pct_vs_control	mape_pct_vs_control	coverage_10_90_pct_vs_control	coverage_25_75_pct_vs_control
-v0_published_defaults	bym2	rw1	iid	nbinomial	yes	stored config read back from the service	yes	nbinomial	126.4182	238.4259	149.1586	148.7017	0.8214	0.6577	+0.0	+0.0	+0.0	+0.0	+0.0	+0.0
-v1_no_spatial	none	rw1	iid	nbinomial	yes	stored config read back from the service	yes	nbinomial	166.5149	350.2516	111.2422	78.8503	0.8185	0.5446	+31.7	+46.9	-25.4	-47.0	-0.4	-17.2
-v2_seasonal_rw2	bym2	rw2	iid	nbinomial	yes	stored config read back from the service	yes	nbinomial	124.0327	234.0364	144.6839	145.5704	0.8214	0.6577	-1.9	-1.8	-3.0	-2.1	+0.0	+0.0
-v3_interannual_rw1	bym2	rw1	rw1	nbinomial	yes	stored config read back from the service	yes	nbinomial	134.4747	267.7896	163.0818	171.4933	0.8304	0.6696	+6.4	+12.3	+9.3	+15.3	+1.1	+1.8
-v4_poisson	bym2	rw1	iid	poisson	yes	stored config read back from the service	yes	poisson	105.4717	202.7583	100.6146	160.2626	0.2381	0.1875	-16.6	-15.0	-32.5	+7.8	-71.0	-71.5
+variant	re_spatial	re_seasonal	re_interannual	family	configuration_applied	applied_evidence	formula_check_terms	completed	stored_family	mae	rmse	crps	mape	coverage_10_90	coverage_25_75	mae_pct_vs_control	rmse_pct_vs_control	crps_pct_vs_control	mape_pct_vs_control	coverage_10_90_pct_vs_control	coverage_25_75_pct_vs_control
+v0_published_defaults	bym2	rw1	iid	nbinomial	yes	stored config read back from the service	spatial=bym2 seasonal=rw1 interannual=iid	yes	nbinomial	126.4182	238.4259	149.1586	148.7017	0.8214	0.6577	+0.0	+0.0	+0.0	+0.0	+0.0	+0.0
+v1_no_spatial	none	rw1	iid	nbinomial	yes	stored config read back from the service	spatial=ABSENT seasonal=rw1 interannual=iid	yes	nbinomial	166.5149	350.2516	111.2422	78.8503	0.8185	0.5446	+31.7	+46.9	-25.4	-47.0	-0.4	-17.2
+v2_seasonal_rw2	bym2	rw2	iid	nbinomial	yes	stored config read back from the service		yes	nbinomial	124.0327	234.0364	144.6839	145.5704	0.8214	0.6577	-1.9	-1.8	-3.0	-2.1	+0.0	+0.0
+v3_interannual_rw1	bym2	rw1	rw1	nbinomial	yes	stored config read back from the service		yes	nbinomial	134.4747	267.7896	163.0818	171.4933	0.8304	0.6696	+6.4	+12.3	+9.3	+15.3	+1.1	+1.8
+v4_poisson	bym2	rw1	iid	poisson	yes	stored config read back from the service	spatial=bym2 seasonal=rw1 interannual=iid	yes	poisson	105.4717	202.7583	100.6146	160.2626	0.2381	0.1875	-16.6	-15.0	-32.5	+7.8	-71.0	-71.5
