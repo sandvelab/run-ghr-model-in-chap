@@ -1,0 +1,5 @@
+user_option_values:
+  re_spatial: none
+  re_seasonal: rw1
+  re_interannual: iid
+  family: nbinomial

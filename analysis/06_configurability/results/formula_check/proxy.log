@@ -1,0 +1,4 @@
+[proxy] :8100 -> http://localhost:8000, flattening POST /api/v1/configs
+[proxy] flattened config: re_spatial='bym2', re_seasonal='rw1', re_interannual='iid', family='nbinomial'
+[proxy] flattened config: re_spatial='bym2', re_seasonal='rw1', re_interannual='iid', family='poisson'
+[proxy] flattened config: re_spatial='none', re_seasonal='rw1', re_interannual='iid', family='nbinomial'

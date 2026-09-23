@@ -83,7 +83,7 @@ for entry in "${VARIANTS[@]}"; do
 
     # What the model actually fitted. This is the check that the configuration took effect.
     docker logs ghrvariant 2>&1 | sed 's/\x1b\[[0-9;]*m//g' \
-        | grep -oE "disease_cases ~ 1[^\"]{0,400}" | sort -u > "$VDIR/fitted_formula.txt" || true
+        | grep -oE "disease_cases ~ 1[^\"]{0,250}" | sort -u > "$VDIR/fitted_formula.txt" || true
     # And what the service ended up storing, as it reports it back.
     curl -s "http://localhost:$PORT/api/v1/configs" > "$VDIR/stored_config.json" || true
 done

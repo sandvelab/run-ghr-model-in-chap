@@ -69,18 +69,6 @@ def main() -> int:
         got = {k: (m.group(1) if (m := rx.search(formula)) else "") for k, rx in PROBES.items()}
         metrics = read_metrics(v / "metrics.csv")
 
-        # Did the configuration reach the model? Compare what was asked for against what the
-        # formula shows. 'none' means the term should be absent altogether.
-        checks = []
-        for term, asked_key in (("spatial", "re_spatial"), ("seasonal", "re_seasonal"),
-                                ("interannual", "re_interannual")):
-            want = asked.get(asked_key)
-            if want is None:
-                continue
-            have = got[term]
-            checks.append((want == "none" and have == "") or want == have)
-        applied = "yes" if checks and all(checks) else ("no" if checks else "not checkable")
-
         stored = {}
         sc = v / "stored_config.json"
         if sc.exists():
@@ -90,6 +78,38 @@ def main() -> int:
             except ValueError:
                 stored = {}
 
+        # Did the configuration reach the model? Two independent lines of evidence, in order
+        # of how directly they answer it.
+        #
+        # 1. The formula the model fitted. This is what the model DID, and is decisive.
+        # 2. The configuration the service stored, read back from it. This shows the value
+        #    arrived flat and was not parked in an ignored nested block -- which is the exact
+        #    failure this node exists to characterise -- but it is what the service RECORDED,
+        #    one step short of what it fitted.
+        #
+        # Which one was available is reported, because a reader should not have to guess
+        # whether a "yes" rests on the model's behaviour or on its bookkeeping.
+        checks = []
+        for term, asked_key in (("spatial", "re_spatial"), ("seasonal", "re_seasonal"),
+                                ("interannual", "re_interannual")):
+            want = asked.get(asked_key)
+            if want is None:
+                continue
+            have = got[term]
+            checks.append((want == "none" and have == "") or want == have)
+
+        if formula and checks:
+            applied = "yes" if all(checks) else "no"
+            evidence = "fitted formula"
+        elif stored:
+            asked_flat = {k: str(val) for k, val in asked.items()}
+            stored_flat = {k: str(stored.get(k)) for k in asked_flat}
+            nested_left = bool(stored.get("user_option_values"))
+            applied = ("yes" if asked_flat == stored_flat and not nested_left else "no")
+            evidence = "stored config read back from the service"
+        else:
+            applied, evidence = "not established", "none"
+
         rows.append({
             "variant": v.name,
             "re_spatial": asked.get("re_spatial", ""),
@@ -97,6 +117,7 @@ def main() -> int:
             "re_interannual": asked.get("re_interannual", ""),
             "family": asked.get("family", ""),
             "configuration_applied": applied,
+            "applied_evidence": evidence,
             "completed": "yes" if metrics else "no",
             **{m: (f"{float(metrics[m]):.4f}" if metrics.get(m) not in (None, "") else "")
                for m in METRICS},
@@ -118,7 +139,7 @@ def main() -> int:
                 r[key] = ""
 
     fields = (["variant", "re_spatial", "re_seasonal", "re_interannual", "family",
-               "configuration_applied", "completed", "stored_family"]
+               "configuration_applied", "applied_evidence", "completed", "stored_family"]
               + METRICS + [f"{m}_pct_vs_control" for m in METRICS])
     with (a.out / "variants_table.tsv").open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=fields, delimiter="\t", lineterminator="\n",
@@ -133,8 +154,8 @@ def main() -> int:
         w.writerows(formula_rows)
 
     for r in rows:
-        print(f"{r['variant']:24s} applied={r['configuration_applied']:14s} "
-              f"completed={r['completed']:4s} mae={r['mae'] or '-'}")
+        print(f"{r['variant']:24s} applied={r['configuration_applied']:16s} "
+              f"({r['applied_evidence']})  mae={r['mae'] or '-'}")
     print(f"wrote variants_table.tsv and variants_formulas.tsv to {a.out}")
     return 0
 
