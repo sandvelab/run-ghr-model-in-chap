@@ -212,3 +212,20 @@ alternatives-considered: enumerating the endpoints from chap-core's source inste
   living in the script rather than in the data.
 agency: agent-autonomous
 information: agent-retrieved
+
+### `run_variants.sh` changed after the sweep ran
+
+script: scripts/run_variants.sh
+        sha256:a3332b838b2b50414a7d159d1f80fe93c23cf2f3cdf29bbf3d0360b8c9c8bfc7
+commit: ad99b89
+produced: 2026-09-23
+
+The sweep's own results above were produced by the earlier version of this script, whose digest
+the first section names and which is right about that run. Two things were added afterwards and
+neither re-runs the sweep: the call to `contract_surface.py`, and the `--formula-check-dir`
+argument that lets the collector report the formula evidence in its own column. A reproduction
+from this version produces the same five runs plus the contract-surface file.
+
+This section exists because `/validate invariants` refused the commit without it — the record
+named a digest that was no longer the file's, which is the exact failure the provenance
+specification says goes unnoticed otherwise.
