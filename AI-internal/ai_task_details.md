@@ -96,3 +96,52 @@ with its outputs compared against the archived ones rather than overwriting them
 **Still open**: phase D (one replicate agent per route, to test whether one run per route
 resolves anything); the hierarchical report and clean-room/outsider validation; and the
 human's decision on the two undeclared licences.
+
+## T8 — what each route costs a human (batch 10)
+
+Everything this project had measured was agent effort, and agent minutes do not convert to
+human minutes: route A's 13.0 minutes to evaluation contains 410 seconds of machine time, and
+an agent reads a 2833-word README in seconds. The node models human cost over the same
+normalised discovery window the effort comparison uses — 27 route-A steps, 22 route-B steps —
+carrying two personas through it: a software engineer a few years past a CS degree, and a
+statistician with basic programming and no advanced software engineering. Scope was defaults
+only; configuration was excluded by the human.
+
+The design decision that matters most is that the model's **measured** inputs are in
+`results/` and its **authored** inputs in `scripts/inputs/`, so a reader who disagrees with
+the pace can replace the authored half and re-run without touching a measured value. Measured:
+document lengths in words (counted from `Archive/`, from the installed `chap-core`, and from
+captured `--help` output), and machine wait times (route A from its discovery log's own
+timestamps; route B from file mtimes in the repeatability re-run, because its log collapses
+`evaluation_started` and `evaluation_complete` onto one timestamp). Authored: per-act times,
+reading rates, persona knowledge sets, prerequisite acquisition costs, and the divergence
+rules that fork a persona's path away from the agent's.
+
+Two corrections came out of running it rather than out of writing it. The model initially
+charged the statistician 90 minutes of Docker learning on **route B**, because route B's agent
+had run `docker info` — which would have inverted this study's own finding that route B needs
+no container runtime. The rule now written into `scripts/inputs/README.md` is that a
+prerequisite is charged only where the route cannot proceed without it. And dropping the
+"read the installed library source" step for a persona who would not do that had to also drop
+the GeoJSON check that only happens *because* of it; keeping both double-counted.
+
+Results: engineer 119 min on route A against 46 on route B; statistician 649 against 221.
+Changing route moves the estimate 2.6–2.9×; changing persona moves it 4.8–5.5×. The measure
+of cognitive struggle — the share of human time spent diagnosing or learning rather than
+following instructions — does not follow the clock: route B is three to five times quicker for
+the statistician and marginally *more* bewildering per minute (64 % against 61 %).
+
+**Carried forward.** Route A's cold image build is excluded and unmeasured — every build this
+repository logged ran against a warm layer cache — and is additive to every route-A figure.
+Sixty of the statistician's route-A minutes are a property of an arm64 host and vanish on
+x86_64; that term is reported in its own column. Nothing here was measured on a person, and
+one real human timed through route B would do more for its credibility than further agent
+work. A possible later check was considered and not run: a fresh agent down each route,
+instrumented to log what it already knew, to test the prerequisite inventory — worth doing for
+that inventory only, since a second agent run yields agent minutes again, and a more capable
+model carries more silent prior knowledge, making capability a confound in that instrument.
+
+**A gap noticed in passing**: the task log had no entries between T7 (2026-09-21) and this
+one, although batches 8b, 8c and five overview versions ran in between. They are recorded in
+the plan's §4b and in their batch reports, but not here. Nothing has been reconstructed for
+them — a log written after the fact is not the same artefact.

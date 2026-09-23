@@ -38,3 +38,7 @@ reader who was not present can follow, and keep them honest about what did not w
 - T7 (2026-09-21): Batch 8 (part) — built the claim collection: eight claims, each bound to its
   grounding file with a scope qualifier and the alternative reading. `claims.py audit` reports
   that every claim resolves; all invariants hold.
+- T8 (2026-09-23): Batch 10, outside the plan — node `analysis/08_humanCost`, estimating what
+  each route costs a *human* rather than an agent, for two personas the human named. Report at
+  `AI-generated/batch-reports/26-09-23_b10_humanCost.md`. Also recorded, late, that batches 3
+  and 4 ran on Claude Opus: no file here had named the model behind the discovering agents.
