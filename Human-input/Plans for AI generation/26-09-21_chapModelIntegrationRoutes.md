@@ -388,7 +388,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 8b | D (cont.) | **Outside the plan, at the human's request**: establish whether route A's model can be configured through CHAP at all, run several published-alternative configurations on the Lao data, and report what each fitted and what each scored — descriptively, with no configuration selected (§4b). | done |
 | 8c | D (cont.) | **Outside the plan, at the human's request**: archive `zlilu/minimal_template_example` and establish whether the `MLproject` route delivers an operator's configuration to a model, which neither route A's nor route B's model can show. A case, not a third route (§4b). | done |
 | 9 | F — Claims, validation & release | Build the claim collection (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. Then the manuscript section(s) this project supports, the release scan, and the human's decision on the remote. | open |
-| 10 | D (cont.) | **Outside the plan, at the human's request**: estimate what each route costs a *human* who follows it to a default CHAP evaluation, for two named personas — (a) a software engineer a few years past a CS degree, fluent with Docker and software engineering practice; (b) a statistician with basic programming and no advanced software engineering. Node `analysis/08_humanCost`. Build a cost model over the normalised discovery window whose measured inputs (document lengths, machine wait times, act sequence) are separated on disk from its authored inputs (per-act times, persona knowledge sets, divergence rules); emit a step-by-step path per persona per route, totals, a prerequisite inventory, and a computed measure of cognitive struggle. Defaults only — configuration is out of scope (§4b). The result is a model over measured structure, labelled as such wherever it appears; no human has been timed. | open |
+| 10 | D (cont.) | **Outside the plan, at the human's request**: estimate what each route costs a *human* who follows it to a default CHAP evaluation, for two named personas — (a) a software engineer a few years past a CS degree, fluent with Docker and software engineering practice; (b) a statistician with basic programming and no advanced software engineering. Node `analysis/08_humanCost`. Build a cost model over the normalised discovery window whose measured inputs (document lengths, machine wait times, act sequence) are separated on disk from its authored inputs (per-act times, persona knowledge sets, divergence rules); emit a step-by-step path per persona per route, totals, a prerequisite inventory, and a computed measure of cognitive struggle. Defaults only — configuration is out of scope (§4b). The result is a model over measured structure, labelled as such wherever it appears; no human has been timed. | done |
 
 ### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
 
@@ -425,6 +425,7 @@ and are not read by iteration 2.
 - [[26-09-23_overviewV3]]
 - [[26-09-23_overviewV4]]
 - [[26-09-23_overviewV5]]
+- [[26-09-23_b10_humanCost]]
 
 ### Iteration 1 — reports, archived with the run
 

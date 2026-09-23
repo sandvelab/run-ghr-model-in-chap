@@ -46,7 +46,7 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 ## The article
 
 - **Target venue**: not yet decided.
-- **Status**: **iteration 2, batches 1-8, 8b and 8c done.** Both routes reached a CHAP evaluation on the
+- **Status**: **iteration 2, batches 1-8, 8b, 8c and 10 done.** Both routes reached a CHAP evaluation on the
   Lao data, each discovered by a separate agent that knew nothing of the other or of iteration
   1. Both models ran **as published**: nothing was interposed and neither model was modified.
   Re-run from clean, route A completed 4 of 4 and route B 2 of 2. Route A costs more on every
@@ -55,7 +55,9 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
   values are accepted, stored and silently ignored — which batch 8b established and worked
   around with an interposed proxy. Batch 8c showed the `MLproject` transport delivering a
   configuration correctly on a third model, so the defect is in the chapkit bridge rather than
-  in CHAP's configuration mechanism. Open: batch 9 — the claim collection and the three validation
+  in CHAP's configuration mechanism. Batch 10 estimates what each route costs a *human*, for a
+  software engineer and for a statistician, and finds the persona matters more than the route.
+  Open: batch 9 — the claim collection and the three validation
   passes. Carried forward for the human: the `<PARENT_DIR>`/`<HOME>`
   placeholders in `.claude/settings.json`, and that `origin` points at the starting-point
   template repository with this branch ahead of it (nothing has been pushed).
