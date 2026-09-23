@@ -59,8 +59,7 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
   software engineer and for a statistician, and finds the persona matters more than the route.
   Open: batch 9 — the claim collection and the three validation
   passes. Carried forward for the human: the `<PARENT_DIR>`/`<HOME>`
-  placeholders in `.claude/settings.json`, and that `origin` points at the starting-point
-  template repository with this branch ahead of it (nothing has been pushed).
+  placeholders in `.claude/settings.json`.
 - **Manuscript**: `Human-AI-collaboration/manuscript/` (empty).
 - **The plan being executed**: `Human-input/Plans for AI generation/26-09-21_chapModelIntegrationRoutes.md`.
   It carries the batch ledger (§6); `/do` runs the next open batch and stops.
@@ -76,7 +75,7 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
 | Compute budget for stability work | One replicate agent per route; cut if a replicate exceeds roughly twice the original run's effort, with the cut recorded. |
 | Storage budget | Not a constraint. |
 | Data governance | Public and redistributable. Three archived resources declare no licence — `minimalist_example_uv`, the Lao data, and `minimal_template_example` — and the human established on 2026-09-23 that redistributing them is permitted; the basis is their assessment, recorded in the plan's §4b, not a licence document. `chapkit_ghr_model` is GPL-3.0. |
-| Git remote | Not set. The human is asked for owner/repository before any remote is created; `/release` runs the secrets and data-permission scan before anything becomes public. |
+| Git remote | `git@github.com:sandvelab/run-ghr-model-in-chap.git`, **public**, confirmed by the human on 2026-09-23. It is this project's own repository, not the starting-point template. `main` is pushed. `/release` runs the secrets and data-permission scan before anything becomes public, and it runs on each push, not once at the end. |
 
 ## What must not happen
 
