@@ -145,3 +145,45 @@ model carries more silent prior knowledge, making capability a confound in that 
 one, although batches 8b, 8c and five overview versions ran in between. They are recorded in
 the plan's §4b and in their batch reports, but not here. Nothing has been reconstructed for
 them — a log written after the fact is not the same artefact.
+
+## T9 — publishing batch 10, and correcting the record of the remote
+
+The human asked for batch 10 to be pushed. Checking the remote before pushing turned up a
+contradiction: `readme-at-start.md` recorded *Git remote: not set*, and separately that
+`origin` pointed at the starting-point template repository *with nothing pushed*, and the
+plan's §4b carried a decision from earlier the same day that nothing would be pushed to
+`origin` as it stood. None of it was true. `origin` is
+`git@github.com:sandvelab/run-ghr-model-in-chap.git` — public, named for this project, not a
+template (`isTemplate: false`), and already carrying the full history through commit `4d11398`,
+pushed at 14:43 UTC on 2026-09-23, before this session began. The human confirmed the remote,
+and the correction was made: `readme-at-start.md` rewritten, and a new §4b entry **superseding**
+the earlier decision rather than editing it, because §4b is append-only and that decision was
+true when it was taken. Ledger row 11.
+
+Two things were written into the record alongside the bare correction. First, **the record went
+stale silently**: the repository was public while its own front-door file said the remote was
+not even set, through a working session and eleven batch reports, with nothing looking wrong.
+`/validate invariants` checks the tree, the hashes and the git state, and reads no prose, so no
+check here could have caught it — which is exactly the failure mode `AGENTS.md` §5 describes,
+arriving in the one place nothing automated looks. Second, **Rule 10's release scan is now a
+per-push obligation**, not a one-off before an imagined first publication: a repository that is
+already public publishes on every push. The three commits pushed in this session were scanned
+for credentials, keys, absolute home paths and the human's email address before going out, and
+were clean.
+
+Tidying that followed from it: `AI-generated/batch-reports/` had no `README.md` at all, and two
+sibling READMEs were factually wrong in the published repository — `AI-generated/README.md` said
+the folder was *empty* and that iteration 2 had produced no derived documents, when it holds
+seven batch reports and five overview versions; `AI-generated/overview/README.md` listed only
+version 1 of five. All three fixed.
+
+**Not done, deliberately.** `AI-generated/batch-reports/` still has no `provenance.md`, which
+`AGENTS.md` §8 asks of any folder holding generated documents. Writing one now would mean
+reconstructing provenance for six reports this session did not produce, and a reconstructed
+record is not admissible here — the same principle the plan applies to discovery logs. A future
+session should either write the sections from the batches' own commits or record that they are
+not recoverable. The same gap exists in `AI-generated/overview/`.
+
+**Also still open**: the task log has no entries between T7 (2026-09-21) and T8, although
+batches 8b, 8c and five overview versions ran in between; nothing has been reconstructed for
+them.

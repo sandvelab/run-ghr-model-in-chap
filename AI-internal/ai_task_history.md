@@ -42,3 +42,10 @@ reader who was not present can follow, and keep them honest about what did not w
   each route costs a *human* rather than an agent, for two personas the human named. Report at
   `AI-generated/batch-reports/26-09-23_b10_humanCost.md`. Also recorded, late, that batches 3
   and 4 ran on Claude Opus: no file here had named the model behind the discovering agents.
+- T9 (2026-09-23): Published batch 10 and corrected the repository's record of its own remote.
+  `origin` is `sandvelab/run-ghr-model-in-chap` — public, this project's own repository, and
+  already pushed — against three statements here saying the remote was unset, or the
+  starting-point template, or unpushed. Ledger row 11; §4b entry superseding the earlier
+  decision rather than editing it. Release scan run on each push and made a standing
+  obligation. Also wrote the missing `AI-generated/batch-reports/README.md` and corrected two
+  stale folder READMEs.

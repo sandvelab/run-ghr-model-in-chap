@@ -4,6 +4,9 @@ The project's front door: one document that says what was asked, what was done, 
 and where the detail is. It exists because the batch reports and the hierarchical report
 between them answer every question except "where do I start".
 
+- `26-09-23_overviewV5.md` — **current**. Leads with the configuration finding; carries a
+  from-scratch recipe and the default evaluation for each route.
+- `26-09-23_overviewV4.md`, `26-09-23_overviewV3.md`, `26-09-23_overviewV2.md` — superseded.
 - `26-09-22_overviewV1.md` — version 1, covering the work through batch 7.
 
 **One overview, not several.** When it goes out of date it is superseded by a new version in

@@ -24,6 +24,10 @@ meantime. If a derived document is wrong, its source is wrong.
 
 ## Currently here
 
-Empty. Iteration 2 began on 2026-09-22 and has produced no derived documents yet; iteration
-1's are frozen under `Archive/version_1_old_chapcore/AI-generated/` and are not read from
-here.
+- `overview/` — five versions, `26-09-22_overviewV1.md` through `26-09-23_overviewV5.md`.
+  Version 5 is the entry point; the earlier ones are kept unchanged.
+- `batch-reports/` — seven reports, batches 1 through 10. See that folder's own README.
+- `hierarchical-report/` — not yet generated; batch 9 produces it.
+
+Iteration 1's derived documents are frozen under `Archive/version_1_old_chapcore/AI-generated/`
+and are not read from here.
