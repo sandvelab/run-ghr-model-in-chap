@@ -1,0 +1,5 @@
+user_option_values:
+  re_spatial: bym2
+  re_seasonal: rw1
+  re_interannual: rw1
+  family: nbinomial

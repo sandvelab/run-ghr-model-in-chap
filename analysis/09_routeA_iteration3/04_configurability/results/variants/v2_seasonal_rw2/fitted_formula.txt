@@ -1,0 +1,1 @@
+disease_cases ~ 1 + rainfall.rsum3.l1 + mean_temperature.rmean3.l1 + f(spatial_id, model = 'bym2', graph = g, scale.model = TRUE, hyper = prec1) + f(seasonal_id, model = 'rw2', cyclic = TRUE, scale.model = TRUE, hyper = prec1) + f(year_id, model = 'iid', constr = TRU

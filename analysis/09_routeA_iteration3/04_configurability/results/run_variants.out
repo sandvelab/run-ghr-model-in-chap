@@ -1,0 +1,44 @@
+[variants] === v0_published_defaults ===
+user_option_values:
+  re_spatial: bym2
+  re_seasonal: rw1
+  re_interannual: iid
+  family: nbinomial
+[variants] v0_published_defaults completed
+[variants] === v1_no_spatial ===
+user_option_values:
+  re_spatial: none
+  re_seasonal: rw1
+  re_interannual: iid
+  family: nbinomial
+[variants] v1_no_spatial completed
+[variants] === v2_seasonal_rw2 ===
+user_option_values:
+  re_spatial: bym2
+  re_seasonal: rw2
+  re_interannual: iid
+  family: nbinomial
+[variants] v2_seasonal_rw2 completed
+[variants] === v3_interannual_rw1 ===
+user_option_values:
+  re_spatial: bym2
+  re_seasonal: rw1
+  re_interannual: rw1
+  family: nbinomial
+[variants] v3_interannual_rw1 completed
+[variants] === v4_poisson ===
+user_option_values:
+  re_spatial: bym2
+  re_seasonal: rw1
+  re_interannual: iid
+  family: poisson
+[variants] v4_poisson completed
+[variants] === flat shape (expected to be refused) ===
+[variants] flat_shape exited 1 -- kept as the result it is
+v0_published_defaults    applied=yes              (fitted formula)  mae=127.8899
+v1_no_spatial            applied=yes              (fitted formula)  mae=166.0387
+v2_seasonal_rw2          applied=yes              (fitted formula)  mae=119.5030
+v3_interannual_rw1       applied=yes              (fitted formula)  mae=133.6711
+v4_poisson               applied=yes              (fitted formula)  mae=105.5060
+wrote variants_table.tsv and variants_formulas.tsv to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/04_configurability/results
+exit 0

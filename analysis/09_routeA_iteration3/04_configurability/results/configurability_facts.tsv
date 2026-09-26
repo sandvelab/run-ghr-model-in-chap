@@ -1,0 +1,9 @@
+fact	value
+variants_run_direct	5
+variants_applied	5
+variants_with_nested_remainder_in_stored_config	0
+service_schema_declares_user_option_values	false
+service_schema_option_count	20
+flat_yaml_exit_code	1
+flat_yaml_refused_with_extra_forbidden	true
+flat_yaml_config_posts_reaching_service	0

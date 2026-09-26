@@ -1,0 +1,67 @@
+2026/09/26 18:05:49 INFO mlflow.agent.hint: Load the `instrumenting-with-mlflow-tracing` skill at /Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/mlflow/assistant/skills/instrumenting-with-mlflow-tracing/SKILL.md before writing any tracing code; it ships with this MLflow install. Set MLFLOW_DISABLE_AGENT_HINT=1 to silence this.
+2026-09-26T18:05:53 [INFO   ] Database URL not set [chap_core.database.database]
+2026-09-26T18:05:53 [INFO   ] Database url not set. Database operations will not work [chap_core.database.database]
+2026-09-26T18:05:53 [INFO   ] Evaluating model http://localhost:8000 with xarray/NetCDF output [chap_core.cli_endpoints.evaluate]
+2026-09-26T18:05:53 [INFO   ] Level set to INFO [root]
+2026-09-26T18:05:53 [INFO   ] Loading dataset from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/04_configurability/results/flat_shape/chap_LAO_admin1_monthly.csv [root]
+2026-09-26T18:05:54 [INFO   ] Loading polygons from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/04_configurability/results/flat_shape/chap_LAO_admin1_monthly.geojson [root]
+2026-09-26T18:05:55 [WARNING] Rejected regions: ['LA-VI'] due to missing target values for the whole training period [chap_core.rest_api.db_worker_functions]
+2026-09-26T18:05:55 [INFO   ] Remaining regions: ['LA-AT', 'LA-BK', 'LA-BL', 'LA-CH', 'LA-HO', 'LA-KH', 'LA-LM', 'LA-LP', 'LA-OU', 'LA-PH', 'LA-SL', 'LA-SV', 'LA-VT', 'LA-XA', 'LA-XE', 'LA-XI', 'LA-XN'] with 17 entries [chap_core.rest_api.db_worker_functions]
+2026-09-26T18:05:55 [INFO   ] Loading model template from http://localhost:8000 [chap_core.cli_endpoints.evaluate]
+2026-09-26T18:05:55 [INFO   ] HTTP Request: GET http://localhost:8000/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-09-26T18:05:56 [INFO   ] Loading model configuration from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/04_configurability/results/flat_shape/config.yaml [chap_core.cli_endpoints._common]
+Traceback (most recent call last):
+  File "/Users/geirksa_1_2_3/.local/bin/chap", line 10, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli.py", line 54, in main
+    app()
+    ~~~^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/cyclopts/core.py", line 2223, in __call__
+    result = _run_maybe_async_command(command, bound, resolved_backend)
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/cyclopts/_run.py", line 44, in _run_maybe_async_command
+    return command(*bound.args, **bound.kwargs)
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli_endpoints/evaluate.py", line 78, in eval_cmd
+    _run_eval(
+    ~~~~~~~~~^
+        model_name=model_name,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<9 lines>...
+        estimator_options=estimator_options,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli_endpoints/evaluate.py", line 229, in _run_eval
+    configuration = get_configuration(model_configuration_yaml)
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli_endpoints/_common.py", line 277, in get_configuration
+    return ModelConfiguration.model_validate(yaml.safe_load(open(model_configuration_yaml)))
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/sqlmodel/main.py", line 920, in model_validate
+    return sqlmodel_validate(
+        cls=cls,
+    ...<4 lines>...
+        update=update,
+    )
+  File "/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/sqlmodel/_compat.py", line 310, in sqlmodel_validate
+    cls.__pydantic_validator__.validate_python(
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        use_obj,
+        ^^^^^^^^
+    ...<3 lines>...
+        self_instance=new_obj,
+        ^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 4 validation errors for ModelConfiguration
+re_spatial
+  Extra inputs are not permitted [type=extra_forbidden, input_value='none', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+re_seasonal
+  Extra inputs are not permitted [type=extra_forbidden, input_value='rw1', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+re_interannual
+  Extra inputs are not permitted [type=extra_forbidden, input_value='iid', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden
+family
+  Extra inputs are not permitted [type=extra_forbidden, input_value='nbinomial', input_type=str]
+    For further information visit https://errors.pydantic.dev/2.13/v/extra_forbidden

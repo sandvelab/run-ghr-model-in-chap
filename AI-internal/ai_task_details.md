@@ -214,3 +214,20 @@ and the agent read it. Node 08 cannot reproduce its own numbers on today's platf
 
 **Not done**: configuration through CHAP on the new release — the model's history claims a
 fix for batch 8b's finding, and it was not tested. Nothing pushed.
+
+## T11 — 2026-09-26 — Batch 13: is route A configurable now?
+
+**Asked**: check whether configuration works for GHRmodel through chapkit after the upgrade,
+and report whether the status changed.
+
+**Done**: batch 8b's five one-option variants, plus a flat-shaped YAML, run directly against
+the published `sha-a9532c7` image with `chap eval --model-configuration-yaml`. No proxy.
+Judged by batch 8b's collector, unchanged. Compared variant by variant with 8b's proxied runs.
+
+**Found**: 5 of 5 applied. The fitted formulas match what was asked, and the stored configs
+hold the values flat with no nested remainder. The service schema no longer declares
+`user_option_values`. CHAP still refuses a flat YAML before any request. The effects on scores
+match 8b's closely, except `v2`. The before-state is cited from 8b's record, because the old
+image was deleted for batch 12.
+
+**Not done**: nothing pushed.

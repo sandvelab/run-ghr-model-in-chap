@@ -28,6 +28,8 @@ The plan's §6 carries the ledger these correspond to, and links back to each re
   process, invocation, evaluation, and the human cost for batch 10's two personas.
 - `26-09-26_b12_whatChanged.md` — iteration 2's route A against iteration 3's: success, agent
   time and tokens, estimated human time, and what one pair of runs cannot separate.
+- `26-09-26_b13_configurability.md` — batch 8b's configuration test repeated on the upgraded
+  pair, with nothing interposed: configuration now reaches the model.
 
 Batches 2, 7, 8 and 9 have no report here: 2 and 7 were folded into the reports above, 8
 produced the overview instead, and 9 is open.

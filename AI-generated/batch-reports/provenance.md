@@ -22,3 +22,13 @@ reconstructed (`AI-internal/ai_task_details.md`, T9).
 - **Generated from**: `analysis/09_routeA_iteration3/03_versusIteration2/results/comparison.tsv`
   at commit `5225531`, and `02_humanCost/results/machine_waits.tsv` for the pull bound.
 - **Produced**: 2026-09-26. **Agency**: `agent-autonomous`, at the human's request.
+
+## 26-09-26_b13_configurability.md
+
+- **What it is**: whether batch 8b's finding — route A's model silently ignores configuration —
+  still holds on chapkit 2.1.2 with the model at `a9532c7`.
+- **Generated from**: `analysis/09_routeA_iteration3/04_configurability/results/`
+  (`variants_table.tsv`, `variants_formulas.tsv`, `configurability_then_and_now.tsv`,
+  `configurability_facts.tsv`, the per-variant logs), and batch 8b's report and provenance for
+  the before-state. Hand-written by the orchestrating agent (Claude Opus 5.5) from those files.
+- **Produced**: 2026-09-26. **Agency**: `agent-autonomous`, at the human's request.

@@ -1,0 +1,6 @@
+variant	re_spatial	re_seasonal	re_interannual	family	configuration_applied	applied_evidence	formula_check_terms	completed	stored_family	mae	rmse	crps	mape	coverage_10_90	coverage_25_75	mae_pct_vs_control	rmse_pct_vs_control	crps_pct_vs_control	mape_pct_vs_control	coverage_10_90_pct_vs_control	coverage_25_75_pct_vs_control
+v0_published_defaults	bym2	rw1	iid	nbinomial	yes	fitted formula		yes	nbinomial	127.8899	244.4320	150.0491	149.2171	0.8214	0.6637	+0.0	+0.0	+0.0	+0.0	+0.0	+0.0
+v1_no_spatial	none	rw1	iid	nbinomial	yes	fitted formula		yes	nbinomial	166.0387	349.4641	111.1887	78.2995	0.8185	0.5536	+29.8	+43.0	-25.9	-47.5	-0.4	-16.6
+v2_seasonal_rw2	bym2	rw2	iid	nbinomial	yes	fitted formula		yes	nbinomial	119.5030	225.4831	145.7181	144.2756	0.8244	0.6577	-6.6	-7.8	-2.9	-3.3	+0.4	-0.9
+v3_interannual_rw1	bym2	rw1	rw1	nbinomial	yes	fitted formula		yes	nbinomial	133.6711	271.7168	165.8317	165.3272	0.8274	0.6756	+4.5	+11.2	+10.5	+10.8	+0.7	+1.8
+v4_poisson	bym2	rw1	iid	poisson	yes	fitted formula		yes	poisson	105.5060	202.7673	100.6421	160.1067	0.2381	0.1815	-17.5	-17.0	-32.9	+7.3	-71.0	-72.7

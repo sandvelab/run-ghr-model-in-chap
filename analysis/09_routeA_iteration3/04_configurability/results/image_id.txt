@@ -1,0 +1,1 @@
+sha256:28fb12f0d58a7608f88a4a0947f306b43cea68aaf6eab6d327e7836af84b3293 ["ghcr.io/chap-models/chapkit_ghr_model@sha256:4242f3981fa27f4c3a47def6e742610dd305c3d278748ecd3153b95fdd98f30e"]

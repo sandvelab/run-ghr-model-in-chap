@@ -62,6 +62,9 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
   with no failure, blocker or workaround — the published image now pulls anonymously, and the
   invocation is in chap-core's own docs. Estimated human cost falls to 110 min (engineer) and
   436 min (statistician); see `AI-generated/batch-reports/26-09-26_b12_whatChanged.md`.
+  **Batch 13**: on the same pair, route A's model **is now configurable through CHAP** with
+  nothing interposed — batch 8b's silent-ignore finding no longer holds
+  (`AI-generated/batch-reports/26-09-26_b13_configurability.md`).
   Open: batch 9 — the claim collection and the three validation
   passes. Carried forward for the human: the `<PARENT_DIR>`/`<HOME>`
   placeholders in `.claude/settings.json`.

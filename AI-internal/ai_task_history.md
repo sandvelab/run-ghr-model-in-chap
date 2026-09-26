@@ -56,3 +56,7 @@ reader who was not present can follow, and keep them honest about what did not w
   Re-costed with batch 10's unchanged model: 110 / 436 min against 119 / 649. Node
   `analysis/09_routeA_iteration3`; reports `26-09-26_b12_routeA.md`, `26-09-26_b12_whatChanged.md`.
   Found that batch 10's 'undocumented' GeoJSON convention is in chap-core's v2.3.1 docs.
+- T11 (2026-09-26): Batch 13, outside the plan — batch 8b's five configuration variants re-run
+  on chapkit 2.1.2 / model `a9532c7` with no proxy. All five applied (fitted formula and stored
+  config); flat YAML still refused by CHAP before any request. Batch 8b's finding no longer
+  holds. Node `analysis/09_routeA_iteration3/04_configurability`; report `26-09-26_b13_configurability.md`.
