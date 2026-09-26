@@ -22,5 +22,12 @@ The plan's §6 carries the ledger these correspond to, and links back to each re
 - `26-09-23_b10_humanCost.md` — what each route would cost a *human* rather than an agent, for
   two personas, to a default evaluation.
 
+## Currently here — iteration 3 (route A only)
+
+- `26-09-26_b12_routeA.md` — route A on chapkit 2.1.2 with the model at `a9532c7`: resources,
+  process, invocation, evaluation, and the human cost for batch 10's two personas.
+- `26-09-26_b12_whatChanged.md` — iteration 2's route A against iteration 3's: success, agent
+  time and tokens, estimated human time, and what one pair of runs cannot separate.
+
 Batches 2, 7, 8 and 9 have no report here: 2 and 7 were folded into the reports above, 8
 produced the overview instead, and 9 is open.

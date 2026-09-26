@@ -57,6 +57,11 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
   configuration correctly on a third model, so the defect is in the chapkit bridge rather than
   in CHAP's configuration mechanism. Batch 10 estimates what each route costs a *human*, for a
   software engineer and for a statistician, and finds the persona matters more than the route.
+  **Iteration 3, route A only (batch 12)**: after chapkit was upgraded to 2.1.2 and the model
+  re-pinned to `a9532c7`, a fresh agent took route A to an evaluation from a cold Docker state
+  with no failure, blocker or workaround — the published image now pulls anonymously, and the
+  invocation is in chap-core's own docs. Estimated human cost falls to 110 min (engineer) and
+  436 min (statistician); see `AI-generated/batch-reports/26-09-26_b12_whatChanged.md`.
   Open: batch 9 — the claim collection and the three validation
   passes. Carried forward for the human: the `<PARENT_DIR>`/`<HOME>`
   placeholders in `.claude/settings.json`.

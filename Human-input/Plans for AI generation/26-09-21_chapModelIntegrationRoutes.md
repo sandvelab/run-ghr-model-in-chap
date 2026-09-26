@@ -225,6 +225,9 @@ Append-only, oldest first; each entry with its basis and its agency.
 | **Time and tokens are recorded from two sources, kept apart**: the discovery log's own timestamps (as in iteration 2) and the harness's usage report for the agent (total tokens, tool calls, wall-clock), written to a file as reported | The human asked for tokens. No earlier batch recorded tokens, so there is **no token figure for iteration 2 to compare against**, and the comparison says so rather than estimating one | `agent-autonomous` |
 | The discovering agent runs on **Claude Opus 5.5** (`claude-opus-5-5`), the model of the orchestrating session | Batch 3's agent is recorded only as "Claude Opus", with no version. A change of model is therefore a confound that cannot be ruled out, and is named as one | `agent-retrieved` |
 | Batch 10's human-cost model is re-used with **every authored rate unchanged**; only the act sequence (`steps.tsv`) and the divergence anchors are re-authored for the new log, and the measured inputs are re-measured from the new archive | A difference in the human estimate should come from the route, not from re-tuning the model. The new step mapping is the one authored input that cannot be carried over | `agent-autonomous` |
+| **The agent's own node `claim.md` named the commit and chapkit 2.1.2, and the agent read it** — a contamination the orchestrator caused, recorded in `01_discovery/provenance/discovery.md` | The brief allows the agent its own node, and the claim was written before the agent ran. Upstream HEAD was the same commit, so the code it got is unchanged; what leaked is that the upgrade was the point. Next time, a discovering node's claim is written after its agent has run | `agent-autonomous` |
+| **Batch 10's statement that the sibling-GeoJSON convention is documented nowhere is found not to hold**: `docs/chap-cli/eval-reference.md` at chap-core `v2.3.1`, the tag iteration 2 ran on, documents it. Recorded here and in the batch 12 reports; batch 10's report is not reissued | A batch report is an account of its batch. Divergences D1 and D2 in node 08 price a real agent path but overstate its necessity; node 09's human model does not use D1 | `agent-retrieved` |
+| Node 08's committed results are left as iteration 2's record rather than regenerated | Node 08 re-captures `--help` live; on the refreshed platform `chap eval --help` is 654 words rather than 645, which moves every figure. `human_cost.py` gained an optional `wait_key` column, and reproduces node 08's outputs byte for byte on its inputs | `agent-autonomous` |
 
 ### 2026-09-23 — The remote, corrected: it exists, it is public, and it is this project's own
 
@@ -414,7 +417,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 9 | F — Claims, validation & release | Build the claim collection (`/claims`); generate the hierarchical report (`/hierarchical-report`); `/validate invariants`, `/validate cleanroom`, `/validate outsider`; fix what they find. Then the manuscript section(s) this project supports, the release scan, and the human's decision on the remote. | open |
 | 10 | D (cont.) | **Outside the plan, at the human's request**: estimate what each route costs a *human* who follows it to a default CHAP evaluation, for two named personas — (a) a software engineer a few years past a CS degree, fluent with Docker and software engineering practice; (b) a statistician with basic programming and no advanced software engineering. Node `analysis/08_humanCost`. Build a cost model over the normalised discovery window whose measured inputs (document lengths, machine wait times, act sequence) are separated on disk from its authored inputs (per-act times, persona knowledge sets, divergence rules); emit a step-by-step path per persona per route, totals, a prerequisite inventory, and a computed measure of cognitive struggle. Defaults only — configuration is out of scope (§4b). The result is a model over measured structure, labelled as such wherever it appears; no human has been timed. | done |
 | 11 | — | **Outside the plan, at the human's request**: correct the repository's record of its own remote. `origin` is `sandvelab/run-ghr-model-in-chap`, public, this project's own repository, and already pushed — against three statements here that said the remote was unset, or a template, or unpushed. Fix `readme-at-start.md`, supersede the earlier §4b decision rather than editing it, and record that the release scan is owed on every push. No analysis. | done |
-| 12 | D (cont.) | **Outside the plan, at the human's request**: iteration 3, route A only. chapkit is upgraded to 2.1.2 and the model re-pinned to `a9532c7`. A fresh isolated agent re-discovers route A on the §4 brief from a fully cold Docker state, logging contemporaneously, with its time and tokens recorded; batch 10's human-cost model re-costs the new act sequence for both personas; a comparison with iteration 2's route A on success, agent time, tokens and estimated human time. Node `analysis/09_routeA_iteration3` (§4b). | open |
+| 12 | D (cont.) | **Outside the plan, at the human's request**: iteration 3, route A only. chapkit is upgraded to 2.1.2 and the model re-pinned to `a9532c7`. A fresh isolated agent re-discovers route A on the §4 brief from a fully cold Docker state, logging contemporaneously, with its time and tokens recorded; batch 10's human-cost model re-costs the new act sequence for both personas; a comparison with iteration 2's route A on success, agent time, tokens and estimated human time. Node `analysis/09_routeA_iteration3` (§4b). | done |
 
 ### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
 
@@ -452,6 +455,11 @@ and are not read by iteration 2.
 - [[26-09-23_overviewV4]]
 - [[26-09-23_overviewV5]]
 - [[26-09-23_b10_humanCost]]
+
+### Iteration 3 (route A only) — reports
+
+- [[26-09-26_b12_routeA]]
+- [[26-09-26_b12_whatChanged]]
 
 ### Iteration 1 — reports, archived with the run
 

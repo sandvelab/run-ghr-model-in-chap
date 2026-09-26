@@ -187,3 +187,30 @@ not recoverable. The same gap exists in `AI-generated/overview/`.
 **Also still open**: the task log has no entries between T7 (2026-09-21) and T8, although
 batches 8b, 8c and five overview versions ran in between; nothing has been reconstructed for
 them.
+
+## T10 — 2026-09-26 — Batch 12: route A on the upgraded chapkit
+
+**Asked**: re-do the route A reports on the upgraded chapkit, both the agent attempt (with time
+and tokens) and the two-persona human emulation, then briefly report what changed.
+
+**Decided with the human** (§4b): re-pin the model to upstream's `a9532c7`; the orchestrator
+starts Docker; make Docker fully cold (route A images removed, build cache pruned) so the build
+or pull that batch 10 could not measure is measured.
+
+**Done**: archived the model, the refreshed platform and the four chap-core doc pages the agent
+read; stored the brief verbatim before launch; ran one isolated agent; recorded its usage from
+the harness; ran the effort instrument on both iterations' logs; re-costed with batch 10's
+model, rates checked byte-identical, after giving `human_cost.py` an optional `wait_key` (node
+08's outputs reproduced byte for byte); wrote the comparison table and two reports.
+
+**Found**: no failure, blocker or dead end on route A now. The published image is public and
+tagged by commit, so nothing is built. The invocation, including the sibling-GeoJSON
+convention, is in chap-core's own docs at v2.3.1 — which also existed when iteration 2 ran,
+so batch 10's "documented nowhere" was wrong.
+
+**Recorded against the orchestrator**: the node's claim.md named the commit and chapkit 2.1.2,
+and the agent read it. Node 08 cannot reproduce its own numbers on today's platform, because
+`--help` text is captured live.
+
+**Not done**: configuration through CHAP on the new release — the model's history claims a
+fix for batch 8b's finding, and it was not tested. Nothing pushed.

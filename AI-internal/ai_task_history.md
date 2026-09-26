@@ -49,3 +49,10 @@ reader who was not present can follow, and keep them honest about what did not w
   decision rather than editing it. Release scan run on each push and made a standing
   obligation. Also wrote the missing `AI-generated/batch-reports/README.md` and corrected two
   stale folder READMEs.
+- T10 (2026-09-26): Batch 12, outside the plan — iteration 3, route A only, after the chapkit
+  upgrade. Re-pinned the model to `a9532c7`, archived the refreshed platform (chapkit 2.1.2, 25
+  packages changed), made Docker fully cold, and ran a fresh discovering agent on the stored
+  verbatim brief: evaluation reached with 0 failures, 0 blockers, 0 dead ends; 139,417 tokens.
+  Re-costed with batch 10's unchanged model: 110 / 436 min against 119 / 649. Node
+  `analysis/09_routeA_iteration3`; reports `26-09-26_b12_routeA.md`, `26-09-26_b12_whatChanged.md`.
+  Found that batch 10's 'undocumented' GeoJSON convention is in chap-core's v2.3.1 docs.
