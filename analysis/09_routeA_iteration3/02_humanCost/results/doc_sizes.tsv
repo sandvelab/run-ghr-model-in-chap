@@ -1,0 +1,10 @@
+doc_key	words	source
+chap_eval_help	654	chap eval --help (captured to results/help_text/)
+chap_post_help	177	chap export-metrics --help (captured to results/help_text/) + chap plot-backtest --help (captured to results/help_text/)
+chapcore_readme	356	Archive/chapcore-docs-v2.3.1/README.md
+doc_chapkit	836	Archive/chapcore-docs-v2.3.1/docs/external_models/chapkit.md
+doc_eval_ref	1300	Archive/chapcore-docs-v2.3.1/docs/chap-cli/eval-reference.md
+doc_eval_workflow	929	Archive/chapcore-docs-v2.3.1/docs/chap-cli/evaluation-workflow.md
+routeA_mainci_it3	1362	Archive/model-route-a-it3/repo/main.py + Archive/model-route-a-it3/repo/.github/workflows/publish-docker.yml
+routeA_readme_it3	2833	Archive/model-route-a-it3/repo/README.md
+routeA_repofiles_it3	1012	Archive/model-route-a-it3/repo/Makefile + Archive/model-route-a-it3/repo/compose.yml + Archive/model-route-a-it3/repo/compose.ghcr.yml + Archive/model-route-a-it3/repo/Dockerfile + Archive/model-route-a-it3/repo/pyproject.toml + Archive/model-route-a-it3/repo/CLAUDE.md

@@ -1,0 +1,98 @@
+Usage: chap eval MODEL-NAME DATASET-CSV OUTPUT-FILE [ARGS]
+
+Evaluate a model using backtesting and export results to NetCDF format.         
+
+Thin wrapper around :func:_run_eval that optionally records the run to MLflow   
+when run_config.track is True. See :func:_run_eval for the detailed backtest    
+workflow.
+
+╭─ Parameters ─────────────────────────────────────────────────────────────────╮
+│ *  MODEL-NAME --model-name       Model path (local directory), GitHub URL,   │
+│                                  or chapkit service URL. Examples:           │
+│                                  /path/to/model,                             │
+│                                  https://github.com/org/model,               │
+│                                  http://localhost:8000 [required]            │
+│ *  DATASET-CSV --dataset-csv     Path or URL to CSV file containing disease  │
+│                                  data with columns: time_period, location,   │
+│                                  disease_cases, and climate covariates       │
+│                                  (rainfall, temperature, etc.) [required]    │
+│ *  OUTPUT-FILE --output-file     Path for output NetCDF file containing      │
+│                                  evaluation results (.nc extension)          │
+│                                  [required]                                  │
+│    BACKTEST-PARAMS.N-PERIODS     Number of periods to forecast at each       │
+│      --backtest-params           split. [default: 3]                         │
+│      .n-periods                                                              │
+│      --backtest-params.nperiods                                              │
+│    BACKTEST-PARAMS.N-SPLITS      Total number of rolling train/test splits.  │
+│      --backtest-params.n-splits  [default: 7]                                │
+│      --backtest-params.nsplits                                               │
+│    BACKTEST-PARAMS.STRIDE        Number of periods to advance between        │
+│      --backtest-params.stride    successive splits. [default: 1]             │
+│    BACKTEST-PARAMS.N-RETRAIN     Number of times the model is retrained,     │
+│      --backtest-params           evenly spaced across the splits. 1 means    │
+│      .n-retrain                  train once. [default: 1]                    │
+│      --backtest-params.nretrain                                              │
+│    BACKTEST-PARAMS               Id of the registered future-weather         │
+│      .FUTURE-WEATHER-PROVIDER    provider supplying climate covariates for   │
+│      --backtest-params           each forecast window. Use the same provider │
+│      .future-weather-provider    here and on the prediction so backtest      │
+│      --backtest-params           scores reflect what the model will see in   │
+│      .futureweatherprovider      production. See GET                         │
+│                                  /v1/analytics/weather-providers. [default:  │
+│                                  climatology]                                │
+│    RUN-CONFIG                    When True, skip the automatic environment   │
+│      .IGNORE-ENVIRONMENT         setup step. [default: False]                │
+│      --run-config                                                            │
+│      .ignore-environment                                                     │
+│      --run-config                                                            │
+│      .no-ignore-environment                                                  │
+│    RUN-CONFIG.DEBUG              When True, enable verbose debug logging.    │
+│      --run-config.debug          [default: False]                            │
+│      --run-config.no-debug                                                   │
+│    RUN-CONFIG.LOG-FILE           Path to write log output to; None means     │
+│      --run-config.log-file       stdout only.                                │
+│    RUN-CONFIG                    How to name the per-run subdirectory under  │
+│      .RUN-DIRECTORY-TYPE         runs/. [choices: latest, timestamp,         │
+│      --run-config                use_existing] [default: timestamp]          │
+│      .run-directory-type                                                     │
+│    RUN-CONFIG.IS-CHAPKIT-MODEL   Set to True when the model is served via    │
+│      --run-config                chapkit (REST) rather than an MLproject     │
+│      .is-chapkit-model           directory. [default: False]                 │
+│      --run-config                                                            │
+│      .no-is-chapkit-model                                                    │
+│    RUN-CONFIG.TRACK              When True, log params/metrics/artifacts to  │
+│      --run-config.track          the tracking backend. [default: False]      │
+│      --run-config.no-track                                                   │
+│    MODEL-CONFIGURATION-YAML      Path to YAML file with model-specific       │
+│      --model-configuration-yaml  configuration parameters                    │
+│    HISTORICAL-CONTEXT-YEARS      Years of historical data to include for     │
+│      --historical-context-years  plotting context. [default: 6]              │
+│    DATA-SOURCE-MAPPING           Path to JSON file mapping model covariate   │
+│      --data-source-mapping       names to CSV column names. Format:          │
+│                                  {"model_name": "csv_column"}. Example:      │
+│                                  {"rainfall": "precipitation_mm"}            │
+│    DRY-RUN --dry-run             Write inputs and print commands without     │
+│      --no-dry-run                executing. [default: False]                 │
+│    PLOT --plot --no-plot         Generate an HTML evaluation plot alongside  │
+│                                  the NetCDF. [default: False]                │
+│    ESTIMATOR-OPTIONS.MODE        Estimator mode: 'normal' = normal run,      │
+│      --estimator-options.mode    'hpo' = hyperparameter optimization,        │
+│                                  'ensemble' = ensemble learning. [choices:   │
+│                                  normal, hpo, ensemble] [default: normal]    │
+│    ESTIMATOR-OPTIONS             YAML defining the HPO search space. If      │
+│      .SEARCH-SPACE               omitted, hpo_search_space from model's      │
+│      --estimator-options         MLProject is used.                          │
+│      .search-space                                                           │
+│    ESTIMATOR-OPTIONS.METRIC      Metric used for HPO or ensemble. Default    │
+│      --estimator-options.metric  will be used if none provided. Ignored in   │
+│                                  normal mode.                                │
+│    ESTIMATOR-OPTIONS.SEARCHER    Searcher used for HPO. If not provided, a   │
+│      --estimator-options         default TPESearcher will be used. Ignored   │
+│      .searcher                   in normal and ensemble modes. [choices:     │
+│                                  grid, random, tpe]                          │
+│    ESTIMATOR-OPTIONS.MAX-TRIALS  Maximum HPO trials. If omitted, grid search │
+│      --estimator-options         is exhaustive while random/TPE use the      │
+│      .max-trials                 default HPO trial count.                    │
+│    ESTIMATOR-OPTIONS.SEED        Random seed used by stochastic search       │
+│      --estimator-options.seed    strategies.                                 │
+╰──────────────────────────────────────────────────────────────────────────────╯

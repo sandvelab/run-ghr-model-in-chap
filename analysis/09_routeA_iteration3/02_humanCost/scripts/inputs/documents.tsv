@@ -1,0 +1,17 @@
+doc_key	kind	path	note
+routeA_readme_it3	file	Archive/model-route-a-it3/repo/README.md	the route A model's README at a9532c7
+routeA_repofiles_it3	file	Archive/model-route-a-it3/repo/Makefile	counted together with the five files below
+routeA_repofiles_it3	file	Archive/model-route-a-it3/repo/compose.yml	
+routeA_repofiles_it3	file	Archive/model-route-a-it3/repo/compose.ghcr.yml	
+routeA_repofiles_it3	file	Archive/model-route-a-it3/repo/Dockerfile	
+routeA_repofiles_it3	file	Archive/model-route-a-it3/repo/pyproject.toml	
+routeA_repofiles_it3	file	Archive/model-route-a-it3/repo/CLAUDE.md	
+routeA_mainci_it3	file	Archive/model-route-a-it3/repo/main.py	counted together with the publishing workflow below
+routeA_mainci_it3	file	Archive/model-route-a-it3/repo/.github/workflows/publish-docker.yml	
+chapcore_readme	file	Archive/chapcore-docs-v2.3.1/README.md	
+doc_eval_ref	file	Archive/chapcore-docs-v2.3.1/docs/chap-cli/eval-reference.md	
+doc_eval_workflow	file	Archive/chapcore-docs-v2.3.1/docs/chap-cli/evaluation-workflow.md	
+doc_chapkit	file	Archive/chapcore-docs-v2.3.1/docs/external_models/chapkit.md	
+chap_eval_help	help	chap eval --help	
+chap_post_help	help	chap export-metrics --help	counted together with chap plot-backtest --help below
+chap_post_help	help	chap plot-backtest --help	

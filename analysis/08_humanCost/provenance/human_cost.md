@@ -89,3 +89,22 @@ agency: agent-autonomous (the model, its parameters and the divergence rules)
         human-set (that the estimate should be made at all; the two personas; the
         defaults-only scope)
 information: agent-retrieved
+
+## Appended 2026-09-26 — `human_cost.py` gains an optional `wait_key` column
+
+script: scripts/lib/human_cost.py
+        sha256:491ef488e114cc6b220b0391bcb588d3128e89d6b8505ee99abe2d67f0def746
+change: a step may name which machine wait it draws in a `wait_key` column; absent or `-`,
+  the wait is keyed by the route, exactly as before. Added so that iteration 3's route A
+  (`analysis/09_routeA_iteration3/02_humanCost`), which has an image pull and an evaluation,
+  can be costed by this one implementation rather than a copy.
+verification: re-running this script on this node's unchanged inputs and committed
+  `doc_sizes.tsv`/`machine_waits.tsv` reproduced every file in `results/` byte for byte.
+  The results above were **not** regenerated: this node's `run.sh` also re-captures
+  `chap --help` live, and on the platform refreshed on 2026-09-26 (`cyclopts` 5.0.0)
+  `chap eval --help` is 654 words rather than 645, which moves every figure slightly. The
+  committed results stay as iteration 2's record; a full `analysis/run.sh` today would
+  overwrite them, and that is a known reproduction caveat of this node.
+commit: b524390
+produced: 2026-09-26
+agency: agent-autonomous

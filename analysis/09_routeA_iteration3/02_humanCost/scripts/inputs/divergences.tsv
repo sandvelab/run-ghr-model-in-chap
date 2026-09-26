@@ -1,0 +1,3 @@
+rule	route	condition_prereq	condition_state	action	anchor_seq	act	label	prereqs	base_low	base_exp	base_high	note
+D4	route-a-it3	reading-library-source	lack	drop_step	10	-	-	-	0	0	0	a persona who would not open a model's source or its CI workflow does not learn the commit tag this way, and uses the tag compose.ghcr.yml names instead; nothing downstream depends on it
+D4	route-a-it3	reading-library-source	lack	drop_step	20	-	-	-	0	0	0	the manifest check of the commit-tagged image follows only from reading the publishing workflow; dropping one drops the other

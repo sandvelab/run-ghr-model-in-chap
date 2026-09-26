@@ -1,0 +1,35 @@
+seq	log_step	act	label	gate	learn_exp	min_low	min_exp	min_high	cum_exp	note
+1	-	install	install a container runtime	hold	0.0	3.0	6.0	15.0	6.0	route A cannot start without a running Docker daemon; the agent's host already had one, as in batch 10
+2	1	instrument	read the discovery-log specification	hold	0.0	0.0	0.0	0.0	6.0	exists because the agent was logging for this study
+3	2	instrument	read the node's claim.md	hold	0.0	0.0	0.0	0.0	6.0	exists because of the study; it also named the commit, a contamination recorded in provenance
+4	3	instrument	decide to pin the model at a9532c7	hold	0.0	0.0	0.0	0.0	6.0	a human would take the repository as it stands, which at the time was the same commit
+5	4	milestone	first document opened	hold	0.0	0.0	0.0	0.0	6.0	
+6	5	run_command	git clone the model	hold	0.0	0.4	0.8	2.0	6.8	
+7	6	milestone	model obtained	hold	0.0	0.0	0.0	0.0	6.8	
+8	7	read_doc	read the model README in full	partial	8.8	20.1	32.1	69.7	38.9	still written for a reader who already has containers, and still silent on chap eval
+9	8	read_doc	read the Makefile, both compose files, the Dockerfile, pyproject.toml and the repository's CLAUDE.md	hold	0.0	4.2	6.0	10.1	44.8	
+10	9	read_doc	read main.py and the image-publishing workflow	hold	0.0	5.6	8.0	13.6	52.8	how the agent learned that images are tagged by commit; optional for a human, who can use the tag compose.ghcr.yml names
+11	10	run_command	chap --version and chap --help	hold	0.0	0.4	0.8	2.0	53.6	
+12	11	read_doc	chap eval --help	hold	0.0	2.7	3.8	6.5	57.5	the load-bearing fact is that MODEL-NAME may be a service URL, as in batch 10
+13	12	decide	inspect the CSV, the schema and the GeoJSON, and check the feature ids match the location column	partial	3.0	2.6	5.8	14.5	63.3	
+14	13	read_doc	read the chap-core README (discarded)	hold	0.0	1.5	2.1	3.6	65.4	read and found to carry nothing on chap eval
+15	14	run_command	get the chap-core docs at the installed version's tag	hold	0.0	0.4	0.8	2.0	66.2	the agent cloned the repository at v2.3.1; a human browses the tag on GitHub, which costs about the same
+16	15	read_doc	read docs/chap-cli/eval-reference.md	hold	0.0	5.4	7.6	13.0	73.8	documents the service-URL form and the sibling-GeoJSON convention; the convention batch 10 priced as undiscoverable is here
+17	16	read_doc	read docs/chap-cli/evaluation-workflow.md	hold	0.0	3.8	5.5	9.3	79.3	names plot-backtest and export-metrics as the steps after chap eval
+18	17	read_doc	read docs/external_models/chapkit.md	hold	0.0	3.4	4.9	8.4	84.2	gives the docker run then chap eval pattern outright, on the same Lao CSV
+19	18	read_doc	chap plot-backtest --help and chap export-metrics --help	hold	0.0	0.7	1.0	1.8	85.3	
+20	19	run_command	docker manifest inspect the commit-tagged published image	hold	0.0	0.4	0.8	2.0	86.1	confirms an amd64 image exists for the pinned commit; follows from step 10
+21	20	decide	use the published image rather than build the Dockerfile	hold	0.0	1.0	2.0	5.0	88.1	the published image now pulls anonymously; batch 10's 401 does not arise
+22	21	decide	consider running the model from its directory without Docker, and reject it	hold	0.0	1.0	2.0	5.0	90.1	
+23	22	run_command	chap validate the Lao CSV	hold	0.0	0.4	0.8	2.0	90.9	
+24	23	decide	run on the model's default configuration	hold	0.0	1.0	2.0	5.0	92.9	
+25	24	instrument	fetch the public copy of the data and checksum it	hold	0.0	0.0	0.0	0.0	92.9	for the route script, not for the evaluation; the data were given
+26	25	instrument	draft run_route.sh	hold	0.0	0.0	0.0	0.0	92.9	a deliverable of the study brief
+27	26	run_command	docker pull the published image, amd64	partial	0.0	0.6	1.1	2.8	94.0	
+28	-	wait	wait for the image to pull	hold	0.0	5.5	5.5	5.5	99.5	measured, in the clean-shell run of the route script, from the input checksums written to the image id written
+29	27	run_command	docker run the service	hold	0.0	0.4	0.8	2.0	100.3	
+30	28	decide	stage the CSV and the GeoJSON side by side with the same stem	partial	0.0	1.4	2.8	7.0	103.1	the convention is now taken from the docs rather than from library source
+31	29	milestone	evaluation started	hold	0.0	0.0	0.0	0.0	103.1	
+32	30	run_command	chap eval against the service	hold	0.0	0.4	0.8	2.0	103.9	
+33	-	wait	wait for the evaluation to finish	hold	0.0	5.7	5.7	5.7	109.6	measured from the discovery log, evaluation_started to evaluation_complete; on an arm64 host the model runs under emulation
+34	31	milestone	evaluation complete	hold	0.0	0.0	0.0	0.0	109.6	

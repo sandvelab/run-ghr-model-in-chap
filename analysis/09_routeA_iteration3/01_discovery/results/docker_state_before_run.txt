@@ -1,0 +1,25 @@
+# Docker state before the iteration-3 route A agent, 2026-09-26T14:39:41Z
+## before
+REPOSITORY                                TAG       DIGEST                                                                    IMAGE ID       CREATED        SIZE
+chapkit-ghr-model                         latest    <none>                                                                    68c9b82dcbbb   3 days ago     4.98GB
+chapkit-ghr-model                         route     <none>                                                                    9a3ba126544f   5 days ago     4.98GB
+chap-analysis-env                         latest    <none>                                                                    5a022a005461   4 weeks ago    1.62GB
+ghcr.io/chap-models/chapkit_ewars_model   latest    sha256:abd8098f2b828d3ef9899ed136d20a4f5387f8c3abe901f386905cec166d823a   cde5faf171f9   3 months ago   4.73GB
+claude-vault                              latest    <none>                                                                    3343841e9fcc   3 months ago   718MB
+ivargr/r_inla                             latest    sha256:0149847e9c09904dbbd8f3dabca09f07ffef808065af769aff1bc73aff025c5f   83af44dbcdd5   2 years ago    4.16GB
+Private:	172MB
+Reclaimable:	2.67GB
+Total:		2.67GB
+Untagged: chapkit-ghr-model:latest
+Deleted: sha256:68c9b82dcbbb0d4a00fd6f314eb5f7240077f1aa4f83434089dd9ddbedebbcd8
+Untagged: chapkit-ghr-model:route
+Deleted: sha256:9a3ba126544f79d59b735daad8dcca04b61ea0ed9af363691b876d8aa12bf67e
+Total:	2.67GB
+## after
+REPOSITORY                                TAG       IMAGE ID       CREATED        SIZE
+chap-analysis-env                         latest    5a022a005461   4 weeks ago    1.62GB
+ghcr.io/chap-models/chapkit_ewars_model   latest    cde5faf171f9   3 months ago   4.73GB
+claude-vault                              latest    3343841e9fcc   3 months ago   718MB
+ivargr/r_inla                             latest    83af44dbcdd5   2 years ago    4.16GB
+Reclaimable:	0B
+Total:		0B

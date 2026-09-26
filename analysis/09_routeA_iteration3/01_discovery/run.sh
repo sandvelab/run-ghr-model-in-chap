@@ -11,4 +11,12 @@ REPO_ROOT="$(cd "../../.." && pwd)"
 PYTHON="$REPO_ROOT/environment/env/bin/python"
 
 
-# Own scripts -- add calls here as scripts/ fills up.
+# Own scripts
+# The route itself, as its discovering agent left it. It writes to results/route_run/ and
+# leaves results/manual_run/ -- the run made by hand during discovery -- untouched. The model
+# fits with R-INLA and is not bit-reproducible, so a re-run moves the scores slightly.
+bash scripts/run_route.sh
+
+# Then the values behind the figures CHAP drew. ORDER IS LOAD-BEARING: the extraction reads
+# files the route writes, and `node.py rebuild` would put it first alphabetically.
+"$PYTHON" scripts/evaluation_plot.py

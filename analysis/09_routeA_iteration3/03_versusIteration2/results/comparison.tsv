@@ -1,0 +1,50 @@
+group	quantity	iteration2	iteration3	note
+agent effort (normalised window)	reached_evaluation	yes	yes	
+agent effort (normalised window)	n_resources	5	12	
+agent effort (normalised window)	n_resources_discarded	0	1	
+agent effort (normalised window)	n_commands	11	9	
+agent effort (normalised window)	n_commands_failed	1	0	
+agent effort (normalised window)	n_decisions	3	6	
+agent effort (normalised window)	n_blockers_hit	2	0	
+agent effort (normalised window)	n_blockers_unresolved	1	0	
+agent effort (normalised window)	n_dead_ends	3	0	
+agent effort (normalised window)	elapsed_minutes_to_evaluation	13.0	22.8	iteration 2's build hit a warm layer cache; iteration 3 started fully cold
+agent usage	model	Claude Opus (version not recorded)	claude-opus-5-5	
+agent usage	tokens	NA	139417	no earlier batch recorded tokens
+agent usage	tool_uses	NA	59	not recorded in iteration 2
+agent usage	agent_wall_clock_min	NA	37.6	iteration 3 includes the agent's own ~12 min clean-shell verification
+scores, discovery run	crps	150.247	151.363	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+scores, discovery run	mae	126.067	128.635	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+scores, discovery run	rmse	242.768	251.714	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+scores, discovery run	coverage_10_90	0.821	0.815	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+scores, script run	crps	147.692	151.028	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+scores, script run	mae	125.749	125.567	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+scores, script run	rmse	237.194	241.524	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+scores, script run	coverage_10_90	0.824	0.818	same model family and data; R-INLA is not bit-reproducible, so read as a spread
+human estimate, engineer	total_low	69.5	72.0	iteration 2 excludes an unmeasured cold image build; iteration 3 needs none, and its image pull is included
+human estimate, engineer	total_exp	119.0	109.6	iteration 2 excludes an unmeasured cold image build; iteration 3 needs none, and its image pull is included
+human estimate, engineer	total_high	271.8	215.5	iteration 2 excludes an unmeasured cold image build; iteration 3 needs none, and its image pull is included
+human estimate, engineer	human_min_exp	112.2	98.4	
+human estimate, engineer	machine_min_exp	6.8	11.2	
+human estimate, engineer	learn_min_exp	18.0	11.8	
+human estimate, engineer	diagnose_min_exp	25.2	0.0	
+human estimate, engineer	unguided_share	0.385	0.119	
+human estimate, engineer	n_prereqs_lacked	0	0	
+human estimate, engineer	n_prereqs_partial	3	2	
+human estimate, engineer	cold_build_excluded	yes	no	
+human estimate, engineer	arm64_host_only_min_exp	12.6	0.0	
+human estimate, engineer	total_exp_ratio_it3_over_it2	1	0.92	
+human estimate, statistician	total_low	312.8	243.2	iteration 2 excludes an unmeasured cold image build; iteration 3 needs none, and its image pull is included
+human estimate, statistician	total_exp	648.6	435.5	iteration 2 excludes an unmeasured cold image build; iteration 3 needs none, and its image pull is included
+human estimate, statistician	total_high	1742.6	1026.2	iteration 2 excludes an unmeasured cold image build; iteration 3 needs none, and its image pull is included
+human estimate, statistician	human_min_exp	641.7	424.2	
+human estimate, statistician	machine_min_exp	6.8	11.2	
+human estimate, statistician	learn_min_exp	223.5	188.5	
+human estimate, statistician	diagnose_min_exp	170.0	0.0	
+human estimate, statistician	unguided_share	0.613	0.444	
+human estimate, statistician	n_prereqs_lacked	7	5	
+human estimate, statistician	n_prereqs_partial	2	3	
+human estimate, statistician	cold_build_excluded	yes	no	
+human estimate, statistician	arm64_host_only_min_exp	60.0	0.0	
+human estimate, statistician	total_exp_ratio_it3_over_it2	1	0.67	
+human estimate, sensitivity	extra_min_if_first_pull_as_slow_as_discovery	-	8.6	added to both personas' totals if the pull ran at the discovery run's upper bound

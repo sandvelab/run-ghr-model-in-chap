@@ -127,7 +127,10 @@ class Model:
         if act in FREE_ACTS:
             return {p: 0.0 for p in POINTS}
         if act == "wait":
-            secs = self.waits[step["route"]]
+            # A route with more than one machine wait names each in an optional `wait_key`
+            # column; without one, the wait is keyed by the route, as every batch-10 step is.
+            key = (step.get("wait_key") or "").strip()
+            secs = self.waits[key if key not in ("", "-") else step["route"]]
             return {p: secs / 60.0 for p in POINTS}
         if act == "wait_unknown":
             return {p: 0.0 for p in POINTS}

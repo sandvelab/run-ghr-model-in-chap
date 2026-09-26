@@ -1,0 +1,35 @@
+route	seq	log_step	source	act	label	doc_key	prereqs	note	condition	wait_key
+route-a-it3	1	-	added	install	install a container runtime	-	docker-basics	route A cannot start without a running Docker daemon; the agent's host already had one, as in batch 10		-
+route-a-it3	2	1	log	instrument	read the discovery-log specification	-	-	exists because the agent was logging for this study		-
+route-a-it3	3	2	log	instrument	read the node's claim.md	-	-	exists because of the study; it also named the commit, a contamination recorded in provenance		-
+route-a-it3	4	3	log	instrument	decide to pin the model at a9532c7	-	-	a human would take the repository as it stands, which at the time was the same commit		-
+route-a-it3	5	4	log	milestone	first document opened	-	-			-
+route-a-it3	6	5	log	run_command	git clone the model	-	git-basics			-
+route-a-it3	7	6	log	milestone	model obtained	-	-			-
+route-a-it3	8	7	log	read_doc	read the model README in full	routeA_readme_it3	docker-basics;cpu-architecture	still written for a reader who already has containers, and still silent on chap eval		-
+route-a-it3	9	8	log	read_doc	read the Makefile, both compose files, the Dockerfile, pyproject.toml and the repository's CLAUDE.md	routeA_repofiles_it3	docker-compose;container-registry			-
+route-a-it3	10	9	log	read_doc	read main.py and the image-publishing workflow	routeA_mainci_it3	reading-library-source;container-registry	how the agent learned that images are tagged by commit; optional for a human, who can use the tag compose.ghcr.yml names		-
+route-a-it3	11	10	log	run_command	chap --version and chap --help	-	cli-basics			-
+route-a-it3	12	11	log	read_doc	chap eval --help	chap_eval_help	cli-help-reading;rest-service-model	the load-bearing fact is that MODEL-NAME may be a service URL, as in batch 10		-
+route-a-it3	13	12	log	decide	inspect the CSV, the schema and the GeoJSON, and check the feature ids match the location column	-	geojson-basics;shell-text-tools			-
+route-a-it3	14	13	log	read_doc	read the chap-core README (discarded)	chapcore_readme	github-navigation	read and found to carry nothing on chap eval		-
+route-a-it3	15	14	log	run_command	get the chap-core docs at the installed version's tag	-	git-basics	the agent cloned the repository at v2.3.1; a human browses the tag on GitHub, which costs about the same		-
+route-a-it3	16	15	log	read_doc	read docs/chap-cli/eval-reference.md	doc_eval_ref	cli-help-reading	documents the service-URL form and the sibling-GeoJSON convention; the convention batch 10 priced as undiscoverable is here		-
+route-a-it3	17	16	log	read_doc	read docs/chap-cli/evaluation-workflow.md	doc_eval_workflow	cli-help-reading	names plot-backtest and export-metrics as the steps after chap eval		-
+route-a-it3	18	17	log	read_doc	read docs/external_models/chapkit.md	doc_chapkit	docker-basics;rest-service-model	gives the docker run then chap eval pattern outright, on the same Lao CSV		-
+route-a-it3	19	18	log	read_doc	chap plot-backtest --help and chap export-metrics --help	chap_post_help	cli-help-reading			-
+route-a-it3	20	19	log	run_command	docker manifest inspect the commit-tagged published image	-	container-registry	confirms an amd64 image exists for the pinned commit; follows from step 10		-
+route-a-it3	21	20	log	decide	use the published image rather than build the Dockerfile	-	container-registry	the published image now pulls anonymously; batch 10's 401 does not arise		-
+route-a-it3	22	21	log	decide	consider running the model from its directory without Docker, and reject it	-	python-venv-uv			-
+route-a-it3	23	22	log	run_command	chap validate the Lao CSV	-	cli-basics			-
+route-a-it3	24	23	log	decide	run on the model's default configuration	-	cli-help-reading			-
+route-a-it3	25	24	log	instrument	fetch the public copy of the data and checksum it	-	-	for the route script, not for the evaluation; the data were given		-
+route-a-it3	26	25	log	instrument	draft run_route.sh	-	-	a deliverable of the study brief		-
+route-a-it3	27	26	log	run_command	docker pull the published image, amd64	-	docker-basics;container-registry;cpu-architecture			-
+route-a-it3	28	-	added	wait	wait for the image to pull	-	-	measured, in the clean-shell run of the route script, from the input checksums written to the image id written		pull
+route-a-it3	29	27	log	run_command	docker run the service	-	docker-basics			-
+route-a-it3	30	28	log	decide	stage the CSV and the GeoJSON side by side with the same stem	-	geojson-basics	the convention is now taken from the docs rather than from library source		-
+route-a-it3	31	29	log	milestone	evaluation started	-	-			-
+route-a-it3	32	30	log	run_command	chap eval against the service	-	cli-basics			-
+route-a-it3	33	-	added	wait	wait for the evaluation to finish	-	-	measured from the discovery log, evaluation_started to evaluation_complete; on an arm64 host the model runs under emulation		eval
+route-a-it3	34	31	log	milestone	evaluation complete	-	-			-

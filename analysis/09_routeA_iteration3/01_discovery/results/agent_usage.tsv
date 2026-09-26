@@ -1,0 +1,9 @@
+field	value	source
+agent_model	claude-opus-5-5	the orchestrating session's model; a general-purpose subagent inherits it
+agent_launched_utc	2026-09-26T14:40:05Z	written by the orchestrator immediately before launch (date -u)
+agent_last_log_row_utc	2026-09-26T15:17:31Z	results/discovery_log.tsv, last row
+harness_tokens	139417	harness usage block (subagent_tokens) on the task notification that followed the agent's hand-back; the final figure
+harness_tool_uses	59	same notification
+harness_duration_ms	2253856	same notification; 37.6 min of agent wall-clock, including ~14 min waiting on the image pull and ~12 min on its own clean-shell verification run
+harness_tokens_interim	92103;99880;129402	earlier interim notifications at 853772, 1055882 and 1506975 ms; kept to show the token curve
+iteration2_tokens	NA	no earlier batch recorded tokens; there is no iteration-2 token figure to compare against

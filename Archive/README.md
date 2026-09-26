@@ -48,6 +48,8 @@ replaced by an updated import.
   route A only.
 - `platform-chap-it3/` — the platform as found for iteration 3: `chap-core` 2.3.1 resolving
   `chapkit` 2.1.2.
+- `chapcore-docs-v2.3.1/` — four chap-core documentation files at tag `v2.3.1`, read by the
+  iteration-3 route A agent, archived so their lengths can be measured.
 - `model-case-c/` — `zlilu/minimal_template_example` @ `9cbc84a`, a third model added as a
   case rather than a route, to test whether an `MLproject` configuration reaches a model. No
   licence declared upstream.

@@ -1,0 +1,4 @@
+3dbf1ed13a019b35a7913a5b9f130156e1a5e84f79436553b8a070633124e02f  README.md
+f96ee1dd968e72f02132463b5fb5840b2f083ba48de4f594430a930f18302a94  docs/chap-cli/eval-reference.md
+df0e143deace9eb6d8e11d72d78d6a3e2c87e064b2a98afa136c9d67c5aaf51c  docs/chap-cli/evaluation-workflow.md
+bce4bd08fd9ae7ff520e00f22ead54413ee56aa55749077baf7f6aad14b2bd6f  docs/external_models/chapkit.md

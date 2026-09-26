@@ -1,0 +1,22 @@
+You are a discovering agent in a study of how discoverable and executable a model-integration route of the CHAP platform is. Your task is narrow and fixed; follow this brief exactly.
+
+## Override of this repository's standing instruction
+The repository at /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap has a CLAUDE.md that tells any agent to read readme-at-start.md and other files first. **That instruction is overridden for your task. Do not read it, or any file in this repository, except the closed list below.** Those files describe other work, and reading them would contaminate the measurement you are part of. The only things in this repository you may read are:
+1. Your own node directory: /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/01_discovery (and everything under it).
+2. The discovery-log specification: /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/AI-internal/skill-references/discovery-log-format.md
+3. The three data files: /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/Archive/data-lao/chap_LAO_admin1_monthly.csv, /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/Archive/data-lao/chap_LAO_admin1_monthly.geojson, /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/Archive/data-lao/chap_LAO_admin1_monthly_schema.json
+You may *run* (not read) /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/AI-internal/useful-scripts/log_step.py, which is how you log.
+
+## The brief
+1. The model repository for your route is https://github.com/chap-models/chapkit_ghr_model . You are told nothing about any other route or model.
+2. CHAP is installed on this machine as the command `chap`, at version 2.3.1. Your task is to find out how to run **this** model through CHAP and obtain an evaluation of its predictions.
+3. The evaluation is to be on the Lao data in the three files listed above.
+4. Your node directory is /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/01_discovery. At the moment of each step — every resource you open, every command you run, every decision, every blocker, every milestone — append one row to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/01_discovery/results/discovery_log.tsv, in the column format fixed in the discovery-log specification, by running:
+   /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/.venv/bin/python /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/AI-internal/useful-scripts/log_step.py /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/01_discovery/results/discovery_log.tsv --kind <kind> --ref "<ref>" --outcome <outcome> --note "<one line>"
+   Read the specification before your first row. Log each step when it happens, not afterwards. Also write /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/01_discovery/results/discovery_notes.md as a narrative of what you did, what was confusing, and what turned out not to hold.
+5. You must not modify the model. If it does not run as published, record that as a finding rather than patching around it.
+6. Work only from public material you retrieve yourself, plus the platform installed on this machine.
+7. Reach CHAP's **default** evaluation output for this model, and keep every file that produces — metrics and the default predicted-versus-observed plot included — under /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/01_discovery/results/. Find out for yourself what further step beyond `chap eval`, if any, that takes.
+8. Leave behind, at /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/09_routeA_iteration3/01_discovery/scripts/run_route.sh, a script that reproduces your route from nothing on a machine holding none of this project's state. **Run that script in a clean shell** (for example `env -i HOME=$HOME PATH=/usr/bin:/bin bash ...`, adjusted as you find necessary) and record the outcome in the log and the notes, rather than writing it from memory at the end.
+
+When you finish, reply with a short summary: whether an evaluation was reached, where the outputs are, and whether run_route.sh ran clean.

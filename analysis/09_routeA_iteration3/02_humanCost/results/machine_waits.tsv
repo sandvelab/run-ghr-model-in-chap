@@ -1,0 +1,4 @@
+wait_key	seconds	used	method	source
+eval	341	yes	discovery-log timestamps, evaluation_started to evaluation_complete	analysis/09_routeA_iteration3/01_discovery/results/discovery_log.tsv
+pull	333	yes	clean-shell route run, mtime of input_sha256.txt to image_id.txt	analysis/09_routeA_iteration3/01_discovery/results/route_run
+pull_discovery_upper_bound	849	no	discovery log, decision to use the published image to the pull's own row; the agent worked in parallel, so an upper bound on the first pull	analysis/09_routeA_iteration3/01_discovery/results/discovery_log.tsv

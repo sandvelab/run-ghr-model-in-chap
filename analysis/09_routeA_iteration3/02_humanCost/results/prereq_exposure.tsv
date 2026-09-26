@@ -1,0 +1,11 @@
+persona	route	prereq	state	first_seq	learn_min_exp	description
+engineer	route-a-it3	cpu-architecture	partial	8	8.8	amd64 against arm64, emulation, and why a platform flag exists
+engineer	route-a-it3	geojson-basics	partial	13	3.0	Know what a GeoJSON feature collection is and that its ids must match the data
+statistician	route-a-it3	docker-basics	lack	1	90.0	Install a container runtime; build an image, run a container, map a port, read its logs
+statistician	route-a-it3	cpu-architecture	lack	8	35.0	amd64 against arm64, emulation, and why a platform flag exists
+statistician	route-a-it3	docker-compose	lack	9	20.0	Read a compose file and see what it would start
+statistician	route-a-it3	container-registry	lack	9	15.0	What an image registry is; image names and tags
+statistician	route-a-it3	cli-help-reading	partial	12	2.0	Recover a working invocation from --help output
+statistician	route-a-it3	rest-service-model	lack	12	20.0	The idea that the model is a running service the harness talks to over HTTP
+statistician	route-a-it3	github-navigation	partial	14	1.5	Find a README, a file or a release on a GitHub repository page
+statistician	route-a-it3	python-venv-uv	partial	22	5.0	Virtual environments and uv; why a package is or is not importable
