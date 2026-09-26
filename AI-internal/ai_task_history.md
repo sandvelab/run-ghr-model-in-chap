@@ -60,3 +60,4 @@ reader who was not present can follow, and keep them honest about what did not w
   on chapkit 2.1.2 / model `a9532c7` with no proxy. All five applied (fitted formula and stored
   config); flat YAML still refused by CHAP before any request. Batch 8b's finding no longer
   holds. Node `analysis/09_routeA_iteration3/04_configurability`; report `26-09-26_b13_configurability.md`.
+  Batches 12 and 13 pushed to `origin/main` (through `ea5aa2f`), each after the release scan.

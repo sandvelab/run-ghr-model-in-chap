@@ -231,3 +231,22 @@ match 8b's closely, except `v2`. The before-state is cited from 8b's record, bec
 image was deleted for batch 12.
 
 **Not done**: nothing pushed.
+
+### T10–T11, extended — 2026-09-26 — published
+
+Both batches were pushed to `origin/main` at the human's instruction, in two pushes
+(`cbc1abe..520c57a` for batch 12, `520c57a..ea5aa2f` for batch 13). Before each, the commits
+about to go out were scanned for credentials, keys, the human's email address and oversized
+files. Both scans found nothing. The one match was the `${{ secrets.GITHUB_TOKEN }}`
+placeholder in the archived model's CI workflow, which is not a secret. The "Not done:
+nothing pushed" lines in T10 and T11 are superseded by this.
+
+Absolute home-directory paths remain in five raw outputs of `01_discovery` and in the stored
+brief. That matches iteration 2's already-published raw logs, which also contain them; since
+raw outputs are not edited, the human decides whether to address it.
+
+Follow-ups for a later session:
+- Batch 9 is still open: claims, validation passes, manuscript.
+- The overview, V5, does not yet mention iteration 3.
+- Node 08 cannot regenerate its own figures on today's platform.
+- `AI-generated/overview/` still has no `provenance.md`.
