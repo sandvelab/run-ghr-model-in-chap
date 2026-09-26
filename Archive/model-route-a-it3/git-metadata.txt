@@ -1,0 +1,9 @@
+remote: https://github.com/chap-models/chapkit_ghr_model.git
+commit: a9532c7cdd9eba93d7b5a1445d4bc742551e7585
+committed: 2026-09-25T18:36:37+02:00
+subject: chore: rebuild on the fixed chapkit-r-inla base and bump the version to 0.1.2 (#6)
+cloned: 2026-09-26T14:38:13Z
+commits since the iteration-2 pin (60b16a2):
+  a9532c7 2026-09-25T18:36:37+02:00 chore: rebuild on the fixed chapkit-r-inla base and bump the version to 0.1.2 (#6)
+  3040e8f 2026-09-25T11:58:45+02:00 chore(deps): require chapkit 2.1.2 and bump the service version to 0.1.1 (#5)
+  b1d6c31 2026-09-23T19:02:22+02:00 fix: require chapkit 2.1 so chap-core model configurations are applied (#4)

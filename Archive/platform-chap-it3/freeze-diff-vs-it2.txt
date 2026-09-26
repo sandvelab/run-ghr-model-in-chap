@@ -1,0 +1,78 @@
+20c20
+< chapkit==2.1.0
+---
+> chapkit==2.1.2
+32,33c32,33
+< cyclopts==4.25.3
+< databricks-sdk==0.140.0
+---
+> cyclopts==5.0.0
+> databricks-sdk==0.143.0
+45,46c45,46
+< filelock==4.0.1
+< fonttools==4.65.0
+---
+> filelock==4.0.3
+> fonttools==4.66.0
+55c55
+< google-auth==2.58.0
+---
+> google-auth==2.58.1
+73c73
+< mako==1.4.1
+---
+> mako==1.4.3
+85,94c85,94
+< opentelemetry-api==1.44.0
+< opentelemetry-exporter-prometheus==0.65b0
+< opentelemetry-instrumentation==0.65b0
+< opentelemetry-instrumentation-asgi==0.65b0
+< opentelemetry-instrumentation-fastapi==0.65b0
+< opentelemetry-instrumentation-sqlalchemy==0.65b0
+< opentelemetry-proto==1.44.0
+< opentelemetry-sdk==1.44.0
+< opentelemetry-semantic-conventions==0.65b0
+< opentelemetry-util-http==0.65b0
+---
+> opentelemetry-api==1.45.0
+> opentelemetry-exporter-prometheus==0.66b0
+> opentelemetry-instrumentation==0.66b0
+> opentelemetry-instrumentation-asgi==0.66b0
+> opentelemetry-instrumentation-fastapi==0.66b0
+> opentelemetry-instrumentation-sqlalchemy==0.66b0
+> opentelemetry-proto==1.45.0
+> opentelemetry-sdk==1.45.0
+> opentelemetry-semantic-conventions==0.66b0
+> opentelemetry-util-http==0.66b0
+101c101
+< platformdirs==4.11.12
+---
+> platformdirs==4.11.15
+126c126
+< pytz==2026.3.post1
+---
+> pytz==2026.4
+145c145
+< soupsieve==2.9.2
+---
+> soupsieve==2.10
+147c147
+< sqlmodel==0.0.46
+---
+> sqlmodel==0.0.47
+149c149
+< starlette==1.6.0
+---
+> starlette==1.7.0
+166c166
+< uvicorn==0.53.0
+---
+> uvicorn==0.54.0
+169c169
+< virtualenv==21.10.0
+---
+> virtualenv==21.12.1
+172c172
+< wcwidth==0.8.4
+---
+> wcwidth==0.9.1

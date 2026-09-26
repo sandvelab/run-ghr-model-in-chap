@@ -1,0 +1,23 @@
+read: 2026-09-26T14:38:13Z
+chap --version: 2.3.1
+which chap: <HOME>/.local/bin/chap
+chap-core==2.3.1
+chapkit==2.1.2
+fastapi==0.141.1
+pydantic==2.13.5
+servicekit==2.0.2
+--- uv tool list
+chap-core v2.3.1
+- chap
+jupyter-core v5.9.1
+- jupyter
+- jupyter-migrate
+- jupyter-troubleshoot
+--- uv-receipt.toml
+[tool]
+requirements = [{ name = "chap-core", specifier = "==2.3.1" }]
+entrypoints = [
+    { name = "chap", install-path = "<HOME>/.local/bin/chap" },
+]
+--- chapkit dist-info mtime
+2026-09-26T14:26:41+0200

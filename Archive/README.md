@@ -44,6 +44,10 @@ replaced by an updated import.
   upstream.
 - `platform-chap/` — the platform pin for the iteration now running. Re-written per
   iteration; the superseded one goes into that iteration's snapshot.
+- `model-route-a-it3/` — `chapkit_ghr_model` re-pinned @ `a9532c7` (v0.1.2) for iteration 3,
+  route A only.
+- `platform-chap-it3/` — the platform as found for iteration 3: `chap-core` 2.3.1 resolving
+  `chapkit` 2.1.2.
 - `model-case-c/` — `zlilu/minimal_template_example` @ `9cbc84a`, a third model added as a
   case rather than a route, to test whether an `MLproject` configuration reaches a model. No
   licence declared upstream.

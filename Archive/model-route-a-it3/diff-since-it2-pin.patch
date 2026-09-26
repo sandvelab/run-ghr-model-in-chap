@@ -1,0 +1,60 @@
+diff --git a/main.py b/main.py
+index 33f8b55..5dfbd56 100644
+--- a/main.py
++++ b/main.py
+@@ -202,7 +202,7 @@ runner: ShellModelRunner[GHRModelConfig] = ShellModelRunner(
+ info = MLServiceInfo(
+     id="chapkit-ghr-model",
+     display_name="GHRmodel (chapkit)",
+-    version="0.1.0",
++    version="0.1.2",
+     description=(
+         "Bayesian hierarchical spatio-temporal model for climate-sensitive disease, "
+         "built on R-INLA. Wraps BSC's GHRmodel package (dhis2-workflow branch), running "
+diff --git a/pyproject.toml b/pyproject.toml
+index 009e421..0640211 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -4,7 +4,7 @@ version = "0.1.0"
+ description = "ML service wrapping BSC's GHRmodel (dhis2-workflow) for CHAP"
+ requires-python = ">=3.13"
+ dependencies = [
+-    "chapkit>=2.0.0,<3",
++    "chapkit>=2.1.2,<3",
+     "pandas>=2.3.3",
+ ]
+ 
+diff --git a/uv.lock b/uv.lock
+index dbd656e..e9bacad 100644
+--- a/uv.lock
++++ b/uv.lock
+@@ -83,7 +83,7 @@ wheels = [
+ 
+ [[package]]
+ name = "chapkit"
+-version = "2.0.0"
++version = "2.1.2"
+ source = { registry = "https://pypi.org/simple" }
+ dependencies = [
+     { name = "geojson-pydantic" },
+@@ -92,9 +92,9 @@ dependencies = [
+     { name = "servicekit" },
+     { name = "typer" },
+ ]
+-sdist = { url = "https://files.pythonhosted.org/packages/81/ac/c3d0f3145e1fe4c9a0f290bea280cfeec94de0ad9d0775d1fc273a330754/chapkit-2.0.0.tar.gz", hash = "sha256:fd9bc5c92b4132f05423c5d8b9f6f77c8d1aefeafbaf7049c9a2bb44370680b4", size = 993075, upload-time = "2026-09-07T19:14:58.68Z" }
++sdist = { url = "https://files.pythonhosted.org/packages/10/3f/6c498d6fc46baac9b3e92b2dd39f21e7d749d21f6be44f36b0a6a9db9a94/chapkit-2.1.2.tar.gz", hash = "sha256:20330b3f64bfa83556ab283dde44d378a9d8dfb2f686cc2a26bcc6fbe95d1cec", size = 1005154, upload-time = "2026-09-25T09:19:56.527Z" }
+ wheels = [
+-    { url = "https://files.pythonhosted.org/packages/de/99/adf45502a5256e4c3934c57cc2ee893678c1feaf28dadab728828b1d88ed/chapkit-2.0.0-py3-none-any.whl", hash = "sha256:afa6a6ee84abe3afb4a3bda578c684c36f1203df981a8aa2c9767883be7c07e0", size = 1029192, upload-time = "2026-09-07T19:14:56.626Z" },
++    { url = "https://files.pythonhosted.org/packages/79/c6/6ee14dbafaae53c3e684896d865d554d8ff81f8dea8873e7c4e41041a409/chapkit-2.1.2-py3-none-any.whl", hash = "sha256:ef3d013c12b18c1ffa7ebed24e2d11a367e345e881711b82cdcf0fae65283ca9", size = 1042752, upload-time = "2026-09-25T09:19:54.813Z" },
+ ]
+ 
+ [[package]]
+@@ -114,7 +114,7 @@ dev = [
+ 
+ [package.metadata]
+ requires-dist = [
+-    { name = "chapkit", specifier = ">=2.0.0,<3" },
++    { name = "chapkit", specifier = ">=2.1.2,<3" },
+     { name = "pandas", specifier = ">=2.3.3" },
+ ]
+ 
