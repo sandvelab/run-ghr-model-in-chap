@@ -1,0 +1,6 @@
+field	value	source
+harness_tokens_final	141466	harness usage block on the last task notification, after the agent re-sent its hand-back; no file changed and no log row was added after 15:17:31Z
+harness_tool_uses_final	60	same notification
+harness_duration_ms_final	2878478	same notification; includes time the agent sat idle after its first hand-back
+tokens_after_first_handback	2049	141466 - 139417: the duplicate hand-back, not route work
+figure_quoted_in_reports	139417	the reports quote the figure at the first hand-back, when the route work was complete; agent_usage.tsv

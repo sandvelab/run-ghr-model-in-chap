@@ -23,3 +23,13 @@ alternatives-considered: reusing iteration 2's route A agent brief from memory r
 contamination: the agent was a fresh agent given brief_as_given.md and nothing else, and read only its closed list. **One exposure was caused by the orchestrator**: the node's own claim.md, which the brief allowed the agent to read, named commit a9532c7 and chapkit 2.1.2. The agent pinned to a9532c7 because of it (rows 2–3). Upstream HEAD was that same commit, so the agent would have got the same code without it; what the claim did hand over is the knowledge that the upgrade was the point of the run. It carried nothing about iteration 2's findings. Incidental: docker images listed unrelated images from other work on this host. The orchestrator is fully contaminated (it holds iterations 1 and 2 in full) and contributed the brief, the Docker state and the storage of what came back
 agency: human-set (that route A is re-run on the upgraded platform, the re-pin, the cold Docker state); agent-autonomous (every judgment inside the route, logged as decision rows)
 information: agent-retrieved — every resource in the log; human-pointed only for the model repository URL and the data files
+
+## Appended 2026-09-26 — the harness's final usage figure
+
+result: results/agent_usage_final.tsv
+        sha256:609d69fb919d1fe271a50b4982327b17f23f73234da9562bed47022f9a2177e0
+change: after `agent_usage.tsv` was committed, the agent re-sent the same hand-back and the
+  harness's usage block rose to 141,466 tokens, 60 tool calls, 2,878,478 ms. Nothing on disk
+  changed. `agent_usage.tsv` is not edited; this file records the final figure beside it,
+  and the batch 12 reports quote the figure at the first hand-back, 139,417.
+agency: agent-autonomous
