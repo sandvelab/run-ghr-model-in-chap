@@ -211,6 +211,16 @@ repository URL. A discovering agent is given, and is given nothing else:
 
 Append-only, oldest first; each entry with its basis and its agency.
 
+### 2026-09-26 — Batch 13, outside the plan: is route A configurable now?
+
+| Decision | Basis | Agency |
+|---|---|---|
+| **Batch 8b's configuration test is repeated on the upgraded pair**, in `analysis/09_routeA_iteration3/04_configurability` | The human asked for it. The model's history since batch 8b includes "fix: require chapkit 2.1 so chap-core model configurations are applied", which names batch 8b's finding directly | `human-set` |
+| **No proxy.** Each variant goes through `chap eval --model-configuration-yaml` straight to the service | The question is whether an operator can now configure the model through CHAP as published. Batch 8b's proxy made a configured run possible; using it here would answer a question nobody is asking | `agent-autonomous` |
+| **The same five variants as batch 8b**, one option changed from the published defaults each, the control setting the defaults explicitly | Keeps the two batches comparable variant by variant. Nothing is chosen between them: §3's no-selection rule applies unchanged, and scores are reported only to show that the setting did something | `agent-autonomous` |
+| **Evidence of "applied" is batch 8b's, by batch 8b's own collector, unchanged**: the fitted formula first, the stored configuration read back second | A configured and an unconfigured run look identical by their outputs. The service log shows the formula's spatial, seasonal and interannual terms but not the likelihood family, so `v4_poisson` rests on the stored configuration | `agent-autonomous` |
+| A **sixth, flat-shaped YAML** is run, expected to be refused by CHAP before any request | Batch 8b found chap-core's `ModelConfiguration` is `extra="forbid"`. Whether that still holds decides which shape an operator must write | `agent-autonomous` |
+
 ### 2026-09-26 — Batch 12, outside the plan: route A again, on the upgraded chapkit
 
 | Decision | Basis | Agency |
@@ -418,6 +428,7 @@ arrives outside the plan still gets a ledger row and a §4b entry (`AGENTS.md` �
 | 10 | D (cont.) | **Outside the plan, at the human's request**: estimate what each route costs a *human* who follows it to a default CHAP evaluation, for two named personas — (a) a software engineer a few years past a CS degree, fluent with Docker and software engineering practice; (b) a statistician with basic programming and no advanced software engineering. Node `analysis/08_humanCost`. Build a cost model over the normalised discovery window whose measured inputs (document lengths, machine wait times, act sequence) are separated on disk from its authored inputs (per-act times, persona knowledge sets, divergence rules); emit a step-by-step path per persona per route, totals, a prerequisite inventory, and a computed measure of cognitive struggle. Defaults only — configuration is out of scope (§4b). The result is a model over measured structure, labelled as such wherever it appears; no human has been timed. | done |
 | 11 | — | **Outside the plan, at the human's request**: correct the repository's record of its own remote. `origin` is `sandvelab/run-ghr-model-in-chap`, public, this project's own repository, and already pushed — against three statements here that said the remote was unset, or a template, or unpushed. Fix `readme-at-start.md`, supersede the earlier §4b decision rather than editing it, and record that the release scan is owed on every push. No analysis. | done |
 | 12 | D (cont.) | **Outside the plan, at the human's request**: iteration 3, route A only. chapkit is upgraded to 2.1.2 and the model re-pinned to `a9532c7`. A fresh isolated agent re-discovers route A on the §4 brief from a fully cold Docker state, logging contemporaneously, with its time and tokens recorded; batch 10's human-cost model re-costs the new act sequence for both personas; a comparison with iteration 2's route A on success, agent time, tokens and estimated human time. Node `analysis/09_routeA_iteration3` (§4b). | done |
+| 13 | D (cont.) | **Outside the plan, at the human's request**: repeat batch 8b's configurability test on iteration 3's route A — chapkit 2.1.2, the model at `a9532c7`, the published image — with nothing interposed. Five one-option variants plus one flat-shaped YAML; applied-ness judged by the fitted formula and the stored configuration. Report on whether the upgrade changed batch 8b's finding (§4b). | open |
 
 ### Iteration 1 — `chap-core` 2.1.0 (complete, archived to `Archive/version_1_old_chapcore/`)
 
