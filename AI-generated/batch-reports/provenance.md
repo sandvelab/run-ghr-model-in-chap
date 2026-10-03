@@ -32,3 +32,16 @@ reconstructed (`AI-internal/ai_task_details.md`, T9).
   `configurability_facts.tsv`, the per-variant logs), and batch 8b's report and provenance for
   the before-state. Hand-written by the orchestrating agent (Claude Opus 5.5) from those files.
 - **Produced**: 2026-09-26. **Agency**: `agent-autonomous`, at the human's request.
+
+## 26-10-03_b14_humanCostChaps.md
+
+- **What it is**: route A taken through chaps v0.99.4, discovered by a fresh agent, costed by
+  batch 10's human-cost model with its rates unchanged, and compared with route B and with
+  route A without chaps.
+- **Generated from**: `analysis/10_routeA_chaps/` — `01_discovery/results/` (discovery log,
+  notes, metrics, agent usage, image id), `02_humanCost/results/` (summary, walkthroughs,
+  prerequisite exposure, machine waits, sensitivities) and `03_versusRouteB/results/`
+  (comparison, ratios), at commit `c525cf8`. Hand-written by the orchestrating agent (Claude
+  Opus 5.5) from those files.
+- **Produced**: 2026-10-03. **Agency**: `agent-autonomous`, at the human's request.
+

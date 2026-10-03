@@ -30,6 +30,8 @@ The plan's §6 carries the ledger these correspond to, and links back to each re
   time and tokens, estimated human time, and what one pair of runs cannot separate.
 - `26-09-26_b13_configurability.md` — batch 8b's configuration test repeated on the upgraded
   pair, with nothing interposed: configuration now reaches the model.
+- `26-10-03_b14_humanCostChaps.md` — route A taken through chaps, the Docker Compose
+  wrapper, costed for batch 10's two personas and set against route B and route A without chaps.
 
 Batches 2, 7, 8 and 9 have no report here: 2 and 7 were folded into the reports above, 8
 produced the overview instead, and 9 is open.

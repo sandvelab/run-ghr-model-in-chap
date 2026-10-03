@@ -65,6 +65,10 @@ with a `provenance.md`, and named here so that no session has to rediscover it.
   **Batch 13**: on the same pair, route A's model **is now configurable through CHAP** with
   nothing interposed — batch 8b's silent-ignore finding no longer holds
   (`AI-generated/batch-reports/26-09-26_b13_configurability.md`).
+  **Batch 14**: route A taken through `chaps`, the Docker Compose wrapper, reaches an
+  evaluation, but chaps' own image pull failed on a slow link and its docs stop before the
+  evaluation. Estimated human cost is 130 min (engineer) and 483 min (statistician), against
+  route B's 46 and 221; see `AI-generated/batch-reports/26-10-03_b14_humanCostChaps.md`.
   Open: batch 9 — the claim collection and the three validation
   passes. Carried forward for the human: the `<PARENT_DIR>`/`<HOME>`
   placeholders in `.claude/settings.json`.
