@@ -68,4 +68,4 @@ reader who was not present can follow, and keep them honest about what did not w
   fetcher. Estimated human cost: engineer 130 min, statistician 483, against route B's 46 and 221 and
   route A without chaps at 110 and 436. Attempt 1 (2026-10-02) stalled and is kept unused. Node
   `analysis/10_routeA_chaps`; report `26-10-03_b14_humanCostChaps.md`; chaps and the 0.1.3 model pin
-  archived. Not pushed.
+  archived. Pushed 2026-10-03 (see T12, extended).
