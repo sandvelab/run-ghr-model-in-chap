@@ -1,0 +1,185 @@
+# Docker state before the batch 14 (chaps) agent, 2026-10-02T16:19:40Z
+## before
+REPOSITORY                                TAG           DIGEST                                                                    IMAGE ID       CREATED        SIZE
+ghcr.io/chap-models/chapkit_ghr_model     sha-a9532c7   sha256:4242f3981fa27f4c3a47def6e742610dd305c3d278748ecd3153b95fdd98f30e   28fb12f0d58a   7 days ago     4.84GB
+ghcr.io/chap-models/chapkit_ewars_model   sha-24d58c0   sha256:24320b84f74cb40ebfff4ad9d2b72515d87585f86aef62960ff54e64d783bcbe   e38a629c66dd   7 days ago     4.77GB
+ghcr.io/dhis2-chap/chap-worker            v2.3.1        sha256:246b3b09d30d929c678344e1a7c5dc471a700603af83f9836e9335730065008f   c60369e0e976   11 days ago    8.24GB
+ghcr.io/dhis2-chap/chap-core              v2.3.1        sha256:fb262125d1cc3243471912e7c52a4fa4a63adc5e7b624c6ea010fe6c6be6243b   bf78b4c225ab   11 days ago    1.68GB
+valkey/valkey                             8             sha256:640c5e62cea04b6d6f2084232651d0cc70362d31f4f805e7be94dbed6855e8f2   cba0d442b9bd   11 days ago    134MB
+postgres                                  17            sha256:d74eeac9a635390a49bc21bd49fccd973de707e2a53a76ac49b552b8712ec46f   97432f980da1   13 days ago    477MB
+chap-analysis-env                         latest        <none>                                                                    5a022a005461   5 weeks ago    1.62GB
+ghcr.io/chap-models/chapkit_ewars_model   latest        sha256:abd8098f2b828d3ef9899ed136d20a4f5387f8c3abe901f386905cec166d823a   cde5faf171f9   3 months ago   4.73GB
+claude-vault                              latest        <none>                                                                    3343841e9fcc   3 months ago   718MB
+busybox                                   1.37          sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e   ad4f11f7c85f   2 years ago    4.11MB
+ivargr/r_inla                             latest        sha256:0149847e9c09904dbbd8f3dabca09f07ffef808065af769aff1bc73aff025c5f   83af44dbcdd5   2 years ago    4.16GB
+mychap-1ba12e-chapkit-ewars-model-1	ghcr.io/chap-models/chapkit_ewars_model:sha-24d58c0	Up 2 minutes (healthy)
+mychap-1ba12e-chap-1	ghcr.io/dhis2-chap/chap-core:v2.3.1	Up 2 minutes (healthy)
+mychap-1ba12e-worker-1	ghcr.io/dhis2-chap/chap-worker:v2.3.1	Up 2 minutes (healthy)
+mychap-1ba12e-postgres-1	postgres:17	Up 2 minutes (healthy)
+mychap-1ba12e-chapkit-ewars-model-init-1	busybox:1.37	Exited (0) 4 days ago
+mychap-1ba12e-redis-1	valkey/valkey:8	Up 2 minutes (healthy)
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          11        6         26.68GB   16.17GB (60%)
+Containers      6         5         2.886kB   0B (0%)
+Local Volumes   8         7         185.2MB   0B (0%)
+Build Cache     0         0         0B        0B
+## actions
+$ docker compose -p mychap-1ba12e down   (volumes kept)
+ Container mychap-1ba12e-chapkit-ewars-model-1  Stopping
+ Container mychap-1ba12e-chapkit-ewars-model-1  Stopped
+ Container mychap-1ba12e-chapkit-ewars-model-1  Removing
+ Container mychap-1ba12e-chapkit-ewars-model-1  Removed
+ Container mychap-1ba12e-chap-1  Stopping
+ Container mychap-1ba12e-chapkit-ewars-model-init-1  Stopping
+ Container mychap-1ba12e-chapkit-ewars-model-init-1  Stopped
+ Container mychap-1ba12e-chapkit-ewars-model-init-1  Removing
+ Container mychap-1ba12e-chapkit-ewars-model-init-1  Removed
+ Container mychap-1ba12e-chap-1  Stopped
+ Container mychap-1ba12e-chap-1  Removing
+ Container mychap-1ba12e-chap-1  Removed
+ Container mychap-1ba12e-worker-1  Stopping
+ Container mychap-1ba12e-worker-1  Stopped
+ Container mychap-1ba12e-worker-1  Removing
+ Container mychap-1ba12e-worker-1  Removed
+ Container mychap-1ba12e-redis-1  Stopping
+ Container mychap-1ba12e-postgres-1  Stopping
+ Container mychap-1ba12e-postgres-1  Stopped
+ Container mychap-1ba12e-postgres-1  Removing
+ Container mychap-1ba12e-postgres-1  Removed
+ Container mychap-1ba12e-redis-1  Stopped
+ Container mychap-1ba12e-redis-1  Removing
+ Container mychap-1ba12e-redis-1  Removed
+ Network mychap-1ba12e_default  Removing
+ Network mychap-1ba12e_backend  Removing
+ Network mychap-1ba12e_backend  Removed
+ Network mychap-1ba12e_default  Removed
+$ docker rmi (chap-core, chap-worker, postgres, valkey, busybox, GHR sha-a9532c7)
+Untagged: ghcr.io/dhis2-chap/chap-core:v2.3.1
+Untagged: ghcr.io/dhis2-chap/chap-core@sha256:fb262125d1cc3243471912e7c52a4fa4a63adc5e7b624c6ea010fe6c6be6243b
+Deleted: sha256:bf78b4c225ab779bae1a4928652d4c2aae18a6391a3c4e945566b1ee9a7c8ed2
+Deleted: sha256:923cc859a56da6ec5ac8b6a3ffd0ae4366e5ab5eefa7a55409de73722a007acc
+Deleted: sha256:e60648fedb2e2b9cae0978e5623a1ce1aba12ba1ee81e6b7c442f8c634a85b88
+Deleted: sha256:002b17430bde33dc5380f9394ba457e7560e1b41848238824b16601f70ae42f0
+Deleted: sha256:b74d4adb63998c586c628f6dfce355a4efd73fcea00ebb21e4b9a3b93edb2b56
+Deleted: sha256:91f3ce39fa130ea2399bbe8ed6bf8e1ab8ee4dea0c4b761eee9ebac75bff27e6
+Deleted: sha256:f8cb17c4429b49f8f752ac424028b893e75d804b6144f4f33108aa86a3b259e8
+Deleted: sha256:ffc452015f1698b8d97afb86ef3787d4ef7ec18fda1d9bbb8f2c3c199eb47271
+Deleted: sha256:4161f6287603da0fbc8957f4f2b53b46d1afa40a4c85ee1fb6889bd2ac433fa4
+Deleted: sha256:43830e25b1f160ca0226b56ed82456314af0ec6add4646f8afd471c9ecb20597
+Deleted: sha256:8333585f4fb48ddb0ac8dbfe9578fc86687d949684797680b431e099ee5a0cff
+Deleted: sha256:0f21cb945aaa81547f5cbe55c1a09dc1782178e0e98a481015e5997ed072b76a
+Deleted: sha256:f2ec4de84f559f5c7be4233b589cdbdbb5507807e05621b77320edd55a1f2a0f
+Untagged: ghcr.io/dhis2-chap/chap-worker:v2.3.1
+Untagged: ghcr.io/dhis2-chap/chap-worker@sha256:246b3b09d30d929c678344e1a7c5dc471a700603af83f9836e9335730065008f
+Deleted: sha256:c60369e0e9762cef783f5b1d257e1f1f8708f3d7804ffb92cd57f3e0ba6273d8
+Deleted: sha256:f9e3b389fefb94dc7775ade2d43296cbd5ae9f2e758179e34287186b9a2631e7
+Deleted: sha256:e07f9a97eebca79d3581f25fc9ac88a10db9420abeafb173ec13c05ff7291f0f
+Deleted: sha256:d8418768ebc98b6357a82393f01b3adecaeeba0c4b3264add76e663cbfe79291
+Deleted: sha256:c839aa952cc424202560f9067eb7aaa615f775785c5146a1f134c00126eb68db
+Deleted: sha256:2c51beeb3f3814d0184e4c337bfc2769c0c0fe858fde32845b76b4dca1ff4b92
+Deleted: sha256:d4259851104205bf0584db1e934156b4a17286217eba4edb0d69bf1a3a69e1f5
+Deleted: sha256:de2084cca9cc85d91182511bee6ccec06c534e62bfa627f371c78fb4b50fd259
+Deleted: sha256:c03c012c7d1723aefc19ceac087c66d7b3502aa6bfa3b5c51ce7c2cfd14949ea
+Deleted: sha256:65be7be7dd692b4ac086f234e484de321edd941b2dfeac3303b106079a235fe3
+Deleted: sha256:a334444baa903a4f57bd5ab09d144d78ff9a9fb7e0dc309f67dcf0e5018b0306
+Deleted: sha256:38eef9047f3297e4b381fb2637622cf9bc2fe5e4259559467c45ca25d729db12
+Deleted: sha256:474f33e22fe6ce8ae469afcbf71551f89340b77cb0bf567e412e1582d1758dbe
+Deleted: sha256:d9f1fa1bf2e0b45a88834756608abb1b05979eeb4b32252be90ce58369f0e112
+Deleted: sha256:cbc79c1da0aa2899e7487df5f28d6d35071823df55ae6ba09afdeb99b3140171
+Deleted: sha256:9287354c3127cb370300794898f0d7ce90fa65e8b4ea5faa2382a479e88ca1ca
+Deleted: sha256:1ed068df1d415d7b20a57a74503c7f3aeb459f0acd1bf734f0b30557322ae0e1
+Deleted: sha256:ac0e3165169b130afa4f99e55a39b8024425cbef8639886f8c26ed100548c237
+Deleted: sha256:81fd6ed1ffefe8512cfb2140a6496ec9ede49b429ce33792b15a7960050b9d28
+Deleted: sha256:fe0d41f5575b45b8c16ace035041d0f2b8b415a8f21d21992cc66b77e3106dde
+Deleted: sha256:dff929861c558e3fd2e30a962ff8192eb4fc857f9f2e503aee1587c0a1fb3d24
+Deleted: sha256:af318ae32dc0ac7f15bfe2ca23ca87eefaf80e4d703878b70d86724111cf79dd
+Deleted: sha256:4b1766694c9d10d4fa7a549075c0b0d53c7b298e2465e40828ff0ad423f9300f
+Deleted: sha256:ff9a0808938f0d9164be616322c69d7e8baa4fdb1b5b9a67f60899de4e36ebde
+Deleted: sha256:d65e8bc63771f17ba98e0b1f6a2d5424b2d516bdbd9c4129f7c02722291c9fdb
+Deleted: sha256:859b623b83134336c4038094fc21126fcaacd66d46261339ee47a60de28e1ea2
+Deleted: sha256:31da9c3ee82be795c15040c232feadafbb8c2859438f2b4037ed0b491630ded0
+Deleted: sha256:8c825c2c52ec1fa83cda5365f90ab41a372a912af03dc120452dd970506c8405
+Deleted: sha256:c4e6dc9d763836fe43a4dc88d3a48b2314d23f9f073ddafc1c80e8e8de1603d5
+Deleted: sha256:9c27f9187c04b4027a412fa1cb07d6601a0b7eb32cae84ddba61ae7102fefdad
+Deleted: sha256:a0b3e49f88feb63718a0acd96692cb1c9ae9ccd83709df493f800a2ef7e19d01
+Deleted: sha256:f6b065e7a44b690f34f8a61b3eb03925f5580e9d35ceed94ba79711cf8f86e91
+Deleted: sha256:72be20a9cf389df41a9e3a222a456a0d8180478278d02786a110ba725ecb0336
+Deleted: sha256:2e17ac7641866d60d3fbedde11d91d1a7cbbe7dd96b850b91c5983b87501d675
+Deleted: sha256:0ff464f2153f764b0cf2ceb45f1c7a4d3f2e5e138c4a85b9b7c0d00a6c93be35
+Deleted: sha256:3a7e643cd6cb013ff776a93729ff743e90852aec4df0194a2ba36ec44da83b25
+Deleted: sha256:bbe2f592fba2c8efa08640614f439d57cfb9b6d3bd599369f7bb7553f5a6968f
+Deleted: sha256:dc9903844faaaa36970c490009fd3ed6d4bddcda8c5fb8957a9f027a499ad3e8
+Deleted: sha256:2027106b26d69816a039a10eee8e879445fdad80fa4d3f92a5b8a6cacc1a6ef7
+Deleted: sha256:8b89884bfabe81b06c49f4398819cafb89e11e991d818b5c35a1e1781cd8d49e
+Deleted: sha256:b296ac540dcedb049ad9d2b61ec0c53b713b7e1de325724bcc82715ee2d5fd21
+Deleted: sha256:37de19cd2092b0d144a7d26e584d5e6badc142007a6c0ef45d3f3666cf6bd4ee
+Deleted: sha256:ec81cd16662e855d59f4e8356b5effc3de97e340b83a60f410f59a4d6a18421f
+Deleted: sha256:3e7bac2603240065bff33a8fdad5e02c0435ba1dcd330a3ca1b693ab7d5992e3
+Deleted: sha256:99830e5cf72e06ba9821839438988c9d6f6e9f810ed41dd0082cea6805d3aecd
+Deleted: sha256:318c73bc6f60bea95d3dec1315efcaa849dd6e47696a178e5b113cdfb89ed231
+Deleted: sha256:747bb8812d5968b2f08d91568abde7832d1ea0f7e957e64e131c4b9cb967b29d
+Deleted: sha256:c012148dc82a6cd654f94f1cbc82694cd7c5db6192690dad5e42665a86300d28
+Deleted: sha256:65b08cd99c6053451d2752c3a9a1c048ca23ff1151f0985f5772d898a1efb816
+Untagged: postgres:17
+Untagged: postgres@sha256:d74eeac9a635390a49bc21bd49fccd973de707e2a53a76ac49b552b8712ec46f
+Deleted: sha256:97432f980da100ebd3e419711efee84e1e97a966d62c035286a07f239ddb4d9c
+Deleted: sha256:b64e88b068c7e7a24439e9d8fa14d4f390de5a5478106167504328ae253c6541
+Deleted: sha256:15b3fde7125535f6099bcee2dd55be1a0eb57ea54971c25bbdcb33f7adc96ccf
+Deleted: sha256:4965eb54040e84d0f818193547e7969c627f9588053e092b77bee3e28a31147d
+Deleted: sha256:c3df706a8da8aba9dcaefe0a30574c9ca9ee5dee1a4aa7dfbabfd0ef79110e96
+Deleted: sha256:a6b4d344047cdd0a932b77d03583d0c2a3436666b512fa382f7ec6581f755873
+Deleted: sha256:10a4c4a4872e6c148f0501b13be3ac7bfe5bb905bba753d5bbc2f24cc4699179
+Deleted: sha256:9d4059188673cc8202e3a5f5a7111a89317cd5206fa74b901ea31347f6bad505
+Deleted: sha256:c1d4f5b09ae325562bacd31e372db80dd4f6ff3e50447b5d1bd1c974efb6b033
+Deleted: sha256:f6435e7db93b8d2d616e262ef8050804dcea83188b43bab5dccef96ec9d879f2
+Deleted: sha256:d2903382a993b9a24bc01572a3105dfa12a30e3394a683ebf42934a55ef22833
+Deleted: sha256:2006cbac74fd2fa1b8f91eade2d5d35c80657779ce3d4f5f659fb53ae7fb8515
+Deleted: sha256:e52de66b5893ae15a045d28fcadd82f627513662e59964dbfc3705377df7c7f6
+Deleted: sha256:d4092a06ee6d82d516ec3a795e0c1a94701f6232997cab2de58b941274535925
+Untagged: valkey/valkey:8
+Untagged: valkey/valkey@sha256:640c5e62cea04b6d6f2084232651d0cc70362d31f4f805e7be94dbed6855e8f2
+Deleted: sha256:cba0d442b9bdb895e9c94681f467ea2e8aa6cd35cbb6f5f0c4c4e53c10b9285d
+Deleted: sha256:884ef645a74489b6d7bf2d85b811b54be846b3ed7b1817faa14a3e7e9b9edee6
+Deleted: sha256:040e349a22ed0466e0191fc0b06d41aee30ac0a7dc8b6657670f510fa1b8d6a7
+Deleted: sha256:f0b3ea3879d8915f6d04a062a69e5eae54932eda610de07233f7d7fd8780a09d
+Deleted: sha256:22e70beee6383776d7fc5b5ff5ff3b83c0439c150f1c5c236465d14c297fb6e8
+Deleted: sha256:ce3c264dfb381f8646244398537ec537b8b4ded0a57692e9444ffbafc0d44d5d
+Deleted: sha256:ba1afec014b1eee8293c56f785eb515d99a54a953347fae390dcd435df6ceb19
+Deleted: sha256:8227a1264c7ff2f8bd125b585e62c1cec77dd2099c985c33e08d34292d06144f
+Untagged: busybox:1.37
+Untagged: busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e
+Deleted: sha256:ad4f11f7c85f87c0a6d6c0fe492ad53f9cdcff6e8c88b881360c70eff701c67b
+Deleted: sha256:eb380aebecfca9bc8f9229d9aefcb5b08b26a21c3a8467090b1bc55309729d93
+Untagged: ghcr.io/chap-models/chapkit_ghr_model:sha-a9532c7
+Untagged: ghcr.io/chap-models/chapkit_ghr_model@sha256:4242f3981fa27f4c3a47def6e742610dd305c3d278748ecd3153b95fdd98f30e
+Deleted: sha256:28fb12f0d58a7608f88a4a0947f306b43cea68aaf6eab6d327e7836af84b3293
+Deleted: sha256:dcb73ad59d2b0316b27ff2c19a30f1045506159e788d76ca583860894b505594
+Deleted: sha256:20ffc5c59eb4656183aab164a72e9b91778994a7a8d7ff7d71c0a3349c699c58
+Deleted: sha256:1289623a11d7944e3cc18d133733e2868ab4688d3aabaac3370d7c8f2706bf51
+Deleted: sha256:159d0ba64248b43255e42de2b6a5cebbb7df6d4fced5bacd70e3914536db2988
+Deleted: sha256:453d164cc255014fe65b11d201fc9d5011cc983f3ffd5e20fcc634413ffee3f2
+Deleted: sha256:0e2e89d901387c354cbc5ff417d2d90aa6a0147f42bdfd7170d73cecf38ab031
+Deleted: sha256:66b1c1bda1f378bc49a6a33393a090a829cb1c0dd7a31cdf7c00b810b537f55a
+Total:	0B
+## after
+REPOSITORY                                TAG           IMAGE ID       CREATED        SIZE
+ghcr.io/chap-models/chapkit_ewars_model   sha-24d58c0   e38a629c66dd   7 days ago     4.77GB
+chap-analysis-env                         latest        5a022a005461   5 weeks ago    1.62GB
+ghcr.io/chap-models/chapkit_ewars_model   latest        cde5faf171f9   3 months ago   4.73GB
+claude-vault                              latest        3343841e9fcc   3 months ago   718MB
+ivargr/r_inla                             latest        83af44dbcdd5   2 years ago    4.16GB
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+DRIVER    VOLUME NAME
+local     claude-vault-config
+local     mychap-1ba12e_chap-db
+local     mychap-1ba12e_ck_chapkit_ewars_model_data
+local     mychap-1ba12e_logs
+local     mychap-1ba12e_pytensor
+local     mychap-1ba12e_renv
+local     mychap-1ba12e_runs
+local     mychap-1ba12e_uv
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          5         0         15.99GB   15.99GB (100%)
+Containers      0         0         0B        0B
+Local Volumes   8         0         185.2MB   185.2MB (100%)
+Build Cache     0         0         0B        0B

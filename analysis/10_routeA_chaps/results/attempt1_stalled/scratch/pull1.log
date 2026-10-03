@@ -1,0 +1,127 @@
+sha-dfb2e3f: Pulling from chap-models/chapkit_ghr_model
+6b37362b3da7: Already exists
+fca3f12867fb: Already exists
+af104622b4b0: Already exists
+a87f5f63df66: Already exists
+766f5f182be3: Pulling fs layer
+764ed34eec36: Pulling fs layer
+37359566ed10: Pulling fs layer
+7c4627a62657: Pulling fs layer
+4311fae36d8d: Pulling fs layer
+f08543b25448: Pulling fs layer
+4f8d4221abc8: Pulling fs layer
+a71fb70c33c2: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+9b4e5bd96fc6: Pulling fs layer
+0cc027d4f22c: Pulling fs layer
+2058d0f26985: Pulling fs layer
+6889af65efa7: Pulling fs layer
+e55f69b5fd60: Pulling fs layer
+62242d415a5d: Pulling fs layer
+42466c4694d6: Pulling fs layer
+4f4fb700ef54: Waiting
+e55f69b5fd60: Waiting
+62242d415a5d: Waiting
+42466c4694d6: Waiting
+9b4e5bd96fc6: Waiting
+0cc027d4f22c: Waiting
+2058d0f26985: Waiting
+6889af65efa7: Waiting
+4311fae36d8d: Waiting
+f08543b25448: Waiting
+4f8d4221abc8: Waiting
+a71fb70c33c2: Waiting
+7c4627a62657: Waiting
+37359566ed10: Verifying Checksum
+37359566ed10: Download complete
+766f5f182be3: Verifying Checksum
+766f5f182be3: Download complete
+766f5f182be3: Pull complete
+4311fae36d8d: Download complete
+764ed34eec36: Verifying Checksum
+764ed34eec36: Download complete
+764ed34eec36: Pull complete
+37359566ed10: Pull complete
+7c4627a62657: Retrying in 5 seconds
+7c4627a62657: Retrying in 4 seconds
+7c4627a62657: Retrying in 3 seconds
+7c4627a62657: Retrying in 2 seconds
+7c4627a62657: Retrying in 1 second
+7c4627a62657: Retrying in 10 seconds
+7c4627a62657: Retrying in 9 seconds
+7c4627a62657: Retrying in 8 seconds
+7c4627a62657: Retrying in 7 seconds
+7c4627a62657: Retrying in 6 seconds
+7c4627a62657: Retrying in 5 seconds
+7c4627a62657: Retrying in 4 seconds
+7c4627a62657: Retrying in 3 seconds
+7c4627a62657: Retrying in 2 seconds
+7c4627a62657: Retrying in 1 second
+4f8d4221abc8: Retrying in 5 seconds
+4f8d4221abc8: Retrying in 4 seconds
+4f8d4221abc8: Retrying in 3 seconds
+4f8d4221abc8: Retrying in 2 seconds
+4f8d4221abc8: Retrying in 1 second
+f08543b25448: Retrying in 5 seconds
+f08543b25448: Retrying in 4 seconds
+f08543b25448: Retrying in 3 seconds
+f08543b25448: Retrying in 2 seconds
+f08543b25448: Retrying in 1 second
+f08543b25448: Verifying Checksum
+f08543b25448: Download complete
+4f8d4221abc8: Verifying Checksum
+4f8d4221abc8: Download complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+9b4e5bd96fc6: Verifying Checksum
+9b4e5bd96fc6: Download complete
+0cc027d4f22c: Verifying Checksum
+0cc027d4f22c: Download complete
+2058d0f26985: Verifying Checksum
+2058d0f26985: Download complete
+7c4627a62657: Retrying in 15 seconds
+7c4627a62657: Retrying in 14 seconds
+7c4627a62657: Retrying in 13 seconds
+7c4627a62657: Retrying in 12 seconds
+7c4627a62657: Retrying in 11 seconds
+7c4627a62657: Retrying in 10 seconds
+7c4627a62657: Retrying in 9 seconds
+7c4627a62657: Retrying in 8 seconds
+7c4627a62657: Retrying in 7 seconds
+7c4627a62657: Retrying in 6 seconds
+7c4627a62657: Retrying in 5 seconds
+7c4627a62657: Retrying in 4 seconds
+7c4627a62657: Retrying in 3 seconds
+7c4627a62657: Retrying in 2 seconds
+7c4627a62657: Retrying in 1 second
+a71fb70c33c2: Verifying Checksum
+a71fb70c33c2: Download complete
+e55f69b5fd60: Verifying Checksum
+e55f69b5fd60: Download complete
+62242d415a5d: Download complete
+42466c4694d6: Verifying Checksum
+42466c4694d6: Download complete
+6889af65efa7: Verifying Checksum
+6889af65efa7: Download complete
+7c4627a62657: Retrying in 20 seconds
+7c4627a62657: Retrying in 19 seconds
+7c4627a62657: Retrying in 18 seconds
+7c4627a62657: Retrying in 17 seconds
+7c4627a62657: Retrying in 16 seconds
+7c4627a62657: Retrying in 15 seconds
+7c4627a62657: Retrying in 14 seconds
+7c4627a62657: Retrying in 13 seconds
+7c4627a62657: Retrying in 12 seconds
+7c4627a62657: Retrying in 11 seconds
+7c4627a62657: Retrying in 10 seconds
+7c4627a62657: Retrying in 9 seconds
+7c4627a62657: Retrying in 8 seconds
+7c4627a62657: Retrying in 7 seconds
+7c4627a62657: Retrying in 6 seconds
+7c4627a62657: Retrying in 5 seconds
+7c4627a62657: Retrying in 4 seconds
+7c4627a62657: Retrying in 3 seconds
+7c4627a62657: Retrying in 2 seconds
+7c4627a62657: Retrying in 1 second
+unexpected EOF
+EXIT 1

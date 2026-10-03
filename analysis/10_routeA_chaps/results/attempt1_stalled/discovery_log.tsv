@@ -1,0 +1,33 @@
+step	ts_utc	kind	ref	outcome	note
+1	2026-10-02T16:20:26Z	resource	/Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/AI-internal/skill-references/discovery-log-format.md	used	log specification read before first row
+2	2026-10-02T16:20:26Z	resource	/Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/docker_state_before_run.txt	discarded	node file: orchestrator removed chap-core/worker/ghr images and stopped compose project before this run
+3	2026-10-02T16:20:33Z	milestone	first_doc_opened	ok	starting from the chaps repository README on GitHub
+4	2026-10-02T16:20:33Z	command	git clone https://github.com/winterop-com/chaps	ok	
+5	2026-10-02T16:21:00Z	resource	https://github.com/winterop-com/chaps#readme	used	chaps deploys chap-core + chapkit model services via docker compose; points AI agents to docs/ai.md
+6	2026-10-02T16:21:00Z	resource	https://github.com/winterop-com/chaps/blob/main/docs/ai.md	used	AI-agent entry page for chaps
+7	2026-10-02T16:21:07Z	command	git clone https://github.com/chap-models/chapkit_ghr_model	ok	model source, for reading only
+8	2026-10-02T16:21:14Z	milestone	model_obtained	ok	model repo cloned (read-only); chaps will run its published image
+9	2026-10-02T16:21:21Z	resource	https://github.com/chap-models/chapkit_ghr_model#readme	used	chapkit service, image on ghcr, defaults use rainfall+mean_temperature+population, monthly, amd64 only, geometry strict
+10	2026-10-02T16:21:21Z	command	chap --help; chap eval --help	ok	inspect installed CLI
+11	2026-10-02T16:21:30Z	resource	/Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/Archive/data-lao/chap_LAO_admin1_monthly_schema.json	used	data schema
+12	2026-10-02T16:21:30Z	resource	/Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/Archive/data-lao/chap_LAO_admin1_monthly.csv	used	inspect header and size
+13	2026-10-02T16:21:30Z	resource	/Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/Archive/data-lao/chap_LAO_admin1_monthly.geojson	used	inspect feature properties
+14	2026-10-02T16:21:35Z	resource	https://github.com/winterop-com/chaps/blob/main/docs/run.md	used	chaps run: one model service on a port, no folder
+15	2026-10-02T16:21:41Z	resource	https://github.com/winterop-com/chaps/blob/main/vendor/marketplace/models/chapkit_ghr_model.yaml	used	marketplace entry for the GHR model: pinned image
+16	2026-10-02T16:21:47Z	decision	chaps run + chap eval against service URL	used	docs/run.md shows chaps run with this exact repo URL giving a standalone service URL; chap eval accepts a chapkit service URL; chaps' own backtest (models test --backtest) uses model-generated sample data, not Lao
+17	2026-10-02T16:21:47Z	command	curl -fsSL https://raw.githubusercontent.com/winterop-com/chaps/main/install.sh | sh -s -- --dir /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/bin	ok	install chaps binary into scratch dir
+18	2026-10-02T16:22:25Z	command	chaps doctor	ok	
+19	2026-10-02T16:22:31Z	command	CHAPS_DATA_DIR=<scratch> chaps run https://github.com/chap-models/chapkit_ghr_model --timeout 1800	ok	started in background; first run pulls the ~5GB image
+20	2026-10-02T16:22:41Z	resource	/Users/geirksa_1_2_3/.local/share/uv/tools/chap-core/lib/python3.13/site-packages/chap_core/cli_endpoints/evaluate.py	used	installed chap-core source for chap eval: how geojson, chapkit URL and plot are handled
+21	2026-10-02T16:22:51Z	command	chap plot-backtest --help; chap export-metrics --help	ok	find post-eval steps for plot and metrics
+22	2026-10-02T16:58:55Z	blocker	ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f pull	open	image pull from ghcr very slow with repeated layer retries; my harness killed chaps run after 30 min (context canceled) before the pull finished - not a chaps or model fault
+23	2026-10-02T16:59:02Z	decision	prefetch image with docker pull before re-running chaps run	used	the pull is the slow part; running it detached with a 2h limit so the harness timeout does not cancel it; chaps run then finds the image locally
+24	2026-10-02T16:59:02Z	command	docker pull --platform linux/amd64 ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f	ok	background, 2h limit
+25	2026-10-02T17:38:26Z	command	docker pull --platform linux/amd64 ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f	failed	first attempt ended after 40 min with 'unexpected EOF' on one large layer after 60 retries; network, not model; retrying
+26	2026-10-02T18:57:02Z	command	docker pull --platform linux/amd64 ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f	failed	second attempt: same 'unexpected EOF' on the same large layer 7c4627a62657 after ~100 retries; docker restarts the layer from zero each retry
+27	2026-10-02T18:57:30Z	decision	fetch the image blobs with resumable HTTP Range requests and docker load them	used	docker pull restarts the failing multi-GB layer from zero on every drop; a resuming fetch of the same digests yields the identical published image (digest-checked) without touching the model
+28	2026-10-02T18:57:30Z	command	python3 fetch_oci.py chap-models/chapkit_ghr_model sha-dfb2e3f oci/ (resumable ghcr blob fetch)	ok	background
+29	2026-10-02T18:59:14Z	command	python3 fetch_oci.py ... (python.org build)	failed	CERTIFICATE_VERIFY_FAILED: this python has no CA bundle; rerun with SSL_CERT_FILE=/etc/ssl/cert.pem
+30	2026-10-02T18:59:26Z	command	SSL_CERT_FILE=/etc/ssl/cert.pem python3 fetch_oci.py chap-models/chapkit_ghr_model sha-dfb2e3f oci/	ok	background, resumable blob fetch
+31	2026-10-02T20:01:49Z	blocker	network throughput	open	machine's internet throughput measured at ~57 KB/s (cloudflare speed test, 19:18Z); the 2.14 GB compressed image (one 1.42 GB layer) cannot arrive quickly; waiting on the resumable fetch
+32	2026-10-02T20:03:27Z	decision	caffeinate -i -w <fetch pid>	used	pmset log shows the laptop slept (lid/idle, on battery) for long stretches since ~18:30Z, stalling every download; caffeinate prevents idle sleep while the fetch runs; measured throughput awake is still only ~100 KB/s
