@@ -1,0 +1,20 @@
+seq	log_step	act	label	gate	learn_exp	min_low	min_exp	min_high	cum_exp	note
+1	-	install	install a container runtime (Docker Desktop) and start it	hold	0.0	3.0	6.0	15.0	6.0	chaps drives Docker Compose and cannot start without a running daemon; the agent's host already had one, as in batches 10 and 12
+2	1	instrument	read the discovery-log specification	hold	0.0	0.0	0.0	0.0	6.0	exists because the agent was logging for this study
+3	2	instrument	read the orchestrator's machine-state note	hold	0.0	0.0	0.0	0.0	6.0	exists because of the study; it gave the image size and the link speed, a contamination recorded in provenance
+4	3	milestone	first document opened	hold	0.0	0.0	0.0	0.0	6.0	
+5	4	read_doc	read the chaps README	hold	0.0	5.3	7.6	12.9	13.6	
+6	5	read_doc	read chaps' docs/ai.md, the page the README points AI agents to	hold	0.0	18.4	26.3	44.6	39.9	an agent's page; a human would more likely read docs/run.md (sensitivity run_doc_not_ai_page)
+7	6	read_doc	read the model README in full	partial	8.8	20.1	32.1	69.7	71.9	byte-identical to iteration 3's; names neither chaps nor chap eval
+8	7	install	install chaps with its install.sh	hold	0.0	3.0	6.0	15.0	77.9	one curl | sh line from the README
+9	8	run_command	chaps doctor	hold	0.0	0.4	0.8	2.0	78.7	
+10	9	run_command	chap --version and chap --help	hold	0.0	0.4	0.8	2.0	79.5	chap-core 2.3.1 was already installed, as in batch 12
+11	9	read_doc	chap eval --help	hold	0.0	2.7	3.8	6.5	83.4	the load-bearing fact is still that MODEL-NAME may be a service URL
+12	10	read_doc	chaps run --help	hold	0.0	0.8	1.2	2.1	84.6	
+13	11	run_command	chaps models list	hold	0.0	0.4	0.8	2.0	85.4	shows chapkit_ghr_model as a marketplace model, stable 0.1.3
+14	12	decide	serve the model with chaps run and evaluate it with chap eval against its URL	hold	0.0	1.0	2.0	5.0	87.4	chaps' docs stop at serving; the evaluation comes from chap's own help and docs
+15	13	decide	consider a full chaps deployment and its sample-data backtest, and reject it	hold	0.0	1.0	2.0	5.0	89.4	
+16	14	run_command	chaps run with the model's repository URL	hold	0.0	0.4	0.8	2.0	90.2	chaps maps the URL to its marketplace pin and pulls the image itself; the agent passed a long --timeout because it knew the link speed (contamination); on a working link the default suffices
+17	14-26	wait	wait while chaps pulls the image twice and fails	hold	0.0	92.8	92.8	92.8	183.0	measured: chaps run launched (row 14) to its failure, rc=18 (row 26)
+18	26	diagnose	read chaps' error (unexpected EOF on one layer; fix that, then retry) and decide what to do	hold	0.0	3.0	7.0	20.0	190.0	the error names a network failure and gives nothing to act on; rerunning restarts the 1.42 GB layer from zero
+19	27	milestone	route blocked: it completes only with a workaround outside chaps	hold	0.0	0.0	0.0	0.0	190.0	the agent wrote a resumable, digest-checked image fetcher (scripts/fetch_image_oci.sh); not costed as a persona step

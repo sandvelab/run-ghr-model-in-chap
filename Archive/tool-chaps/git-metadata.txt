@@ -1,0 +1,7 @@
+remote: https://github.com/winterop-com/chaps.git
+commit: ba38f7c9ec336d95a5e3ce22926ac2b55f555102
+committed: 2026-10-02T09:37:10+02:00
+subject: chore: release v0.99.4
+tag: v0.99.4 (annotated tag object 453cc08, pointing at the commit above)
+cloned: 2026-10-03T15:28:22Z
+upstream HEAD at clone: ba38f7c9ec336d95a5e3ce22926ac2b55f555102 (same commit)

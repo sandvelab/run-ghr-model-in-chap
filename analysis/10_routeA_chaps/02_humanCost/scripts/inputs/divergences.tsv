@@ -1,0 +1,2 @@
+rule	route	condition_prereq	condition_state	action	anchor_seq	act	label	prereqs	base_low	base_exp	base_high	note
+D4	route-a-chaps	reading-library-source	lack	drop_step	21	-	-	-	0	0	0	a persona who would not open library source does not read it; the given CSV and GeoJSON already share a stem and directory, and evaluation-workflow.md (step 23) documents the auto-discovery, so nothing downstream depends on it

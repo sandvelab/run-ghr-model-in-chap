@@ -1,0 +1,24 @@
+route	seq	log_step	source	act	label	doc_key	prereqs	note	condition
+route-b	1	-	added	install	install uv	-	python-venv-uv	route B's own recipe begins by installing uv; the agent's host already had it	
+route-b	2	1	log	run_command	chap --version	-	cli-basics		
+route-b	3	2	log	run_command	docker info	-	cli-basics	the agent checked on its own initiative; route B needs no container runtime, so the route never gates on knowing Docker and no Docker knowledge is charged here	
+route-b	4	3	log	orient	open the model repository on GitHub	-	github-navigation		
+route-b	5	4	log	read_doc	read the model README	routeB_readme	python-venv-uv		
+route-b	6	5	log	run_command	git clone the model	-	git-basics		
+route-b	7	6	log	milestone	model obtained	-	-		
+route-b	8	7	log	orient	return to the README for the full invocation	-	github-navigation		
+route-b	9	8	log	read_doc	chap --help and chap eval --help	chap_help_pair	cli-help-reading		
+route-b	10	9	log	read_doc	read the Lao CHAP schema	lao_schema	json-basics		
+route-b	11	10	log	run_command	inspect the CSV from the shell	-	shell-text-tools		
+route-b	12	11	log	run_command	uv run the model's own isolated_run.py	-	python-venv-uv		
+route-b	13	12	log	milestone	the model runs standalone	-	-		
+route-b	14	13	log	run_command	chap sanity-check-model (fails)	-	cli-basics		
+route-b	15	14	log	diagnose	chap-core 2.3.1 ships without the example dataset its default expects	-	python-packaging	a FileNotFoundError deep inside site-packages, on a clean install	
+route-b	16	15	log	milestone	worked around with --dataset-path	-	-		
+route-b	17	16	log	run_command	chap sanity-check-model with the Lao CSV	-	cli-help-reading		
+route-b	18	17	log	milestone	the MLproject directory loads as a model	-	-		
+route-b	19	18	log	read_doc	read the installed chap-core source to find how the geometry is loaded	chapcore_common	reading-library-source;python-venv-uv	the same undocumented sibling-GeoJSON convention as route A	
+route-b	20	19	log	decide	run from outside the repository so CHAP's run tree lands elsewhere	-	cwd-awareness		
+route-b	21	20	log	milestone	evaluation started	-	-		
+route-b	22	21	log	run_command	chap eval against the MLproject directory	-	cli-basics		
+route-b	23	22	log	wait	wait for the evaluation to finish	-	-	measured	

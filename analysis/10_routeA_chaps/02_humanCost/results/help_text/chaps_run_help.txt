@@ -1,0 +1,26 @@
+Start one model and print where it answers
+
+Usage: chaps run [OPTIONS] <MODEL>
+
+Arguments:
+  <MODEL>  Marketplace id, GitHub repository URL, ghcr image, or local image:tag
+
+Options:
+      --port <PORT|auto>   Host port to publish the model on, or auto for a free one [default: auto]
+      --bind <ADDR>        Host address to publish the port on, e.g. 0.0.0.0 for the network
+      --id <ID|auto>       Identifier to record an added model under, or auto for a free one
+      --group <NAME>       Group to start it in, outside a deployment; ps and stop take it too
+      --allow-template     Start a marketplace template, which is not a deployable model
+      --no-wait            Return once the container started, without waiting for it to answer
+      --timeout <SECONDS>  How long to wait for the model to answer, in seconds [default: 300]
+  -h, --help               Print help
+
+Global options:
+      --json                Emit machine-readable JSON instead of human output
+      --no-color            Never colour the output (NO_COLOR does the same)
+  -v, --verbose             Show the commands and requests as they run
+  -d, --debug               --verbose plus raw responses
+  -C, --project-dir <DIR>   Project directory, or any directory inside one [default: .]
+      --registry-url <URL>  URL of the marketplace registry index [default: https://raw.githubusercontent.com/dhis2-chap/model-marketplace/main/registry.yaml]
+      --offline             Never touch the network; use the cache or the snapshot
+      --cache-dir <DIR>     Directory for the cached registry snapshot

@@ -1,0 +1,20 @@
+prereq	description	learn_low	learn_exp	learn_high
+cli-basics	Run a command in a terminal and read what it prints	2	5	10
+cli-help-reading	Recover a working invocation from --help output	3	8	20
+git-basics	Clone a repository and know what a commit is	5	10	25
+github-navigation	Find a README, a file or a release on a GitHub repository page	3	6	15
+shell-text-tools	Inspect a CSV from the shell (head, cut, wc)	3	8	20
+shell-path-env	PATH and environment variables; why a binary is not found	10	25	60
+python-venv-uv	Virtual environments and uv; why a package is or is not importable	10	20	45
+python-packaging	Read a traceback naming site-packages and infer a packaging fault rather than a user error	10	20	45
+reading-library-source	Open an installed library's own source to answer a question its documentation does not	20	45	150
+docker-basics	Install a container runtime; build an image, run a container, map a port, read its logs	45	90	240
+docker-compose	Read a compose file and see what it would start	10	20	40
+container-registry	What an image registry is; image names and tags	8	15	30
+container-registry-auth	Diagnose a 401 from a registry and conclude it is not your mistake	10	25	90
+cpu-architecture	amd64 against arm64, emulation, and why a platform flag exists	15	35	120
+http-curl	Call an HTTP endpoint and read the response	8	15	30
+rest-service-model	The idea that the model is a running service the harness talks to over HTTP	10	20	45
+json-basics	Read a JSON schema or config file	3	8	20
+geojson-basics	Know what a GeoJSON feature collection is and that its ids must match the data	5	12	30
+cwd-awareness	Know where a tool writes its outputs relative to the working directory	5	12	30

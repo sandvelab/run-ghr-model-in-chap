@@ -1,0 +1,16 @@
+# Written once by chaps when the ocs component was enabled; chaps never rewrites it.
+
+@EXAMPLE_NOTE@id: @ID@
+name: @NAME@
+
+extent:
+  name: @EXTENT_NAME@
+  bbox: [@BBOX@]   # xmin, ymin, xmax, ymax
+  country_code: @COUNTRY_CODE@
+
+data_dir: /app/data   # the ocs_data volume
+
+# Recurring checks and event-driven workflows go here; OCS's own
+# climate-service.yaml.example shows the shape.
+# scheduler:
+#   enabled: true

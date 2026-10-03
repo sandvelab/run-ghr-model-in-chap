@@ -1,0 +1,6 @@
+image: ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f
+id: sha256:cf686a4edb714e67bb5d86eecef4a0a8336ee00293837deb8b08141b469a8e49
+repo_digests: [ghcr.io/chap-models/chapkit_ghr_model@sha256:517f261cc525c58d9924bf1d7a6c7df4cd469f5e840011274e63d9e6c4ef16d6]
+architecture: amd64
+size_bytes_uncompressed: 4848393354
+recorded_utc: 2026-10-03T15:29:13Z by the orchestrator (docker image inspect), after the agent handed back

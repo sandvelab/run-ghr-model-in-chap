@@ -1,0 +1,11 @@
+doc_key	words	source
+chap_eval_help	654	chap eval --help (captured to results/help_text/)
+chap_post_help	177	chap export-metrics --help (captured to results/help_text/) + chap plot-backtest --help (captured to results/help_text/)
+chapcore_common	1413	chap_core/cli_endpoints/_common.py (installed chap-core)
+chaps_ai	4465	Archive/tool-chaps/repo/docs/ai.md
+chaps_readme	1291	Archive/tool-chaps/repo/README.md
+chaps_run_doc	1262	Archive/tool-chaps/repo/docs/run.md
+chaps_run_help	206	chaps run --help (captured to results/help_text/)
+doc_chapkit	836	Archive/chapcore-docs-v2.3.1/docs/external_models/chapkit.md
+doc_eval_workflow	929	Archive/chapcore-docs-v2.3.1/docs/chap-cli/evaluation-workflow.md
+routeA_readme_chaps	2833	Archive/model-route-a-chaps/repo/README.md

@@ -1,0 +1,13 @@
+[book]
+title = "chaps"
+description = "Deploy Chap, the Climate Health Analytics Platform, and its services with Docker Compose"
+authors = ["Morten Hansen"]
+language = "en"
+src = "docs"
+
+[build]
+build-dir = "site"
+
+[output.html]
+git-repository-url = "https://github.com/winterop-com/chaps"
+edit-url-template = "https://github.com/winterop-com/chaps/edit/main/{path}"

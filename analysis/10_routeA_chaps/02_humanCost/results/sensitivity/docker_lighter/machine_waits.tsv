@@ -1,0 +1,5 @@
+wait_key	seconds	used	method	source
+eval	430	yes	discovery-log timestamps, evaluation_started to evaluation_complete	analysis/10_routeA_chaps/01_discovery/results/discovery_log.tsv
+pull	333	yes	borrowed: batch 12's clean-shell pull of the same model's image (sha-a9532c7) on a working link; chaps completed no pull on this batch's link	analysis/09_routeA_iteration3/02_humanCost/results/machine_waits.tsv
+pull_failed	5566	slow-link route only	discovery log, chaps run launched (row 14) to its failure rc=18 (row 26)	analysis/10_routeA_chaps/01_discovery/results/discovery_log.tsv
+image_fetch_workaround	5387	no	discovery log, the agent's resumable fetcher launched (row 28) to the image loaded (row 31); a workaround, not a persona step	analysis/10_routeA_chaps/01_discovery/results/discovery_log.tsv

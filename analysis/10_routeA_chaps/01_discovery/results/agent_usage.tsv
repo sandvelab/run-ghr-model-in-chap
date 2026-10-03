@@ -1,0 +1,11 @@
+field	value	source
+agent_model	claude-opus-5-5	the orchestrating session's model; a general-purpose subagent inherits it
+agent_launched_utc	2026-10-03T08:40:58Z	agent_launched_utc.txt, written by the orchestrator immediately before launch (date -u)
+agent_last_log_row_utc	2026-10-03T15:09:41Z	discovery_log.tsv, row 48
+evaluation_complete_utc	2026-10-03T11:54:23Z	discovery_log.tsv, row 38
+harness_tokens	178763	harness usage block (subagent_tokens) on the task notification that followed the agent's hand-back; the final figure
+harness_tool_uses	103	same notification
+harness_duration_ms	23321465	same notification; 6.48 h of agent wall-clock, of which ~3.0 h was the image download (rows 14-32, 08:42-11:47Z), ~2.8 h the host asleep (rows 43-45, 11:55-14:45Z) and ~23 min the clean-shell run (row 46)
+harness_tokens_at_evaluation_complete	143158	agent_usage_interim.tsv, the notification at 11:54:16Z (7 s before row 38's timestamp); the route work up to the first evaluation
+harness_tokens_interim	see agent_usage_interim.tsv	every interim notification, recorded by the orchestrator as it arrived
+iteration3_tokens	139417	analysis/09_routeA_iteration3/01_discovery/results/agent_usage.tsv (route A without chaps, batch 12)

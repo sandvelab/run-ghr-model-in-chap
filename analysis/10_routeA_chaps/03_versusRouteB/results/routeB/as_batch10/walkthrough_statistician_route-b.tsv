@@ -1,0 +1,25 @@
+seq	log_step	act	label	gate	learn_exp	min_low	min_exp	min_high	cum_exp	note
+1	-	install	install uv	partial	5.0	10.9	26.0	67.2	26.0	route B's own recipe begins by installing uv; the agent's host already had it
+2	1	run_command	chap --version	hold	0.0	1.0	2.2	6.0	28.2	
+3	2	run_command	docker info	hold	0.0	1.0	2.2	6.0	30.4	the agent checked on its own initiative; route B needs no container runtime, so the route never gates on knowing Docker and no Docker knowledge is charged here
+4	3	orient	open the model repository on GitHub	partial	1.5	2.1	5.0	12.1	35.4	
+5	4	read_doc	read the model README	partial	0.0	8.0	11.4	21.7	46.8	
+6	5	run_command	git clone the model	hold	0.0	1.0	2.2	6.0	49.0	
+7	6	milestone	model obtained	hold	0.0	0.0	0.0	0.0	49.0	
+8	7	orient	return to the README for the full invocation	partial	0.0	1.4	3.5	8.4	52.5	
+9	8	read_doc	chap --help and chap eval --help	partial	2.0	8.5	13.0	25.9	65.6	
+10	9	read_doc	read the Lao CHAP schema	hold	0.0	1.8	2.6	4.9	68.1	
+11	10	run_command	inspect the CSV from the shell	hold	0.0	1.0	2.2	6.0	70.3	
+12	11	run_command	uv run the model's own isolated_run.py	partial	0.0	1.4	3.1	8.4	73.4	
+13	12	milestone	the model runs standalone	hold	0.0	0.0	0.0	0.0	73.4	
+14	13	run_command	chap sanity-check-model (fails)	hold	0.0	1.0	2.2	6.0	75.6	
+15	14	diagnose	chap-core 2.3.1 ships without the example dataset its default expects	lack	20.0	34.0	80.0	225.0	155.6	a FileNotFoundError deep inside site-packages, on a clean install
+16	15	milestone	worked around with --dataset-path	hold	0.0	0.0	0.0	0.0	155.6	
+17	16	run_command	chap sanity-check-model with the Lao CSV	partial	0.0	1.4	3.1	8.4	158.7	
+18	17	milestone	the MLproject directory loads as a model	hold	0.0	0.0	0.0	0.0	158.7	
+19	18	dropped	read the installed chap-core source to find how the geometry is loaded	-	0.0	0.0	0.0	0.0	158.7	as D1, on route B
+20	19	decide	run from outside the repository so CHAP's run tree lands elsewhere	partial	3.0	4.0	9.3	24.3	168.0	
+21	20	milestone	evaluation started	hold	0.0	0.0	0.0	0.0	168.0	
+22	21	run_command	chap eval against the MLproject directory	hold	0.0	1.0	2.2	6.0	170.2	
+22+	-	diagnose	the run rejects the data and nothing says a .geojson must sit beside the .csv	hold	0.0	20.0	50.0	150.0	220.2	as D1, on route B
+23	22	wait	wait for the evaluation to finish	hold	0.0	1.0	1.0	1.0	221.2	measured

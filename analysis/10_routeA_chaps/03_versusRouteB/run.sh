@@ -11,4 +11,6 @@ REPO_ROOT="$(cd "../../.." && pwd)"
 PYTHON="$REPO_ROOT/environment/env/bin/python"
 
 
-# Own scripts -- add calls here as scripts/ fills up.
+# Own scripts
+# Reads 02_humanCost's results, so it runs after it (the parent runs children in order).
+"$PYTHON" scripts/lib/compare.py

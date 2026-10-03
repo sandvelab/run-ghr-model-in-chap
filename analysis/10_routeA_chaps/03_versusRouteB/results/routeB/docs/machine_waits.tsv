@@ -1,0 +1,3 @@
+wait_key	seconds	method	source
+route-a	410	discovery-log timestamps, evaluation_started to evaluation_complete	analysis/02_routeA_chapkit/results/discovery_log.tsv
+route-b	60	file mtimes in the clean re-run, CHAP's written run configuration to the written evaluation; the discovery log collapses both milestones onto one timestamp, so it cannot supply this	analysis/05_repeatability/results/rerun_routeB/

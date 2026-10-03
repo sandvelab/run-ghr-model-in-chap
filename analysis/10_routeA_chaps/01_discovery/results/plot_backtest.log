@@ -1,0 +1,4 @@
+2026-10-03T13:54:24 [INFO   ] Loading evaluation from eval.nc [chap_core.cli_endpoints.utils]
+2026-10-03T13:54:25 [INFO   ] Generating evaluation_plot plot [chap_core.cli_endpoints.utils]
+2026-10-03T13:54:25 [INFO   ] Saving plot to evaluation_plot.html [chap_core.cli_endpoints.utils]
+2026-10-03T13:54:25 [INFO   ] Plot saved to evaluation_plot.html [chap_core.cli_endpoints.utils]

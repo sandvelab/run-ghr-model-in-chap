@@ -1,0 +1,3 @@
+rule	route	condition_prereq	condition_state	action	anchor_seq	act	label	prereqs	base_low	base_exp	base_high	note
+D2	route-b	reading-library-source	lack	drop_step	19	-	-	-	0	0	0	as D1, on route B
+D2	route-b	reading-library-source	lack	add_after	22	diagnose	the run rejects the data and nothing says a .geojson must sit beside the .csv	geojson-basics	20	50	150	as D1, on route B

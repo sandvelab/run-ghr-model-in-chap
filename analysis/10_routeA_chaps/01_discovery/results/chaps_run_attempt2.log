@@ -1,0 +1,23 @@
+https://github.com/chap-models/chapkit_ghr_model is the marketplace model chapkit_ghr_model; enabling that (pass `--id <other>` to add it beside it instead)
+asking ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f what uid `app` is (this pulls the image)
+sha-dfb2e3f: Pulling from chap-models/chapkit_ghr_model
+Digest: sha256:517f261cc525c58d9924bf1d7a6c7df4cd469f5e840011274e63d9e6c4ef16d6
+Status: Image is up to date for ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f
+ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f
+starting chapkit-ghr-model (chapkit_ghr_model in /Users/geirksa_1_2_3/.local/share/chaps/run/default)
+ Network default-547f74_default  Creating
+ Network default-547f74_default  Created
+ Volume "default-547f74_ck_chapkit_ghr_model_data"  Creating
+ Volume "default-547f74_ck_chapkit_ghr_model_data"  Created
+ Container default-547f74-chapkit-ghr-model-init-1  Creating
+ Container default-547f74-chapkit-ghr-model-init-1  Created
+ Container default-547f74-chapkit-ghr-model-1  Creating
+ Container default-547f74-chapkit-ghr-model-1  Created
+ Container default-547f74-chapkit-ghr-model-init-1  Starting
+ Container default-547f74-chapkit-ghr-model-init-1  Started
+ Container default-547f74-chapkit-ghr-model-init-1  Waiting
+ Container default-547f74-chapkit-ghr-model-init-1  Exited
+ Container default-547f74-chapkit-ghr-model-1  Starting
+ Container default-547f74-chapkit-ghr-model-1  Started
+running chapkit_ghr_model on http://localhost:5060 (answered in 2s)
+stop it with `chaps stop chapkit_ghr_model`; `chaps -C /Users/geirksa_1_2_3/.local/share/chaps/run/default logs chapkit-ghr-model` shows its log

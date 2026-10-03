@@ -1,0 +1,33 @@
+# Machine state before the batch 14 attempt 2 agent, 2026-10-03T08:40:56Z
+## network and power (checked by the orchestrator; the plan's §4b requires it since attempt 1)
+cloudflare 50 MB download, 30 s cap: 426725 B/s (2026-10-03T08:39Z)
+ghcr.io, range request on layer sha256:7c4627a62657 of chapkit_ghr_model sha-dfb2e3f (amd64), 30 s cap: 507851 B/s
+image sha-dfb2e3f amd64: 2135778809 bytes compressed in all, largest layer 1423713777
+Now drawing from 'AC Power'
+ -InternalBattery-0 (id=38404195)	100%; charged; 0:00 remaining present: true
+## docker
+27.4.0 aarch64 mem=8218251264 cpus=8
+REPOSITORY                                TAG           IMAGE ID       CREATED        SIZE
+ghcr.io/chap-models/chapkit_ewars_model   sha-24d58c0   e38a629c66dd   7 days ago     4.77GB
+chap-analysis-env                         latest        5a022a005461   5 weeks ago    1.62GB
+ghcr.io/chap-models/chapkit_ewars_model   latest        cde5faf171f9   3 months ago   4.73GB
+claude-vault                              latest        3343841e9fcc   3 months ago   718MB
+ivargr/r_inla                             latest        83af44dbcdd5   2 years ago    4.16GB
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+DRIVER    VOLUME NAME
+local     claude-vault-config
+local     mychap-1ba12e_chap-db
+local     mychap-1ba12e_ck_chapkit_ewars_model_data
+local     mychap-1ba12e_logs
+local     mychap-1ba12e_pytensor
+local     mychap-1ba12e_renv
+local     mychap-1ba12e_runs
+local     mychap-1ba12e_uv
+TYPE            TOTAL     ACTIVE    SIZE      RECLAIMABLE
+Images          5         0         15.99GB   15.99GB (100%)
+Containers      0         0         0B        0B
+Local Volumes   8         0         185.2MB   185.2MB (100%)
+Build Cache     0         0         0B        0B
+## chaps on PATH
+chaps not found
+not installed

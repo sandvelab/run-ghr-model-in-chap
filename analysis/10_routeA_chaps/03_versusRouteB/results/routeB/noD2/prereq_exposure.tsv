@@ -1,0 +1,7 @@
+persona	route	prereq	state	first_seq	learn_min_exp	description
+statistician	route-b	python-venv-uv	partial	1	5.0	Virtual environments and uv; why a package is or is not importable
+statistician	route-b	github-navigation	partial	4	1.5	Find a README, a file or a release on a GitHub repository page
+statistician	route-b	cli-help-reading	partial	9	2.0	Recover a working invocation from --help output
+statistician	route-b	python-packaging	lack	15	20.0	Read a traceback naming site-packages and infer a packaging fault rather than a user error
+statistician	route-b	reading-library-source	lack	19	45.0	Open an installed library's own source to answer a question its documentation does not
+statistician	route-b	cwd-awareness	partial	20	3.0	Know where a tool writes its outputs relative to the working directory

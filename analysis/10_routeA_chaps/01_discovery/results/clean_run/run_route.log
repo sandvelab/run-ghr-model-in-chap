@@ -1,0 +1,846 @@
+== out: /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run
+== work: /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork
+chaps v0.99.4
+  platform  Darwin arm64 (universal-apple-darwin)
+  archive   https://github.com/winterop-com/chaps/releases/download/v0.99.4/chaps-universal-apple-darwin.tar.gz
+  install   /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/bin/chaps
+
+downloading chaps-universal-apple-darwin.tar.gz
+verifying the checksum
+unpacking
+
+installed /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/bin/chaps
+chaps 0.99.4
+
+next: chaps init mychap && cd mychap && chaps up
+downloading uv 0.12.22 aarch64-apple-darwin
+skipping sha256 checksum verification (it requires the 'sha256sum' command)
+installing to /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/bin
+  uv
+  uvx
+everything's installed!
+Resolved 177 packages in 43.54s
+Downloading pillow (4.6MiB)
+Downloading pygments (1.2MiB)
+Downloading pycountry (7.7MiB)
+Downloading plotly (9.2MiB)
+Downloading uvloop (1.3MiB)
+Downloading cryptography (3.7MiB)
+Downloading databricks-sdk (1.0MiB)
+Downloading xarray (1.4MiB)
+Downloading numpy (5.2MiB)
+Downloading pandas (10.2MiB)
+Downloading mlflow-skinny (3.6MiB)
+Downloading statsmodels (11.0MiB)
+Downloading shapely (1.6MiB)
+Downloading scipy (19.5MiB)
+Downloading numba (2.6MiB)
+Downloading scikit-learn (7.9MiB)
+Downloading pyproj (4.8MiB)
+Downloading virtualenv (5.2MiB)
+Downloading sqlalchemy (2.1MiB)
+Downloading pydantic-core (1.8MiB)
+Downloading matplotlib (8.9MiB)
+Downloading psycopg2-binary (3.6MiB)
+Downloading pyogrio (23.5MiB)
+Downloading fonttools (3.0MiB)
+Downloading llvmlite (38.7MiB)
+Downloading netcdf4 (21.8MiB)
+Downloading pyts (2.4MiB)
+Downloading vl-convert-python (28.4MiB)
+Downloading libpysal (2.4MiB)
+ Downloaded databricks-sdk
+ Downloaded pygments
+ Downloaded xarray
+ Downloaded uvloop
+   Building fastdtw==0.3.4
+ Downloaded shapely
+ Downloaded pydantic-core
+ Downloaded sqlalchemy
+ Downloaded libpysal
+ Downloaded pyts
+ Downloaded numba
+      Built fastdtw==0.3.4
+ Downloaded fonttools
+ Downloaded mlflow-skinny
+ Downloaded psycopg2-binary
+ Downloaded cryptography
+ Downloaded pillow
+ Downloaded pyproj
+ Downloaded numpy
+ Downloaded virtualenv
+ Downloaded pycountry
+ Downloaded scikit-learn
+ Downloaded matplotlib
+ Downloaded plotly
+ Downloaded pandas
+ Downloaded statsmodels
+ Downloaded scipy
+ Downloaded netcdf4
+ Downloaded pyogrio
+ Downloaded vl-convert-python
+ Downloaded llvmlite
+Prepared 177 packages in 11m 44s
+Installed 177 packages in 375ms
+ + agent-detector==2.0.0
+ + aiosqlite==0.22.1
+ + alembic==1.20.0
+ + altair==6.3.0
+ + amqp==5.4.0
+ + annotated-doc==0.0.5
+ + annotated-types==0.8.0
+ + anyio==4.15.1
+ + attrs==26.1.0
+ + beautifulsoup4==4.15.0
+ + billiard==4.3.0
+ + bionumpy==1.0.14
+ + cachetools==7.2.0
+ + celery==5.6.3
+ + certifi==2026.7.22
+ + cffi==2.1.1
+ + cftime==1.6.6
+ + chap-core==2.3.1
+ + chapkit==2.2.0
+ + charset-normalizer==3.5.2
+ + click==8.5.0
+ + click-didyoumean==0.3.1
+ + click-plugins==1.1.1.2
+ + click-repl==0.4.0
+ + cloudpickle==3.1.2
+ + colorlog==6.12.0
+ + contourpy==1.4.0
+ + croniter==6.2.4
+ + cryptography==50.0.2
+ + cycler==0.12.1
+ + cyclopts==5.1.1
+ + databricks-sdk==0.146.0
+ + detect-installer==0.2.1
+ + distlib==0.4.3
+ + dnspython==2.8.0
+ + docker==7.2.0
+ + docstring-parser==0.18.0
+ + email-validator==2.3.0
+ + fastapi==0.142.2
+ + fastapi-cli==0.0.32
+ + fastapi-cloud-cli==0.26.0
+ + fastar==0.12.0
+ + fastdtw==0.3.4
+ + filelock==4.0.9
+ + fonttools==4.66.1
+ + formulaic==1.2.2
+ + geographiclib==2.1
+ + geojson-pydantic==2.2.0
+ + geopandas==1.2.0
+ + geopy==2.5.0
+ + gitdb==4.0.12
+ + gitpython==3.2.0
+ + gluonts==0.17.0
+ + google-auth==2.59.1
+ + googleapis-common-protos==1.75.5
+ + greenlet==3.5.6
+ + gunicorn==26.2.0
+ + h11==0.16.0
+ + httpcore==1.0.9
+ + httptools==0.8.0
+ + httpx==0.28.1
+ + idna==3.20
+ + importlib-metadata==9.0.1
+ + interface-meta==2.0.1
+ + jinja2==3.1.6
+ + joblib==1.6.0
+ + jsonschema==4.26.0
+ + jsonschema-specifications==2025.9.1
+ + kiwisolver==1.5.1
+ + kombu==5.6.2
+ + libpysal==4.15.0
+ + llvmlite==0.50.0
+ + mako==1.4.3
+ + markdown-it-py==4.2.0
+ + markupsafe==3.0.4
+ + matplotlib==3.11.2
+ + mdurl==0.1.2
+ + mlflow-skinny==3.16.1
+ + mypy-extensions==1.1.0
+ + narwhals==2.26.0
+ + netcdf4==1.7.4
+ + npstructures==0.2.19
+ + numba==0.68.0
+ + numpy==2.5.3
+ + opentelemetry-api==1.45.0
+ + opentelemetry-exporter-http-transport==0.66b0
+ + opentelemetry-exporter-otlp-common==0.66b0
+ + opentelemetry-exporter-otlp-proto-common==1.45.0
+ + opentelemetry-exporter-otlp-proto-http==1.45.0
+ + opentelemetry-exporter-prometheus==0.66b0
+ + opentelemetry-instrumentation==0.66b0
+ + opentelemetry-instrumentation-sqlalchemy==0.66b0
+ + opentelemetry-proto==1.45.0
+ + opentelemetry-sdk==1.45.0
+ + opentelemetry-semantic-conventions==0.66b0
+ + optuna==5.0.0
+ + packaging==26.3
+ + pandas==2.3.3
+ + pandera==0.33.1
+ + patsy==1.0.3
+ + pillow==12.3.0
+ + platformdirs==4.12.2
+ + plotly==7.1.0
+ + pooch==1.9.0
+ + prometheus-client==0.26.0
+ + prompt-toolkit==3.0.53
+ + protobuf==6.33.6
+ + psycopg2-binary==2.9.13
+ + pyasn1==0.6.4
+ + pyasn1-modules==0.4.2
+ + pycountry==26.2.16
+ + pycparser==3.0
+ + pydantic==2.13.5
+ + pydantic-core==2.46.5
+ + pydantic-extra-types==2.11.1
+ + pydantic-settings==2.15.0
+ + pygments==2.21.0
+ + pyogrio==0.13.0
+ + pyparsing==3.3.3
+ + pyproj==3.8.0
+ + python-dateutil==2.9.0.post0
+ + python-discovery==1.6.1
+ + python-dotenv==1.2.4
+ + python-multipart==0.0.32
+ + python-ulid==4.0.1
+ + pyts==0.13.0
+ + pytz==2026.4
+ + pyyaml==6.0.3
+ + redis==8.1.0
+ + referencing==0.37.0
+ + requests==2.34.2
+ + rich==15.0.0
+ + rich-rst==2.2.0
+ + rich-toolkit==0.20.5
+ + rignore==0.8.1
+ + rpds-py==2026.6.3
+ + rq==2.12.0
+ + scikit-learn==1.9.1
+ + scipy==1.18.1
+ + sentry-sdk==2.71.0
+ + servicekit==3.0.0
+ + shapely==2.1.2
+ + shellingham==1.5.4
+ + six==1.17.0
+ + smmap==5.0.3
+ + soupsieve==2.10
+ + sqlalchemy==2.0.54
+ + sqlmodel==0.0.47
+ + sqlparse==0.6.0
+ + starlette==1.7.0
+ + statsmodels==0.15.0
+ + structlog==26.1.0
+ + stumpy==1.14.1
+ + threadpoolctl==3.7.0
+ + toolz==0.12.1
+ + topojson==1.10
+ + tqdm==4.70.1
+ + typeguard==4.6.0
+ + typer==0.27.2
+ + typing-extensions==4.16.0
+ + typing-inspect==0.9.0
+ + typing-inspection==0.4.4
+ + tzdata==2026.5
+ + tzlocal==5.4.4
+ + unidecode==1.4.0
+ + urllib3==2.8.0
+ + uvicorn==0.54.0
+ + uvloop==0.23.0
+ + vine==5.1.0
+ + virtualenv==21.14.5
+ + vl-convert-python==1.9.0.post1
+ + watchfiles==1.3.0
+ + wcwidth==0.9.1
+ + websockets==17.1
+ + wrapt==2.5.0
+ + xarray==2026.9.0
+ + zipp==4.1.0
+Installed 1 executable: chap
+  version       v0.99.4
+  revision      ba38f7c
+  channel       stable
+  target        aarch64-apple-darwin
+  path          /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/bin/chaps
+  installed by  release archive
+/private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/uv-tools/chap-core/lib/python3.13/site-packages/bionumpy/io/vcf_header.py:38: SyntaxWarning: invalid escape sequence '\d'
+  regex = re.match('(\d)', x)
+/private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/uv-tools/chap-core/lib/python3.13/site-packages/bionumpy/io/vcf_header.py:80: SyntaxWarning: invalid escape sequence '\S'
+  regex = re.search('^##(\S+?)=(.*)$', line)
+/private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/uv-tools/chap-core/lib/python3.13/site-packages/bionumpy/io/vcf_header.py:86: SyntaxWarning: invalid escape sequence '\S'
+  f'^##(\S+?)=(.*)$, get {line}. Ignore this line.'))
+/private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/uv-tools/chap-core/lib/python3.13/site-packages/bionumpy/sequence/string_matcher.py:136: SyntaxWarning: invalid escape sequence '\['
+  r = re.compile('\[[^\]]+\]')
+/private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/uv-tools/chap-core/lib/python3.13/site-packages/bionumpy/sequence/string_matcher.py:149: SyntaxWarning: invalid escape sequence '\['
+  r = re.compile('(([A-Z]|\[[A-Z]+\])+)\.\{(\d*)\,(\d+)\}(.+)')
+2.3.1
+ok    docker cli           docker 27.4.0
+ok    docker daemon        Docker Engine 27.4.0
+ok    docker compose       v2.31.0
+warn  os and arch          macos/aarch64; Chap images are linux/amd64 only, so they run under emulation
+      nothing to do: Rosetta runs the amd64 images, they are only slower
+ok    disk space           11.5 GB free on /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanhome
+ok    leftovers            no volumes left by removed deployments
+ok    network ghcr.io      reachable (HTTP 401)
+ok    network marketplace  reachable (HTTP 200)
+ok    network releases     reachable, newest chap-core is v2.3.1
+ok    github api           reachable, 58 of 60 requests left this hour (no token; set GITHUB_TOKEN for 5000)
+ok    chaps                v0.99.4, aarch64-apple-darwin, release archive
+project: none here (run chaps doctor inside a deployment directory for more)
+
+11 checks: 10 ok, 1 warn, 0 fail
+ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f already present
+https://github.com/chap-models/chapkit_ghr_model is the marketplace model chapkit_ghr_model; enabling that (pass `--id <other>` to add it beside it instead)
+asking ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f what uid `app` is (this pulls the image)
+sha-dfb2e3f: Pulling from chap-models/chapkit_ghr_model
+Digest: sha256:517f261cc525c58d9924bf1d7a6c7df4cd469f5e840011274e63d9e6c4ef16d6
+Status: Image is up to date for ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f
+ghcr.io/chap-models/chapkit_ghr_model:sha-dfb2e3f
+starting chapkit-ghr-model (chapkit_ghr_model in /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanhome/.local/share/chaps/run/default)
+ Network default-3939b5_default  Creating
+ Network default-3939b5_default  Created
+ Volume "default-3939b5_ck_chapkit_ghr_model_data"  Creating
+ Volume "default-3939b5_ck_chapkit_ghr_model_data"  Created
+ Container default-3939b5-chapkit-ghr-model-init-1  Creating
+ Container default-3939b5-chapkit-ghr-model-init-1  Created
+ Container default-3939b5-chapkit-ghr-model-1  Creating
+ Container default-3939b5-chapkit-ghr-model-1  Created
+ Container default-3939b5-chapkit-ghr-model-init-1  Starting
+ Container default-3939b5-chapkit-ghr-model-init-1  Started
+ Container default-3939b5-chapkit-ghr-model-init-1  Waiting
+ Container default-3939b5-chapkit-ghr-model-init-1  Exited
+ Container default-3939b5-chapkit-ghr-model-1  Starting
+ Container default-3939b5-chapkit-ghr-model-1  Started
+running chapkit_ghr_model on http://localhost:5060 (answered in 2s)
+stop it with `chaps stop chapkit_ghr_model`; `chaps -C /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanhome/.local/share/chaps/run/default logs chapkit-ghr-model` shows its log
+{"status":"healthy","checks":{"database":{"state":"healthy"},"registration":{"state":"healthy"}}}
+2026-10-03T16:59:53 [INFO   ] Failed to extract font properties from /System/Library/Fonts/LastResort.otf: tuple indices must be integers or slices, not str [matplotlib.font_manager]
+2026-10-03T16:59:53 [INFO   ] Failed to extract font properties from /System/Library/Fonts/Supplemental/NISC18030.ttf: Non-scalable fonts are not supported [matplotlib.font_manager]
+2026-10-03T16:59:53 [INFO   ] Failed to extract font properties from /System/Library/Fonts/Apple Color Emoji.ttc: Non-scalable fonts are not supported [matplotlib.font_manager]
+2026-10-03T16:59:53 [INFO   ] generated new fontManager [matplotlib.font_manager]
+2026-10-03T16:59:55 [INFO   ] Database URL not set [chap_core.database.database]
+2026-10-03T16:59:55 [INFO   ] Database url not set. Database operations will not work [chap_core.database.database]
+2026-10-03T16:59:55 [INFO   ] Evaluating model http://localhost:5060 with xarray/NetCDF output [chap_core.cli_endpoints.evaluate]
+2026-10-03T16:59:55 [INFO   ] Level set to INFO [root]
+2026-10-03T16:59:55 [INFO   ] Loading dataset from /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/data/chap_LAO_admin1_monthly.csv [root]
+2026-10-03T16:59:55 [INFO   ] Loading polygons from /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanwork/data/chap_LAO_admin1_monthly.geojson [root]
+2026-10-03T16:59:56 [WARNING] Rejected regions: ['LA-VI'] due to missing target values for the whole training period [chap_core.rest_api.db_worker_functions]
+2026-10-03T16:59:56 [INFO   ] Remaining regions: ['LA-AT', 'LA-BK', 'LA-BL', 'LA-CH', 'LA-HO', 'LA-KH', 'LA-LM', 'LA-LP', 'LA-OU', 'LA-PH', 'LA-SL', 'LA-SV', 'LA-VT', 'LA-XA', 'LA-XE', 'LA-XI', 'LA-XN'] with 17 entries [chap_core.rest_api.db_worker_functions]
+2026-10-03T16:59:56 [INFO   ] Loading model template from http://localhost:5060 [chap_core.cli_endpoints.evaluate]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T16:59:56 [INFO   ] Creating model configuration with name chapkit-ghr-model_config_1791039596318750 at http://localhost:5060. Data: {'name': 'chapkit-ghr-model_config_1791039596318750', 'data': {}} [chap_core.models.external_chapkit_model]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/configs "HTTP/1.1 201 Created" [httpx]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/configs "HTTP/1.1 200 OK" [httpx]
+2026-10-03T16:59:56 [INFO   ] Created model configuration with id 01M414ESSCYFX91GYFHDEFXPXM at http://localhost:5060 [chap_core.models.external_chapkit_model]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T16:59:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:13 [WARNING] Column 'mean_relative_humidity' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-10-03T17:00:13 [WARNING] Column 'mean_temperature' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-10-03T17:00:13 [WARNING] Column 'rainfall' is present in the dataset but not used by the model [chap_core.cli_endpoints._common]
+2026-10-03T17:00:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:13 [INFO   ] Running backtest with 7 splits, 3 periods, stride 1 [chap_core.cli_endpoints.evaluate]
+2026-10-03T17:00:13 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$train "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:00:14 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FAY109RX157KFB1XSQSB "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:14 [INFO   ] Job 01M414FAY109RX157KFB1XSQSB status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:16 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FAY109RX157KFB1XSQSB "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:16 [INFO   ] Job 01M414FAY109RX157KFB1XSQSB status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:18 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FAY109RX157KFB1XSQSB "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:18 [INFO   ] Job 01M414FAY109RX157KFB1XSQSB status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:18 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$predict "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:00:18 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:18 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:20 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:20 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:22 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:22 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:24 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:24 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:26 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:26 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:28 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:28 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:30 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:30 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:32 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:32 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:34 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:34 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:36 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:36 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:38 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:38 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:40 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:40 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:42 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:42 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:44 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:44 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:46 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:46 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:48 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:48 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:50 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:50 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:52 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:52 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:54 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:54 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:56 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:00:58 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:00:58 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:00 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:00 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:02 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:02 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:04 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:04 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:06 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:06 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:08 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:08 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:10 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:10 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:12 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:12 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:14 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414FF675TB9Y8S15KMVM9JY "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:14 [INFO   ] Job 01M414FF675TB9Y8S15KMVM9JY status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:14 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/artifacts/01M414FF675TB9Y8S15KMVM9JX "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:15 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$predict "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:01:15 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:15 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:17 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:17 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:19 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:19 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:21 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:21 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:23 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:23 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:25 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:25 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:27 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:27 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:29 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:29 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:31 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:31 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:33 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:33 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:35 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:35 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:37 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:37 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:39 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:39 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:41 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:41 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:43 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:43 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:45 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:45 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:47 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:47 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:49 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:49 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:51 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:51 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:53 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:53 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:55 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:55 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:57 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:57 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:01:59 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:01:59 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:01 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:01 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:03 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:03 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:05 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:05 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:07 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:07 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:09 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:09 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:11 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:11 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:13 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:15 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:15 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:17 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414H6T4Z88N9RAK57VXN7D1 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:17 [INFO   ] Job 01M414H6T4Z88N9RAK57VXN7D1 status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:17 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/artifacts/01M414H6T4Z88N9RAK57VXN7D0 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:18 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$predict "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:02:18 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:18 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:20 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:20 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:22 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:22 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:24 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:24 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:26 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:26 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:28 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:28 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:30 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:30 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:32 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:32 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:34 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:34 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:36 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:36 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:38 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:38 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:40 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:40 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:42 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:42 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:44 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:44 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:46 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:46 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:48 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:48 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:50 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:50 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:52 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:52 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:54 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:54 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:56 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:02:58 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:02:58 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:00 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:00 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:02 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:02 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:04 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:04 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:06 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:06 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:08 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:08 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:10 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:10 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:12 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:12 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:14 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:14 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:16 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:16 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:18 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414K4B6BGQ86BT1652XAPC3 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:18 [INFO   ] Job 01M414K4B6BGQ86BT1652XAPC3 status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:18 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/artifacts/01M414K4B6BGQ86BT1652XAPC2 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:19 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$predict "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:03:19 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:19 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:21 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:21 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:23 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:23 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:25 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:25 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:27 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:27 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:29 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:29 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:31 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:31 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:33 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:33 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:35 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:35 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:37 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:37 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:39 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:39 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:41 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:41 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:43 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:43 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:45 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:45 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:47 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:47 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:49 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:49 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:51 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:51 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:53 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:53 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:55 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:55 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:57 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:57 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:03:59 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:03:59 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:01 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:01 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:03 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:03 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:05 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:05 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:07 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:07 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:09 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:09 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:11 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:11 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:13 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:15 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:15 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:17 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:17 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:19 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:19 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:21 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414MZYJEJ06FMAGP1DJQCVD "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:21 [INFO   ] Job 01M414MZYJEJ06FMAGP1DJQCVD status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:21 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/artifacts/01M414MZYJEJ06FMAGP1DJQCVC "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:22 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$predict "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:04:22 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:22 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:24 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:24 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:26 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:26 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:28 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:28 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:30 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:30 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:32 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:32 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:34 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:34 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:36 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:36 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:38 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:38 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:40 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:40 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:42 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:42 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:44 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:44 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:46 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:46 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:48 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:48 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:50 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:50 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:52 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:52 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:54 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:54 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:56 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:04:58 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:04:58 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:00 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:00 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:02 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:02 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:04 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:04 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:06 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:06 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:08 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:08 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:10 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:10 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:12 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:12 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:14 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:14 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:16 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:16 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:18 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:18 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:20 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:20 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:22 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:22 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:24 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:24 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:26 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:26 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:28 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414PXE19HCQ5BPQMSY5Y2NK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:28 [INFO   ] Job 01M414PXE19HCQ5BPQMSY5Y2NK status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:28 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/artifacts/01M414PXE19HCQ5BPQMSY5Y2NJ "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:29 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$predict "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:05:29 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:29 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:31 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:31 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:33 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:33 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:35 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:35 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:37 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:37 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:39 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:39 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:41 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:41 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:43 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:43 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:45 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:45 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:47 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:47 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:49 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:49 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:51 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:51 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:53 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:53 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:55 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:55 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:57 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:57 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:05:59 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:05:59 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:01 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:01 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:03 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:03 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:05 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:05 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:07 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:07 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:09 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:09 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:11 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:11 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:13 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:13 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:15 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:15 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:17 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:17 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:19 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:19 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:21 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:21 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:23 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:23 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:25 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:25 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:27 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:27 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:29 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:29 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:31 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:31 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:33 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:33 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:35 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414RYS64VTXBCYS193162S5 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:35 [INFO   ] Job 01M414RYS64VTXBCYS193162S5 status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:35 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/artifacts/01M414RYS64VTXBCYS193162S4 "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:36 [INFO   ] HTTP Request: POST http://localhost:5060/api/v1/ml/$predict "HTTP/1.1 202 Accepted" [httpx]
+2026-10-03T17:06:36 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:36 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:38 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:38 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:40 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:40 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:42 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:42 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:44 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:44 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:46 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:46 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:48 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:48 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:50 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:50 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:52 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:52 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:54 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:54 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:56 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:56 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:06:58 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:06:58 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:00 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:00 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:02 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:02 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:04 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:04 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:06 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:06 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:08 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:08 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:10 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:10 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:12 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:12 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:14 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:14 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:16 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:16 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:18 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:18 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:20 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:20 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:22 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:22 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:24 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:24 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:26 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:26 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:28 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:28 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:30 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:30 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:32 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:32 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:34 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:34 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:36 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:36 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:38 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:38 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:40 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:40 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:43 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:43 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: running [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:45 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/jobs/01M414V0D85HAJ7C0CNXYMXDVK "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:45 [INFO   ] Job 01M414V0D85HAJ7C0CNXYMXDVK status: completed [chap_core.models.chapkit_rest_api_wrapper]
+2026-10-03T17:07:45 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/artifacts/01M414V0D85HAJ7C0CNXYMXDVJ "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:45 [INFO   ] Exporting evaluation to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run/eval.nc [chap_core.cli_endpoints.evaluate]
+2026-10-03T17:07:45 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/info "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:45 [INFO   ] HTTP Request: GET http://localhost:5060/api/v1/configs/$schema "HTTP/1.1 200 OK" [httpx]
+2026-10-03T17:07:53 [INFO   ] Evaluation complete. Results saved to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run/eval.nc [chap_core.cli_endpoints.evaluate]
+2026-10-03T17:07:55 [INFO   ] Loading evaluation from /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run/eval.nc [chap_core.cli_endpoints.utils]
+2026-10-03T17:07:57 [INFO   ] Generating evaluation_plot plot [chap_core.cli_endpoints.utils]
+2026-10-03T17:07:57 [INFO   ] Saving plot to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run/evaluation_plot.html [chap_core.cli_endpoints.utils]
+2026-10-03T17:07:58 [INFO   ] Plot saved to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run/evaluation_plot.html [chap_core.cli_endpoints.utils]
+2026-10-03T17:07:59 [INFO   ] Processing /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run/eval.nc [chap_core.cli_endpoints.utils]
+2026-10-03T17:08:04 [INFO   ] Metrics exported to /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run/metrics.csv [chap_core.cli_endpoints.utils]
+filename,model_name,model_version,ratio_above_truth,crps,crps_log1p,crps_norm,mae,mape,sensitivity,specificity,outbreak_accuracy,coverage_10_90,coverage_25_75,rmse,winkler_score_10_90,winkler_score_25_75,winkler_score_10_90_log1p,winkler_score_25_75_log1p
+eval.nc,http://localhost:5060,0.1.3,0.3571636904761905,149.78660324107142,0.9518135155922461,0.07709037737574442,127.68005952380952,149.32383115447584,0.44623655913978494,0.8333333333333334,0.6190476190476191,0.8154761904761905,0.6636904761904762,244.26644465039166,1600.2550595238097,708.8095238095239,6.458897655552501,4.359792105882295
+== done: /Users/geirksa_1_2_3/ai/special-purpose vaults/run-ghr-model-in-chap/analysis/10_routeA_chaps/01_discovery/results/clean_run
+stopped chapkit_ghr_model
+stopped and removed 2 containers (chapkit-ghr-model, chapkit-ghr-model-init); the host ports they published are free again
+kept volume default-3939b5_ck_chapkit_ghr_model_data; remove it with `chaps -C /private/tmp/claude-506/-Users-geirksa-1-2-3-ai-special-purpose-vaults-run-ghr-model-in-chap/d41a4a79-ff99-4bee-985d-050743caf28d/scratchpad/cleanhome/.local/share/chaps/run/default models disable chapkit_ghr_model --purge` or `docker volume rm default-3939b5_ck_chapkit_ghr_model_data`
+`chaps run chapkit_ghr_model` starts it again
+rc=0

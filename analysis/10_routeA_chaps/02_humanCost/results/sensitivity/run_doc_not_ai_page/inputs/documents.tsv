@@ -1,0 +1,12 @@
+doc_key	kind	path	note
+chaps_readme	file	Archive/tool-chaps/repo/README.md	chaps' README at v0.99.4
+chaps_ai	file	Archive/tool-chaps/repo/docs/ai.md	chaps' page for AI agents
+chaps_run_doc	file	Archive/tool-chaps/repo/docs/run.md	not read by the agent; used only by the run_doc_not_ai_page sensitivity
+routeA_readme_chaps	file	Archive/model-route-a-chaps/repo/README.md	the route A model's README at dfb2e3f
+chap_eval_help	help	chap eval --help	
+chaps_run_help	help	chaps run --help	needs chaps v0.99.4 on PATH; the runner checks the version
+chapcore_common	command	chap_core/cli_endpoints/_common.py	the installed chap-core 2.3.1
+chap_post_help	help	chap export-metrics --help	counted together with chap plot-backtest --help below
+chap_post_help	help	chap plot-backtest --help	
+doc_eval_workflow	file	Archive/chapcore-docs-v2.3.1/docs/chap-cli/evaluation-workflow.md	byte-identical to master d5aa68c, where the agent read it
+doc_chapkit	file	Archive/chapcore-docs-v2.3.1/docs/external_models/chapkit.md	byte-identical to master d5aa68c, where the agent read it

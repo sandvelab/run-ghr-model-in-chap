@@ -1,0 +1,35 @@
+blob 0cc027d4f22c ok
+blob 2058d0f26985 ok
+blob 37359566ed10 ok
+blob 42466c4694d6 ok
+blob 4311fae36d8d ok
+blob 4f4fb700ef54 ok
+blob 4f8d4221abc8 ok
+blob 62242d415a5d ok
+blob 6889af65efa7 ok
+blob 6b37362b3da7 ok
+blob 764ed34eec36 ok
+blob 766f5f182be3 ok
+curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
+blob 7c4627a62657: attempt 1 cut off at 230686720 bytes, resuming
+curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
+blob 7c4627a62657: attempt 2 cut off at 482344960 bytes, resuming
+curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
+blob 7c4627a62657: attempt 3 cut off at 734003200 bytes, resuming
+curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
+blob 7c4627a62657: attempt 4 cut off at 975175680 bytes, resuming
+curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
+blob 7c4627a62657: attempt 5 cut off at 1247805440 bytes, resuming
+blob 7c4627a62657 ok
+blob 9b4e5bd96fc6 ok
+blob a71fb70c33c2 ok
+blob a87f5f63df66 ok
+blob af104622b4b0 ok
+blob cf686a4edb71 ok
+blob e55f69b5fd60 ok
+blob f08543b25448 ok
+curl: (92) HTTP/2 stream 1 was not closed cleanly: PROTOCOL_ERROR (err 1)
+blob fca3f12867fb: attempt 1 cut off at 167772160 bytes, resuming
+blob fca3f12867fb ok
+open /var/lib/docker/tmp/docker-import-2485313389/blobs/json: no such file or directory
+rc=1

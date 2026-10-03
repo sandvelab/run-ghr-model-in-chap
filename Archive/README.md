@@ -50,6 +50,10 @@ replaced by an updated import.
   `chapkit` 2.1.2.
 - `chapcore-docs-v2.3.1/` — four chap-core documentation files at tag `v2.3.1`, read by the
   iteration-3 route A agent, archived so their lengths can be measured.
+- `tool-chaps/` — `winterop-com/chaps` @ `ba38f7c` (v0.99.4), AGPL-3.0, the Docker Compose
+  wrapper batch 14 took route A through.
+- `model-route-a-chaps/` — `chapkit_ghr_model` @ `dfb2e3f` (v0.1.3, chapkit 2.2.0), the pin
+  chaps v0.99.4's marketplace serves; batch 14 only.
 - `model-case-c/` — `zlilu/minimal_template_example` @ `9cbc84a`, a third model added as a
   case rather than a route, to test whether an `MLproject` configuration reaches a model. No
   licence declared upstream.

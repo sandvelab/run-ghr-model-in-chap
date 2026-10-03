@@ -1,0 +1,52 @@
+route	seq	log_step	source	act	label	doc_key	prereqs	note	condition	wait_key
+route-a-chaps	1	-	added	install	install a container runtime (Docker Desktop) and start it	-	docker-basics	chaps drives Docker Compose and cannot start without a running daemon; the agent's host already had one, as in batches 10 and 12		-
+route-a-chaps	2	1	log	instrument	read the discovery-log specification	-	-	exists because the agent was logging for this study		-
+route-a-chaps	3	2	log	instrument	read the orchestrator's machine-state note	-	-	exists because of the study; it gave the image size and the link speed, a contamination recorded in provenance		-
+route-a-chaps	4	3	log	milestone	first document opened	-	-			-
+route-a-chaps	5	4	log	read_doc	read the chaps README	chaps_readme	github-navigation			-
+route-a-chaps	6	5	log	read_doc	read chaps' docs/run.md, the page on chaps run	chaps_run_doc	cli-help-reading	sensitivity: the page a human following the README would read, in place of ai.md		-
+route-a-chaps	7	6	log	read_doc	read the model README in full	routeA_readme_chaps	docker-basics;cpu-architecture	byte-identical to iteration 3's; names neither chaps nor chap eval		-
+route-a-chaps	8	7	log	install	install chaps with its install.sh	-	cli-basics	one curl | sh line from the README		-
+route-a-chaps	9	8	log	run_command	chaps doctor	-	cli-basics			-
+route-a-chaps	10	9	log	run_command	chap --version and chap --help	-	cli-basics	chap-core 2.3.1 was already installed, as in batch 12		-
+route-a-chaps	11	9	log	read_doc	chap eval --help	chap_eval_help	cli-help-reading;rest-service-model	the load-bearing fact is still that MODEL-NAME may be a service URL		-
+route-a-chaps	12	10	log	read_doc	chaps run --help	chaps_run_help	cli-help-reading			-
+route-a-chaps	13	11	log	run_command	chaps models list	-	cli-basics	shows chapkit_ghr_model as a marketplace model, stable 0.1.3		-
+route-a-chaps	14	12	log	decide	serve the model with chaps run and evaluate it with chap eval against its URL	-	rest-service-model	chaps' docs stop at serving; the evaluation comes from chap's own help and docs		-
+route-a-chaps	15	13	log	decide	consider a full chaps deployment and its sample-data backtest, and reject it	-	docker-compose			-
+route-a-chaps	16	14	log	run_command	chaps run with the model's repository URL	-	docker-basics;container-registry	chaps maps the URL to its marketplace pin and pulls the image itself; the agent passed a long --timeout because it knew the link speed (contamination); on a working link the default suffices		-
+route-a-chaps	17	-	added	wait	wait for chaps to pull the image	-	-	network-dependent: on a working link, batch 12's measured pull of the same model's image; on this batch's link chaps' pull failed (see route-a-chaps-slowlink)		pull
+route-a-chaps	18	48	log	milestone	model obtained	-	-	written late at row 48; the event is row 31, when the image arrived		-
+route-a-chaps	19	33	log	milestone	model service answering	-	-	row 33 is the re-run of step 16 once the image was local; on a working link step 16 itself ends here		-
+route-a-chaps	20	15	log	decide	inspect the CSV, the schema and the GeoJSON, and check the feature ids match the location column	-	geojson-basics;shell-text-tools	log rows 15-17		-
+route-a-chaps	21	18	log	read_doc	read installed chap-core source to see how the GeoJSON is found	chapcore_common	reading-library-source;python-venv-uv	the same file and gating as batch 10's route B step 19		-
+route-a-chaps	22	19	log	read_doc	chap plot-backtest --help and chap export-metrics --help	chap_post_help	cli-help-reading			-
+route-a-chaps	23	20	log	read_doc	read docs/chap-cli/evaluation-workflow.md	doc_eval_workflow	cli-help-reading	documents GeoJSON auto-discovery beside the CSV		-
+route-a-chaps	24	21	log	read_doc	read docs/external_models/chapkit.md	doc_chapkit	docker-basics;rest-service-model	gives chap eval against a chapkit service URL outright, on the same Lao CSV		-
+route-a-chaps	25	22	log	instrument	fetch the public copy of the data and checksum it	-	-	for the route script, not for the evaluation; the data were given		-
+route-a-chaps	26	23	log	instrument	draft run_route.sh	-	-	a deliverable of the study brief		-
+route-a-chaps	27	34	log	run_command	curl the service's /health and /api/v1/info	-	http-curl;rest-service-model			-
+route-a-chaps	28	35	log	milestone	evaluation started	-	-			-
+route-a-chaps	29	36	log	milestone	model registered with CHAP	-	-			-
+route-a-chaps	30	37	log	run_command	chap eval against the chaps-served URL	-	cli-basics			-
+route-a-chaps	31	-	added	wait	wait for the evaluation to finish	-	-	measured from the discovery log, evaluation_started to evaluation_complete; on an arm64 host the model runs under emulation		eval
+route-a-chaps	32	38	log	milestone	evaluation complete	-	-			-
+route-a-chaps-slowlink	1	-	added	install	install a container runtime (Docker Desktop) and start it	-	docker-basics	chaps drives Docker Compose and cannot start without a running daemon; the agent's host already had one, as in batches 10 and 12		-
+route-a-chaps-slowlink	2	1	log	instrument	read the discovery-log specification	-	-	exists because the agent was logging for this study		-
+route-a-chaps-slowlink	3	2	log	instrument	read the orchestrator's machine-state note	-	-	exists because of the study; it gave the image size and the link speed, a contamination recorded in provenance		-
+route-a-chaps-slowlink	4	3	log	milestone	first document opened	-	-			-
+route-a-chaps-slowlink	5	4	log	read_doc	read the chaps README	chaps_readme	github-navigation			-
+route-a-chaps-slowlink	6	5	log	read_doc	read chaps' docs/ai.md, the page the README points AI agents to	chaps_ai	cli-help-reading	an agent's page; a human would more likely read docs/run.md (sensitivity run_doc_not_ai_page)		-
+route-a-chaps-slowlink	7	6	log	read_doc	read the model README in full	routeA_readme_chaps	docker-basics;cpu-architecture	byte-identical to iteration 3's; names neither chaps nor chap eval		-
+route-a-chaps-slowlink	8	7	log	install	install chaps with its install.sh	-	cli-basics	one curl | sh line from the README		-
+route-a-chaps-slowlink	9	8	log	run_command	chaps doctor	-	cli-basics			-
+route-a-chaps-slowlink	10	9	log	run_command	chap --version and chap --help	-	cli-basics	chap-core 2.3.1 was already installed, as in batch 12		-
+route-a-chaps-slowlink	11	9	log	read_doc	chap eval --help	chap_eval_help	cli-help-reading;rest-service-model	the load-bearing fact is still that MODEL-NAME may be a service URL		-
+route-a-chaps-slowlink	12	10	log	read_doc	chaps run --help	chaps_run_help	cli-help-reading			-
+route-a-chaps-slowlink	13	11	log	run_command	chaps models list	-	cli-basics	shows chapkit_ghr_model as a marketplace model, stable 0.1.3		-
+route-a-chaps-slowlink	14	12	log	decide	serve the model with chaps run and evaluate it with chap eval against its URL	-	rest-service-model	chaps' docs stop at serving; the evaluation comes from chap's own help and docs		-
+route-a-chaps-slowlink	15	13	log	decide	consider a full chaps deployment and its sample-data backtest, and reject it	-	docker-compose			-
+route-a-chaps-slowlink	16	14	log	run_command	chaps run with the model's repository URL	-	docker-basics;container-registry	chaps maps the URL to its marketplace pin and pulls the image itself; the agent passed a long --timeout because it knew the link speed (contamination); on a working link the default suffices		-
+route-a-chaps-slowlink	17	14-26	log	wait	wait while chaps pulls the image twice and fails	-	-	measured: chaps run launched (row 14) to its failure, rc=18 (row 26)		pull_failed
+route-a-chaps-slowlink	18	26	log	diagnose	read chaps' error (unexpected EOF on one layer; fix that, then retry) and decide what to do	-	container-registry	the error names a network failure and gives nothing to act on; rerunning restarts the 1.42 GB layer from zero		-
+route-a-chaps-slowlink	19	27	log	milestone	route blocked: it completes only with a workaround outside chaps	-	-	the agent wrote a resumable, digest-checked image fetcher (scripts/fetch_image_oci.sh); not costed as a persona step		-

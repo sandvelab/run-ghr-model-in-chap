@@ -1,0 +1,5 @@
+persona	route	total_low	total_exp	total_high	human_min_exp	machine_min_exp	learn_min_exp	diagnose_min_exp	unguided_share	n_prereqs_lacked	n_prereqs_partial	cold_build_excluded	n_steps	arm64_host_only_min_exp
+engineer	route-a-chaps	86.9	130.1	248.6	117.3	12.7	11.8	0.0	0.1	0	2	no	22	0.0
+engineer	route-a-chaps-slowlink	152.7	190.0	296.6	97.2	92.8	8.8	7.0	0.162	0	1	no	15	0.0
+statistician	route-a-chaps	243.0	423.0	940.3	410.3	12.7	138.5	0.0	0.338	6	2	no	21	0.0
+statistician	route-a-chaps-slowlink	312.3	505.6	1079.7	412.8	92.8	123.5	60.0	0.445	5	2	no	15	0.0

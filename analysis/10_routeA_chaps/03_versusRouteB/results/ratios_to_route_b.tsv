@@ -1,0 +1,5 @@
+persona	row	total_exp	route_b_total_exp	ratio_to_route_b	difference_min
+engineer	route A without chaps (batch 12)	109.6	45.9	2.39	63.7
+engineer	route A through chaps (batch 14)	130.1	45.9	2.83	84.2
+statistician	route A without chaps (batch 12)	435.5	221.2	1.97	214.3
+statistician	route A through chaps (batch 14)	483.0	221.2	2.18	261.8

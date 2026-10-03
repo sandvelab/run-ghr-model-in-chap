@@ -1,0 +1,437 @@
+//! `chaps run`, `ps` and `stop`: start one model and get its URL, without a
+//! deployment directory of your own.
+//!
+//! Inside a deployment the three work on it. Anywhere else they work on a
+//! *group*: a deployment chaps keeps for this user under its data directory
+//! ([`crate::paths::data_dir`]), `run/<group>/`, which the first `chaps run`
+//! into it creates - no chap-core, no components, model ports on `127.0.0.1`
+//! only. `--group` names one, `default` when it is left out, and each group is
+//! a compose project of its own. So a tool that only wants "start this model
+//! and tell me where it answers" has one code path, with or without
+//! `chaps init`.
+
+mod group;
+mod ps;
+mod stop;
+
+use group::{ensure_default, lock_file};
+pub use ps::ps;
+pub use stop::stop;
+pub(crate) use stop::stop_in;
+
+use crate::cli::{ModelRunArgs, ModelsAddArgs, ModelsEnableArgs};
+use crate::commands::Ctx;
+use crate::commands::docker::wait::{self, Readiness};
+use crate::commands::enable::{ModelRef, enabled_id};
+use crate::compose::sync::sync;
+use crate::docker;
+use crate::error::{ChapError, Result};
+use crate::output::Out;
+use crate::project::Project;
+use serde::Serialize;
+use std::net::{IpAddr, Ipv4Addr};
+use std::path::{Path, PathBuf};
+use std::time::Duration;
+
+/// The group a `chaps run` outside a deployment lands in without `--group`.
+pub const DEFAULT_GROUP: &str = "default";
+
+/// Where `chaps run` groups publish model ports: this machine only.
+const RUN_BIND: IpAddr = IpAddr::V4(Ipv4Addr::LOCALHOST);
+
+/// Where the run family acts: a deployment the caller is inside, or a group.
+struct Target {
+    dir: PathBuf,
+    /// `None` inside a deployment of the caller's own.
+    group: Option<String>,
+}
+
+/// The directory holding every group.
+pub fn groups_dir() -> PathBuf {
+    crate::paths::run_groups_dir()
+}
+
+/// The groups that exist, by name, in name order.
+pub fn groups() -> Vec<(String, PathBuf)> {
+    let Ok(entries) = std::fs::read_dir(groups_dir()) else {
+        return Vec::new();
+    };
+    let mut out: Vec<(String, PathBuf)> = entries
+        .flatten()
+        .map(|entry| {
+            (
+                entry.file_name().to_string_lossy().into_owned(),
+                entry.path(),
+            )
+        })
+        .filter(|(_, dir)| Project::exists(dir))
+        .collect();
+    out.sort();
+    out
+}
+
+/// A group's directory, refusing a name that is not one path segment of
+/// lowercase letters, digits, `-` and `_`.
+fn group_dir(name: &str) -> Result<PathBuf> {
+    let ok = !name.is_empty()
+        && name
+            .chars()
+            .all(|c| c.is_ascii_lowercase() || c.is_ascii_digit() || c == '-' || c == '_');
+    if !ok {
+        return Err(ChapError::Usage(format!(
+            "`{name}` is not a group name; use lowercase letters, digits, `-` and `_`, \
+             such as `--group dengue`"
+        ))
+        .into());
+    }
+    Ok(groups_dir().join(name))
+}
+
+/// The deployment the command is inside, or the group it names.
+fn target(ctx: &Ctx, group: Option<&str>) -> Result<Target> {
+    if let Some(dir) = Project::find_root(&ctx.project_dir) {
+        if group.is_some() {
+            return Err(ChapError::Usage(format!(
+                "--group names a `chaps run` group, and this runs inside the deployment at {}; \
+                 drop --group, or run it from outside a deployment",
+                dir.display()
+            ))
+            .into());
+        }
+        return Ok(Target { dir, group: None });
+    }
+    let name = group.unwrap_or(DEFAULT_GROUP);
+    Ok(Target {
+        dir: group_dir(name)?,
+        group: Some(name.to_string()),
+    })
+}
+
+/// What `chaps run` did, for `--json`.
+#[derive(Debug, Serialize)]
+struct RunReport {
+    #[serde(flatten)]
+    model: ModelRef,
+    /// The group it runs in; `null` inside a deployment of the caller's own.
+    group: Option<String>,
+    /// The deployment the model runs in, for `chaps -C <dir> logs`.
+    project_dir: PathBuf,
+    /// Whether this run enabled the model, or found it enabled already.
+    enabled: bool,
+    /// What waiting found; `null` under `--no-wait`.
+    wait: Option<Readiness>,
+}
+
+/// Enable the model if it is not, start its container, and wait for it.
+pub fn run(ctx: &Ctx, args: &ModelRunArgs) -> Result<()> {
+    let Target { dir, group } = target(ctx, args.group.as_deref())?;
+    check_known(ctx, &dir, &args.source)?;
+    if let Some(group) = &group {
+        ensure_default(ctx, &dir, group)?;
+    }
+    let ctx = &Ctx {
+        project_dir: dir.clone(),
+        ..ctx.clone()
+    };
+
+    let (mut project, lock) = ctx.project_mut()?;
+    let registry = super::registry_for(ctx, Some(&project))?;
+    // A repository or image added before is that entry again, not a copy.
+    let source = super::manual_models::added_as(&project, &args.source, args.id.as_deref())
+        .unwrap_or_else(|| args.source.clone());
+    let (id, enabled) = match enabled_id(&project, &source) {
+        // Already there: started as it is, whatever port it has.
+        Some(id) => (id, false),
+        None => (
+            enable_source(ctx, &mut project, args, &source, &registry)
+                .map_err(|err| for_group(err, group.is_some(), &dir))?,
+            true,
+        ),
+    };
+    // A model found enabled may sit behind compose files an older chaps
+    // wrote; one sync makes them current before compose reads them.
+    let registry = super::registry_for(ctx, Some(&project))?;
+    let synced = sync(&mut project, &registry, false)?;
+    for warning in &synced.warnings {
+        crate::output::warn(warning);
+    }
+    drop(lock);
+
+    let model = project.state.models[&id].clone();
+    let service = model.service_id.clone();
+    note(
+        ctx,
+        &format!("starting {service} ({} in {})", id, dir.display()),
+    );
+    let args_up = vec![
+        "up".to_string(),
+        "-d".to_string(),
+        "--remove-orphans".to_string(),
+        service.clone(),
+    ];
+    // Two runs of one model would both create its container; the second
+    // waits here and finds it running.
+    let up_lock = lock_file(
+        &dir.join(crate::project::CHAPS_DIR)
+            .join(format!("up-{service}.lock")),
+    )?;
+    let piped = docker::run_compose_teed(&project, &args_up)?;
+    if piped.code != 0 {
+        let said = compose_said(&piped.stderr);
+        let mut err = anyhow::Error::from(ChapError::DockerFailed(piped.code));
+        if let Some(line) = &said {
+            err = err.context(line.clone());
+        }
+        // A model this run enabled and could not start is taken back out, so
+        // `chaps ps` does not list it forever and the retry starts afresh; an
+        // added definition stays.
+        if enabled && let Err(undo) = stop_in(ctx, &dir, &id, false) {
+            crate::output::warn(&format!("{id} stays enabled: {undo:#}"));
+        }
+        let again = match group.as_deref() {
+            Some(g) if g != DEFAULT_GROUP => format!("chaps run {} --group {g}", args.source),
+            _ => format!("chaps run {}", args.source),
+        };
+        return Err(err.context(format!(
+            "{service} did not start ({}); fix that, then `{again}` tries again",
+            said.as_deref().unwrap_or("docker compose failed")
+        )));
+    }
+    drop(up_lock);
+
+    let readiness = (!args.no_wait).then(|| {
+        wait::wait_until_ready(
+            ctx,
+            &project,
+            Duration::from_secs(args.timeout),
+            Some(&service),
+        )
+    });
+    let report = RunReport {
+        model: ModelRef::of(&id, &model, &project),
+        group,
+        project_dir: dir.clone(),
+        enabled,
+        wait: readiness,
+    };
+    if let Some(wait) = &report.wait
+        && !wait.ready
+    {
+        let state = wait
+            .models
+            .first()
+            .map(|m| m.state)
+            .unwrap_or("not running");
+        return Err(anyhow::anyhow!(
+            "{service} did not answer within {}s ({state}); {}",
+            args.timeout,
+            logs_hint(&dir, &service)
+        ));
+    }
+    ctx.out.emit_ok(&report, || run_summary(&report, &ctx.out))
+}
+
+/// Refuse a bare word that is neither a marketplace id nor a model of the
+/// deployment, before a group is made for it: an image always carries a tag,
+/// so a word without one is an id that is not there.
+fn check_known(ctx: &Ctx, dir: &Path, source: &str) -> Result<()> {
+    if source.contains([':', '/', '@']) {
+        return Ok(());
+    }
+    let project = match Project::exists(dir) {
+        true => Some(Project::load(dir)?),
+        false => None,
+    };
+    let registry = super::registry_for(ctx, project.as_ref())?;
+    let enabled = project
+        .as_ref()
+        .is_some_and(|p| enabled_id(p, source).is_some());
+    if registry.get(source).is_some() || enabled {
+        return Ok(());
+    }
+    Err(anyhow::anyhow!(
+        "there is no marketplace model `{source}`; `chaps models search {source}` finds one"
+    ))
+}
+
+/// An error from inside a group, with every `chaps ...` it names given the
+/// `-C <group dir>` that command needs to reach the group from here.
+fn for_group(err: anyhow::Error, grouped: bool, dir: &Path) -> anyhow::Error {
+    if !grouped || err.downcast_ref::<ChapError>().is_some() {
+        return err;
+    }
+    let message = with_dir(&err.to_string(), dir);
+    match message == err.to_string() {
+        true => err,
+        false => {
+            let causes: Vec<String> = err.chain().skip(1).map(|c| c.to_string()).collect();
+            let mut out: Option<anyhow::Error> = None;
+            for cause in causes.into_iter().rev() {
+                out = Some(match out {
+                    Some(inner) => inner.context(cause),
+                    None => anyhow::anyhow!(cause),
+                });
+            }
+            match out {
+                Some(inner) => inner.context(message),
+                None => anyhow::anyhow!(message),
+            }
+        }
+    }
+}
+
+/// `text` with every `chaps ...` command in it given `-C <dir>`.
+fn with_dir(text: &str, dir: &Path) -> String {
+    text.replace(
+        "`chaps ",
+        &format!("`chaps -C {} ", shell_quote(&dir.to_string_lossy())),
+    )
+}
+
+/// Enable a marketplace model by id, or add whatever else the source names.
+fn enable_source(
+    ctx: &Ctx,
+    project: &mut Project,
+    args: &ModelRunArgs,
+    source: &str,
+    registry: &crate::registry::Registry,
+) -> Result<String> {
+    if let Some(model) = registry.get(source) {
+        let id = model.id.clone();
+        super::enable::enable_in(
+            ctx,
+            project,
+            &ModelsEnableArgs {
+                id: id.clone(),
+                channel: None,
+                version: None,
+                port: Some(args.port),
+                bind: args.bind,
+                data_dir: None,
+                user: None,
+                allow_template: args.allow_template,
+            },
+        )?;
+        return Ok(id);
+    }
+    let added = super::manual_models::add_in(
+        ctx,
+        project,
+        &ModelsAddArgs {
+            source: source.to_string(),
+            id: args.id.clone(),
+            service_id: None,
+            name: None,
+            port: Some(args.port),
+            bind: args.bind,
+            data_dir: None,
+            user: None,
+            runtime_amd64: false,
+        },
+        args.allow_template,
+    )?;
+    Ok(match added {
+        super::manual_models::Added::Marketplace(report) => report
+            .enabled
+            .iter()
+            .chain(&report.updated)
+            .next()
+            .map(|(id, _)| id.clone())
+            .expect("enabling a marketplace model reports it"),
+        super::manual_models::Added::Manual(report, _) => report.id.clone(),
+    })
+}
+
+/// The human rendering of a run.
+fn run_summary(report: &RunReport, out: &Out) -> String {
+    let url = report
+        .model
+        .url
+        .clone()
+        .unwrap_or_else(|| "internal".to_string());
+    let mut text = match &report.wait {
+        Some(wait) => format!(
+            "{} {} on {} (answered in {}s)\n",
+            out.ok("running"),
+            report.model.id,
+            out.value(&url),
+            wait.waited_s
+        ),
+        None => format!(
+            "{} {} on {} (not waited for; `chaps ps` says when it answers)\n",
+            out.ok("started"),
+            report.model.id,
+            out.value(&url)
+        ),
+    };
+    if let Some(group) = report.group.as_deref().filter(|g| *g != DEFAULT_GROUP) {
+        text.push_str(&format!("{}\n", out.dim(&format!("in group {group}"))));
+    }
+    text.push_str(&out.backticks(&format!(
+        "stop it with `chaps stop {}{}`; {}",
+        report.model.id,
+        match report.group.as_deref() {
+            Some(g) if g != DEFAULT_GROUP => format!(" --group {g}"),
+            _ => String::new(),
+        },
+        logs_hint(&report.project_dir, &report.model.service_id)
+    )));
+    text
+}
+
+/// The `logs` command for a service, with `-C` when the deployment is not
+/// one the working directory is inside.
+fn logs_hint(dir: &Path, service: &str) -> String {
+    let here = std::env::current_dir()
+        .ok()
+        .and_then(|cwd| Project::find_root(&cwd));
+    match here.as_deref() == Some(dir) {
+        true => format!("`chaps logs {service}` shows its log"),
+        false => format!(
+            "`chaps -C {} logs {service}` shows its log",
+            shell_quote(&dir.to_string_lossy())
+        ),
+    }
+}
+
+/// `text`, quoted for a POSIX shell when it needs to be.
+fn shell_quote(text: &str) -> String {
+    match text
+        .chars()
+        .all(|c| c.is_ascii_alphanumeric() || "/._-~".contains(c))
+    {
+        true => text.to_string(),
+        false => format!("'{}'", text.replace('\'', r"'\''")),
+    }
+}
+
+/// Why compose stopped: the last line of its stderr that says `error`, or
+/// the last line with anything on it.
+fn compose_said(stderr: &str) -> Option<String> {
+    stderr
+        .lines()
+        .map(str::trim)
+        .rfind(|line| line.to_ascii_lowercase().contains("error"))
+        .map(str::to_string)
+        .or_else(|| last_line(stderr))
+}
+
+/// The last line of `text` with anything on it.
+fn last_line(text: &str) -> Option<String> {
+    text.lines()
+        .map(str::trim)
+        .rfind(|line| !line.is_empty())
+        .map(str::to_string)
+}
+
+/// A progress line: stdout for a person, stderr under `--json`.
+fn note(ctx: &Ctx, line: &str) {
+    if ctx.out.json {
+        eprintln!("{line}");
+    } else {
+        println!("{line}");
+    }
+}
+
+#[cfg(test)]
+mod tests;
