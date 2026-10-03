@@ -250,3 +250,37 @@ Follow-ups for a later session:
 - The overview, V5, does not yet mention iteration 3.
 - Node 08 cannot regenerate its own figures on today's platform.
 - `AI-generated/overview/` still has no `provenance.md`.
+
+### T12 — 2026-10-03 — batch 14, route A through chaps, costed for a human
+
+The human asked whether chaps makes route A easy and quick now, relative to route B, for both
+personas. The discovery runs took two attempts. Attempt 1, on 2026-10-02, stalled at 9–100 KB/s
+with the laptop asleep on battery. It is kept in `analysis/10_routeA_chaps/results/attempt1_stalled/`
+and not used. Attempt 2 ran on mains power, but the link was still only about 0.5 MB/s. chaps
+failed after 93 minutes: it pulls the image twice, and Docker discards a partial layer when a pull
+fails. The agent then wrote `scripts/fetch_image_oci.sh`, which fetches with resumable curl and
+checks digests, loaded the image with it, and finished the route with `chaps run` plus `chap eval`.
+
+In `02_humanCost`, the act sequence comes from the log. The pull wait on the main figure is
+borrowed from batch 12, because chaps completed no pull here. The failure is costed separately as
+route `route-a-chaps-slowlink`, which stops where chaps fails, and the workaround is not costed as
+a persona step. There are two sensitivities, Docker priced lighter and `docs/run.md` read in place
+of `ai.md`. `03_versusRouteB` re-costs route B from batch 10's inputs and checks that it reproduces
+batch 10's published figures. It adds two route B sensitivities. Removing D2 alone makes the
+statistician's route B dearer, at 246 minutes; reading the documented convention brings it down
+to 186.
+
+Problems along the way:
+- The orchestrator's sleep blocker hit the harness's 2-hour limit, and the host then slept for
+  2.8 h during the agent's clean-shell run. This is logged as a blocker and not counted as route
+  time.
+- The orchestrator's pre-run note gave the agent the link speed and the image tag. Both exposures
+  are recorded in `01_discovery/provenance/discovery.md`.
+
+Commits `c525cf8` (analysis) and `49f2821` (report). Nothing has been pushed yet; the release scan
+must run first. Home paths in the raw logs are left as in earlier batches.
+
+Follow-ups:
+- Push after the scan, at the human's word.
+- Batch 9 is still open.
+- The chaps pull failure could be reported upstream to `winterop-com/chaps`; that is the human's call.

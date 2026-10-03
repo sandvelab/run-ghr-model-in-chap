@@ -61,3 +61,11 @@ reader who was not present can follow, and keep them honest about what did not w
   config); flat YAML still refused by CHAP before any request. Batch 8b's finding no longer
   holds. Node `analysis/09_routeA_iteration3/04_configurability`; report `26-09-26_b13_configurability.md`.
   Batches 12 and 13 pushed to `origin/main` (through `ea5aa2f`), each after the release scan.
+- T12 (2026-10-03): Batch 14, outside the plan — route A taken through `chaps` v0.99.4 (Docker Compose
+  wrapper), discovered by a fresh agent on the verbatim brief and re-costed by batch 10's human-cost
+  model, rates unchanged. Reaches an evaluation (CRPS 149.2; clean-shell script exit 0), but chaps'
+  own image pull failed on a slow link and the agent loaded the published image through a resumable
+  fetcher. Estimated human cost: engineer 130 min, statistician 483, against route B's 46 and 221 and
+  route A without chaps at 110 and 436. Attempt 1 (2026-10-02) stalled and is kept unused. Node
+  `analysis/10_routeA_chaps`; report `26-10-03_b14_humanCostChaps.md`; chaps and the 0.1.3 model pin
+  archived. Not pushed.
