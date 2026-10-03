@@ -284,3 +284,11 @@ Follow-ups:
 - Push after the scan, at the human's word.
 - Batch 9 is still open.
 - The chaps pull failure could be reported upstream to `winterop-com/chaps`; that is the human's call.
+
+### T12, extended — 2026-10-03 — published
+
+At the human's instruction, batch 14 was pushed to `origin/main` (`ea5aa2f..b240107`). Before
+the push, the outgoing diff was scanned for credentials, keys, the human's email address and
+oversized files, and nothing was found. The password and `secrets.` matches are all in the
+archived chaps source, where they are test fixtures and CI placeholders. Attempt 1's committed
+chaps deployment files hold no credentials. The "Not pushed" in T12 is superseded by this.
